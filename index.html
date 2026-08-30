@@ -1,372 +1,1814 @@
-const characters = [
-    // =========================
-    // MARVEL
-    // =========================
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Superhero Battle Simulator</title>
 
-    {
-        name: "Spider-Man",
-        universe: "Marvel",
-        color: "#e3262e",
-        image: "images/marvel/spider-man.jpg"
-    },
-    {
-        name: "Miles Morales",
-        universe: "Marvel",
-        color: "#111827",
-        image: "images/marvel/miles-morales.jpg"
-    },
-    {
-        name: "Wolverine",
-        universe: "Marvel",
-        color: "#f4c542",
-        image: "images/marvel/wolverine.jpg"
-    },
-    {
-        name: "Hulk",
-        universe: "Marvel",
-        color: "#4caf50",
-        image: "images/marvel/hulk.jpg"
-    },
-    {
-        name: "Thor",
-        universe: "Marvel",
-        color: "#4b7bec",
-        image: "images/marvel/thor.jpg"
-    },
-    {
-        name: "Iron Man",
-        universe: "Marvel",
-        color: "#d4af37",
-        image: "images/marvel/iron-man.jpg"
-    },
-    {
-        name: "Captain America",
-        universe: "Marvel",
-        color: "#2455a4",
-        image: "images/marvel/captain-america.jpg"
-    },
-    {
-        name: "Captain Marvel",
-        universe: "Marvel",
-        color: "#e63946",
-        image: "images/marvel/captain-marvel.jpg"
-    },
-    {
-        name: "Doctor Strange",
-        universe: "Marvel",
-        color: "#9b59b6",
-        image: "images/marvel/doctor-strange.jpg"
-    },
-    {
-        name: "Doctor Doom",
-        universe: "Marvel",
-        color: "#536b3b",
-        image: "images/marvel/doctor-doom.jpg"
-    },
-    {
-        name: "Magneto",
-        universe: "Marvel",
-        color: "#7b2cbf",
-        image: "images/marvel/magneto.jpg"
-    },
-    {
-        name: "Storm",
-        universe: "Marvel",
-        color: "#b8c6db",
-        image: "images/marvel/storm.jpg"
-    },
-    {
-        name: "Jean Grey",
-        universe: "Marvel",
-        color: "#e85d04",
-        image: "images/marvel/jean-grey.jpg"
-    },
-    {
-        name: "Cyclops",
-        universe: "Marvel",
-        color: "#c1121f",
-        image: "images/marvel/cyclops.jpg"
-    },
-    {
-        name: "Deadpool",
-        universe: "Marvel",
-        color: "#b91c1c",
-        image: "images/marvel/deadpool.jpg"
-    },
-    {
-        name: "Venom",
-        universe: "Marvel",
-        color: "#171717",
-        image: "images/marvel/venom.jpg"
-    },
-    {
-        name: "Black Panther",
-        universe: "Marvel",
-        color: "#6d28d9",
-        image: "images/marvel/black-panther.jpg"
-    },
-    {
-        name: "Namor",
-        universe: "Marvel",
-        color: "#087f5b",
-        image: "images/marvel/namor.jpg"
-    },
-    {
-        name: "She-Hulk",
-        universe: "Marvel",
-        color: "#65a30d",
-        image: "images/marvel/she-hulk.jpg"
-    },
-    {
-        name: "Luke Cage",
-        universe: "Marvel",
-        color: "#d97706",
-        image: "images/marvel/luke-cage.jpg"
-    },
-    {
-        name: "Daredevil",
-        universe: "Marvel",
-        color: "#b91c1c",
-        image: "images/marvel/daredevil.jpg"
-    },
-    {
-        name: "Punisher",
-        universe: "Marvel",
-        color: "#374151",
-        image: "images/marvel/punisher.jpg"
-    },
-    {
-        name: "Ghost Rider",
-        universe: "Marvel",
-        color: "#f97316",
-        image: "images/marvel/ghost-rider.jpg"
-    },
-    {
-        name: "Moon Knight",
-        universe: "Marvel",
-        color: "#cbd5e1",
-        image: "images/marvel/moon-knight.jpg"
-    },
-    {
-        name: "Shang-Chi",
-        universe: "Marvel",
-        color: "#dc2626",
-        image: "images/marvel/shang-chi.jpg"
-    },
-    {
-        name: "Scarlet Witch",
-        universe: "Marvel",
-        color: "#9f1239",
-        image: "images/marvel/scarlet-witch.jpg"
-    },
-    {
-        name: "Vision",
-        universe: "Marvel",
-        color: "#16a34a",
-        image: "images/marvel/vision.jpg"
-    },
-    {
-        name: "Ant-Man",
-        universe: "Marvel",
-        color: "#dc2626",
-        image: "images/marvel/ant-man.jpg"
-    },
-    {
-        name: "Wasp",
-        universe: "Marvel",
-        color: "#facc15",
-        image: "images/marvel/wasp.jpg"
-    },
-    {
-        name: "Mister Sinister",
-        universe: "Marvel",
-        color: "#4c1d95",
-        image: "images/marvel/mister-sinister.jpg"
-    },
+<style>
+* {
+    box-sizing: border-box;
+}
 
+body {
+    margin: 0;
+    background:
+        radial-gradient(circle at 50% -20%, #20344d 0%, #080d14 45%, #020305 100%);
+    color: #edf7ff;
+    font-family: Arial, Helvetica, sans-serif;
+    min-height: 100vh;
+}
 
-    // =========================
-    // DC
-    // =========================
+header {
+    background: rgba(4, 8, 14, 0.96);
+    border-bottom: 1px solid #26384d;
+    padding: 22px 30px;
+    box-shadow: 0 0 35px #000;
+}
 
-    {
-        name: "Superman",
-        universe: "DC",
-        color: "#2563eb",
-        image: "images/dc/superman.jpg"
-    },
-    {
-        name: "Batman",
-        universe: "DC",
-        color: "#374151",
-        image: "images/dc/batman.jpg"
-    },
-    {
-        name: "Wonder Woman",
-        universe: "DC",
-        color: "#b91c1c",
-        image: "images/dc/wonder-woman.jpg"
-    },
-    {
-        name: "Flash",
-        universe: "DC",
-        color: "#dc2626",
-        image: "images/dc/flash.jpg"
-    },
-    {
-        name: "Green Lantern",
-        universe: "DC",
-        color: "#16a34a",
-        image: "images/dc/green-lantern.jpg"
-    },
-    {
-        name: "Aquaman",
-        universe: "DC",
-        color: "#0891b2",
-        image: "images/dc/aquaman.jpg"
-    },
-    {
-        name: "Cyborg",
-        universe: "DC",
-        color: "#64748b",
-        image: "images/dc/cyborg.jpg"
-    },
-    {
-        name: "Martian Manhunter",
-        universe: "DC",
-        color: "#15803d",
-        image: "images/dc/martian-manhunter.jpg"
-    },
-    {
-        name: "Shazam",
-        universe: "DC",
-        color: "#dc2626",
-        image: "images/dc/shazam.jpg"
-    },
-    {
-        name: "Black Adam",
-        universe: "DC",
-        color: "#eab308",
-        image: "images/dc/black-adam.jpg"
-    },
-    {
-        name: "Green Arrow",
-        universe: "DC",
-        color: "#166534",
-        image: "images/dc/green-arrow.jpg"
-    },
-    {
-        name: "Black Canary",
-        universe: "DC",
-        color: "#facc15",
-        image: "images/dc/black-canary.jpg"
-    },
-    {
-        name: "Nightwing",
-        universe: "DC",
-        color: "#2563eb",
-        image: "images/dc/nightwing.jpg"
-    },
-    {
-        name: "Deathstroke",
-        universe: "DC",
-        color: "#f97316",
-        image: "images/dc/deathstroke.jpg"
-    },
-    {
-        name: "Harley Quinn",
-        universe: "DC",
-        color: "#ec4899",
-        image: "images/dc/harley-quinn.jpg"
-    },
-    {
-        name: "Joker",
-        universe: "DC",
-        color: "#7e22ce",
-        image: "images/dc/joker.jpg"
-    },
-    {
-        name: "Poison Ivy",
-        universe: "DC",
-        color: "#16a34a",
-        image: "images/dc/poison-ivy.jpg"
-    },
-    {
-        name: "Raven",
-        universe: "DC",
-        color: "#6d28d9",
-        image: "images/dc/raven.jpg"
-    },
-    {
-        name: "Starfire",
-        universe: "DC",
-        color: "#f97316",
-        image: "images/dc/starfire.jpg"
-    },
-    {
-        name: "Beast Boy",
-        universe: "DC",
-        color: "#16a34a",
-        image: "images/dc/beast-boy.jpg"
-    },
-    {
-        name: "Constantine",
-        universe: "DC",
-        color: "#ca8a04",
-        image: "images/dc/constantine.jpg"
-    },
-    {
-        name: "Zatanna",
-        universe: "DC",
-        color: "#2563eb",
-        image: "images/dc/zatanna.jpg"
-    },
-    {
-        name: "Supergirl",
-        universe: "DC",
-        color: "#2563eb",
-        image: "images/dc/supergirl.jpg"
-    },
-    {
-        name: "Batgirl",
-        universe: "DC",
-        color: "#7c3aed",
-        image: "images/dc/batgirl.jpg"
-    },
-    {
-        name: "Red Hood",
-        universe: "DC",
-        color: "#dc2626",
-        image: "images/dc/red-hood.jpg"
-    },
-    {
-        name: "Bane",
-        universe: "DC",
-        color: "#166534",
-        image: "images/dc/bane.jpg"
-    },
-    {
-        name: "Reverse-Flash",
-        universe: "DC",
-        color: "#eab308",
-        image: "images/dc/reverse-flash.jpg"
-    },
-    {
-        name: "Darkseid",
-        universe: "DC",
-        color: "#4b5563",
-        image: "images/dc/darkseid.jpg"
-    },
-    {
-        name: "Brainiac",
-        universe: "DC",
-        color: "#22c55e",
-        image: "images/dc/brainiac.jpg"
-    },
-    {
-        name: "Blue Beetle",
-        universe: "DC",
-        color: "#0284c7",
-        image: "images/dc/blue-beetle.jpg"
+.header-inner {
+    max-width: 1450px;
+    margin: auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-size: 28px;
+    font-weight: 900;
+    letter-spacing: 3px;
+}
+
+.subtitle {
+    color: #8296ad;
+    margin-top: 5px;
+    font-size: 12px;
+    letter-spacing: 2px;
+}
+
+.system-status {
+    color: #46ddff;
+    border: 1px solid #236177;
+    border-radius: 20px;
+    padding: 8px 14px;
+    font-size: 11px;
+    letter-spacing: 1px;
+}
+
+main {
+    max-width: 1450px;
+    margin: auto;
+    padding: 20px;
+}
+
+.panel {
+    background:
+        linear-gradient(145deg, rgba(15,23,34,.98), rgba(5,9,15,.98));
+    border: 1px solid #27384d;
+    border-radius: 16px;
+    padding: 18px;
+    margin-bottom: 16px;
+    box-shadow: 0 15px 45px rgba(0,0,0,.45);
+}
+
+.controls {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+button,
+select {
+    background: #111c2a;
+    color: white;
+    border: 1px solid #354963;
+    border-radius: 9px;
+    padding: 11px 15px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+button:hover {
+    border-color: #45ddff;
+    box-shadow: 0 0 16px rgba(69,221,255,.18);
+}
+
+button.primary {
+    background: linear-gradient(135deg, #087695, #22bad8);
+    border-color: #65eaff;
+    color: #021016;
+}
+
+button.danger {
+    background: #421923;
+    border-color: #79303e;
+}
+
+.settings {
+    display: flex;
+    gap: 22px;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.setting {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.setting label {
+    color: #8195ac;
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.teams {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+}
+
+.team {
+    background: #070c13;
+    border: 1px solid #27384d;
+    border-radius: 14px;
+    padding: 15px;
+    min-height: 320px;
+}
+
+.team-one {
+    box-shadow: inset 0 0 55px rgba(0,150,220,.08);
+}
+
+.team-two {
+    box-shadow: inset 0 0 55px rgba(220,30,50,.08);
+}
+
+.team-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #27384d;
+    padding-bottom: 10px;
+}
+
+.team-header h2 {
+    margin: 0;
+}
+
+.counter {
+    color: #8093aa;
+}
+
+.roster {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(145px, 1fr));
+    gap: 10px;
+    margin-top: 14px;
+}
+
+.character-card {
+    position: relative;
+    overflow: hidden;
+    min-height: 205px;
+    border-radius: 12px;
+    border: 2px solid var(--character-color);
+    background: #0c131d;
+    cursor: pointer;
+    transition: .18s ease;
+}
+
+.character-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 0 22px var(--character-color);
+}
+
+.portrait {
+    height: 145px;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+
+    background:
+        radial-gradient(
+            circle at 50% 30%,
+            var(--character-color),
+            #111a27 55%,
+            #05070b
+        );
+}
+
+.portrait img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center top;
+    display: block;
+}
+
+.portrait-placeholder {
+    position: absolute;
+    width: 70px;
+    height: 85px;
+    border-radius: 50% 50% 43% 43%;
+    background: linear-gradient(145deg,#d9b08b,#684a3a);
+    box-shadow: 0 18px 0 10px #111823;
+}
+
+.initials {
+    position: absolute;
+    z-index: 2;
+    font-size: 24px;
+    font-weight: 900;
+    text-shadow: 0 3px 10px black;
+}
+
+.character-info {
+    padding: 9px;
+}
+
+.universe {
+    color: #8497ad;
+    font-size: 9px;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+}
+
+.character-name {
+    font-size: 17px;
+    font-weight: 900;
+    margin-top: 3px;
+}
+
+.remove {
+    position: absolute;
+    right: 5px;
+    top: 5px;
+    width: 25px;
+    height: 25px;
+    padding: 0;
+    border-radius: 50%;
+    background: #05070dcc;
+    z-index: 4;
+}
+
+.board-title {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.board-title h2 {
+    margin: 0;
+}
+
+.turn {
+    color: #46ddff;
+    font-weight: bold;
+}
+
+.board-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(145px, 1fr));
+    gap: 10px;
+    margin-top: 15px;
+}
+
+.hidden {
+    display: none;
+}
+
+.battle {
+    line-height: 1.75;
+    font-size: 16px;
+}
+
+.battle h2 {
+    color: #46ddff;
+}
+
+.round {
+    margin: 14px 0;
+    padding: 15px;
+    background: #09111a;
+    border-left: 3px solid #46ddff;
+    border-radius: 5px;
+}
+
+.round-title {
+    color: #f6c453;
+    font-weight: 900;
+    letter-spacing: 1px;
+}
+
+.elimination {
+    color: #ff6675;
+    font-weight: bold;
+}
+
+.winner {
+    margin-top: 20px;
+    padding: 20px;
+    text-align: center;
+    border: 1px solid #816a29;
+    border-radius: 12px;
+    background: rgba(100,80,20,.12);
+    color: #f6c453;
+    font-size: 27px;
+    font-weight: 900;
+}
+
+.wheel-result {
+    text-align: center;
+    padding: 20px;
+}
+
+.wheel-name {
+    font-size: 38px;
+    font-weight: 900;
+    margin: 10px;
+}
+
+@media(max-width:800px) {
+    .teams {
+        grid-template-columns: 1fr;
     }
+
+    .header-inner {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 15px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <div class="header-inner">
+        <div>
+            <div class="logo">⚔ SUPERHERO BATTLE SIMULATOR</div>
+            <div class="subtitle">TACTICAL COMBAT CONTROL INTERFACE</div>
+        </div>
+
+        <div class="system-status">
+            SYSTEM ONLINE • 60 CHARACTERS
+        </div>
+    </div>
+</header>
+
+<main>
+
+<section class="panel controls">
+
+    <button class="primary" onclick="generateTen()">
+        🎲 GENERATE 10
+    </button>
+
+    <button onclick="spinWheel()">
+        🎡 SPIN WHEEL
+    </button>
+
+    <button onclick="clearEverything()">
+        ↻ RESET
+    </button>
+
+    <button onclick="startBattle()">
+        ⚔ START BATTLE
+    </button>
+
+</section>
+
+<section class="panel settings">
+
+    <div class="setting">
+        <label>Team Size</label>
+
+        <select id="teamSize">
+            <option value="1">1v1</option>
+            <option value="2">2v2</option>
+            <option value="3">3v3</option>
+            <option value="4">4v4</option>
+            <option value="5" selected>5v5</option>
+        </select>
+    </div>
+
+    <div class="setting">
+        <label>Character Pool</label>
+
+        <select id="pool">
+            <option value="Both">Marvel + DC</option>
+            <option value="Marvel">Marvel Only</option>
+            <option value="DC">DC Only</option>
+        </select>
+    </div>
+
+    <div class="setting">
+        <label>Power Mode</label>
+
+        <select id="powerMode">
+            <option>Standard</option>
+            <option>Amped</option>
+            <option>Mixed</option>
+        </select>
+    </div>
+
+    <div class="setting">
+        <label>Battle Depth</label>
+
+        <select id="battleDepth">
+            <option value="short">Quick</option>
+            <option value="medium" selected>Detailed</option>
+            <option value="long">Cinematic</option>
+        </select>
+    </div>
+
+</section>
+
+<section id="board" class="panel hidden">
+
+    <div class="board-title">
+        <h2>AVAILABLE CHARACTER BOARD</h2>
+        <div id="turn" class="turn"></div>
+    </div>
+
+    <p style="color:#8195ac">
+        Teams alternate picks. Once a character is selected, they are removed
+        from the board and cannot appear on the opposing team.
+    </p>
+
+    <div id="boardGrid" class="board-grid"></div>
+
+</section>
+
+<section class="teams">
+
+    <div class="team team-one">
+
+        <div class="team-header">
+            <h2>🔵 TEAM 1</h2>
+            <span id="count1" class="counter">0 / 5</span>
+        </div>
+
+        <div id="team1" class="roster"></div>
+
+    </div>
+
+    <div class="team team-two">
+
+        <div class="team-header">
+            <h2>🔴 TEAM 2</h2>
+            <span id="count2" class="counter">0 / 5</span>
+        </div>
+
+        <div id="team2" class="roster"></div>
+
+    </div>
+
+</section>
+
+<section id="battle" class="panel battle">
+
+    <h2>⚔ BATTLE CONSOLE</h2>
+
+    <p>
+        Generate a character board or use the wheel to begin.
+        Build both teams, then start the simulation.
+    </p>
+
+</section>
+
+</main>
+
+<script>
+
+/* =========================================================
+   CHARACTER DATABASE
+========================================================= */
+
+const characters = [
+
+/* MARVEL */
+
+{name:"Spider-Man",universe:"Marvel",color:"#e3262e",image:"images/marvel/spider-man.jpg"},
+{name:"Miles Morales",universe:"Marvel",color:"#182033",image:"images/marvel/miles-morales.jpg"},
+{name:"Wolverine",universe:"Marvel",color:"#f4c542",image:"images/marvel/wolverine.jpg"},
+{name:"Hulk",universe:"Marvel",color:"#4caf50",image:"images/marvel/hulk.jpg"},
+{name:"Thor",universe:"Marvel",color:"#4b7bec",image:"images/marvel/thor.jpg"},
+{name:"Iron Man",universe:"Marvel",color:"#d4af37",image:"images/marvel/iron-man.jpg"},
+{name:"Captain America",universe:"Marvel",color:"#2455a4",image:"images/marvel/captain-america.jpg"},
+{name:"Captain Marvel",universe:"Marvel",color:"#e63946",image:"images/marvel/captain-marvel.jpg"},
+{name:"Doctor Strange",universe:"Marvel",color:"#9b59b6",image:"images/marvel/doctor-strange.jpg"},
+{name:"Doctor Doom",universe:"Marvel",color:"#536b3b",image:"images/marvel/doctor-doom.jpg"},
+{name:"Magneto",universe:"Marvel",color:"#7b2cbf",image:"images/marvel/magneto.jpg"},
+{name:"Storm",universe:"Marvel",color:"#b8c6db",image:"images/marvel/storm.jpg"},
+{name:"Jean Grey",universe:"Marvel",color:"#e85d04",image:"images/marvel/jean-grey.jpg"},
+{name:"Cyclops",universe:"Marvel",color:"#c1121f",image:"images/marvel/cyclops.jpg"},
+{name:"Deadpool",universe:"Marvel",color:"#b91c1c",image:"images/marvel/deadpool.jpg"},
+{name:"Venom",universe:"Marvel",color:"#171717",image:"images/marvel/venom.jpg"},
+{name:"Black Panther",universe:"Marvel",color:"#6d28d9",image:"images/marvel/black-panther.jpg"},
+{name:"Namor",universe:"Marvel",color:"#087f5b",image:"images/marvel/namor.jpg"},
+{name:"She-Hulk",universe:"Marvel",color:"#65a30d",image:"images/marvel/she-hulk.jpg"},
+{name:"Luke Cage",universe:"Marvel",color:"#d97706",image:"images/marvel/luke-cage.jpg"},
+{name:"Daredevil",universe:"Marvel",color:"#b91c1c",image:"images/marvel/daredevil.jpg"},
+{name:"Punisher",universe:"Marvel",color:"#374151",image:"images/marvel/punisher.jpg"},
+{name:"Ghost Rider",universe:"Marvel",color:"#f97316",image:"images/marvel/ghost-rider.jpg"},
+{name:"Moon Knight",universe:"Marvel",color:"#cbd5e1",image:"images/marvel/moon-knight.jpg"},
+{name:"Shang-Chi",universe:"Marvel",color:"#dc2626",image:"images/marvel/shang-chi.jpg"},
+{name:"Scarlet Witch",universe:"Marvel",color:"#9f1239",image:"images/marvel/scarlet-witch.jpg"},
+{name:"Vision",universe:"Marvel",color:"#16a34a",image:"images/marvel/vision.jpg"},
+{name:"Ant-Man",universe:"Marvel",color:"#dc2626",image:"images/marvel/ant-man.jpg"},
+{name:"Wasp",universe:"Marvel",color:"#facc15",image:"images/marvel/wasp.jpg"},
+{name:"Mister Sinister",universe:"Marvel",color:"#4c1d95",image:"images/marvel/mister-sinister.jpg"},
+
+/* DC */
+
+{name:"Superman",universe:"DC",color:"#2563eb",image:"images/dc/superman.jpg"},
+{name:"Batman",universe:"DC",color:"#374151",image:"images/dc/batman.jpg"},
+{name:"Wonder Woman",universe:"DC",color:"#b91c1c",image:"images/dc/wonder-woman.jpg"},
+{name:"Flash",universe:"DC",color:"#dc2626",image:"images/dc/flash.jpg"},
+{name:"Green Lantern",universe:"DC",color:"#16a34a",image:"images/dc/green-lantern.jpg"},
+{name:"Aquaman",universe:"DC",color:"#0891b2",image:"images/dc/aquaman.jpg"},
+{name:"Cyborg",universe:"DC",color:"#64748b",image:"images/dc/cyborg.jpg"},
+{name:"Martian Manhunter",universe:"DC",color:"#15803d",image:"images/dc/martian-manhunter.jpg"},
+{name:"Shazam",universe:"DC",color:"#dc2626",image:"images/dc/shazam.jpg"},
+{name:"Black Adam",universe:"DC",color:"#eab308",image:"images/dc/black-adam.jpg"},
+{name:"Green Arrow",universe:"DC",color:"#166534",image:"images/dc/green-arrow.jpg"},
+{name:"Black Canary",universe:"DC",color:"#facc15",image:"images/dc/black-canary.jpg"},
+{name:"Nightwing",universe:"DC",color:"#2563eb",image:"images/dc/nightwing.jpg"},
+{name:"Deathstroke",universe:"DC",color:"#f97316",image:"images/dc/deathstroke.jpg"},
+{name:"Harley Quinn",universe:"DC",color:"#ec4899",image:"images/dc/harley-quinn.jpg"},
+{name:"Joker",universe:"DC",color:"#7e22ce",image:"images/dc/joker.jpg"},
+{name:"Poison Ivy",universe:"DC",color:"#16a34a",image:"images/dc/poison-ivy.jpg"},
+{name:"Raven",universe:"DC",color:"#6d28d9",image:"images/dc/raven.jpg"},
+{name:"Starfire",universe:"DC",color:"#f97316",image:"images/dc/starfire.jpg"},
+{name:"Beast Boy",universe:"DC",color:"#16a34a",image:"images/dc/beast-boy.jpg"},
+{name:"Constantine",universe:"DC",color:"#ca8a04",image:"images/dc/constantine.jpg"},
+{name:"Zatanna",universe:"DC",color:"#2563eb",image:"images/dc/zatanna.jpg"},
+{name:"Supergirl",universe:"DC",color:"#2563eb",image:"images/dc/supergirl.jpg"},
+{name:"Batgirl",universe:"DC",color:"#7c3aed",image:"images/dc/batgirl.jpg"},
+{name:"Red Hood",universe:"DC",color:"#dc2626",image:"images/dc/red-hood.jpg"},
+{name:"Bane",universe:"DC",color:"#166534",image:"images/dc/bane.jpg"},
+{name:"Reverse-Flash",universe:"DC",color:"#eab308",image:"images/dc/reverse-flash.jpg"},
+{name:"Darkseid",universe:"DC",color:"#4b5563",image:"images/dc/darkseid.jpg"},
+{name:"Brainiac",universe:"DC",color:"#22c55e",image:"images/dc/brainiac.jpg"},
+{name:"Blue Beetle",universe:"DC",color:"#0284c7",image:"images/dc/blue-beetle.jpg"}
+
 ];
+
+let availableBoard = [];
+let team1 = [];
+let team2 = [];
+let currentTurn = 1;
+
+
+/* =========================================================
+   MOVE DATABASE
+========================================================= */
+
+const moves = {
+
+"Spider-Man":[
+"web-line swing",
+"impact web",
+"web barrage",
+"wall-assisted kick"
+],
+
+"Miles Morales":[
+"venom strike",
+"bio-electric burst",
+"camouflage feint",
+"web-assisted takedown"
+],
+
+"Wolverine":[
+"adamantium claw strike",
+"berserker lunge",
+"spinning claw counter",
+"close-range slash"
+],
+
+"Hulk":[
+"thunderclap",
+"charging smash",
+"ground pound",
+"overhead strike"
+],
+
+"Thor":[
+"Mjolnir hammer blow",
+"lightning discharge",
+"storm sweep",
+"thunderous overhead strike"
+],
+
+"Iron Man":[
+"repulsor barrage",
+"micro-missile volley",
+"unibeam",
+"thruster-assisted evasive maneuver"
+],
+
+"Captain America":[
+"shield throw",
+"shield bash",
+"tactical roll",
+"returning shield strike"
+],
+
+"Captain Marvel":[
+"energy burst",
+"binary-powered charge",
+"photon beam",
+"high-speed aerial strike"
+],
+
+"Doctor Strange":[
+"mystic binding",
+"energy shield",
+"portal redirect",
+"arcane energy blast"
+],
+
+"Doctor Doom":[
+"force field",
+"Doom beam",
+"telekinetic shove",
+"mystic-energy assault"
+],
+
+"Magneto":[
+"metallic spear barrage",
+"magnetic pulse",
+"metal shield",
+"telekinetic battlefield sweep"
+],
+
+"Storm":[
+"lightning strike",
+"wind shear",
+"pressure wave",
+"localized storm burst"
+],
+
+"Jean Grey":[
+"telekinetic slam",
+"psychic assault",
+"telekinetic shield",
+"focused mental disruption"
+],
+
+"Cyclops":[
+"optic blast",
+"wide-angle optic sweep",
+"precision beam",
+"knockback optic strike"
+],
+
+"Deadpool":[
+"dual-blade assault",
+"acrobatic counter",
+"rapid pistol volley",
+"close-range sword strike"
+],
+
+"Venom":[
+"symbiote tendril strike",
+"constricting tendril grab",
+"leaping attack",
+"symbiote lash"
+],
+
+"Black Panther":[
+"kinetic claw strike",
+"vibranium counter",
+"panther pounce",
+"kinetic energy release"
+],
+
+"Namor":[
+"aerial dive",
+"Atlantean strike",
+"underwater-force charge",
+"trident assault"
+],
+
+"She-Hulk":[
+"gamma-powered punch",
+"charging tackle",
+"ground slam",
+"two-handed smash"
+],
+
+"Luke Cage":[
+"power punch",
+"charging body blow",
+"close-range counter",
+"concrete-breaking strike"
+],
+
+"Daredevil":[
+"billy club strike",
+"acrobatic sweep",
+"precision counter",
+"rapid baton combination"
+],
+
+"Punisher":[
+"precision shot",
+"tactical reposition",
+"close-range strike",
+"cover-based attack"
+],
+
+"Ghost Rider":[
+"hellfire chain strike",
+"hellfire burst",
+"chain sweep",
+"mystic flame assault"
+],
+
+"Moon Knight":[
+"crescent dart volley",
+"crescent blade strike",
+"acrobatic counter",
+"staff strike"
+],
+
+"Shang-Chi":[
+"precision martial-arts combination",
+"spinning kick",
+"counter-grapple",
+"rapid palm strike"
+],
+
+"Scarlet Witch":[
+"chaos energy burst",
+"hex attack",
+"reality distortion",
+"telekinetic blast"
+],
+
+"Vision":[
+"density-shift strike",
+"solar energy beam",
+"phasing counter",
+"intangible aerial attack"
+],
+
+"Ant-Man":[
+"size-change feint",
+"giant strike",
+"micro-scale reposition",
+"ant swarm maneuver"
+],
+
+"Wasp":[
+"bio-electric blast",
+"stinger barrage",
+"rapid aerial dive",
+"size-change evasion"
+],
+
+"Mister Sinister":[
+"energy beam",
+"telekinetic attack",
+"genetic manipulation",
+"regenerative counter"
+],
+
+"Superman":[
+"heat vision burst",
+"super-speed charge",
+"flying tackle",
+"solar-powered punch"
+],
+
+"Batman":[
+"precision batarang",
+"smoke screen",
+"grapnel reposition",
+"counter strike"
+],
+
+"Wonder Woman":[
+"bracelet deflection",
+"lasso pull",
+"Amazonian charge",
+"sword strike"
+],
+
+"Flash":[
+"speed blitz",
+"afterimage feint",
+"rapid strike",
+"phasing dodge"
+],
+
+"Green Lantern":[
+"construct hammer",
+"energy barrier",
+"construct restraints",
+"focused energy beam"
+],
+
+"Aquaman":[
+"trident thrust",
+"Atlantean charge",
+"underwater-force strike",
+"trident sweep"
+],
+
+"Cyborg":[
+"sonic cannon",
+"energy blast",
+"techno-tackle",
+"adaptive weapon strike"
+],
+
+"Martian Manhunter":[
+"telepathic assault",
+"phasing strike",
+"shape-shifting feint",
+"martian energy blast"
+],
+
+"Shazam":[
+"magical lightning",
+"super-speed charge",
+"power punch",
+"aerial strike"
+],
+
+"Black Adam":[
+"lightning discharge",
+"high-speed punch",
+"magical shockwave",
+"diving strike"
+],
+
+"Green Arrow":[
+"trick arrow",
+"precision arrow",
+"explosive arrow",
+"close-range bow strike"
+],
+
+"Black Canary":[
+"Canary Cry",
+"acrobatic strike",
+"precision kick",
+"sonic burst"
+],
+
+"Nightwing":[
+"escrima combination",
+"acrobatic kick",
+"electric escrima strike",
+"tactical counter"
+],
+
+"Deathstroke":[
+"precision sword strike",
+"staff combination",
+"explosive attack",
+"tactical counter"
+],
+
+"Harley Quinn":[
+"acrobat swing",
+"mallet strike",
+"trick attack",
+"rapid close-range assault"
+],
+
+"Joker":[
+"chaotic trick attack",
+"crowbar strike",
+"gas-based assault",
+"unpredictable counter"
+],
+
+"Poison Ivy":[
+"vine snare",
+"thorn barrage",
+"plant eruption",
+"entangling strike"
+],
+
+"Raven":[
+"shadow tendril",
+"soul-self strike",
+"dark-energy blast",
+"telekinetic shove"
+],
+
+"Starfire":[
+"starbolt barrage",
+"energy flight charge",
+"starbolt burst",
+"high-speed aerial strike"
+],
+
+"Beast Boy":[
+"tiger charge",
+"gorilla smash",
+"falcon dive",
+"rhino rush"
+],
+
+"Constantine":[
+"protective ward",
+"binding spell",
+"mystic counter",
+"arcane disruption"
+],
+
+"Zatanna":[
+"reality-altering spell",
+"energy binding",
+"telekinetic spell",
+"magical blast"
+],
+
+"Supergirl":[
+"heat vision burst",
+"super-speed strike",
+"flying tackle",
+"solar punch"
+],
+
+"Batgirl":[
+"precision batarang",
+"grapnel kick",
+"acrobatic counter",
+"electric shock attack"
+],
+
+"Red Hood":[
+"precision pistol burst",
+"dual-pistol attack",
+"helmet strike",
+"explosive projectile"
+],
+
+"Bane":[
+"venom-powered punch",
+"charging tackle",
+"ground slam",
+"powerful grapple"
+],
+
+"Reverse-Flash":[
+"speed blitz",
+"afterimage strike",
+"phasing attack",
+"rapid counter"
+],
+
+"Darkseid":[
+"Omega Beam",
+"Apokoliptian strike",
+"Omega energy burst",
+"telekinetic shockwave"
+],
+
+"Brainiac":[
+"energy beam",
+"drone assault",
+"force-field defense",
+"precision energy strike"
+],
+
+"Blue Beetle":[
+"scarab cannon",
+"energy blade",
+"armor missile",
+"adaptive weapon strike"
+]
+
+};
+
+
+/* =========================================================
+   UTILITY
+========================================================= */
+
+function randomItem(array) {
+    return array[Math.floor(Math.random() * array.length)];
+}
+
+function getPool() {
+
+    const selected = document.getElementById("pool").value;
+
+    if (selected === "Both") {
+        return [...characters];
+    }
+
+    return characters.filter(c => c.universe === selected);
+}
+
+function initials(name) {
+
+    return name
+        .split(" ")
+        .map(word => word[0])
+        .join("")
+        .slice(0,3)
+        .toUpperCase();
+
+}
+
+
+/* =========================================================
+   CHARACTER CARD
+========================================================= */
+
+function createCharacterCard(character, removeFunction = null) {
+
+    const card = document.createElement("div");
+
+    card.className = "character-card";
+
+    card.style.setProperty(
+        "--character-color",
+        character.color
+    );
+
+    card.innerHTML = `
+
+        <div class="portrait">
+
+            <img
+                src="${character.image}"
+                alt="${character.name}"
+                onerror="this.style.display='none'"
+            >
+
+            <div class="portrait-placeholder"></div>
+
+            <div class="initials">
+                ${initials(character.name)}
+            </div>
+
+        </div>
+
+        <div class="character-info">
+
+            <div class="universe">
+                ${character.universe}
+            </div>
+
+            <div class="character-name">
+                ${character.name}
+            </div>
+
+        </div>
+    `;
+
+    if (removeFunction) {
+
+        const removeButton = document.createElement("button");
+
+        removeButton.className = "remove";
+
+        removeButton.textContent = "×";
+
+        removeButton.onclick = function(event) {
+
+            event.stopPropagation();
+
+            removeFunction();
+
+        };
+
+        card.appendChild(removeButton);
+
+    }
+
+    return card;
+}
+
+
+/* =========================================================
+   TEAM DISPLAY
+========================================================= */
+
+function renderTeams() {
+
+    const size =
+        Number(document.getElementById("teamSize").value);
+
+    document.getElementById("count1").textContent =
+        `${team1.length} / ${size}`;
+
+    document.getElementById("count2").textContent =
+        `${team2.length} / ${size}`;
+
+    const teamOneElement =
+        document.getElementById("team1");
+
+    const teamTwoElement =
+        document.getElementById("team2");
+
+    teamOneElement.innerHTML = "";
+    teamTwoElement.innerHTML = "";
+
+    team1.forEach((character,index) => {
+
+        teamOneElement.appendChild(
+            createCharacterCard(
+                character,
+                () => {
+                    team1.splice(index,1);
+                    renderTeams();
+                }
+            )
+        );
+
+    });
+
+    team2.forEach((character,index) => {
+
+        teamTwoElement.appendChild(
+            createCharacterCard(
+                character,
+                () => {
+                    team2.splice(index,1);
+                    renderTeams();
+                }
+            )
+        );
+
+    });
+
+}
+
+
+/* =========================================================
+   GENERATE 10
+========================================================= */
+
+function generateTen() {
+
+    const source = getPool();
+
+    availableBoard = [];
+
+    while (
+        availableBoard.length < 10 &&
+        availableBoard.length < source.length
+    ) {
+
+        const character = randomItem(source);
+
+        if (!availableBoard.includes(character)) {
+
+            availableBoard.push(character);
+
+        }
+
+    }
+
+    team1 = [];
+    team2 = [];
+    currentTurn = 1;
+
+    renderTeams();
+    renderBoard();
+
+    document.getElementById("battle").innerHTML = `
+
+        <h2>BOARD READY</h2>
+
+        <p>
+            Ten characters have been generated.
+            Team 1 picks first, followed by Team 2.
+            Every selected character is permanently removed
+            from the board.
+        </p>
+    `;
+
+}
+
+
+/* =========================================================
+   BOARD
+========================================================= */
+
+function renderBoard() {
+
+    const board =
+        document.getElementById("board");
+
+    const grid =
+        document.getElementById("boardGrid");
+
+    board.classList.remove("hidden");
+
+    grid.innerHTML = "";
+
+    availableBoard.forEach((character,index) => {
+
+        const card =
+            createCharacterCard(character);
+
+        card.onclick = function() {
+
+            draftCharacter(index);
+
+        };
+
+        grid.appendChild(card);
+
+    });
+
+    const turnElement =
+        document.getElementById("turn");
+
+    if (availableBoard.length === 0) {
+
+        turnElement.textContent =
+            "DRAFT COMPLETE";
+
+    } else {
+
+        turnElement.textContent =
+            `TEAM ${currentTurn} PICK`;
+
+    }
+
+}
+
+
+/* =========================================================
+   DRAFTING
+========================================================= */
+
+function draftCharacter(index) {
+
+    const size =
+        Number(document.getElementById("teamSize").value);
+
+    if (!availableBoard[index]) {
+        return;
+    }
+
+    if (
+        currentTurn === 1 &&
+        team1.length >= size
+    ) {
+
+        currentTurn = 2;
+
+    }
+
+    if (
+        currentTurn === 2 &&
+        team2.length >= size
+    ) {
+
+        currentTurn = 1;
+
+    }
+
+    const character =
+        availableBoard.splice(index,1)[0];
+
+    if (currentTurn === 1) {
+
+        team1.push(character);
+        currentTurn = 2;
+
+    } else {
+
+        team2.push(character);
+        currentTurn = 1;
+
+    }
+
+    renderTeams();
+    renderBoard();
+
+}
+
+
+/* =========================================================
+   WHEEL
+========================================================= */
+
+function spinWheel() {
+
+    const source = getPool();
+
+    if (!source.length) {
+        return;
+    }
+
+    const result =
+        randomItem(source);
+
+    document.getElementById("battle").innerHTML = `
+
+        <div class="wheel-result">
+
+            <h2>🎡 WHEEL RESULT</h2>
+
+            <div
+                class="wheel-name"
+                style="color:${result.color}"
+            >
+                ${result.name}
+            </div>
+
+            <p>
+                ${result.universe} character selected.
+            </p>
+
+        </div>
+    `;
+
+}
+
+
+/* =========================================================
+   BATTLE HELPERS
+========================================================= */
+
+function getMove(characterName) {
+
+    if (moves[characterName]) {
+
+        return randomItem(
+            moves[characterName]
+        );
+
+    }
+
+    return randomItem([
+        "heavy strike",
+        "defensive counter",
+        "ranged attack",
+        "close-range assault"
+    ]);
+
+}
+
+function getDamage(character) {
+
+    const mode =
+        document.getElementById("powerMode").value;
+
+    let minimum = 10;
+    let maximum = 25;
+
+    if (mode === "Amped") {
+
+        minimum = 18;
+        maximum = 34;
+
+    }
+
+    if (mode === "Mixed") {
+
+        if (Math.random() < .5) {
+
+            minimum = 10;
+            maximum = 25;
+
+        } else {
+
+            minimum = 18;
+            maximum = 34;
+
+        }
+
+    }
+
+    return Math.floor(
+        minimum +
+        Math.random() *
+        (maximum - minimum)
+    );
+
+}
+
+
+/* =========================================================
+   BATTLE STORY
+========================================================= */
+
+function attackStory(attacker,target,damage,moveName) {
+
+    const openingLines = [
+
+        `${attacker.name} closes the distance with remarkable precision, refusing to give ${target.name} enough time to establish a comfortable position.`,
+
+        `${attacker.name} reads the movement in front of them and commits immediately, turning a brief opening into a decisive offensive sequence.`,
+
+        `Without wasting another second, ${attacker.name} shifts their weight and launches forward, forcing ${target.name} to react rather than dictate the exchange.`,
+
+        `The battlefield suddenly becomes quiet for a fraction of a second as ${attacker.name} recognizes an opening and attacks.`
+
+    ];
+
+    const reactionLines = [
+
+        `${target.name} attempts to adjust their footing, but the attack arrives before they can completely reset their stance.`,
+
+        `${target.name} raises their defenses and tries to redirect the assault, but the timing is slightly off.`,
+
+        `${target.name} reacts quickly enough to avoid the full force of the attack, although the impact still carries enough force to change the momentum of the exchange.`,
+
+        `${target.name} attempts a counter, but ${attacker.name} has already committed to the sequence and follows through.`
+
+    ];
+
+    return `
+
+        ${randomItem(openingLines)}
+
+        ${attacker.name} uses
+        <strong>${moveName}</strong>
+        against ${target.name}.
+
+        ${randomItem(reactionLines)}
+
+        The exchange deals
+        <strong>${damage} damage</strong>,
+        and both fighters immediately begin repositioning for the next engagement.
+
+    `;
+
+}
+
+
+/* =========================================================
+   START BATTLE
+========================================================= */
+
+function startBattle() {
+
+    if (
+        team1.length === 0 ||
+        team2.length === 0
+    ) {
+
+        alert(
+            "Both teams need at least one character."
+        );
+
+        return;
+
+    }
+
+    const depth =
+        document.getElementById("battleDepth").value;
+
+    let maximumRounds = 5;
+
+    if (depth === "medium") {
+        maximumRounds = 8;
+    }
+
+    if (depth === "long") {
+        maximumRounds = 12;
+    }
+
+    let fighters1 =
+        team1.map(character => ({
+            character: character,
+            health: 100
+        }));
+
+    let fighters2 =
+        team2.map(character => ({
+            character: character,
+            health: 100
+        }));
+
+    let story = `
+
+        <h2>⚔ BATTLE SIMULATION</h2>
+
+        <p>
+            The combat system has locked both teams into the battlefield.
+            Every fighter enters the engagement at full strength.
+            The simulation will continue until one side has been completely eliminated.
+        </p>
+    `;
+
+    let round = 1;
+
+    while (
+        fighters1.length > 0 &&
+        fighters2.length > 0 &&
+        round <= maximumRounds
+    ) {
+
+        story += `
+
+            <div class="round">
+
+                <div class="round-title">
+                    ROUND ${round}
+                </div>
+
+        `;
+
+        const attackerTeam1 =
+            randomItem(fighters1);
+
+        const targetTeam2 =
+            randomItem(fighters2);
+
+        const move1 =
+            getMove(attackerTeam1.character.name);
+
+        const damage1 =
+            getDamage(attackerTeam1.character);
+
+        targetTeam2.health -= damage1;
+
+        story += attackStory(
+            attackerTeam1.character,
+            targetTeam2.character,
+            damage1,
+            move1
+        );
+
+        if (targetTeam2.health <= 0) {
+
+            story += `
+
+                <p class="elimination">
+                    ☠ ${targetTeam2.character.name}
+                    has been eliminated from the battle.
+                </p>
+
+            `;
+
+            fighters2 =
+                fighters2.filter(
+                    fighter =>
+                        fighter !== targetTeam2
+                );
+
+        } else {
+
+            story += `
+
+                <p>
+                    ${targetTeam2.character.name}
+                    remains standing with
+                    <strong>${targetTeam2.health}</strong>
+                    health.
+                </p>
+
+            `;
+
+        }
+
+
+        if (fighters2.length > 0) {
+
+            const attackerTeam2 =
+                randomItem(fighters2);
+
+            const targetTeam1 =
+                randomItem(fighters1);
+
+            const move2 =
+                getMove(attackerTeam2.character.name);
+
+            const damage2 =
+                getDamage(attackerTeam2.character);
+
+            targetTeam1.health -= damage2;
+
+            story += attackStory(
+                attackerTeam2.character,
+                targetTeam1.character,
+                damage2,
+                move2
+            );
+
+            if (targetTeam1.health <= 0) {
+
+                story += `
+
+                    <p class="elimination">
+                        ☠ ${targetTeam1.character.name}
+                        has been eliminated from the battle.
+                    </p>
+
+                `;
+
+                fighters1 =
+                    fighters1.filter(
+                        fighter =>
+                            fighter !== targetTeam1
+                    );
+
+            } else {
+
+                story += `
+
+                    <p>
+                        ${targetTeam1.character.name}
+                        remains standing with
+                        <strong>${targetTeam1.health}</strong>
+                        health.
+                    </p>
+
+                `;
+
+            }
+
+        }
+
+        story += `</div>`;
+
+        round++;
+
+    }
+
+
+    /*
+       If the maximum round count is reached,
+       continue eliminating fighters until
+       there is an actual winner.
+    */
+
+    while (
+        fighters1.length > 0 &&
+        fighters2.length > 0
+    ) {
+
+        const target =
+            fighters1.length <= fighters2.length
+                ? randomItem(fighters1)
+                : randomItem(fighters2);
+
+        if (fighters1.length <= fighters2.length) {
+
+            story += `
+
+                <div class="round">
+
+                    <div class="round-title">
+                        DECISIVE EXCHANGE
+                    </div>
+
+                    The remaining fighters on Team 2
+                    concentrate their attacks on
+                    ${target.character.name}.
+                    After a sustained exchange,
+                    ${target.character.name}
+                    is finally eliminated.
+
+                    <p class="elimination">
+                        ☠ ${target.character.name}
+                        eliminated.
+                    </p>
+
+                </div>
+
+            `;
+
+            fighters1 =
+                fighters1.filter(
+                    fighter => fighter !== target
+                );
+
+        } else {
+
+            story += `
+
+                <div class="round">
+
+                    <div class="round-title">
+                        DECISIVE EXCHANGE
+                    </div>
+
+                    Team 1 recognizes that
+                    ${target.character.name}
+                    has become the critical target.
+                    The remaining fighters coordinate
+                    their attacks until the defender
+                    can no longer continue.
+
+                    <p class="elimination">
+                        ☠ ${target.character.name}
+                        eliminated.
+                    </p>
+
+                </div>
+
+            `;
+
+            fighters2 =
+                fighters2.filter(
+                    fighter => fighter !== target
+                );
+
+        }
+
+    }
+
+
+    const winner =
+        fighters1.length > 0
+            ? "TEAM 1"
+            : "TEAM 2";
+
+
+    const survivors =
+        fighters1.length > 0
+            ? fighters1
+            : fighters2;
+
+
+    story += `
+
+        <div class="winner">
+
+            🏆 ${winner} WINS
+
+            <div style="
+                font-size:15px;
+                margin-top:10px;
+                color:#d5e1ed;
+                font-weight:normal;
+            ">
+
+                The opposing team has been completely eliminated.
+
+                <br><br>
+
+                Survivors:
+                ${survivors
+                    .map(f => f.character.name)
+                    .join(", ")
+                }
+
+            </div>
+
+        </div>
+    `;
+
+    document.getElementById("battle").innerHTML =
+        story;
+
+}
+
+
+/* =========================================================
+   RESET
+========================================================= */
+
+function clearEverything() {
+
+    availableBoard = [];
+    team1 = [];
+    team2 = [];
+    currentTurn = 1;
+
+    document
+        .getElementById("board")
+        .classList
+        .add("hidden");
+
+    renderTeams();
+
+    document.getElementById("battle").innerHTML = `
+
+        <h2>⚔ BATTLE CONSOLE</h2>
+
+        <p>
+            Generate a character board or use the wheel to begin.
+        </p>
+
+    `;
+
+}
+
+
+/* =========================================================
+   INITIALIZE
+========================================================= */
+
+renderTeams();
+
+</script>
+
+</body>
+</html>
