@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-
 <html lang="en">
 <head>
 <meta charset="UTF-8">
@@ -7,1525 +6,1439 @@
 <title>Superhero Battle Simulator</title>
 
 <style>
-* {
-    box-sizing: border-box;
-}
+*{box-sizing:border-box}
 
-body {
-    margin: 0;
+body{
+    margin:0;
     background:
-        radial-gradient(circle at top, #182b3c 0%, #070c12 48%, #020305 100%);
-    color: #edf7ff;
-    font-family: Arial, Helvetica, sans-serif;
+        radial-gradient(circle at 50% 0%,#18354b 0%,#071018 42%,#020406 100%);
+    color:#eaf7ff;
+    font-family:Arial,Helvetica,sans-serif;
+    min-height:100vh;
 }
 
-header {
-    padding: 30px 15px;
-    text-align: center;
-    background: linear-gradient(#111e2b,#060a0f);
-    border-bottom: 1px solid #29485f;
-    box-shadow: 0 0 30px #000;
+body:before{
+    content:"";
+    position:fixed;
+    inset:0;
+    pointer-events:none;
+    background:
+        linear-gradient(rgba(0,180,255,.025) 1px,transparent 1px),
+        linear-gradient(90deg,rgba(0,180,255,.025) 1px,transparent 1px);
+    background-size:40px 40px;
 }
 
-header h1 {
-    margin: 0;
-    font-size: 38px;
-    letter-spacing: 3px;
+header{
+    text-align:center;
+    padding:30px 15px;
+    background:linear-gradient(180deg,#111e2a,#05090e);
+    border-bottom:1px solid #31526a;
+    box-shadow:0 5px 30px #000;
 }
 
-header p {
-    color: #91a9bb;
-    margin-bottom: 0;
+header h1{
+    margin:0;
+    font-size:38px;
+    letter-spacing:3px;
+    text-shadow:0 0 15px rgba(55,200,255,.4);
 }
 
-.settings {
-    text-align: center;
-    padding: 20px;
+header p{
+    color:#8caabd;
+    margin-bottom:0;
 }
 
-select {
-    background: #09131c;
-    color: white;
-    border: 1px solid #3a5b70;
-    padding: 10px 15px;
-    border-radius: 7px;
-    margin-left: 8px;
+.panel{
+    max-width:1200px;
+    margin:22px auto;
+    padding:20px;
+    background:linear-gradient(145deg,#111e29,#070c12);
+    border:1px solid #294457;
+    border-radius:14px;
+    box-shadow:0 12px 40px #000;
 }
 
-button {
-    border: 1px solid #3c6d88;
-    border-radius: 8px;
-    padding: 12px 20px;
-    background: linear-gradient(#173d56,#0a1c2a);
-    color: white;
-    font-weight: bold;
-    font-size: 15px;
-    cursor: pointer;
-    margin: 5px;
+.controls{
+    display:flex;
+    flex-wrap:wrap;
+    justify-content:center;
+    align-items:center;
+    gap:12px;
 }
 
-button:hover {
-    box-shadow: 0 0 15px rgba(70,210,255,.35);
-    background: linear-gradient(#225875,#0e3047);
+select,button{
+    background:linear-gradient(#183c54,#091c2a);
+    color:white;
+    border:1px solid #3b6d89;
+    border-radius:8px;
+    padding:11px 16px;
+    font-size:15px;
+    font-weight:bold;
 }
 
-.primary {
-    background: linear-gradient(#00a5e6,#005e86);
-    border-color: #55d9ff;
+button{
+    cursor:pointer;
+    transition:.2s;
 }
 
-.teams {
-    max-width: 1100px;
-    margin: 20px auto;
-    padding: 0 20px;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 25px;
+button:hover{
+    transform:translateY(-1px);
+    box-shadow:0 0 16px rgba(48,192,255,.35);
 }
 
-.team {
-    background: linear-gradient(145deg,#101d29,#070c11);
-    border: 1px solid #294456;
-    border-radius: 14px;
-    padding: 20px;
-    min-height: 270px;
+button.primary{
+    background:linear-gradient(#009edc,#005b83);
+    border-color:#51d8ff;
 }
 
-.team h2 {
-    text-align: center;
+button.gold{
+    background:linear-gradient(#775d17,#392b09);
+    border-color:#d8b640;
 }
 
-.team1-title {
-    color: #39b3ff;
+button.danger{
+    background:linear-gradient(#8e2634,#471019);
+    border-color:#e95668;
 }
 
-.team2-title {
-    color: #ff5b6d;
+.hidden{display:none!important}
+
+.pool-title{
+    text-align:center;
+    color:#48d7ff;
 }
 
-.character {
-    margin: 8px 0;
-    padding: 12px;
-    border-radius: 7px;
-    background: #162532;
-    border: 1px solid #294658;
-    font-weight: bold;
+.pool{
+    display:grid;
+    grid-template-columns:repeat(5,1fr);
+    gap:8px;
+    margin-top:15px;
 }
 
-.center {
-    text-align: center;
+.pool-card{
+    padding:10px 5px;
+    border-radius:7px;
+    border:1px solid #294252;
+    background:#0b151e;
+    cursor:pointer;
+    font-size:12px;
+    transition:.2s;
 }
 
-#battleHUD {
-    max-width: 1100px;
-    margin: 25px auto;
-    padding: 20px;
-    background: linear-gradient(145deg,#101c27,#05090e);
-    border: 1px solid #294456;
-    border-radius: 14px;
-    box-shadow: 0 10px 40px #000;
+.pool-card:hover{
+    transform:scale(1.03);
+    border-color:#53d9ff;
 }
 
-.hidden {
-    display: none !important;
+.pool-card.selected{
+    box-shadow:0 0 15px currentColor;
+    border-color:white;
 }
 
-.hud-header {
-    display: grid;
-    grid-template-columns: 1fr auto 1fr;
-    align-items: center;
-    text-align: center;
-    border-bottom: 1px solid #263c4e;
-    padding-bottom: 12px;
+.pool-card.used{
+    opacity:.22;
+    cursor:not-allowed;
+    transform:none;
 }
 
-.hud-header h2 {
-    margin: 5px;
+.teams{
+    max-width:1200px;
+    margin:22px auto;
+    padding:0 20px;
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:20px;
 }
 
-.blue {
-    color: #42b9ff;
+.team{
+    background:linear-gradient(145deg,#101c27,#060b10);
+    border:1px solid #294355;
+    border-radius:14px;
+    padding:18px;
+    min-height:250px;
 }
 
-.red {
-    color: #ff596c;
+.team h2{
+    text-align:center;
 }
 
-.round-display {
-    color: #4ad9ff;
-    font-size: 24px;
-    font-weight: bold;
+.team1-title{color:#35b5ff}
+.team2-title{color:#ff5369}
+
+.character{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    padding:10px;
+    margin:7px 0;
+    border-radius:8px;
+    font-weight:bold;
+    border:1px solid;
 }
 
-.health-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 30px;
-    margin-top: 20px;
+.avatar{
+    width:38px;
+    height:38px;
+    border-radius:50%;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:19px;
+    background:#111;
+    border:1px solid currentColor;
 }
 
-.health-column {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
+.draft-status{
+    text-align:center;
+    color:#7fa1b6;
+    min-height:24px;
 }
 
-.health-card {
-    background: #071018;
-    border: 1px solid #263c4c;
-    border-radius: 7px;
-    padding: 10px;
-    transition: .5s;
+.actions{
+    text-align:center;
+    padding:10px;
 }
 
-.health-card.dead {
-    opacity: .3;
-    filter: grayscale(1);
+#battleHUD{
+    max-width:1200px;
+    margin:25px auto;
+    padding:20px;
+    background:linear-gradient(145deg,#0d1923,#04080c);
+    border:1px solid #2d4b60;
+    border-radius:14px;
+    box-shadow:0 12px 45px #000;
 }
 
-.health-name {
-    display: flex;
-    justify-content: space-between;
-    font-size: 13px;
-    font-weight: bold;
-    margin-bottom: 7px;
+.hud-top{
+    display:grid;
+    grid-template-columns:1fr auto 1fr;
+    align-items:center;
+    text-align:center;
+    border-bottom:1px solid #294052;
+    padding-bottom:12px;
 }
 
-.hp-number {
-    color: #9bb0bf;
+.hud-team1{color:#36b7ff}
+.hud-team2{color:#ff5269}
+
+.round-number{
+    color:#52ddff;
+    font-size:23px;
+    font-weight:bold;
 }
 
-.hp-bar {
-    height: 18px;
-    background: #020407;
-    border: 1px solid #263b4c;
-    border-radius: 20px;
-    overflow: hidden;
+.health-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:25px;
+    margin-top:18px;
 }
 
-.hp-fill {
-    height: 100%;
-    width: 100%;
-    background: #20d77a;
-    transition: width .8s ease;
+.health-column{
+    display:flex;
+    flex-direction:column;
+    gap:8px;
 }
 
-.hp-fill.medium {
-    background: #e7b52c;
+.health-card{
+    background:#071017;
+    border:1px solid #263d4e;
+    border-radius:8px;
+    padding:9px;
+    transition:.4s;
 }
 
-.hp-fill.low {
-    background: #e23d50;
+.health-card.dead{
+    opacity:.35;
+    filter:grayscale(1);
 }
 
-.dead-label {
-    color: #ff5368;
-    font-size: 10px;
-    font-weight: bold;
-    margin-top: 5px;
+.health-name{
+    display:flex;
+    justify-content:space-between;
+    font-size:13px;
+    font-weight:bold;
+    margin-bottom:6px;
 }
 
-#battle {
-    max-width: 1100px;
-    margin: 25px auto;
-    padding: 30px;
-    background: linear-gradient(145deg,#101a24,#05090d);
-    border: 1px solid #294456;
-    border-radius: 14px;
-    box-shadow: 0 10px 40px #000;
+.hp-number{
+    color:#9ab1c0;
 }
 
-.story {
-    text-align: left;
-    line-height: 1.85;
-    font-size: 17px;
+.hp-bar{
+    height:14px;
+    background:#020305;
+    border-radius:20px;
+    overflow:hidden;
+    border:1px solid #253847;
 }
 
-.story p {
-    margin: 18px 0;
+.hp-fill{
+    height:100%;
+    width:100%;
+    background:#18df78;
+    transition:width .8s ease;
 }
 
-.story h2 {
-    color: #48d7ff;
-    border-bottom: 1px solid #294456;
-    padding-bottom: 12px;
+.hp-fill.medium{background:#e7b72c}
+.hp-fill.low{background:#e3374d}
+
+.dead-label{
+    color:#ff5367;
+    font-size:10px;
+    font-weight:bold;
+    margin-top:5px;
 }
 
-.move {
-    color: #ffd86a;
-    font-weight: bold;
+.story{
+    max-width:1200px;
+    margin:25px auto;
+    padding:25px;
+    background:linear-gradient(145deg,#0e1923,#05090d);
+    border:1px solid #294355;
+    border-radius:14px;
+    box-shadow:0 12px 45px #000;
 }
 
-.elimination {
-    color: #ff586c;
-    font-weight: bold;
-    font-size: 18px;
-    border-left: 3px solid #ff586c;
-    padding-left: 15px;
+.story h2{
+    color:#52dfff;
 }
 
-.round-summary {
-    margin-top: 25px;
-    padding: 18px;
-    background: #0a141d;
-    border: 1px solid #294456;
-    border-radius: 8px;
+.story-text{
+    text-align:left;
+    line-height:1.85;
+    font-size:16px;
 }
 
-.next {
-    text-align: center;
-    margin-top: 25px;
+.story-text p{
+    margin:0 0 15px;
 }
 
-.next button {
-    padding: 16px 45px;
-    font-size: 18px;
+.move{
+    font-weight:bold;
+    color:#67dfff;
 }
 
-.winner {
-    margin-top: 30px;
-    padding: 30px;
-    text-align: center;
-    border: 1px solid #92782f;
-    background: #211b0b;
-    border-radius: 10px;
+.counter{
+    color:#ffd75b;
+    font-weight:bold;
 }
 
-.winner h2 {
-    color: #ffd75d;
-    font-size: 34px;
+.elimination{
+    color:#ff5369;
+    font-weight:bold;
 }
 
-.winner p {
-    color: #d9e2e8;
+.round-end{
+    margin-top:22px;
+    padding:17px;
+    text-align:center;
+    border-top:1px solid #2b4354;
+    color:#8da8ba;
 }
 
-@media(max-width:750px) {
+.next{
+    text-align:center;
+    margin-top:18px;
+}
 
-    .teams,
-    .health-grid {
-        grid-template-columns: 1fr;
-    }
+.next button{
+    font-size:18px;
+    padding:15px 35px;
+}
 
-    .hud-header {
-        grid-template-columns: 1fr;
-        gap: 10px;
-    }
+.winner{
+    text-align:center;
+    margin-top:25px;
+    padding:28px;
+    border:1px solid #c8a832;
+    background:linear-gradient(145deg,#29210a,#110e05);
+    border-radius:12px;
+}
 
-    header h1 {
-        font-size: 27px;
-    }
+.winner h2{
+    color:#ffd85c;
+    font-size:34px;
+}
 
-    #battle {
-        padding: 20px;
-    }
+.winner p{
+    color:#d5dce1;
+    line-height:1.7;
+}
 
-    .story {
-        font-size: 15px;
-    }
+.wheel-box{
+    text-align:center;
+    padding:20px;
+}
+
+.wheel{
+    width:230px;
+    height:230px;
+    margin:20px auto;
+    border-radius:50%;
+    border:8px solid #244b62;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    background:conic-gradient(
+        #d9364b 0 12%,
+        #1c6f9b 12% 24%,
+        #b38c26 24% 36%,
+        #693a91 36% 48%,
+        #237d58 48% 60%,
+        #8a3c2e 60% 72%,
+        #315e91 72% 84%,
+        #725b30 84% 100%
+    );
+    box-shadow:0 0 30px #000;
+    transition:transform 2.5s cubic-bezier(.17,.67,.12,1);
+}
+
+.wheel span{
+    width:90px;
+    height:90px;
+    background:#071018;
+    border:2px solid #7ee7ff;
+    border-radius:50%;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-weight:bold;
+}
+
+@media(max-width:800px){
+    .teams,.health-grid{grid-template-columns:1fr}
+    .pool{grid-template-columns:repeat(3,1fr)}
+    .hud-top{grid-template-columns:1fr;gap:5px}
+}
+
+@media(max-width:500px){
+    .pool{grid-template-columns:repeat(2,1fr)}
 }
 </style>
-
 </head>
 
 <body>
 
 <header>
-    <h1>⚔️ SUPERHERO BATTLE SIMULATOR</h1>
-    <p>Watch the battle unfold one round at a time.</p>
+<h1>⚡ SUPERHERO BATTLE SIMULATOR</h1>
+<p>TACTICAL COMBAT • CHARACTER DATABASE • ROUND-BY-ROUND SIMULATION</p>
 </header>
 
-<div class="settings">
+<!-- =========================================================
+     CONTROLS
+========================================================= -->
 
-```
-<label><strong>Battle Depth:</strong></label>
+<div class="panel">
 
-<select id="battleDepth">
-    <option value="short">Short</option>
-    <option value="medium" selected>Medium</option>
-    <option value="long">Long</option>
+<div class="controls">
+
+<label>Universe:</label>
+
+<select id="universe" onchange="buildPool()">
+<option value="both">Marvel + DC</option>
+<option value="marvel">Marvel</option>
+<option value="dc">DC</option>
 </select>
-```
+
+<label>Team Size:</label>
+
+<select id="teamSize">
+<option value="1">1v1</option>
+<option value="2">2v2</option>
+<option value="3">3v3</option>
+<option value="4">4v4</option>
+<option value="5" selected>5v5</option>
+</select>
+
+<label>Power:</label>
+
+<select id="powerMode">
+<option value="standard">Standard</option>
+<option value="amped">Amped</option>
+<option value="mixed">Mixed</option>
+</select>
+
+<label>Battle Depth:</label>
+
+<select id="depth">
+<option value="normal">Normal</option>
+<option value="deep" selected>Deep</option>
+<option value="epic">Epic</option>
+</select>
 
 </div>
+
+<div class="actions">
+
+<button class="primary" onclick="generateTen()">
+🎲 GENERATE 10 CHARACTERS
+</button>
+
+<button onclick="showWheel()">
+🎡 SPINNING WHEEL
+</button>
+
+<button class="danger" onclick="resetEverything()">
+↻ RESET
+</button>
+
+</div>
+
+<div id="draftStatus" class="draft-status">
+Generate a board of 10 characters to begin the draft.
+</div>
+
+</div>
+
+
+<!-- =========================================================
+     WHEEL
+========================================================= -->
+
+<div id="wheelPanel" class="panel hidden">
+
+<div class="wheel-box">
+
+<h2>🎡 CHARACTER WHEEL</h2>
+
+<div id="wheel" class="wheel">
+<span>SPIN</span>
+</div>
+
+<button class="gold" onclick="spinWheel()">
+⚡ SPIN WHEEL
+</button>
+
+<p id="wheelResult"></p>
+
+</div>
+
+</div>
+
+
+<!-- =========================================================
+     GENERATED CHARACTER BOARD
+========================================================= -->
+
+<div id="poolPanel" class="panel hidden">
+
+<h2 class="pool-title">
+CHARACTER SELECTION BOARD
+</h2>
+
+<div id="pool" class="pool"></div>
+
+</div>
+
+
+<!-- =========================================================
+     TEAMS
+========================================================= -->
 
 <div class="teams">
 
-```
 <div class="team">
-    <h2 class="team1-title">🔵 TEAM 1</h2>
 
-    <div id="team1"></div>
+<h2 class="team1-title">🔵 TEAM 1</h2>
 
-    <div class="center">
-        <button onclick="addCharacter(1)">
-            🎲 Add Character
-        </button>
-    </div>
+<div id="team1"></div>
+
 </div>
 
 <div class="team">
-    <h2 class="team2-title">🔴 TEAM 2</h2>
 
-    <div id="team2"></div>
+<h2 class="team2-title">🔴 TEAM 2</h2>
 
-    <div class="center">
-        <button onclick="addCharacter(2)">
-            🎲 Add Character
-        </button>
-    </div>
-</div>
-```
+<div id="team2"></div>
 
 </div>
 
-<div class="center">
+</div>
 
-```
+
+<div class="actions">
+
 <button class="primary" onclick="startBattle()">
-    ⚔️ START BATTLE
+⚔️ START BATTLE
 </button>
-```
 
 </div>
+
+
+<!-- =========================================================
+     HEALTH HUD
+========================================================= -->
 
 <div id="battleHUD" class="hidden">
 
-```
-<div class="hud-header">
+<div class="hud-top">
 
-    <h2 class="blue">🔵 TEAM 1</h2>
+<div>
+<h2 class="hud-team1">🔵 TEAM 1</h2>
+</div>
 
-    <div id="roundDisplay" class="round-display">
-        ROUND 1
-    </div>
+<div id="roundNumber" class="round-number">
+ROUND 1
+</div>
 
-    <h2 class="red">🔴 TEAM 2</h2>
+<div>
+<h2 class="hud-team2">🔴 TEAM 2</h2>
+</div>
 
 </div>
 
 <div class="health-grid">
 
-    <div id="healthTeam1" class="health-column"></div>
-
-    <div id="healthTeam2" class="health-column"></div>
-
-</div>
-```
+<div id="healthTeam1" class="health-column"></div>
+<div id="healthTeam2" class="health-column"></div>
 
 </div>
 
-<div id="battle">
+</div>
 
-```
-<h2>Battle Console</h2>
+
+<!-- =========================================================
+     BATTLE STORY
+========================================================= -->
+
+<div id="battle" class="story">
+
+<h2>⚔️ BATTLE CONSOLE</h2>
 
 <p>
-    Build both teams and start the battle.
+Generate a character board, draft your teams, and begin the battle.
 </p>
-```
 
 </div>
+
 
 <script>
 
 /* =========================================================
-   60 CHARACTER POOL
+   60 CHARACTER DATABASE
 ========================================================= */
 
-const characters = [
-
-"Spider-Man",
-"Miles Morales",
-"Captain Marvel",
-"Jean Grey",
-"Wolverine",
-"Hulk",
-"Thor",
-"Iron Man",
-"Doctor Doom",
-"Magneto",
-"Storm",
-"Deadpool",
-"Kingpin",
-"Groot",
-"Gamora",
-"Hela",
-"Mephisto",
-"Cyclops",
-"Quicksilver",
-"Invisible Woman",
-"Kraven",
-"Ghost Rider",
-"MODOK",
-"Psylocke",
-"Rocket Raccoon",
-"Punisher",
-"Killmonger",
-"Ant-Man",
-"Peni Parker",
-"Mister Sinister",
-
-"Batman",
-"Superman",
-"Wonder Woman",
-"The Flash",
-"Green Lantern",
-"Aquaman",
-"Cyborg",
-"Green Arrow",
-"Black Canary",
-"Nightwing",
-"Raven",
-"Starfire",
-"Martian Manhunter",
-"Shazam",
-"Black Adam",
-"Darkseid",
-"Lex Luthor",
-"Deathstroke",
-"Harley Quinn",
-"Joker",
-"Bane",
-"Poison Ivy",
-"Catwoman",
-"Doomsday",
-"Blue Beetle",
-"Zatanna",
-"Constantine",
-"Swamp Thing",
-"Supergirl",
-"Red Hood"
-
-];
-
-
-/* =========================================================
-   CHARACTER COMBAT DATABASE
-========================================================= */
-
-const combat = {
+const db = {
 
 "Spider-Man":{
-moves:[
-"Web Strike",
-"Web Barrage",
-"Web Swing Kick",
-"Spider-Sense Counter",
-"Web Hammer",
-"Wall-Crawl Assault"
-],
-style:"acrobatic and unpredictable",
-range:"close and mid-range"
+u:"marvel",color:"#2478d4",emoji:"🕷️",
+stats:{power:72,speed:88,durability:68,skill:91,intelligence:84},
+moves:["Web Strike","Web Barrage","Web Swing Kick","Spider-Sense Counter","Web Trap"],
+style:"mobile, improvisational and defensive",
+personality:"creative and constantly looking for an opening"
 },
 
 "Miles Morales":{
-moves:[
-"Venom Strike",
-"Venom Blast",
-"Camouflage Strike",
-"Bio-Electric Punch",
-"Venom Shockwave",
-"Stealth Web Assault"
-],
-style:"fast, evasive and deceptive",
-range:"close and mid-range"
+u:"marvel",color:"#111d4f",emoji:"⚡",
+stats:{power:76,speed:91,durability:69,skill:87,intelligence:82},
+moves:["Venom Strike","Venom Blast","Camouflage Strike","Bio-Electric Punch","Venom Shockwave"],
+style:"unpredictable and highly mobile",
+personality:"aggressive when an opening appears but careful around stronger opponents"
 },
 
 "Captain Marvel":{
-moves:[
-"Photon Blast",
-"Binary Strike",
-"Cosmic Punch",
-"Energy Burst",
-"Photon Barrage",
-"Binary Rush"
-],
-style:"overwhelming aerial powerhouse",
-range:"all ranges"
+u:"marvel",color:"#b68a24",emoji:"★",
+stats:{power:94,speed:91,durability:93,skill:83,intelligence:81},
+moves:["Photon Blast","Binary Strike","Cosmic Punch","Energy Burst","Photon Rush"],
+style:"overwhelming aerial pressure",
+personality:"confident and direct"
 },
 
 "Jean Grey":{
-moves:[
-"Telekinetic Crush",
-"Psychic Assault",
-"Psychic Shockwave",
-"Telekinetic Shield",
-"Psychic Spear",
-"Telekinetic Throw"
-],
-style:"precise and devastating psychic combat",
-range:"long range"
+u:"marvel",color:"#b83245",emoji:"✦",
+stats:{power:96,speed:76,durability:80,skill:88,intelligence:96},
+moves:["Telekinetic Crush","Psychic Assault","Psychic Shockwave","Telekinetic Shield","Mind Lance"],
+style:"battlefield control and ranged pressure",
+personality:"calm, analytical and extremely difficult to surprise"
 },
 
 "Wolverine":{
-moves:[
-"Adamantium Slash",
-"Berserker Charge",
-"Claw Strike",
-"Savage Counter",
-"Adamantium Combination",
-"Ferocious Takedown"
-],
-style:"relentless close-range brawler",
-range:"close"
+u:"marvel",color:"#d39b25",emoji:"⚔️",
+stats:{power:82,speed:73,durability:94,skill:95,intelligence:75},
+moves:["Adamantium Slash","Berserker Charge","Claw Strike","Savage Counter","Adamantium Lunge"],
+style:"close-range pressure",
+personality:"relentless and willing to absorb punishment"
 },
 
 "Hulk":{
-moves:[
-"Hulk Smash",
-"Thunderclap",
-"Ground Pound",
-"Hulk Leap",
-"Power Throw",
-"Ground Slam",
-"Rage Boost"
-],
-style:"relentless and increasingly aggressive powerhouse",
-range:"close"
+u:"marvel",color:"#4e9c39",emoji:"💥",
+stats:{power:99,speed:63,durability:99,skill:66,intelligence:65},
+moves:["Hulk Smash","Thunderclap","Ground Pound","Gamma Charge","Hulk Leap"],
+style:"overwhelming physical force",
+personality:"becomes increasingly dangerous as the fight continues"
 },
 
 "Thor":{
-moves:[
-"Mjolnir Strike",
-"Lightning Bolt",
-"Thunderclap",
-"Stormbreaker Slam",
-"God of Thunder Charge",
-"Lightning Barrage"
-],
-style:"dominant warrior combining strength and ranged power",
-range:"all ranges"
+u:"marvel",color:"#5b8cc8",emoji:"⚡",
+stats:{power:97,speed:86,durability:96,skill:91,intelligence:86},
+moves:["Mjolnir Strike","Lightning Bolt","Thunderclap","Stormbreaker Slam","God Blast"],
+style:"balanced melee and ranged devastation",
+personality:"disciplined and willing to change tactics"
 },
 
 "Iron Man":{
-moves:[
-"Repulsor Blast",
-"Unibeam",
-"Missile Barrage",
-"Armor-Assisted Strike",
-"Micro-Missile Swarm",
-"Powered Armor Tackle"
-],
-style:"tactical ranged combatant",
-range:"mid and long range"
+u:"marvel",color:"#d39a22",emoji:"🤖",
+stats:{power:84,speed:83,durability:86,skill:88,intelligence:99},
+moves:["Repulsor Blast","Unibeam","Missile Barrage","Armor-Assisted Strike","Micro-Missile Swarm"],
+style:"ranged weapons and tactical analysis",
+personality:"analytical and constantly adapting"
 },
 
 "Doctor Doom":{
-moves:[
-"Doom Beam",
-"Mystic Blast",
-"Force Field Counter",
-"Doombot Assault",
-"Doom Gauntlet Strike",
-"Arcane Energy Burst"
-],
-style:"calculated combination of science and sorcery",
-range:"all ranges"
+u:"marvel",color:"#3c7b68",emoji:"♜",
+stats:{power:93,speed:67,durability:91,skill:87,intelligence:99},
+moves:["Doom Beam","Mystic Blast","Force Field Counter","Doombot Assault","Arcane Surge"],
+style:"technology, sorcery and battlefield manipulation",
+personality:"methodical and confident"
 },
 
 "Magneto":{
-moves:[
-"Magnetic Crush",
-"Metal Storm",
-"Electromagnetic Pulse",
-"Magnetic Shield",
-"Metallic Spear Barrage",
-"Magnetic Throw"
-],
-style:"battlefield-controlling ranged fighter",
-range:"mid and long range"
+u:"marvel",color:"#704b9c",emoji:"🧲",
+stats:{power:94,speed:70,durability:75,skill:88,intelligence:96},
+moves:["Magnetic Crush","Metal Storm","Electromagnetic Pulse","Magnetic Shield","Magnetic Spear"],
+style:"environmental control",
+personality:"calculating and patient"
 },
 
 "Storm":{
-moves:[
-"Lightning Strike",
-"Cyclone",
-"Wind Blast",
-"Thunderstorm",
-"Lightning Barrage",
-"Atmospheric Shockwave"
-],
-style:"long-range battlefield controller",
-range:"long range"
+u:"marvel",color:"#8d76bd",emoji:"🌩️",
+stats:{power:91,speed:78,durability:72,skill:89,intelligence:92},
+moves:["Lightning Strike","Cyclone","Wind Blast","Thunderstorm","Atmospheric Surge"],
+style:"long-range elemental control",
+personality:"measured and tactical"
 },
 
 "Deadpool":{
-moves:[
-"Twin Blade Assault",
-"Gunfire Burst",
-"Acrobatic Strike",
-"Regeneration Counter",
-"Explosive Charge",
-"Chaotic Blade Rush"
-],
-style:"unpredictable and relentless",
-range:"close and mid-range"
+u:"marvel",color:"#b62530",emoji:"☠️",
+stats:{power:71,speed:81,durability:91,skill:89,intelligence:73},
+moves:["Twin Blade Assault","Gunfire Burst","Acrobatic Strike","Regeneration Counter","Explosive Distraction"],
+style:"chaotic close-range combat",
+personality:"unpredictable and difficult to read"
 },
 
 "Kingpin":{
-moves:[
-"Heavy Punch",
-"Body Slam",
-"Crushing Strike",
-"Brutal Charge",
-"Wall Smash",
-"Power Takedown"
-],
-style:"slow but brutally powerful",
-range:"close"
+u:"marvel",color:"#513d3a",emoji:"👊",
+stats:{power:79,speed:54,durability:78,skill:71,intelligence:81},
+moves:["Kingpin Strike","Shoulder Charge","Heavy Slam","Crushing Grab","Street Brawl"],
+style:"brute-force street fighting",
+personality:"aggressive and intimidating"
 },
 
 "Groot":{
-moves:[
-"Branch Strike",
-"Root Bind",
-"Wooden Slam",
-"Regeneration",
-"Vine Sweep",
-"Branch Barrage"
-],
-style:"defensive battlefield controller",
-range:"close and mid-range"
+u:"marvel",color:"#6c7d36",emoji:"🌳",
+stats:{power:80,speed:51,durability:89,skill:63,intelligence:65},
+moves:["Branch Strike","Root Bind","Wooden Hammer","Vine Wall","Regrowth"],
+style:"defensive area control",
+personality:"protective and patient"
 },
 
 "Gamora":{
-moves:[
-"Godslayer Strike",
-"Acrobatic Slash",
-"Sword Combination",
-"Precision Strike",
-"Blade Rush",
-"Assassin's Counter"
-],
-style:"precise and highly trained assassin",
-range:"close"
+u:"marvel",color:"#4d8f72",emoji:"🗡️",
+stats:{power:78,speed:86,durability:72,skill:98,intelligence:83},
+moves:["Godslayer Slash","Acrobatic Strike","Blade Rush","Precision Thrust","Assassin Counter"],
+style:"precision melee",
+personality:"focused and efficient"
 },
 
 "Hela":{
-moves:[
-"Necrosword Slash",
-"Blade Storm",
-"Death Projection",
-"Soul Strike",
-"Necroblade Barrage",
-"Underworld Assault"
-],
-style:"aggressive supernatural warrior",
-range:"all ranges"
+u:"marvel",color:"#405f63",emoji:"🖤",
+stats:{power:93,speed:78,durability:94,skill:94,intelligence:87},
+moves:["Necrosword Strike","Blade Storm","Death Projection","Shadow Step","Necro Spear"],
+style:"relentless weapon-based offense",
+personality:"dominant and ruthless"
 },
 
 "Mephisto":{
-moves:[
-"Hellfire Blast",
-"Soul Drain",
-"Infernal Strike",
-"Demonic Surge",
-"Hellfire Storm",
-"Dark Energy Wave"
-],
-style:"manipulative supernatural powerhouse",
-range:"all ranges"
+u:"marvel",color:"#7d2929",emoji:"🔥",
+stats:{power:98,speed:71,durability:97,skill:90,intelligence:98},
+moves:["Hellfire Blast","Soul Chain","Demonic Strike","Hellstorm","Infernal Barrier"],
+style:"supernatural battlefield manipulation",
+personality:"patient and manipulative"
 },
 
 "Cyclops":{
-moves:[
-"Optic Blast",
-"Wide Beam",
-"Concussive Burst",
-"Precision Beam",
-"Optic Sweep",
-"Full-Power Blast"
-],
-style:"disciplined ranged tactician",
-range:"mid and long range"
+u:"marvel",color:"#9b3b32",emoji:"🔴",
+stats:{power:88,speed:75,durability:67,skill:92,intelligence:90},
+moves:["Optic Blast","Wide Beam","Ricochet Beam","Optic Burst","Precision Blast"],
+style:"precision ranged combat",
+personality:"disciplined and tactical"
 },
 
 "Quicksilver":{
-moves:[
-"Speed Blitz",
-"Rapid Strike",
-"Supersonic Charge",
-"Afterimage Assault",
-"Speed Combination",
-"Hyper-Speed Kick"
-],
-style:"extremely fast hit-and-run fighter",
-range:"close"
+u:"marvel",color:"#5f80b8",emoji:"💨",
+stats:{power:68,speed:99,durability:65,skill:91,intelligence:78},
+moves:["Speed Blitz","Rapid Strike","Cyclone Run","Speed Feint","Supersonic Barrage"],
+style:"speed-based hit-and-run",
+personality:"impatient but extremely difficult to pin down"
 },
 
 "Invisible Woman":{
-moves:[
-"Force Blast",
-"Invisible Strike",
-"Force Field Crush",
-"Protective Barrier",
-"Force Bubble",
-"Force Wave"
-],
-style:"defensive tactical controller",
-range:"all ranges"
+u:"marvel",color:"#4d9bc7",emoji:"◯",
+stats:{power:90,speed:75,durability:86,skill:89,intelligence:91},
+moves:["Invisible Strike","Force Field Blast","Force Cage","Invisible Ambush","Force Barrier"],
+style:"defensive control",
+personality:"calm and protective"
 },
 
 "Kraven":{
-moves:[
-"Hunter's Strike",
-"Spear Throw",
-"Predator Assault",
-"Savage Takedown",
-"Hunting Knife Combination",
-"Trap Assault"
-],
-style:"patient and methodical hunter",
-range:"close and mid-range"
+u:"marvel",color:"#916334",emoji:"🐾",
+stats:{power:75,speed:78,durability:77,skill:94,intelligence:79},
+moves:["Hunter's Strike","Spear Throw","Predator Rush","Trap Setup","Savage Counter"],
+style:"tracking and tactical hunting",
+personality:"patient and opportunistic"
 },
 
 "Ghost Rider":{
-moves:[
-"Hellfire Chain",
-"Penance Stare",
-"Hellcycle Charge",
-"Infernal Blast",
-"Chain Swing",
-"Spirit Flame"
-],
-style:"supernatural close-range executioner",
-range:"all ranges"
+u:"marvel",color:"#d05b22",emoji:"🔥",
+stats:{power:91,speed:73,durability:96,skill:84,intelligence:79},
+moves:["Hellfire Chain","Penance Stare","Flaming Charge","Hellfire Blast","Chain Snare"],
+style:"supernatural pressure",
+personality:"relentless and judgmental"
 },
 
 "MODOK":{
-moves:[
-"Mental Blast",
-"Psychic Beam",
-"Force Push",
-"Mental Assault",
-"Energy Burst",
-"Telekinetic Crush"
-],
-style:"ranged psychic artillery",
-range:"long range"
+u:"marvel",color:"#ad3f48",emoji:"🧠",
+stats:{power:82,speed:41,durability:72,skill:72,intelligence:99},
+moves:["Mental Blast","Energy Beam","Force Field","Psychic Surge","Hover Assault"],
+style:"ranged psychic warfare",
+personality:"arrogant and calculating"
 },
 
 "Psylocke":{
-moves:[
-"Psychic Blade",
-"Telepathic Strike",
-"Psi-Burst",
-"Shadow Assault",
-"Psychic Knife",
-"Psi-Blade Combination"
-],
-style:"stealthy psychic assassin",
-range:"close and mid-range"
+u:"marvel",color:"#713b91",emoji:"🗡️",
+stats:{power:77,speed:88,durability:69,skill:97,intelligence:86},
+moves:["Psychic Blade","Telepathic Strike","Shadow Step","Psychic Knife","Assassin Rush"],
+style:"telepathic precision combat",
+personality:"focused and deceptive"
 },
 
 "Rocket Raccoon":{
-moves:[
-"Heavy Blaster",
-"Explosive Charge",
-"Rocket Barrage",
-"Trap Shot",
-"Cluster Bomb",
-"Heavy Weapon Burst"
-],
-style:"chaotic ranged weapons specialist",
-range:"mid and long range"
+u:"marvel",color:"#796043",emoji:"🚀",
+stats:{power:62,speed:78,durability:58,skill:89,intelligence:94},
+moves:["Heavy Blaster","Explosive Trap","Rocket Barrage","Grenade Burst","Improvised Weapon"],
+style:"weapons and battlefield traps",
+personality:"clever, sarcastic and opportunistic"
 },
 
 "Punisher":{
-moves:[
-"Rifle Burst",
-"Explosive Round",
-"Close Combat Strike",
-"Tactical Assault",
-"Armor-Piercing Shot",
-"Heavy Weapons Barrage"
-],
-style:"methodical tactical fighter",
-range:"all ranges"
+u:"marvel",color:"#52575a",emoji:"☠",
+stats:{power:66,speed:69,durability:65,skill:93,intelligence:84},
+moves:["Precision Shot","Explosive Round","Tactical Strike","Suppression Fire","Close Combat"],
+style:"ranged tactical warfare",
+personality:"disciplined and relentless"
 },
 
 "Killmonger":{
-moves:[
-"Vibranium Strike",
-"Warrior Combination",
-"Spear Throw",
-"Predator Charge",
-"Vibranium Counter",
-"Warrior Takedown"
-],
-style:"aggressive elite hand-to-hand combatant",
-range:"close"
+u:"marvel",color:"#b36c27",emoji:"🐆",
+stats:{power:77,speed:82,durability:79,skill:94,intelligence:82},
+moves:["Vibranium Strike","Panther Rush","Spear Throw","Claw Combination","Tactical Counter"],
+style:"aggressive martial combat",
+personality:"calculating and relentless"
 },
 
 "Ant-Man":{
-moves:[
-"Giant Punch",
-"Pym Particle Strike",
-"Insect Swarm",
-"Size Shift Attack",
-"Giant Slam",
-"Miniature Assault"
-],
-style:"unpredictable size-changing fighter",
-range:"close and mid-range"
+u:"marvel",color:"#9e3434",emoji:"🐜",
+stats:{power:68,speed:77,durability:62,skill:80,intelligence:92},
+moves:["Giant Punch","Micro Strike","Ant Swarm","Size Shift","Giant Stomp"],
+style:"size manipulation and surprise attacks",
+personality:"creative and unpredictable"
 },
 
 "Peni Parker":{
-moves:[
-"SP//dr Punch",
-"Plasma Cannon",
-"Mech Charge",
-"Spider Drone Assault",
-"Plasma Barrage",
-"SP//dr Missile Strike"
-],
-style:"high-tech armored combat",
-range:"mid and long range"
+u:"marvel",color:"#b74762",emoji:"🤖",
+stats:{power:76,speed:73,durability:82,skill:81,intelligence:93},
+moves:["SP//dr Punch","Web Missile","Mech Barrage","Energy Blade","Mech Charge"],
+style:"mechanized ranged combat",
+personality:"determined and adaptable"
 },
 
 "Mister Sinister":{
-moves:[
-"Genetic Blast",
-"Energy Beam",
-"Telekinetic Assault",
-"Genetic Manipulation",
-"Energy Burst",
-"Psychic Crush"
-],
-style:"calculated genetic powerhouse",
-range:"all ranges"
+u:"marvel",color:"#744c9d",emoji:"🧬",
+stats:{power:84,speed:67,durability:88,skill:86,intelligence:99},
+moves:["Energy Blast","Genetic Surge","Telekinetic Strike","Regeneration","Clone Assault"],
+style:"adaptation and genetic manipulation",
+personality:"calculating and experimental"
 },
 
-/* DC */
-
 "Batman":{
-moves:[
-"Batarang Barrage",
-"Grapnel Strike",
-"Smoke Counter",
-"Martial Arts Combination",
-"Explosive Batarang",
-"Bat-Glove Strike"
-],
-style:"methodical tactical martial artist",
-range:"close and mid-range"
+u:"dc",color:"#36475a",emoji:"🦇",
+stats:{power:67,speed:75,durability:70,skill:99,intelligence:100},
+moves:["Batarang Barrage","Grapnel Strike","Smoke Counter","Martial Arts Combination","Explosive Batarang"],
+style:"preparation, gadgets and counters",
+personality:"analytical and relentlessly tactical"
 },
 
 "Superman":{
-moves:[
-"Heat Vision",
-"Super Punch",
-"Flying Charge",
-"Freeze Breath",
-"Super-Speed Blitz",
-"Super-Speed Uppercut",
-"Super-Speed Dodge",
-"Flying Tackle",
-"Super-Speed Knockout Strike"
-],
-style:"controlled high-speed powerhouse",
-range:"all ranges"
+u:"dc",color:"#2771bd",emoji:"S",
+stats:{power:100,speed:99,durability:100,skill:89,intelligence:90},
+moves:["Heat Vision","Super Punch","Flying Charge","Freeze Breath","Super-Speed Blitz","Super-Speed Uppercut","Flying Tackle"],
+style:"overwhelming speed and power",
+personality:"disciplined and protective"
 },
 
 "Wonder Woman":{
-moves:[
-"Lasso Strike",
-"Amazonian Combination",
-"Bracelet Counter",
-"Sword Strike",
-"Shield Bash",
-"Amazon Charge"
-],
-style:"elite warrior combining skill and power",
-range:"close"
+u:"dc",color:"#b58a2c",emoji:"⚔️",
+stats:{power:96,speed:91,durability:94,skill:99,intelligence:88},
+moves:["Lasso Strike","Amazonian Combination","Bracelet Counter","Sword Strike","Aerial Charge"],
+style:"elite melee combat",
+personality:"disciplined and fearless"
 },
 
 "The Flash":{
-moves:[
-"Speed Blitz",
-"Lightning Punch",
-"Phasing Strike",
-"Speed Force Barrage",
-"Supersonic Combination",
-"Speed Force Uppercut"
-],
-style:"extremely fast evasive fighter",
-range:"close"
+u:"dc",color:"#b52c35",emoji:"⚡",
+stats:{power:80,speed:100,durability:78,skill:97,intelligence:91},
+moves:["Speed Blitz","Lightning Punch","Phasing Strike","Speed Force Barrage","Super-Speed Uppercut"],
+style:"extreme speed and positional control",
+personality:"quick-thinking and evasive"
 },
 
 "Green Lantern":{
-moves:[
-"Energy Construct",
-"Power Ring Blast",
-"Construct Hammer",
-"Energy Shield",
-"Construct Cannon",
-"Energy Cage"
-],
-style:"creative ranged combatant",
-range:"all ranges"
+u:"dc",color:"#278f58",emoji:"💚",
+stats:{power:89,speed:84,durability:86,skill:88,intelligence:87},
+moves:["Energy Construct","Power Ring Blast","Construct Hammer","Energy Shield","Construct Cage"],
+style:"versatile energy constructs",
+personality:"creative and adaptable"
 },
 
 "Aquaman":{
-moves:[
-"Trident Strike",
-"Atlantean Charge",
-"Tidal Blast",
-"Trident Throw",
-"Oceanic Slam",
-"Atlantean Combination"
-],
-style:"powerful close-range warrior",
-range:"close and mid-range"
+u:"dc",color:"#267d85",emoji:"🔱",
+stats:{power:86,speed:73,durability:89,skill:84,intelligence:77},
+moves:["Trident Strike","Atlantean Charge","Tidal Blast","Trident Throw","Ocean Surge"],
+style:"weapon-based physical combat",
+personality:"direct and resilient"
 },
 
 "Cyborg":{
-moves:[
-"Sonic Cannon",
-"Arm Cannon Blast",
-"Cybernetic Charge",
-"Tech Override",
-"Plasma Cannon",
-"Integrated Weapons Barrage"
-],
-style:"adaptive high-tech fighter",
-range:"all ranges"
+u:"dc",color:"#5f7b8e",emoji:"🤖",
+stats:{power:82,speed:77,durability:88,skill:81,intelligence:97},
+moves:["Sonic Cannon","Arm Cannon Blast","Cybernetic Charge","Tech Override","Energy Pulse"],
+style:"heavy weapons and technology",
+personality:"analytical and supportive"
 },
 
 "Green Arrow":{
-moves:[
-"Explosive Arrow",
-"Trick Arrow",
-"Rapid Arrow Shot",
-"Grappling Arrow",
-"Electric Arrow",
-"Armor-Piercing Arrow"
-],
-style:"precise ranged tactician",
-range:"long range"
+u:"dc",color:"#557c3b",emoji:"🏹",
+stats:{power:61,speed:72,durability:58,skill:96,intelligence:87},
+moves:["Explosive Arrow","Trick Arrow","Rapid Arrow Shot","Grappling Arrow","Armor-Piercing Arrow"],
+style:"precision ranged combat",
+personality:"patient and opportunistic"
 },
 
 "Black Canary":{
-moves:[
-"Canary Cry",
-"Sonic Burst",
-"Martial Arts Strike",
-"Sonic Counter",
-"Flying Kick",
-"Focused Canary Cry"
-],
-style:"aggressive martial artist with sonic attacks",
-range:"close and mid-range"
+u:"dc",color:"#d3b83e",emoji:"🎤",
+stats:{power:76,speed:81,durability:68,skill:94,intelligence:82},
+moves:["Canary Cry","Sonic Burst","Martial Arts Strike","Sonic Counter","Focused Cry"],
+style:"martial arts and sonic attacks",
+personality:"aggressive but tactical"
 },
 
 "Nightwing":{
-moves:[
-"Escrima Strike",
-"Acrobatic Assault",
-"Electric Kali Strike",
-"Aerial Kick",
-"Spinning Combination",
-"Escrima Counter"
-],
-style:"mobile acrobatic martial artist",
-range:"close"
+u:"dc",color:"#3277b1",emoji:"🔵",
+stats:{power:69,speed:84,durability:68,skill:98,intelligence:91},
+moves:["Escrima Strike","Acrobatic Assault","Electric Kali Strike","Aerial Kick","Twin-Stick Combination"],
+style:"acrobatic martial combat",
+personality:"adaptive and team-oriented"
 },
 
 "Raven":{
-moves:[
-"Soul-Self Strike",
-"Dark Energy Blast",
-"Telekinetic Attack",
-"Shadow Bind",
-"Dark Energy Wave",
-"Soul-Self Assault"
-],
-style:"powerful mystical controller",
-range:"all ranges"
+u:"dc",color:"#604c8f",emoji:"🟣",
+stats:{power:91,speed:71,durability:77,skill:91,intelligence:96},
+moves:["Soul-Self Strike","Dark Energy Blast","Telekinetic Attack","Shadow Bind","Soul Shield"],
+style:"mystic control",
+personality:"calm and analytical"
 },
 
 "Starfire":{
-moves:[
-"Starbolt",
-"Energy Burst",
-"Flying Strike",
-"Solar Blast",
-"Starbolt Barrage",
-"Solar Charge"
-],
-style:"aggressive aerial powerhouse",
-range:"all ranges"
+u:"dc",color:"#d37a35",emoji:"🔥",
+stats:{power:88,speed:87,durability:86,skill:82,intelligence:74},
+moves:["Starbolt","Energy Burst","Flying Strike","Solar Blast","Starbolt Barrage"],
+style:"aerial energy combat",
+personality:"passionate and aggressive"
 },
 
 "Martian Manhunter":{
-moves:[
-"Telepathic Assault",
-"Martian Strength Strike",
-"Phasing Attack",
-"Telekinetic Blast",
-"Martian Charge",
-"Psychic Shock"
-],
-style:"versatile powerhouse using physical and psychic abilities",
-range:"all ranges"
+u:"dc",color:"#3f826b",emoji:"👽",
+stats:{power:95,speed:90,durability:92,skill:94,intelligence:98},
+moves:["Telepathic Assault","Martian Strength Strike","Phasing Attack","Telekinetic Blast","Shape-Shift Ambush"],
+style:"telepathy, phasing and physical power",
+personality:"calm and highly analytical"
 },
 
 "Shazam":{
-moves:[
-"Lightning Strike",
-"Magic Punch",
-"Flying Charge",
-"Thunderclap",
-"Lightning Barrage",
-"Magic Power Strike"
-],
-style:"high-powered magical brawler",
-range:"all ranges"
+u:"dc",color:"#315f9e",emoji:"⚡",
+stats:{power:96,speed:94,durability:94,skill:82,intelligence:76},
+moves:["Lightning Strike","Magic Punch","Flying Charge","Thunderclap","Shazam Bolt"],
+style:"magical superhuman offense",
+personality:"bold and impulsive"
 },
 
 "Black Adam":{
-moves:[
-"Lightning Blast",
-"Adam Force Punch",
-"Superhuman Charge",
-"Electrical Burst",
-"Lightning Barrage",
-"God-Speed Strike"
-],
-style:"aggressive supernatural powerhouse",
-range:"all ranges"
+u:"dc",color:"#927628",emoji:"⚡",
+stats:{power:98,speed:95,durability:97,skill:90,intelligence:87},
+moves:["Lightning Blast","Adam Force Punch","Superhuman Charge","Electrical Burst","God-Speed Strike"],
+style:"relentless magical assault",
+personality:"dominant and calculating"
 },
 
 "Darkseid":{
-moves:[
-"Omega Beam",
-"Darkseid Strike",
-"Omega Blast",
-"Apokoliptian Assault",
-"Omega Energy Wave",
-"Darkseid Smash"
-],
-style:"overwhelming cosmic conqueror",
-range:"all ranges"
+u:"dc",color:"#564e71",emoji:"Ω",
+stats:{power:100,speed:89,durability:100,skill:96,intelligence:100},
+moves:["Omega Beam","Darkseid Strike","Omega Blast","Apokoliptian Assault","Omega Barrage"],
+style:"overwhelming cosmic pressure",
+personality:"cold and methodical"
 },
 
 "Lex Luthor":{
-moves:[
-"Kryptonite Blast",
-"Power Suit Punch",
-"Energy Cannon",
-"Armor Missile Barrage",
-"Energy Shield",
-"Kryptonite Beam"
-],
-style:"strategic armored weapons specialist",
-range:"all ranges"
+u:"dc",color:"#63713d",emoji:"L",
+stats:{power:84,speed:62,durability:86,skill:81,intelligence:100},
+moves:["Kryptonite Blast","Power Suit Punch","Energy Cannon","Armor Missile Barrage","Tactical Disruptor"],
+style:"technology and calculated counters",
+personality:"intelligent and opportunistic"
 },
 
 "Deathstroke":{
-moves:[
-"Sword Combination",
-"Staff Strike",
-"Explosive Charge",
-"Tactical Counter",
-"Enhanced Strike",
-"Weapon Combination"
-],
-style:"precise enhanced mercenary",
-range:"close and mid-range"
+u:"dc",color:"#8a4b36",emoji:"⚔️",
+stats:{power:73,speed:82,durability:75,skill:100,intelligence:94},
+moves:["Sword Combination","Staff Strike","Explosive Charge","Tactical Counter","Precision Strike"],
+style:"elite tactical combat",
+personality:"patient and calculating"
 },
 
 "Harley Quinn":{
-moves:[
-"Hammer Strike",
-"Acrobat Assault",
-"Explosive Attack",
-"Baseball Bat Swing",
-"Mallet Charge",
-"Trick Shot"
-],
-style:"unpredictable acrobatic fighter",
-range:"close and mid-range"
+u:"dc",color:"#a94064",emoji:"🃏",
+stats:{power:59,speed:76,durability:61,skill:79,intelligence:70},
+moves:["Hammer Strike","Acrobat Assault","Explosive Attack","Baseball Bat Swing","Trick Attack"],
+style:"unpredictable close combat",
+personality:"chaotic and difficult to predict"
 },
 
 "Joker":{
-moves:[
-"Explosive Trick",
-"Electric Hand Buzzer",
-"Joker Gas",
-"Chaos Strike",
-"Hidden Weapon Attack",
-"Explosive Ambush"
-],
-style:"unpredictable psychological combatant",
-range:"all ranges"
+u:"dc",color:"#704795",emoji:"🃏",
+stats:{power:55,speed:62,durability:55,skill:73,intelligence:96},
+moves:["Explosive Trick","Electric Hand Buzzer","Joker Gas","Chaos Strike","Hidden Trap"],
+style:"traps and psychological warfare",
+personality:"unpredictable and manipulative"
 },
 
 "Bane":{
-moves:[
-"Venom Punch",
-"Power Slam",
-"Brutal Charge",
-"Ground Strike",
-"Venom Combination",
-"Crushing Takedown"
-],
-style:"methodical superhuman brawler",
-range:"close"
+u:"dc",color:"#536d50",emoji:"💪",
+stats:{power:84,speed:65,durability:87,skill:78,intelligence:82},
+moves:["Venom Punch","Power Slam","Brutal Charge","Ground Strike","Backbreaker"],
+style:"brute force and grappling",
+personality:"calculating and physically aggressive"
 },
 
 "Poison Ivy":{
-moves:[
-"Vine Lash",
-"Plant Bind",
-"Toxic Pollen",
-"Vine Crush",
-"Thorn Barrage",
-"Plant Surge"
-],
-style:"battlefield-controlling plant manipulator",
-range:"all ranges"
+u:"dc",color:"#3d914f",emoji:"🌿",
+stats:{power:79,speed:59,durability:69,skill:77,intelligence:89},
+moves:["Vine Lash","Plant Bind","Toxic Pollen","Vine Crush","Root Snare"],
+style:"environmental control",
+personality:"patient and controlling"
 },
 
 "Catwoman":{
-moves:[
-"Whip Strike",
-"Acrobatic Kick",
-"Claw Swipe",
-"Cat-Like Counter",
-"Whip Takedown",
-"Acrobatic Combination"
-],
-style:"fast evasive thief and martial artist",
-range:"close"
+u:"dc",color:"#606879",emoji:"🐈",
+stats:{power:58,speed:88,durability:59,skill:94,intelligence:82},
+moves:["Whip Strike","Acrobatic Kick","Claw Swipe","Cat-Like Counter","Vaulting Strike"],
+style:"evasion and precision",
+personality:"opportunistic and evasive"
 },
 
 "Doomsday":{
-moves:[
-"Doomsday Smash",
-"Ground Shockwave",
-"Brutal Charge",
-"Monster Strike",
-"Ground Slam",
-"Raging Assault"
-],
-style:"relentless destructive powerhouse",
-range:"close"
+u:"dc",color:"#596348",emoji:"☠️",
+stats:{power:100,speed:76,durability:100,skill:70,intelligence:50},
+moves:["Doomsday Smash","Ground Shockwave","Brutal Charge","Monster Strike","Adaptive Rage"],
+style:"unstoppable physical destruction",
+personality:"relentless and increasingly difficult to stop"
 },
 
 "Blue Beetle":{
-moves:[
-"Scarabean Cannon",
-"Energy Blade",
-"Armor Charge",
-"Energy Shield",
-"Plasma Wings",
-"Scarabean Missile Barrage"
-],
-style:"adaptive armored fighter",
-range:"all ranges"
+u:"dc",color:"#287bba",emoji:"🪲",
+stats:{power:82,speed:83,durability:87,skill:82,intelligence:85},
+moves:["Scarabean Cannon","Energy Blade","Armor Charge","Energy Shield","Scarab Missile"],
+style:"adaptive alien technology",
+personality:"quick-thinking and adaptable"
 },
 
 "Zatanna":{
-moves:[
-"Mystic Blast",
-"Magical Binding",
-"Reality Spell",
-"Arcane Shield",
-"Energy Reversal",
-"Binding Spell"
-],
-style:"creative high-level magic user",
-range:"all ranges"
+u:"dc",color:"#78529b",emoji:"✨",
+stats:{power:92,speed:67,durability:70,skill:89,intelligence:96},
+moves:["Mystic Blast","Magical Binding","Reality Spell","Arcane Shield","Mystic Counter"],
+style:"spell-based battlefield control",
+personality:"clever and composed"
 },
 
 "Constantine":{
-moves:[
-"Mystic Ward",
-"Occult Binding",
-"Demonic Counter",
-"Arcane Blast",
-"Magical Trap",
-"Hellfire Spell"
-],
-style:"trick-based supernatural tactician",
-range:"all ranges"
+u:"dc",color:"#756348",emoji:"🔮",
+stats:{power:72,speed:61,durability:63,skill:84,intelligence:98},
+moves:["Mystic Ward","Occult Binding","Demonic Counter","Arcane Blast","Hellfire Sigil"],
+style:"tricks, magic and counters",
+personality:"cunning and opportunistic"
 },
 
 "Swamp Thing":{
-moves:[
-"Vine Assault",
-"Plant Surge",
-"Swamp Crush",
-"Green Regeneration",
-"Root Bind",
-"Nature's Wrath"
-],
-style:"environmental powerhouse",
-range:"all ranges"
+u:"dc",color:"#477b48",emoji:"🌿",
+stats:{power:91,speed:56,durability:96,skill:74,intelligence:88},
+moves:["Vine Assault","Plant Surge","Swamp Crush","Green Regeneration","Root Prison"],
+style:"environmental domination",
+personality:"patient and relentless"
 },
 
 "Supergirl":{
-moves:[
-"Heat Vision",
-"Super Punch",
-"Kryptonian Charge",
-"Freeze Breath",
-"Super-Speed Blitz",
-"Flying Strike"
-],
-style:"high-speed Kryptonian powerhouse",
-range:"all ranges"
+u:"dc",color:"#b44d52",emoji:"★",
+stats:{power:96,speed:96,durability:96,skill:87,intelligence:82},
+moves:["Heat Vision","Super Punch","Kryptonian Charge","Freeze Breath","Super-Speed Strike"],
+style:"speed and overwhelming physical force",
+personality:"determined and aggressive when protecting allies"
 },
 
 "Red Hood":{
-moves:[
-"Dual Pistol Burst",
-"Explosive Round",
-"Helmet Strike",
-"Tactical Counter",
-"Heavy Pistol Burst",
-"Close Combat Combination"
-],
-style:"aggressive tactical fighter",
-range:"all ranges"
+u:"dc",color:"#934044",emoji:"🔫",
+stats:{power:66,speed:75,durability:67,skill:92,intelligence:86},
+moves:["Dual Pistol Burst","Explosive Round","Helmet Strike","Tactical Counter","Suppressive Fire"],
+style:"ranged tactical combat",
+personality:"practical and aggressive"
 }
 
 };
 
 
 /* =========================================================
-   TEAM VARIABLES
+   STATE
 ========================================================= */
 
-let team1 = [];
-let team2 = [];
-let battle = null;
+let team1=[];
+let team2=[];
+let board=[];
+let draftTurn=1;
+let battle=null;
 
 
 /* =========================================================
-   ADD CHARACTER
+   POOL
 ========================================================= */
 
-function addCharacter(team) {
+function getAvailablePool(){
 
-    const target =
-        team === 1 ? team1 : team2;
+    const universe=document.getElementById("universe").value;
 
-    if(target.length >= 5) {
+    return Object.keys(db).filter(name=>{
+        if(universe==="both") return true;
+        return db[name].u===universe;
+    });
+}
 
-        alert("Each team can have a maximum of 5 characters.");
+
+function buildPool(){
+
+    board=[];
+    document.getElementById("poolPanel").classList.add("hidden");
+
+    document.getElementById("draftStatus").textContent=
+        "Generate a board of 10 characters to begin the draft.";
+
+}
+
+
+/* =========================================================
+   GENERATE 10
+========================================================= */
+
+function generateTen(){
+
+    if(team1.length || team2.length){
+
+        alert("Reset the current teams before generating a new board.");
 
         return;
     }
 
-    const used =
-        [...team1,...team2];
+    const available=getAvailablePool();
 
-    const available =
-        characters.filter(
-            name => !used.includes(name)
-        );
+    board=[];
 
-    if(!available.length) {
+    while(board.length<10){
+
+        const candidate=random(available);
+
+        if(!board.includes(candidate)){
+            board.push(candidate);
+        }
+
+    }
+
+    draftTurn=1;
+
+    renderPool();
+
+    document.getElementById("poolPanel").classList.remove("hidden");
+
+    updateDraftStatus();
+
+}
+
+
+/* =========================================================
+   POOL DISPLAY
+========================================================= */
+
+function renderPool(){
+
+    const pool=document.getElementById("pool");
+
+    pool.innerHTML="";
+
+    board.forEach(name=>{
+
+        const div=document.createElement("div");
+
+        div.className="pool-card";
+
+        if(team1.includes(name)||team2.includes(name)){
+            div.classList.add("used");
+        }
+
+        div.style.color=db[name].color;
+
+        div.innerHTML=
+            `<strong>${db[name].emoji} ${name}</strong>`;
+
+        if(!team1.includes(name)&&!team2.includes(name)){
+
+            div.onclick=()=>draftCharacter(name);
+
+        }
+
+        pool.appendChild(div);
+
+    });
+
+}
+
+
+function updateDraftStatus(){
+
+    const size=parseInt(document.getElementById("teamSize").value);
+
+    if(team1.length>=size && team2.length>=size){
+
+        document.getElementById("draftStatus").innerHTML=
+            "✅ <strong>DRAFT COMPLETE.</strong> Teams are ready for battle.";
+
+        return;
+    }
+
+    document.getElementById("draftStatus").innerHTML=
+        `🎯 <strong>TEAM ${draftTurn}</strong> — select a character from the board. 
+        Drafting alternates between teams.`;
+
+}
+
+
+/* =========================================================
+   DRAFT
+========================================================= */
+
+function draftCharacter(name){
+
+    const size=parseInt(document.getElementById("teamSize").value);
+
+    if(team1.length>=size && team2.length>=size){
+        return;
+    }
+
+    if(team1.includes(name)||team2.includes(name)){
+        return;
+    }
+
+    if(draftTurn===1){
+
+        team1.push(name);
+
+    }else{
+
+        team2.push(name);
+
+    }
+
+    renderTeams();
+    renderPool();
+
+    if(team1.length>=size && team2.length>=size){
+
+        updateDraftStatus();
+
+        return;
+    }
+
+    draftTurn=draftTurn===1?2:1;
+
+    if(team1.length>=size) draftTurn=2;
+    if(team2.length>=size) draftTurn=1;
+
+    updateDraftStatus();
+
+}
+
+
+/* =========================================================
+   TEAM DISPLAY
+========================================================= */
+
+function renderTeams(){
+
+    const a=document.getElementById("team1");
+    const b=document.getElementById("team2");
+
+    a.innerHTML="";
+    b.innerHTML="";
+
+    team1.forEach((name,i)=>{
+
+        a.appendChild(characterCard(name,i));
+
+    });
+
+    team2.forEach((name,i)=>{
+
+        b.appendChild(characterCard(name,i));
+
+    });
+
+}
+
+
+function characterCard(name,index){
+
+    const d=document.createElement("div");
+
+    d.className="character";
+
+    d.style.borderColor=db[name].color;
+
+    d.style.color=db[name].color;
+
+    d.innerHTML=`
+
+        <div class="avatar">
+            ${db[name].emoji}
+        </div>
+
+        <div>
+            ${index+1}. ${name}
+        </div>
+
+    `;
+
+    return d;
+
+}
+
+
+/* =========================================================
+   WHEEL
+========================================================= */
+
+function showWheel(){
+
+    document.getElementById("wheelPanel")
+        .classList.toggle("hidden");
+
+}
+
+
+function spinWheel(){
+
+    const available=getAvailablePool()
+        .filter(name=>!team1.includes(name)&&!team2.includes(name));
+
+    if(!available.length){
 
         alert("No characters remain.");
 
         return;
     }
 
-    const selected =
-        random(available);
+    const chosen=random(available);
 
-    target.push(selected);
+    const wheel=document.getElementById("wheel");
 
-    displayTeams();
+    wheel.style.transform=
+        `rotate(${1440+Math.floor(Math.random()*720)}deg)`;
 
-}
+    setTimeout(()=>{
 
+        document.getElementById("wheelResult").innerHTML=
+            `🎯 <strong style="color:${db[chosen].color}">
+            ${db[chosen].emoji} ${chosen}
+            </strong>`;
 
-/* =========================================================
-   DISPLAY TEAMS
-========================================================= */
-
-function displayTeams() {
-
-    document.getElementById("team1").innerHTML =
-        team1.map(
-            (name,index) =>
-            `<div class="character">
-                ${index+1}. ${name}
-            </div>`
-        ).join("");
-
-    document.getElementById("team2").innerHTML =
-        team2.map(
-            (name,index) =>
-            `<div class="character">
-                ${index+1}. ${name}
-            </div>`
-        ).join("");
+    },2500);
 
 }
 
 
 /* =========================================================
-   HELPERS
+   BATTLE START
 ========================================================= */
 
-function random(array) {
+function startBattle(){
 
-    return array[
-        Math.floor(Math.random()*array.length)
-    ];
+    const size=parseInt(document.getElementById("teamSize").value);
 
-}
+    if(team1.length!==size || team2.length!==size){
 
-function living(team) {
-
-    return team.filter(
-        fighter => fighter.alive
-    );
-
-}
-
-function getMove(name) {
-
-    return random(
-        combat[name].moves
-    );
-
-}
-
-
-/* =========================================================
-   DAMAGE
-========================================================= */
-
-function damageFor(name, move) {
-
-    let damage =
-        Math.floor(Math.random()*13)+10;
-
-    const heavy = [
-
-        "Hulk",
-        "Thor",
-        "Superman",
-        "Wonder Woman",
-        "Captain Marvel",
-        "Darkseid",
-        "Doomsday",
-        "Black Adam",
-        "Shazam",
-        "Jean Grey",
-        "Doctor Doom",
-        "Martian Manhunter"
-
-    ];
-
-    if(heavy.includes(name)) {
-
-        damage +=
-            Math.floor(Math.random()*10);
-
-    }
-
-    if(
-        move.includes("Smash") ||
-        move.includes("Barrage") ||
-        move.includes("Blast") ||
-        move.includes("Beam") ||
-        move.includes("Uppercut") ||
-        move.includes("Strike")
-    ) {
-
-        damage +=
-            Math.floor(Math.random()*5);
-
-    }
-
-    return damage;
-
-}
-
-
-/* =========================================================
-   START
-========================================================= */
-
-function startBattle() {
-
-    if(!team1.length || !team2.length) {
-
-        alert("Both teams need at least one character.");
+        alert(`Both teams must have exactly ${size} characters.`);
 
         return;
     }
 
-    battle = {
+    const power=document.getElementById("powerMode").value;
+
+    battle={
 
         round:1,
 
-        team1:
-            team1.map(name => ({
-                name:name,
-                hp:100,
-                alive:true
-            })),
+        team1:team1.map(name=>makeFighter(name,1,power)),
 
-        team2:
-            team2.map(name => ({
-                name:name,
-                hp:100,
-                alive:true
-            })),
+        team2:team2.map(name=>makeFighter(name,2,power)),
 
-        finished:false
+        finished:false,
+
+        history:[]
 
     };
 
-    document
-        .getElementById("battleHUD")
-        .classList
-        .remove("hidden");
+    document.getElementById("battleHUD")
+        .classList.remove("hidden");
 
     renderHealth();
 
-    document.getElementById("battle").innerHTML = `
+    document.getElementById("battle").innerHTML=`
 
-        <div class="story">
+        <h2>⚔️ THE BATTLE BEGINS</h2>
 
-            <h2>THE BATTLE BEGINS</h2>
+        <div class="story-text">
 
-            <p>
-                The battlefield falls silent as the two teams
-                take their positions. Broken concrete stretches
-                across the ground, abandoned buildings rise on
-                either side, and the distance between the two
-                groups suddenly feels very small.
-            </p>
+        <p>
+        The battlefield falls silent as both teams take their positions.
+        Dust drifts across the ground while every combatant studies the
+        opposing formation, searching for the first weakness.
+        </p>
 
-            <p>
-                Nobody moves.
-            </p>
+        <p>
+        There will be no shortcuts. The battle will continue round by
+        round until one entire team has been eliminated.
+        </p>
 
-            <p>
-                Then the first fighter steps forward.
-            </p>
+        </div>
 
-            <div class="next">
-
-                <button
-                    class="primary"
-                    onclick="simulateRound()"
-                >
-                    ▶ SIMULATE ROUND 1
-                </button>
-
-            </div>
-
+        <div class="next">
+            <button class="primary next-button"
+            onclick="simulateRound()">
+            ▶ SIMULATE ROUND 1
+            </button>
         </div>
 
     `;
@@ -1534,53 +1447,106 @@ function startBattle() {
 
 
 /* =========================================================
-   HEALTH HUD
+   FIGHTER
 ========================================================= */
 
-function renderHealth() {
+function makeFighter(name,team,power){
 
-    if(!battle) return;
+    const base=db[name].stats;
 
-    document.getElementById("roundDisplay")
-        .textContent =
-        battle.finished
-        ? "BATTLE OVER"
-        : `ROUND ${battle.round}`;
+    let multiplier=1;
 
-    document.getElementById("healthTeam1").innerHTML =
-        battle.team1.map(
-            makeHealthCard
-        ).join("");
+    if(power==="amped") multiplier=1.18;
 
-    document.getElementById("healthTeam2").innerHTML =
-        battle.team2.map(
-            makeHealthCard
-        ).join("");
+    if(power==="mixed"){
+        multiplier=Math.random()<.5?1:1.18;
+    }
+
+    return{
+
+        name,
+
+        team,
+
+        hp:100,
+
+        alive:true,
+
+        power:Math.round(base.power*multiplier),
+
+        speed:Math.round(base.speed*multiplier),
+
+        durability:Math.round(base.durability*multiplier),
+
+        skill:Math.round(base.skill*multiplier),
+
+        intelligence:Math.round(base.intelligence*multiplier),
+
+        style:db[name].style,
+
+        personality:db[name].personality,
+
+        moves:db[name].moves,
+
+        damageTaken:0,
+
+        eliminations:0
+
+    };
 
 }
 
 
-function makeHealthCard(fighter) {
+/* =========================================================
+   HEALTH
+========================================================= */
 
-    let hpClass = "";
+function renderHealth(){
 
-    if(fighter.hp <= 25)
-        hpClass = "low";
+    if(!battle) return;
 
-    else if(fighter.hp <= 50)
-        hpClass = "medium";
+    renderHealthTeam(
+        battle.team1,
+        document.getElementById("healthTeam1")
+    );
 
-    return `
+    renderHealthTeam(
+        battle.team2,
+        document.getElementById("healthTeam2")
+    );
 
-        <div class="health-card ${
-            fighter.alive ? "" : "dead"
-        }">
+    document.getElementById("roundNumber").textContent=
+        battle.finished
+        ?"BATTLE OVER"
+        :`ROUND ${battle.round}`;
+
+}
+
+
+function renderHealthTeam(team,element){
+
+    element.innerHTML="";
+
+    team.forEach(fighter=>{
+
+        const card=document.createElement("div");
+
+        card.className="health-card";
+
+        if(!fighter.alive){
+            card.classList.add("dead");
+        }
+
+        let cls="";
+
+        if(fighter.hp<=25) cls="low";
+        else if(fighter.hp<=50) cls="medium";
+
+        card.innerHTML=`
 
             <div class="health-name">
 
-                <span>
-                    ${fighter.name}
-                </span>
+                <span>${fighter.name}</span>
 
                 <span class="hp-number">
                     ${fighter.hp} HP
@@ -1590,565 +1556,532 @@ function makeHealthCard(fighter) {
 
             <div class="hp-bar">
 
-                <div
-                    class="hp-fill ${hpClass}"
-                    style="width:${fighter.hp}%"
-                ></div>
+                <div class="hp-fill ${cls}"
+                     style="width:${fighter.hp}%">
+                </div>
 
             </div>
 
             ${
                 !fighter.alive
-                ?
-                `<div class="dead-label">
-                    ☠ ELIMINATED
-                </div>`
-                :
-                ""
+                ? `<div class="dead-label">☠ ELIMINATED</div>`
+                :""
             }
 
-        </div>
+        `;
 
-    `;
+        element.appendChild(card);
+
+    });
 
 }
 
 
 /* =========================================================
-   CINEMATIC ATTACK
+   HELPERS
 ========================================================= */
 
-function cinematicAttack(attacker,target,teamNumber) {
+function random(arr){
 
-    const move =
-        getMove(attacker.name);
+    return arr[Math.floor(Math.random()*arr.length)];
 
-    const damage =
-        damageFor(attacker.name,move);
+}
 
-    const oldHP =
-        target.hp;
+function living(team){
 
-    target.hp =
-        Math.max(0,target.hp-damage);
+    return team.filter(f=>f.alive);
 
-    let text = "";
+}
 
+function opponentTeam(fighter){
 
-    /*
-       Special writing for iconic characters.
-    */
+    return fighter.team===1
+        ? battle.team2
+        : battle.team1;
 
-    if(attacker.name === "Hulk") {
+}
 
-        text += `
+function getMove(fighter){
 
-        <p>
-            Hulk suddenly explodes forward, his footsteps
-            cracking the pavement beneath him. He closes the
-            distance before ${target.name} can establish a
-            proper defense and swings with a brutal
-            <span class="move">${move}</span>.
-            The blow tears through the battlefield and sends
-            ${target.name} violently backward.
-        </p>
+    return random(fighter.moves);
 
-        `;
+}
 
-    }
+function clampDamage(attacker,target){
 
-    else if(attacker.name === "Superman") {
+    const offense=
+        attacker.power*.38+
+        attacker.skill*.28+
+        attacker.speed*.14+
+        attacker.intelligence*.10;
 
-        text += `
+    const defense=
+        target.durability*.22;
 
-        <p>
-            Superman disappears in a blur of movement.
-            The sound of his acceleration reaches the battlefield
-            a fraction of a second after he has already crossed it.
-            He appears directly in front of ${target.name} and
-            unleashes a devastating
-            <span class="move">${move}</span>.
-        </p>
+    let damage=
+        Math.round(
+            7+
+            offense/12-
+            defense/16+
+            Math.random()*7
+        );
 
-        `;
+    if(damage<6) damage=6;
+    if(damage>28) damage=28;
 
-    }
-
-    else if(
-        attacker.name === "The Flash" ||
-        attacker.name === "Quicksilver"
-    ) {
-
-        text += `
-
-        <p>
-            ${attacker.name} lowers into a runner's stance and
-            vanishes from sight. A streak of motion circles
-            ${target.name}, followed by a rapid series of impacts.
-            The sequence ends with
-            <span class="move">${move}</span>,
-            catching ${target.name} before they can react.
-        </p>
-
-        `;
-
-    }
-
-    else if(
-        attacker.name === "Thor" ||
-        attacker.name === "Captain Marvel" ||
-        attacker.name === "Black Adam" ||
-        attacker.name === "Shazam"
-    ) {
-
-        text += `
-
-        <p>
-            ${attacker.name} surges forward with overwhelming
-            force. Energy erupts across the battlefield as
-            ${attacker.name} unleashes
-            <span class="move">${move}</span>.
-            The impact sends a shockwave across the ground and
-            forces ${target.name} to absorb the full force of
-            the attack.
-        </p>
-
-        `;
-
-    }
-
-    else if(
-        attacker.name === "Batman" ||
-        attacker.name === "Nightwing" ||
-        attacker.name === "Deathstroke" ||
-        attacker.name === "Black Canary"
-    ) {
-
-        text += `
-
-        <p>
-            ${attacker.name} does not rush blindly. A brief
-            movement from ${target.name} reveals an opening.
-            ${attacker.name} immediately exploits it, chaining
-            together precise movements before finishing with
-            <span class="move">${move}</span>.
-            The strike lands cleanly.
-        </p>
-
-        `;
-
-    }
-
-    else if(
-        attacker.name === "Storm" ||
-        attacker.name === "Magneto" ||
-        attacker.name === "Green Lantern" ||
-        attacker.name === "Raven"
-    ) {
-
-        text += `
-
-        <p>
-            The battlefield itself seems to respond to
-            ${attacker.name}. Energy gathers around the fighter
-            as they raise their hand and unleash
-            <span class="move">${move}</span>.
-            The attack tears across the battlefield and crashes
-            into ${target.name}.
-        </p>
-
-        `;
-
-    }
-
-    else {
-
-        text += `
-
-        <p>
-            ${attacker.name} sees an opening and commits immediately.
-            Moving with the instincts of a fighter who knows that
-            hesitation can be fatal, they unleash
-            <span class="move">${move}</span>.
-            ${target.name} attempts to react, but the attack reaches
-            them before they can completely escape its path.
-        </p>
-
-        `;
-
-    }
-
-
-    text += `
-
-        <p>
-            The attack reduces ${target.name}'s health from
-            <strong>${oldHP} HP</strong> to
-            <strong>${target.hp} HP</strong>.
-        </p>
-
-    `;
-
-
-    if(target.hp <= 0) {
-
-        target.alive = false;
-
-        text += `
-
-            <p class="elimination">
-                ☠ ${target.name} is eliminated.
-                The fighter falls out of the battle as the
-                remaining combatants immediately shift their
-                attention toward the changing battlefield.
-            </p>
-
-        `;
-
-    }
-
-    else {
-
-        const reactions = [
-
-            `${target.name} staggers backward but refuses to fall.`,
-
-            `${target.name} absorbs the impact and forces themselves back into position.`,
-
-            `${target.name} is clearly hurt, but the fighter remains on their feet.`,
-
-            `${target.name} slides across the ground before finally stopping and looking back toward the fight.`,
-
-            `${target.name} recovers their balance and immediately begins searching for another opening.`
-
-        ];
-
-        text += `
-
-            <p>
-                ${random(reactions)}
-            </p>
-
-        `;
-
-    }
-
-    return text;
+    return damage;
 
 }
 
 
 /* =========================================================
-   ROUND SIMULATION
+   INTELLIGENT TARGETING
 ========================================================= */
 
-function simulateRound() {
+function chooseTarget(attacker,targets){
 
-    if(!battle || battle.finished)
-        return;
+    if(!targets.length) return null;
 
+    const tacticalTargets=targets.map(target=>{
 
-    const round =
-        battle.round;
+        let score=0;
 
-    let story = `
+        score+=(100-target.hp)*.55;
+        score+=target.power*.12;
+        score+=target.skill*.08;
 
-        <div class="story">
+        if(target.hp<35) score+=20;
 
-            <h2>⚔️ ROUND ${round}</h2>
+        if(attacker.intelligence>90){
+            score+=Math.random()*15;
+        }else{
+            score+=Math.random()*30;
+        }
 
-            <p>
-                The next exchange begins.
-                The surviving fighters spread across the battlefield,
-                each one reacting to the damage already taken.
-                Wounded combatants become more cautious while the
-                stronger fighters begin pressing their advantages.
-            </p>
+        return{target,score};
 
-    `;
+    });
 
+    tacticalTargets.sort((a,b)=>b.score-a.score);
 
-    /*
-       Build attack order from every living fighter.
-    */
+    return tacticalTargets[0].target;
 
-    let order = [
-
-        ...living(battle.team1).map(f => ({
-            fighter:f,
-            team:1
-        })),
-
-        ...living(battle.team2).map(f => ({
-            fighter:f,
-            team:2
-        }))
-
-    ];
+}
 
 
-    /*
-       Randomize initiative.
-    */
+/* =========================================================
+   ROUND NARRATION
+========================================================= */
 
-    order.sort(
-        () => Math.random()-.5
-    );
+function simulateRound(){
 
+    if(!battle||battle.finished) return;
 
-    /*
-       Long battles receive additional exchanges.
-    */
+    const round=battle.round;
 
-    const depth =
-        document.getElementById("battleDepth").value;
+    let events=[];
 
-    if(depth === "long") {
+    let side1=living(battle.team1);
+    let side2=living(battle.team2);
 
-        const extra =
-            [...order]
-            .sort(() => Math.random()-.5)
-            .slice(
+    const actions=[];
+
+    side1.forEach(f=>{
+        actions.push({fighter:f,initiative:f.speed+Math.random()*30});
+    });
+
+    side2.forEach(f=>{
+        actions.push({fighter:f,initiative:f.speed+Math.random()*30});
+    });
+
+    actions.sort((a,b)=>b.initiative-a.initiative);
+
+    for(const action of actions){
+
+        const attacker=action.fighter;
+
+        if(!attacker.alive) continue;
+
+        const enemies=
+            living(opponentTeam(attacker));
+
+        if(!enemies.length) break;
+
+        const target=
+            chooseTarget(attacker,enemies);
+
+        const move=
+            getMove(attacker);
+
+        const damage=
+            clampDamage(attacker,target);
+
+        const counterChance=
+            Math.random()<
+            (target.skill/100)*.16;
+
+        let actualDamage=damage;
+
+        let counterText="";
+
+        if(counterChance){
+
+            actualDamage=
+                Math.max(
+                    3,
+                    Math.floor(damage*.45)
+                );
+
+            counterText=
+                ` ${target.name} reads the attack early and uses a <span class="counter">counter</span>, turning what should have been a clean hit into a glancing impact.`;
+
+        }
+
+        target.hp=
+            Math.max(
                 0,
-                Math.max(1,
-                Math.floor(order.length/2))
+                target.hp-actualDamage
             );
 
-        order =
-            [...order,...extra];
+        target.damageTaken+=actualDamage;
 
-    }
+        events.push({
 
+            attacker,
+            target,
+            move,
+            damage:actualDamage,
+            counterText
 
-    let attackNumber = 0;
+        });
 
+        if(target.hp<=0){
 
-    for(const action of order) {
+            target.alive=false;
 
-        if(
-            living(battle.team1).length === 0 ||
-            living(battle.team2).length === 0
-        )
-            break;
-
-
-        const attacker =
-            action.fighter;
-
-
-        if(!attacker.alive)
-            continue;
-
-
-        const enemyTeam =
-            action.team === 1
-            ? battle.team2
-            : battle.team1;
-
-
-        const targets =
-            living(enemyTeam);
-
-
-        if(!targets.length)
-            break;
-
-
-        /*
-           Characters with low health are slightly more
-           likely to be targeted.
-        */
-
-        const target =
-            random(targets);
-
-
-        attackNumber++;
-
-
-        story += `
-
-            <div class="story">
-
-                ${cinematicAttack(
-                    attacker,
-                    target,
-                    action.team
-                )}
-
-            </div>
-
-        `;
-
-
-        renderHealth();
-
-
-        /*
-           Check for winner immediately.
-        */
-
-        if(
-            living(battle.team1).length === 0 ||
-            living(battle.team2).length === 0
-        ) {
-
-            battle.finished = true;
-
-            renderHealth();
-
-            const winner =
-                living(battle.team1).length > 0
-                ? "TEAM 1"
-                : "TEAM 2";
-
-            story += winnerScreen(winner);
-
-            story += `</div>`;
-
-            document.getElementById("battle").innerHTML =
-                story;
-
-            return;
+            attacker.eliminations++;
 
         }
 
     }
 
+    const story=createRoundStory(round,events);
 
-    /*
-       ROUND END
-    */
+    battle.history.push(story);
 
-    const survivors1 =
-        living(battle.team1);
+    renderHealth();
 
-    const survivors2 =
-        living(battle.team2);
+    const team1Alive=
+        living(battle.team1).length;
 
+    const team2Alive=
+        living(battle.team2).length;
 
-    story += `
+    if(team1Alive===0||team2Alive===0){
 
-        <div class="round-summary">
+        battle.finished=true;
 
-            <strong>
-                ROUND ${round} COMPLETE
-            </strong>
+        const winner=
+            team1Alive>0
+            ?"TEAM 1"
+            :"TEAM 2";
+
+        document.getElementById("battle").innerHTML=
+            story+
+            createFinalConclusion(winner);
+
+        renderHealth();
+
+        return;
+
+    }
+
+    battle.round++;
+
+    document.getElementById("battle").innerHTML=
+        story+
+
+        `
+
+        <div class="round-end">
+
+            <strong>ROUND ${round} COMPLETE</strong>
 
             <p>
-                The latest exchange comes to an end.
-                The surviving fighters create distance while
-                assessing the damage inflicted during the round.
-            </p>
-
-            <p>
-                Team 1 has
-                <strong>${survivors1.length}</strong>
-                combatant(s) remaining.
-            </p>
-
-            <p>
-                Team 2 has
-                <strong>${survivors2.length}</strong>
-                combatant(s) remaining.
-            </p>
-
-            <p>
-                The health bars above now show the exact condition
-                of every remaining fighter.
+            The combatants separate as the battlefield settles.
+            Neither side has broken yet.
+            The health display above shows the current condition
+            of every fighter.
             </p>
 
         </div>
 
         <div class="next">
 
-            <button
-                class="primary"
-                onclick="simulateRound()"
-            >
+            <button class="primary"
+                onclick="simulateRound()">
+
                 ▶ NEXT ROUND
+
             </button>
 
         </div>
 
-    `;
-
-
-    battle.round++;
-
-    renderHealth();
-
-    document.getElementById("battle").innerHTML =
-        story;
+        `;
 
 }
 
 
 /* =========================================================
-   WINNER
+   SOPHISTICATED STORY GENERATOR
 ========================================================= */
 
-function winnerScreen(teamName) {
+function createRoundStory(round,events){
 
-    const winningTeam =
-        teamName === "TEAM 1"
-        ? battle.team1
-        : battle.team2;
+    let html=`
+
+    <h2>⚔️ ROUND ${round}</h2>
+
+    <div class="story-text">
+
+    `;
+
+    if(round===1){
+
+        html+=`
+
+        <p>
+        The fight begins with both sides refusing to commit blindly.
+        For several seconds the battlefield is almost unnaturally still.
+        Then one combatant recognizes the opening and the entire formation
+        erupts into motion.
+        </p>
+
+        `;
+
+    }else{
+
+        html+=`
+
+        <p>
+        Round ${round} begins amid the wreckage of the previous exchange.
+        The battlefield has changed, and so have the fighters. Wounds,
+        positioning and the lessons learned from the previous attacks now
+        influence every decision.
+        </p>
+
+        `;
+
+    }
+
+    events.forEach((event,index)=>{
+
+        const a=event.attacker;
+        const t=event.target;
+
+        const hpAfter=t.hp;
+
+        const tacticalLine=
+            tacticalDescription(a,t,event.move);
+
+        html+=`
+
+        <p>
+
+        <strong>${a.name}</strong>
+        ${tacticalLine}
+
+        The attack culminates in
+        <span class="move">${event.move}</span>.
+
+        ${t.name}
+        attempts to react, but the attack lands with enough force to
+        remove <strong>${event.damage} HP</strong> from the target.
+
+        ${event.counterText}
+
+        `;
+
+        if(!t.alive){
+
+            html+=`
+
+            <span class="elimination">
+            ${t.name} is eliminated from the battle.
+            </span>
+
+            The combatant drops out of the fight as the opposing team
+            immediately realizes that its formation has lost another
+            crucial piece.
+
+            `;
+
+        }else{
+
+            html+=`
+
+            ${t.name} survives the exchange with
+            <strong>${hpAfter} HP</strong> remaining.
+
+            Rather than retreat completely, the fighter adjusts position,
+            clearly preparing for the next exchange.
+
+            `;
+
+        }
+
+        html+=`</p>`;
+
+    });
+
+    html+=`
+
+    <p>
+    The round ends without either side surrendering ground completely.
+    Smoke, debris and energy hang over the battlefield while the remaining
+    fighters reassess their opponents. Every survivor now has a clearer
+    understanding of the enemy's timing, preferred targets and fighting
+    style.
+    </p>
+
+    </div>
+
+    `;
+
+    return html;
+
+}
 
 
-    const survivors =
+/* =========================================================
+   TACTICAL WRITING
+========================================================= */
+
+function tacticalDescription(attacker,target,move){
+
+    const style=attacker.style;
+
+    const options=[
+
+        `${attacker.name} circles outside ${target.name}'s immediate reach, using a ${style} approach to force the defender to commit first. Once the opening appears,`,
+
+        `${attacker.name} changes the rhythm of the fight, refusing to attack directly. Instead, the fighter exploits ${target.name}'s positioning and attacks from an unexpected angle. The maneuver ends with`,
+
+        `${attacker.name} studies ${target.name} for a brief moment before advancing. The strategy is clear: deny the opponent time to establish a comfortable position, then punish the first mistake. With that opening,`,
+
+        `${attacker.name} suddenly changes direction and attacks with precise timing. ${target.name} tries to anticipate the movement, but the attacker uses the surrounding battlefield to create just enough separation for a decisive strike. Then`,
+
+        `${attacker.name} recognizes that a straightforward attack would be too predictable. Instead, the fighter combines movement, timing and raw ability to draw ${target.name} into a vulnerable position before unleashing`
+    
+    ];
+
+    return random(options);
+
+}
+
+
+/* =========================================================
+   FINAL CONCLUSION
+========================================================= */
+
+function createFinalConclusion(winner){
+
+    const winningTeam=
+        winner==="TEAM 1"
+        ?battle.team1
+        :battle.team2;
+
+    const losingTeam=
+        winner==="TEAM 1"
+        ?battle.team2
+        :battle.team1;
+
+    const survivors=
         winningTeam
-        .filter(f => f.alive);
+        .filter(f=>f.alive)
+        .map(f=>`${f.name} (${f.hp} HP)`)
+        .join(", ");
+
+    const eliminated=
+        losingTeam
+        .filter(f=>!f.alive)
+        .map(f=>f.name)
+        .join(", ");
+
+    const strongest=
+        winningTeam
+        .filter(f=>f.alive)
+        .sort((a,b)=>
+            (b.hp+b.power+b.skill)-
+            (a.hp+a.power+a.skill)
+        )[0];
+
+    return`
+
+    <div class="winner">
+
+        <h2>🏆 ${winner} WINS</h2>
+
+        <p>
+        The final exchange leaves the battlefield completely silent.
+        The opposing team has been eliminated, leaving
+        <strong>${survivors}</strong>
+        standing amid the destruction.
+        </p>
+
+        <p>
+        ${strongest.name} emerges as the pivotal survivor, but the victory
+        belongs to the entire team. Their combination of individual ability,
+        positioning, target selection and tactical adaptation ultimately
+        broke through the opposing formation.
+        </p>
+
+        <p>
+        <strong>Eliminated:</strong>
+        ${eliminated}
+        </p>
+
+        <p>
+        The battle is over. There are no remaining combatants on the losing
+        side.
+        </p>
+
+    </div>
+
+    `;
+
+}
 
 
-    const survivorText =
-        survivors.length
-        ?
-        survivors
-        .map(
-            f =>
-            `${f.name} — ${f.hp} HP`
-        )
-        .join("<br>")
-        :
-        "No survivors";
+/* =========================================================
+   RESET
+========================================================= */
 
+function resetEverything(){
 
-    const difficulty =
-        survivors.length === 1
-        ? "Extreme"
-        : survivors.length === 2
-        ? "Very Hard"
-        : survivors.length >= 4
-        ? "Decisive"
-        : "Hard";
+    team1=[];
+    team2=[];
+    board=[];
+    battle=null;
+    draftTurn=1;
 
+    document.getElementById("team1").innerHTML="";
+    document.getElementById("team2").innerHTML="";
+    document.getElementById("pool").innerHTML="";
+    document.getElementById("poolPanel").classList.add("hidden");
+    document.getElementById("battleHUD").classList.add("hidden");
+    document.getElementById("wheelPanel").classList.add("hidden");
 
-    return `
+    document.getElementById("draftStatus").textContent=
+        "Generate a board of 10 characters to begin the draft.";
 
-        <div class="winner">
+    document.getElementById("battle").innerHTML=`
 
-            <h2>
-                🏆 ${teamName} WINS
-            </h2>
+        <h2>⚔️ BATTLE CONSOLE</h2>
 
-            <p>
-                The battlefield finally falls silent.
-                The opposing team has been completely eliminated,
-                leaving ${teamName} as the only side still standing.
-            </p>
-
-            <p>
-                <strong>Difficulty: ${difficulty}</strong>
-            </p>
-
-            <p>
-                <strong>Survivors</strong>
-                <br><br>
-                ${survivorText}
-            </p>
-
-        </div>
+        <p>
+        Generate a character board, draft your teams, and begin the battle.
+        </p>
 
     `;
 
