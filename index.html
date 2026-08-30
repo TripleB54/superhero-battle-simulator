@@ -3,389 +3,321 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
 <title>Superhero Battle Simulator</title>
 
 <style>
-
 * {
     box-sizing: border-box;
 }
 
 body {
     margin: 0;
-    font-family: Arial, Helvetica, sans-serif;
     background:
-        radial-gradient(circle at top, #172638 0%, #080c12 45%, #030507 100%);
-    color: #fff;
-    min-height: 100vh;
+        radial-gradient(circle at top, #17283a 0%, #080d13 45%, #020305 100%);
+    color: #eaf6ff;
+    font-family: Arial, Helvetica, sans-serif;
 }
 
 header {
-    padding: 28px 20px;
-    background: linear-gradient(180deg, #111c29, #080d14);
-    border-bottom: 1px solid #31475c;
-    box-shadow: 0 0 30px rgba(0,0,0,.6);
+    text-align: center;
+    padding: 30px 15px;
+    background: linear-gradient(#111d2a, #070b10);
+    border-bottom: 1px solid #29445c;
+    box-shadow: 0 0 25px #000;
 }
 
-h1 {
+header h1 {
     margin: 0;
     font-size: 38px;
     letter-spacing: 2px;
 }
 
 header p {
-    color: #8da4ba;
-    margin-bottom: 0;
-}
-
-button,
-select {
-    font-family: inherit;
+    color: #91a9bd;
 }
 
 button {
-    border: 1px solid #3c6a88;
-    background: linear-gradient(180deg, #18364d, #0b1b29);
-    color: white;
-    padding: 13px 22px;
+    border: 1px solid #3d6b88;
     border-radius: 8px;
+    padding: 13px 22px;
+    background: linear-gradient(#173b54, #0b1d2c);
+    color: white;
     font-size: 16px;
     font-weight: bold;
     cursor: pointer;
-    transition: .2s;
 }
 
 button:hover {
-    transform: translateY(-2px);
-    background: linear-gradient(180deg, #22516f, #10283b);
-    box-shadow: 0 0 18px rgba(40,180,255,.25);
+    background: linear-gradient(#225878, #103049);
+    box-shadow: 0 0 15px rgba(50,190,255,.3);
 }
 
 .primary {
-    background: linear-gradient(180deg, #008ec7, #00567c);
-    border-color: #45cfff;
+    background: linear-gradient(#009bd8, #005b82);
+    border-color: #4ad5ff;
 }
 
-.primary:hover {
-    background: linear-gradient(180deg, #00a9eb, #006b99);
-}
-
-.controls {
-    max-width: 1100px;
-    margin: 25px auto 10px;
-    padding: 0 20px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 12px;
-    flex-wrap: wrap;
-}
-
-.controls label {
-    color: #91a8bd;
-    font-size: 14px;
+.settings {
+    text-align: center;
+    margin: 20px;
 }
 
 select {
-    background: #0c141e;
+    background: #0b131c;
     color: white;
-    border: 1px solid #334b61;
-    border-radius: 7px;
-    padding: 10px 14px;
+    border: 1px solid #395066;
+    padding: 9px 14px;
+    border-radius: 6px;
 }
 
 /* TEAMS */
 
 .teams {
+    max-width: 1100px;
+    margin: 25px auto;
+    padding: 0 20px;
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 30px;
-    max-width: 1100px;
-    margin: 30px auto;
-    padding: 0 20px;
+    gap: 25px;
 }
 
 .team {
-    background: linear-gradient(145deg, #111b26, #080e15);
-    border: 1px solid #2b4054;
+    background: linear-gradient(145deg,#111d29,#070c12);
+    border: 1px solid #294257;
     border-radius: 14px;
-    padding: 22px;
-    min-height: 320px;
-    box-shadow: 0 15px 35px rgba(0,0,0,.35);
+    padding: 20px;
+    min-height: 280px;
 }
 
 .team h2 {
-    margin-top: 0;
-    font-size: 25px;
+    text-align: center;
 }
 
 .team1-title {
-    color: #36aaff;
+    color: #38adff;
 }
 
 .team2-title {
-    color: #ff596b;
-}
-
-.characters {
-    min-height: 200px;
+    color: #ff566a;
 }
 
 .character {
-    margin: 9px 0;
-    padding: 12px;
-    border-radius: 8px;
-    background: #18232e;
-    border: 1px solid #2d4355;
-    text-align: left;
+    padding: 11px;
+    margin: 8px 0;
+    background: #182633;
+    border: 1px solid #2b4357;
+    border-radius: 7px;
     font-weight: bold;
 }
 
-/* MAIN BATTLE */
-
-#battle {
-    max-width: 1100px;
-    margin: 30px auto;
-    padding: 25px;
-    background: linear-gradient(145deg, #101923, #070b10);
-    border: 1px solid #2c4154;
-    border-radius: 14px;
-    min-height: 180px;
-    box-shadow: 0 15px 40px rgba(0,0,0,.45);
-}
-
-.round {
-    background: rgba(12,22,32,.9);
-    border: 1px solid #293e51;
-    border-radius: 10px;
-    margin: 15px 0;
-    padding: 18px;
-    text-align: left;
-    line-height: 1.7;
-}
-
-.round-title {
-    color: #43cfff;
-    font-weight: 900;
-    letter-spacing: 1px;
-    border-bottom: 1px solid #25394a;
-    padding-bottom: 8px;
-    margin-bottom: 12px;
-}
-
-.elimination {
-    color: #ff586b;
-    font-weight: 900;
-}
-
-.winner {
-    margin-top: 25px;
-    padding: 25px;
-    text-align: center;
-    font-size: 32px;
-    font-weight: 900;
-    color: #ffd76a;
-    border: 1px solid #806b2d;
-    background: linear-gradient(145deg, #2a2411, #151207);
-    border-radius: 12px;
-    box-shadow: 0 0 30px rgba(255,190,50,.12);
-}
-
-/* HEALTH HUD */
+/* BATTLE HUD */
 
 #battleHUD {
     max-width: 1100px;
-    margin: 30px auto 0;
-    padding: 22px;
-    background: linear-gradient(145deg, #101923, #070b10);
-    border: 1px solid #2c4154;
+    margin: 25px auto;
+    padding: 20px;
+    background: linear-gradient(145deg,#101b26,#060a0f);
+    border: 1px solid #2b465b;
     border-radius: 14px;
-    box-shadow: 0 15px 40px rgba(0,0,0,.45);
+    box-shadow: 0 10px 35px #000;
 }
 
 .hidden {
     display: none !important;
 }
 
-.battle-hud-header {
+.hud-top {
     display: grid;
     grid-template-columns: 1fr auto 1fr;
     align-items: center;
-    gap: 20px;
     text-align: center;
-    border-bottom: 1px solid #26384d;
+    border-bottom: 1px solid #263c4e;
     padding-bottom: 15px;
 }
 
-.battle-hud-header h2 {
-    margin: 4px 0 0;
+.hud-team1 {
+    color: #35aaff;
 }
 
-.team1-hud {
-    color: #36aaff;
+.hud-team2 {
+    color: #ff596d;
 }
 
-.team2-hud {
-    color: #ff596b;
+.round-number {
+    color: #48d8ff;
+    font-size: 24px;
+    font-weight: bold;
 }
 
-.hud-label {
-    font-size: 9px;
-    letter-spacing: 3px;
-    color: #71859c;
-}
-
-.round-display {
-    font-size: 23px;
-    font-weight: 900;
-    color: #46ddff;
-    text-shadow: 0 0 15px rgba(70,221,255,.4);
-}
-
-.health-teams {
+.health-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 30px;
     margin-top: 20px;
 }
 
-.health-team {
+.health-column {
     display: flex;
     flex-direction: column;
-    gap: 10px;
+    gap: 9px;
 }
 
-.health-character {
-    background: #0a111a;
-    border: 1px solid #26384d;
-    border-radius: 9px;
-    padding: 11px;
-    transition: .3s;
+.health-card {
+    background: #091119;
+    border: 1px solid #263b4d;
+    border-radius: 8px;
+    padding: 10px;
 }
 
-.health-character.eliminated {
+.health-card.dead {
     opacity: .4;
     filter: grayscale(1);
 }
 
-.health-name-row {
+.health-name {
     display: flex;
     justify-content: space-between;
-    font-size: 13px;
     font-weight: bold;
+    font-size: 13px;
     margin-bottom: 7px;
 }
 
-.health-number {
-    color: #91a6bc;
+.hp-number {
+    color: #8ea6ba;
 }
 
-.health-bar {
+.hp-bar {
     height: 14px;
-    background: #05080d;
+    background: #020407;
+    border: 1px solid #263a4c;
     border-radius: 20px;
     overflow: hidden;
-    border: 1px solid #27384d;
 }
 
-.health-fill {
+.hp-fill {
     height: 100%;
     width: 100%;
-    background: linear-gradient(90deg,#20d47a,#7cf2a8);
-    transition: width .5s ease;
+    background: #20d77a;
+    transition: width .6s ease;
 }
 
-.health-fill.medium {
-    background: linear-gradient(90deg,#e6a72e,#f7d66b);
+.hp-fill.medium {
+    background: #e8b52e;
 }
 
-.health-fill.low {
-    background: linear-gradient(90deg,#d83245,#ff6978);
+.hp-fill.low {
+    background: #e23a4d;
 }
 
-.eliminated-text {
-    color: #ff5365;
-    font-size: 10px;
-    font-weight: 900;
-    letter-spacing: 1px;
+.dead-label {
     margin-top: 5px;
+    color: #ff5063;
+    font-size: 10px;
+    font-weight: bold;
 }
 
-.next-round-container {
+/* STORY */
+
+#battle {
+    max-width: 1100px;
+    margin: 25px auto;
+    padding: 25px;
+    background: linear-gradient(145deg,#101923,#060a0f);
+    border: 1px solid #2a4154;
+    border-radius: 14px;
+    box-shadow: 0 10px 35px #000;
+}
+
+.story-round {
+    margin: 15px 0;
+    padding: 18px;
+    background: #0b141d;
+    border: 1px solid #263d50;
+    border-radius: 9px;
+    text-align: left;
+    line-height: 1.75;
+}
+
+.story-title {
+    color: #46d8ff;
+    font-weight: bold;
+    border-bottom: 1px solid #263a4c;
+    padding-bottom: 8px;
+    margin-bottom: 12px;
+}
+
+.elimination {
+    color: #ff5368;
+    font-weight: bold;
+}
+
+.next-container {
     text-align: center;
-    padding: 22px 0 5px;
+    margin-top: 25px;
 }
 
-.next-round-button {
+.next-button {
     font-size: 18px;
-    padding: 15px 40px;
-    min-width: 230px;
+    padding: 16px 40px;
 }
 
-/* RESPONSIVE */
-
-@media(max-width: 750px) {
-
-    .teams {
-        grid-template-columns: 1fr;
-    }
-
-    .health-teams {
-        grid-template-columns: 1fr;
-    }
-
-    .battle-hud-header {
-        grid-template-columns: 1fr;
-    }
-
-    h1 {
-        font-size: 28px;
-    }
+.winner {
+    margin-top: 25px;
+    padding: 25px;
+    text-align: center;
+    border: 1px solid #8b7130;
+    border-radius: 10px;
+    background: #211b0b;
+    color: #ffd966;
+    font-size: 30px;
+    font-weight: bold;
 }
 
+.winner-info {
+    color: #d7e1e8;
+    font-size: 15px;
+    margin-top: 12px;
+    font-weight: normal;
+}
+
+@media(max-width:750px) {
+    .teams,
+    .health-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .hud-top {
+        grid-template-columns: 1fr;
+        gap: 10px;
+    }
+
+    header h1 {
+        font-size: 27px;
+    }
+}
 </style>
 </head>
 
 <body>
 
 <header>
-
     <h1>⚔️ SUPERHERO BATTLE SIMULATOR ⚔️</h1>
-
-    <p>
-        Assemble your teams. Enter the battlefield. Decide when the next round begins.
-    </p>
-
+    <p>Build your teams and control the battle round by round.</p>
 </header>
 
+<div class="settings">
 
-<!-- BATTLE SETTINGS -->
-
-<div class="controls">
-
-    <label for="battleDepth">
-        Battle Length:
+    <label>
+        Battle Depth:
     </label>
 
     <select id="battleDepth">
-
-        <option value="short">
-            Short
-        </option>
-
-        <option value="medium" selected>
-            Medium
-        </option>
-
-        <option value="long">
-            Long
-        </option>
-
+        <option value="short">Short</option>
+        <option value="medium" selected>Medium</option>
+        <option value="long">Long</option>
     </select>
 
 </div>
-
 
 <!-- TEAMS -->
 
@@ -397,7 +329,7 @@ select {
             🔵 TEAM 1
         </h2>
 
-        <div id="team1" class="characters"></div>
+        <div id="team1"></div>
 
         <button onclick="addCharacter(1)">
             🎲 Add Character
@@ -405,14 +337,13 @@ select {
 
     </div>
 
-
     <div class="team">
 
         <h2 class="team2-title">
             🔴 TEAM 2
         </h2>
 
-        <div id="team2" class="characters"></div>
+        <div id="team2"></div>
 
         <button onclick="addCharacter(2)">
             🎲 Add Character
@@ -422,95 +353,60 @@ select {
 
 </div>
 
-
 <div style="text-align:center;">
 
-    <button
-        class="primary"
-        onclick="startBattle()"
-    >
+    <button class="primary" onclick="startBattle()">
         ⚔️ START BATTLE
     </button>
 
 </div>
 
+<!-- BATTLE HEALTH HUD -->
 
-<!-- HEALTH HUD -->
+<div id="battleHUD" class="hidden">
 
-<section id="battleHUD" class="hidden">
-
-    <div class="battle-hud-header">
+    <div class="hud-top">
 
         <div>
-
-            <span class="hud-label">
-                TEAM 1
-            </span>
-
-            <h2 class="team1-hud">
-                🔵 TEAM 1
-            </h2>
-
+            <h2 class="hud-team1">🔵 TEAM 1</h2>
         </div>
 
-
-        <div
-            id="roundDisplay"
-            class="round-display"
-        >
+        <div id="roundNumber" class="round-number">
             ROUND 1
         </div>
 
-
         <div>
-
-            <span class="hud-label">
-                TEAM 2
-            </span>
-
-            <h2 class="team2-hud">
-                🔴 TEAM 2
-            </h2>
-
+            <h2 class="hud-team2">🔴 TEAM 2</h2>
         </div>
 
     </div>
 
+    <div class="health-grid">
 
-    <div class="health-teams">
+        <div id="healthTeam1" class="health-column"></div>
 
-        <div
-            id="healthTeam1"
-            class="health-team"
-        ></div>
-
-        <div
-            id="healthTeam2"
-            class="health-team"
-        ></div>
+        <div id="healthTeam2" class="health-column"></div>
 
     </div>
 
-</section>
+</div>
 
-
-<!-- BATTLE STORY -->
+<!-- STORY -->
 
 <div id="battle">
 
-    <h2>Battle</h2>
+    <h2>Battle Console</h2>
 
     <p>
-        Build both teams and start the battle!
+        Build both teams and press START BATTLE.
     </p>
 
 </div>
 
-
 <script>
 
 /* =========================================================
-   CHARACTER DATABASE
+   CHARACTER POOL — 60
 ========================================================= */
 
 const characters = [
@@ -581,7 +477,60 @@ const characters = [
 
 
 /* =========================================================
-   TEAMS
+   MOVE LIST
+========================================================= */
+
+const moves = {
+
+    "Spider-Man": ["Web Strike","Web Barrage","Web Swing Kick","Spider-Sense Counter"],
+    "Miles Morales": ["Venom Strike","Venom Blast","Camouflage Strike","Bio-Electric Punch"],
+    "Captain Marvel": ["Photon Blast","Binary Strike","Cosmic Punch","Energy Burst"],
+    "Jean Grey": ["Telekinetic Crush","Psychic Assault","Psychic Shockwave","Telekinetic Shield"],
+    "Wolverine": ["Adamantium Slash","Berserker Charge","Claw Strike","Savage Counter"],
+    "Hulk": ["Hulk Smash","Thunderclap","Ground Pound","Gamma Charge"],
+    "Thor": ["Mjolnir Strike","Lightning Bolt","Thunderclap","Stormbreaker Slam"],
+    "Iron Man": ["Repulsor Blast","Unibeam","Missile Barrage","Armor-Assisted Strike"],
+    "Doctor Doom": ["Doom Beam","Mystic Blast","Force Field Counter","Doombot Assault"],
+    "Magneto": ["Magnetic Crush","Metal Storm","Electromagnetic Pulse","Magnetic Shield"],
+    "Storm": ["Lightning Strike","Cyclone","Wind Blast","Thunderstorm"],
+    "Deadpool": ["Twin Blade Assault","Gunfire Burst","Acrobatic Strike","Regeneration Counter"],
+
+    "Batman": ["Batarang Barrage","Grapnel Strike","Smoke Counter","Martial Arts Combination"],
+    "Superman": ["Heat Vision","Super Punch","Flying Charge","Freeze Breath"],
+    "Wonder Woman": ["Lasso Strike","Amazonian Combination","Bracelet Counter","Sword Strike"],
+    "The Flash": ["Speed Blitz","Lightning Punch","Phasing Strike","Speed Force Barrage"],
+    "Green Lantern": ["Energy Construct","Power Ring Blast","Construct Hammer","Energy Shield"],
+    "Aquaman": ["Trident Strike","Atlantean Charge","Tidal Blast","Trident Throw"],
+    "Cyborg": ["Sonic Cannon","Arm Cannon Blast","Cybernetic Charge","Tech Override"],
+    "Green Arrow": ["Explosive Arrow","Trick Arrow","Rapid Arrow Shot","Grappling Arrow"],
+    "Black Canary": ["Canary Cry","Sonic Burst","Martial Arts Strike","Sonic Counter"],
+    "Nightwing": ["Escrima Strike","Acrobatic Assault","Electric Kali Strike","Aerial Kick"],
+    "Raven": ["Soul-Self Strike","Dark Energy Blast","Telekinetic Attack","Shadow Bind"],
+    "Starfire": ["Starbolt","Energy Burst","Flying Strike","Solar Blast"],
+    "Martian Manhunter": ["Telepathic Assault","Martian Strength Strike","Phasing Attack","Telekinetic Blast"],
+    "Shazam": ["Lightning Strike","Magic Punch","Flying Charge","Thunderclap"],
+    "Black Adam": ["Lightning Blast","Adam Force Punch","Superhuman Charge","Electrical Burst"],
+    "Darkseid": ["Omega Beam","Darkseid Strike","Omega Blast","Apokoliptian Assault"],
+    "Lex Luthor": ["Kryptonite Blast","Power Suit Punch","Energy Cannon","Armor Missile Barrage"],
+    "Deathstroke": ["Sword Combination","Staff Strike","Explosive Charge","Tactical Counter"],
+    "Harley Quinn": ["Hammer Strike","Acrobat Assault","Explosive Attack","Baseball Bat Swing"],
+    "Joker": ["Explosive Trick","Electric Hand Buzzer","Joker Gas","Chaos Strike"],
+    "Bane": ["Venom Punch","Power Slam","Brutal Charge","Ground Strike"],
+    "Poison Ivy": ["Vine Lash","Plant Bind","Toxic Pollen","Vine Crush"],
+    "Catwoman": ["Whip Strike","Acrobatic Kick","Claw Swipe","Cat-Like Counter"],
+    "Doomsday": ["Doomsday Smash","Ground Shockwave","Brutal Charge","Monster Strike"],
+    "Blue Beetle": ["Scarabean Cannon","Energy Blade","Armor Charge","Energy Shield"],
+    "Zatanna": ["Mystic Blast","Magical Binding","Reality Spell","Arcane Shield"],
+    "Constantine": ["Mystic Ward","Occult Binding","Demonic Counter","Arcane Blast"],
+    "Swamp Thing": ["Vine Assault","Plant Surge","Swamp Crush","Green Regeneration"],
+    "Supergirl": ["Heat Vision","Super Punch","Kryptonian Charge","Freeze Breath"],
+    "Red Hood": ["Dual Pistol Burst","Explosive Round","Helmet Strike","Tactical Counter"]
+
+};
+
+
+/* =========================================================
+   TEAM VARIABLES
 ========================================================= */
 
 let team1 = [];
@@ -589,113 +538,78 @@ let team2 = [];
 
 
 /* =========================================================
-   ADD RANDOM CHARACTER
+   ADD CHARACTER
 ========================================================= */
 
 function addCharacter(team) {
 
-    if (team === 1 && team1.length >= 5) {
+    const target = team === 1 ? team1 : team2;
 
-        alert("Team 1 already has 5 characters!");
+    if (target.length >= 5) {
 
-        return;
-    }
-
-    if (team === 2 && team2.length >= 5) {
-
-        alert("Team 2 already has 5 characters!");
+        alert("Each team can have a maximum of 5 characters.");
 
         return;
     }
 
-
-    const alreadyUsed = [
-        ...team1,
-        ...team2
-    ];
-
+    const used = [...team1, ...team2];
 
     const available =
-        characters.filter(
-            character =>
-                !alreadyUsed.includes(character)
-        );
-
+        characters.filter(name => !used.includes(name));
 
     if (available.length === 0) {
 
-        alert("There are no unused characters left.");
+        alert("There are no characters remaining.");
 
         return;
     }
 
+    const name =
+        available[Math.floor(Math.random() * available.length)];
 
-    const randomCharacter =
-        available[
-            Math.floor(
-                Math.random() * available.length
-            )
-        ];
+    target.push(name);
 
-
-    if (team === 1) {
-
-        team1.push(randomCharacter);
-
-    } else {
-
-        team2.push(randomCharacter);
-
-    }
-
-
-    displayTeam(team);
-
+    displayTeams();
 }
 
 
 /* =========================================================
-   DISPLAY TEAM
+   DISPLAY TEAMS
 ========================================================= */
 
-function displayTeam(team) {
+function displayTeams() {
 
-    const list =
-        team === 1
-            ? team1
-            : team2;
+    const t1 = document.getElementById("team1");
+    const t2 = document.getElementById("team2");
 
+    t1.innerHTML = "";
+    t2.innerHTML = "";
 
-    const element =
-        document.getElementById(
-            team === 1
-                ? "team1"
-                : "team2"
-        );
+    team1.forEach((name,index) => {
 
+        const div = document.createElement("div");
 
-    element.innerHTML = "";
+        div.className = "character";
 
+        div.textContent =
+            `${index + 1}. ${name}`;
 
-    list.forEach(
-        (character,index) => {
+        t1.appendChild(div);
 
-            const div =
-                document.createElement("div");
+    });
 
+    team2.forEach((name,index) => {
 
-            div.className =
-                "character";
+        const div = document.createElement("div");
 
+        div.className = "character";
 
-            div.innerHTML =
-                `${index + 1}. ${character}`;
+        div.textContent =
+            `${index + 1}. ${name}`;
 
+        t2.appendChild(div);
 
-            element.appendChild(div);
-
-        }
-    );
+    });
 
 }
 
@@ -704,7 +618,7 @@ function displayTeam(team) {
    BATTLE STATE
 ========================================================= */
 
-let battleState = null;
+let battle = null;
 
 
 /* =========================================================
@@ -718,39 +632,35 @@ function startBattle() {
         team2.length === 0
     ) {
 
-        alert(
-            "Both teams need at least one character!"
-        );
+        alert("Both teams need at least one character.");
 
         return;
     }
 
 
-    battleState = {
+    battle = {
 
         round: 1,
 
-        fighters1:
-            team1.map(character => ({
+        team1: team1.map(name => ({
 
-                name: character,
+            name: name,
 
-                health: 100,
+            hp: 100,
 
-                eliminated: false
+            alive: true
 
-            })),
+        })),
 
-        fighters2:
-            team2.map(character => ({
+        team2: team2.map(name => ({
 
-                name: character,
+            name: name,
 
-                health: 100,
+            hp: 100,
 
-                eliminated: false
+            alive: true
 
-            })),
+        })),
 
         finished: false
 
@@ -763,7 +673,7 @@ function startBattle() {
         .remove("hidden");
 
 
-    renderHealthBars();
+    renderHealth();
 
 
     document.getElementById("battle").innerHTML = `
@@ -771,21 +681,22 @@ function startBattle() {
         <h2>⚔️ BATTLE READY</h2>
 
         <p>
-            The battlefield is established. Both teams
-            stand ready and every combatant begins at full
+            The two teams take their positions across the
+            battlefield. Every combatant begins at full
             strength.
         </p>
 
         <p>
-            The simulation will stop after every round.
-            You decide when the next exchange begins.
+            <strong>
+                The battle will now proceed one round at a time.
+            </strong>
         </p>
 
-        <div class="next-round-container">
+        <div class="next-container">
 
             <button
-                class="primary next-round-button"
-                onclick="simulateNextRound()"
+                class="primary next-button"
+                onclick="simulateRound()"
             >
                 ▶ SIMULATE ROUND 1
             </button>
@@ -798,133 +709,111 @@ function startBattle() {
 
 
 /* =========================================================
-   HEALTH BAR DISPLAY
+   HEALTH BAR
 ========================================================= */
 
-function renderHealthBars() {
+function renderHealth() {
 
-    const team1Element =
-        document.getElementById(
-            "healthTeam1"
+    const t1 =
+        document.getElementById("healthTeam1");
+
+    const t2 =
+        document.getElementById("healthTeam2");
+
+
+    t1.innerHTML = "";
+
+    t2.innerHTML = "";
+
+
+    battle.team1.forEach(fighter => {
+
+        t1.appendChild(
+            makeHealthCard(fighter)
         );
 
-    const team2Element =
-        document.getElementById(
-            "healthTeam2"
+    });
+
+
+    battle.team2.forEach(fighter => {
+
+        t2.appendChild(
+            makeHealthCard(fighter)
         );
 
-
-    team1Element.innerHTML = "";
-
-    team2Element.innerHTML = "";
-
-
-    battleState.fighters1.forEach(
-        fighter => {
-
-            team1Element.appendChild(
-                createHealthBar(fighter)
-            );
-
-        }
-    );
-
-
-    battleState.fighters2.forEach(
-        fighter => {
-
-            team2Element.appendChild(
-                createHealthBar(fighter)
-            );
-
-        }
-    );
+    });
 
 
     document.getElementById(
-        "roundDisplay"
+        "roundNumber"
     ).textContent =
-        battleState.finished
-            ? "BATTLE COMPLETE"
-            : `ROUND ${battleState.round}`;
+        battle.finished
+            ? "BATTLE OVER"
+            : `ROUND ${battle.round}`;
 
 }
 
 
 /* =========================================================
-   CREATE HEALTH BAR
+   HEALTH CARD
 ========================================================= */
 
-function createHealthBar(fighter) {
+function makeHealthCard(fighter) {
 
-    const container =
+    const card =
         document.createElement("div");
 
-
-    container.className =
-        "health-character";
+    card.className = "health-card";
 
 
-    if (
-        fighter.health <= 0
-    ) {
+    if (!fighter.alive) {
 
-        container.classList.add(
-            "eliminated"
-        );
+        card.classList.add("dead");
 
     }
 
 
-    const health =
-        Math.max(
-            0,
-            fighter.health
-        );
+    let barClass = "";
 
+    if (fighter.hp <= 25) {
 
-    let healthClass = "";
+        barClass = "low";
 
+    } else if (fighter.hp <= 50) {
 
-    if (health <= 25) {
-
-        healthClass = "low";
-
-    } else if (health <= 50) {
-
-        healthClass = "medium";
+        barClass = "medium";
 
     }
 
 
-    container.innerHTML = `
+    card.innerHTML = `
 
-        <div class="health-name-row">
+        <div class="health-name">
 
             <span>
                 ${fighter.name}
             </span>
 
-            <span class="health-number">
-                ${health} HP
+            <span class="hp-number">
+                ${fighter.hp} HP
             </span>
 
         </div>
 
-        <div class="health-bar">
+        <div class="hp-bar">
 
             <div
-                class="health-fill ${healthClass}"
-                style="width:${health}%"
+                class="hp-fill ${barClass}"
+                style="width:${fighter.hp}%"
             ></div>
 
         </div>
 
         ${
-            health <= 0
+            !fighter.alive
                 ?
             `
-                <div class="eliminated-text">
+                <div class="dead-label">
                     ☠ ELIMINATED
                 </div>
             `
@@ -935,16 +824,16 @@ function createHealthBar(fighter) {
     `;
 
 
-    return container;
+    return card;
 
 }
 
 
 /* =========================================================
-   RANDOM ITEM
+   RANDOM HELPERS
 ========================================================= */
 
-function randomItem(array) {
+function random(array) {
 
     return array[
         Math.floor(
@@ -955,349 +844,82 @@ function randomItem(array) {
 }
 
 
-/* =========================================================
-   DAMAGE
-========================================================= */
+function living(team) {
 
-function getDamage(fighter) {
-
-    /*
-       Damage varies so the fights aren't
-       identical every time.
-    */
-
-    return Math.floor(
-        Math.random() * 18
-    ) + 8;
+    return team.filter(
+        fighter => fighter.alive
+    );
 
 }
 
 
 /* =========================================================
-   MOVE DATABASE
+   DAMAGE
 ========================================================= */
 
-const moveDatabase = {
+function calculateDamage(attacker) {
 
-    "Spider-Man": [
-        "Web Strike",
-        "Web Swing Kick",
-        "Spider-Sense Counter",
-        "Web Barrage"
-    ],
-
-    "Miles Morales": [
-        "Venom Strike",
-        "Venom Blast",
-        "Camouflage Strike",
-        "Bio-Electric Punch"
-    ],
-
-    "Captain Marvel": [
-        "Photon Blast",
-        "Binary Strike",
-        "Energy Burst",
-        "Cosmic Punch"
-    ],
-
-    "Jean Grey": [
-        "Telekinetic Crush",
-        "Psychic Assault",
-        "Telekinetic Shield",
-        "Psychic Shockwave"
-    ],
-
-    "Wolverine": [
-        "Adamantium Slash",
-        "Berserker Charge",
-        "Claw Strike",
-        "Savage Counter"
-    ],
-
-    "Hulk": [
-        "Thunderclap",
-        "Hulk Smash",
-        "Ground Pound",
-        "Gamma Charge"
-    ],
-
-    "Thor": [
-        "Mjolnir Strike",
-        "Lightning Bolt",
-        "Thunderclap",
-        "Stormbreaker Slam"
-    ],
-
-    "Iron Man": [
-        "Repulsor Blast",
-        "Unibeam",
-        "Missile Barrage",
-        "Armor-Assisted Strike"
-    ],
-
-    "Doctor Doom": [
-        "Doom Beam",
-        "Mystic Blast",
-        "Doombot Assault",
-        "Force Field Counter"
-    ],
-
-    "Magneto": [
-        "Metal Storm",
-        "Magnetic Crush",
-        "Electromagnetic Pulse",
-        "Magnetic Shield"
-    ],
-
-    "Storm": [
-        "Lightning Strike",
-        "Cyclone",
-        "Wind Blast",
-        "Thunderstorm"
-    ],
-
-    "Deadpool": [
-        "Twin Blade Assault",
-        "Gunfire Burst",
-        "Regeneration Counter",
-        "Acrobatic Strike"
-    ],
-
-    "Batman": [
-        "Batarang Barrage",
-        "Grapnel Strike",
-        "Smoke Counter",
-        "Martial Arts Combination"
-    ],
-
-    "Superman": [
-        "Heat Vision",
-        "Super Punch",
-        "Flying Charge",
-        "Freeze Breath"
-    ],
-
-    "Wonder Woman": [
-        "Lasso Strike",
-        "Amazonian Combination",
-        "Bracelet Counter",
-        "Sword Strike"
-    ],
-
-    "The Flash": [
-        "Speed Blitz",
-        "Lightning Punch",
-        "Phasing Strike",
-        "Speed Force Barrage"
-    ],
-
-    "Green Lantern": [
-        "Energy Construct",
-        "Power Ring Blast",
-        "Construct Hammer",
-        "Energy Shield"
-    ],
-
-    "Aquaman": [
-        "Trident Strike",
-        "Atlantean Charge",
-        "Tidal Blast",
-        "Trident Throw"
-    ],
-
-    "Cyborg": [
-        "Sonic Cannon",
-        "Arm Cannon Blast",
-        "Cybernetic Charge",
-        "Tech Override"
-    ],
-
-    "Green Arrow": [
-        "Explosive Arrow",
-        "Trick Arrow",
-        "Rapid Arrow Shot",
-        "Grappling Arrow"
-    ],
-
-    "Black Canary": [
-        "Canary Cry",
-        "Sonic Burst",
-        "Martial Arts Strike",
-        "Sonic Counter"
-    ],
-
-    "Nightwing": [
-        "Escrima Strike",
-        "Acrobatic Assault",
-        "Electric Kali Strike",
-        "Aerial Kick"
-    ],
-
-    "Raven": [
-        "Soul-Self Strike",
-        "Dark Energy Blast",
-        "Telekinetic Attack",
-        "Shadow Bind"
-    ],
-
-    "Starfire": [
-        "Starbolt",
-        "Energy Burst",
-        "Flying Strike",
-        "Solar Blast"
-    ],
-
-    "Martian Manhunter": [
-        "Telepathic Assault",
-        "Martian Strength Strike",
-        "Phasing Attack",
-        "Telekinetic Blast"
-    ],
-
-    "Shazam": [
-        "Lightning Strike",
-        "Magic Punch",
-        "Flying Charge",
-        "Thunderclap"
-    ],
-
-    "Black Adam": [
-        "Lightning Blast",
-        "Adam Force Punch",
-        "Superhuman Charge",
-        "Electrical Burst"
-    ],
-
-    "Darkseid": [
-        "Omega Beam",
-        "Darkseid Strike",
-        "Omega Blast",
-        "Apokoliptian Assault"
-    ],
-
-    "Lex Luthor": [
-        "Kryptonite Blast",
-        "Power Suit Punch",
-        "Energy Cannon",
-        "Armor Missile Barrage"
-    ],
-
-    "Deathstroke": [
-        "Sword Combination",
-        "Staff Strike",
-        "Explosive Charge",
-        "Tactical Counter"
-    ],
-
-    "Harley Quinn": [
-        "Hammer Strike",
-        "Acrobat Assault",
-        "Explosive Attack",
-        "Baseball Bat Swing"
-    ],
-
-    "Joker": [
-        "Explosive Trick",
-        "Electric Hand Buzzer",
-        "Joker Gas",
-        "Chaos Strike"
-    ],
-
-    "Bane": [
-        "Venom Punch",
-        "Power Slam",
-        "Brutal Charge",
-        "Ground Strike"
-    ],
-
-    "Poison Ivy": [
-        "Vine Lash",
-        "Plant Bind",
-        "Toxic Pollen",
-        "Vine Crush"
-    ],
-
-    "Catwoman": [
-        "Whip Strike",
-        "Acrobatic Kick",
-        "Claw Swipe",
-        "Cat-Like Counter"
-    ],
-
-    "Doomsday": [
-        "Doomsday Smash",
-        "Ground Shockwave",
-        "Brutal Charge",
-        "Monster Strike"
-    ],
-
-    "Blue Beetle": [
-        "Scarabean Cannon",
-        "Energy Blade",
-        "Armor Charge",
-        "Energy Shield"
-    ],
-
-    "Zatanna": [
-        "Mystic Blast",
-        "Magical Binding",
-        "Reality Spell",
-        "Arcane Shield"
-    ],
-
-    "Constantine": [
-        "Mystic Ward",
-        "Occult Binding",
-        "Demonic Counter",
-        "Arcane Blast"
-    ],
-
-    "Swamp Thing": [
-        "Vine Assault",
-        "Plant Surge",
-        "Swamp Crush",
-        "Green Regeneration"
-    ],
-
-    "Supergirl": [
-        "Heat Vision",
-        "Super Punch",
-        "Kryptonian Charge",
-        "Freeze Breath"
-    ],
-
-    "Red Hood": [
-        "Dual Pistol Burst",
-        "Explosive Round",
-        "Helmet Strike",
-        "Tactical Counter"
-
-    ]
-
-};
+    let damage =
+        Math.floor(
+            Math.random() * 16
+        ) + 10;
 
 
-/* =========================================================
-   GET MOVE
-========================================================= */
+    /*
+       Stronger characters occasionally
+       produce heavier attacks.
+    */
 
-function getMove(name) {
+    const name = attacker.name;
 
-    const moves =
-        moveDatabase[name];
+
+    const heavyCharacters = [
+
+        "Hulk",
+        "Thor",
+        "Superman",
+        "Wonder Woman",
+        "Captain Marvel",
+        "Darkseid",
+        "Doomsday",
+        "Black Adam",
+        "Shazam",
+        "Jean Grey",
+        "Doctor Doom"
+
+    ];
 
 
     if (
-        !moves ||
-        moves.length === 0
+        heavyCharacters.includes(name)
     ) {
 
-        return "a powerful attack";
+        damage +=
+            Math.floor(
+                Math.random() * 10
+            );
 
     }
 
 
-    return randomItem(moves);
+    return damage;
+
+}
+
+
+/* =========================================================
+   MOVE
+========================================================= */
+
+function getMove(name) {
+
+    if (!moves[name]) {
+
+        return "a devastating attack";
+
+    }
+
+    return random(moves[name]);
 
 }
 
@@ -1306,12 +928,9 @@ function getMove(name) {
    SIMULATE ONE ROUND
 ========================================================= */
 
-function simulateNextRound() {
+function simulateRound() {
 
-    if (
-        !battleState ||
-        battleState.finished
-    ) {
+    if (!battle || battle.finished) {
 
         return;
 
@@ -1319,52 +938,41 @@ function simulateNextRound() {
 
 
     const round =
-        battleState.round;
+        battle.round;
 
 
     let story = `
 
-        <h2>
-            ⚔️ ROUND ${round}
-        </h2>
+        <h2>⚔️ ROUND ${round}</h2>
 
     `;
 
 
-    /*
-       TEAM 1 ATTACK
-    */
+    let living1 = living(battle.team1);
 
-    const livingTeam1 =
-        battleState.fighters1.filter(
-            fighter => fighter.health > 0
-        );
-
-
-    const livingTeam2 =
-        battleState.fighters2.filter(
-            fighter => fighter.health > 0
-        );
+    let living2 = living(battle.team2);
 
 
     if (
-        livingTeam1.length === 0 ||
-        livingTeam2.length === 0
+        living1.length === 0 ||
+        living2.length === 0
     ) {
 
-        finishBattle();
+        endBattle();
 
         return;
 
     }
 
 
+    /* TEAM 1 ATTACK */
+
     const attacker1 =
-        randomItem(livingTeam1);
+        random(living1);
 
 
     const target1 =
-        randomItem(livingTeam2);
+        random(living2);
 
 
     const move1 =
@@ -1372,66 +980,70 @@ function simulateNextRound() {
 
 
     const damage1 =
-        getDamage(attacker1);
+        calculateDamage(attacker1);
 
 
-    target1.health =
+    target1.hp =
         Math.max(
             0,
-            target1.health - damage1
+            target1.hp - damage1
         );
 
 
     story += `
 
-        <div class="round">
+        <div class="story-round">
 
-            <div class="round-title">
-                🔵 TEAM 1 — OFFENSIVE ACTION
+            <div class="story-title">
+                🔵 TEAM 1 — ATTACK
             </div>
 
             <p>
                 <strong>${attacker1.name}</strong>
-                takes the initiative. Rather than rushing
-                directly into the opposing formation,
-                the fighter adjusts their position and waits
-                for a moment when
-                <strong>${target1.name}</strong>
-                is exposed.
+                breaks from the formation and advances
+                toward
+                <strong>${target1.name}</strong>.
+                Rather than waste the opening with a reckless
+                strike, the attacker waits for the precise
+                moment when the defender's guard begins to
+                shift.
             </p>
 
             <p>
-                The opening appears.
-                ${attacker1.name} immediately commits to
-                <strong>${move1}</strong>.
-                The attack is directed straight at
-                ${target1.name}, forcing the defender to react
-                under pressure.
-            </p>
-
-            <p>
-                The strike lands for
-                <strong>${damage1} damage</strong>.
-                ${target1.name} remains standing with
-                <strong>${target1.health} HP</strong>.
+                The opportunity finally appears.
+                ${attacker1.name} commits to
+                <strong>${move1}</strong>,
+                driving the attack directly toward
+                ${target1.name}.
+                The impact forces the defender backward and
+                deals <strong>${damage1} damage</strong>.
             </p>
 
     `;
 
 
-    if (
-        target1.health <= 0
-    ) {
+    if (target1.hp <= 0) {
 
-        target1.eliminated = true;
+        target1.alive = false;
 
         story += `
 
             <p class="elimination">
 
-                ☠ ${target1.name}
-                has been eliminated from the battle.
+                ☠ ${target1.name} has been eliminated.
 
+            </p>
+
+        `;
+
+    } else {
+
+        story += `
+
+            <p>
+                ${target1.name} manages to remain in the
+                fight, although the attack leaves them with
+                <strong>${target1.hp} HP</strong>.
             </p>
 
         `;
@@ -1442,23 +1054,18 @@ function simulateNextRound() {
     story += `</div>`;
 
 
-    /*
-       CHECK TEAM 2
-    */
+    /* CHECK TEAM 2 */
 
     if (
-        battleState.fighters2.every(
-            fighter => fighter.health <= 0
-        )
+        living(battle.team2).length === 0
     ) {
 
-        battleState.finished = true;
+        battle.finished = true;
 
-        renderHealthBars();
+        renderHealth();
 
-        story += createWinnerScreen(
-            "TEAM 1",
-            battleState.fighters1
+        story += winnerScreen(
+            "TEAM 1"
         );
 
         document.getElementById("battle").innerHTML =
@@ -1469,143 +1076,123 @@ function simulateNextRound() {
     }
 
 
-    /*
-       TEAM 2 COUNTERATTACK
-    */
+    /* TEAM 2 ATTACK */
 
-    const livingTeam1Again =
-        battleState.fighters1.filter(
-            fighter => fighter.health > 0
+    living1 = living(battle.team1);
+
+    living2 = living(battle.team2);
+
+
+    const attacker2 =
+        random(living2);
+
+
+    const target2 =
+        random(living1);
+
+
+    const move2 =
+        getMove(attacker2.name);
+
+
+    const damage2 =
+        calculateDamage(attacker2);
+
+
+    target2.hp =
+        Math.max(
+            0,
+            target2.hp - damage2
         );
 
 
-    const livingTeam2Again =
-        battleState.fighters2.filter(
-            fighter => fighter.health > 0
-        );
+    story += `
+
+        <div class="story-round">
+
+            <div class="story-title">
+                🔴 TEAM 2 — COUNTERATTACK
+            </div>
+
+            <p>
+                Team 2 responds before its opponent can fully
+                recover.
+                <strong>${attacker2.name}</strong>
+                shifts position and identifies
+                <strong>${target2.name}</strong>
+                as the next opening.
+            </p>
+
+            <p>
+                Without hesitation,
+                ${attacker2.name} executes
+                <strong>${move2}</strong>.
+                The attack catches ${target2.name}
+                during the transition and inflicts
+                <strong>${damage2} damage</strong>.
+            </p>
+
+    `;
 
 
-    if (
-        livingTeam1Again.length > 0 &&
-        livingTeam2Again.length > 0
-    ) {
+    if (target2.hp <= 0) {
 
-        const attacker2 =
-            randomItem(livingTeam2Again);
-
-
-        const target2 =
-            randomItem(livingTeam1Again);
-
-
-        const move2 =
-            getMove(attacker2.name);
-
-
-        const damage2 =
-            getDamage(attacker2);
-
-
-        target2.health =
-            Math.max(
-                0,
-                target2.health - damage2
-            );
-
+        target2.alive = false;
 
         story += `
 
-            <div class="round">
+            <p class="elimination">
 
-                <div class="round-title">
-                    🔴 TEAM 2 — COUNTERATTACK
-                </div>
+                ☠ ${target2.name} has been eliminated.
 
-                <p>
-                    Team 2 refuses to surrender the initiative.
-                    <strong>${attacker2.name}</strong>
-                    recognizes the disruption caused by the
-                    previous exchange and immediately turns
-                    the situation into an opportunity.
-                </p>
-
-                <p>
-                    ${attacker2.name} closes the distance and
-                    unleashes
-                    <strong>${move2}</strong>
-                    against
-                    <strong>${target2.name}</strong>.
-                </p>
-
-                <p>
-                    The counterattack deals
-                    <strong>${damage2} damage</strong>.
-                    ${target2.name} is left with
-                    <strong>${target2.health} HP</strong>.
-                </p>
+            </p>
 
         `;
 
+    } else {
 
-        if (
-            target2.health <= 0
-        ) {
+        story += `
 
-            target2.eliminated = true;
+            <p>
+                ${target2.name} absorbs the attack and
+                manages to stay upright with
+                <strong>${target2.hp} HP</strong>
+                remaining.
+            </p>
 
-            story += `
-
-                <p class="elimination">
-
-                    ☠ ${target2.name}
-                    has been eliminated from the battle.
-
-                </p>
-
-            `;
-
-        }
-
-
-        story += `</div>`;
+        `;
 
     }
 
 
-    /*
-       UPDATE HUD
-    */
-
-    renderHealthBars();
+    story += `</div>`;
 
 
-    /*
-       CHECK FOR TEAM ELIMINATION
-    */
+    /* UPDATE HEALTH BARS */
+
+    renderHealth();
+
+
+    /* CHECK WINNER */
 
     const team1Alive =
-        battleState.fighters1.some(
-            fighter => fighter.health > 0
-        );
+        living(battle.team1).length > 0;
 
 
     const team2Alive =
-        battleState.fighters2.some(
-            fighter => fighter.health > 0
-        );
+        living(battle.team2).length > 0;
 
 
     if (!team1Alive) {
 
-        battleState.finished = true;
+        battle.finished = true;
 
-        story += createWinnerScreen(
-            "TEAM 2",
-            battleState.fighters2
-        );
+        story += winnerScreen("TEAM 2");
 
         document.getElementById("battle").innerHTML =
             story;
+
+        renderHealth();
 
         return;
 
@@ -1614,64 +1201,57 @@ function simulateNextRound() {
 
     if (!team2Alive) {
 
-        battleState.finished = true;
+        battle.finished = true;
 
-        story += createWinnerScreen(
-            "TEAM 1",
-            battleState.fighters1
-        );
+        story += winnerScreen("TEAM 1");
 
         document.getElementById("battle").innerHTML =
             story;
+
+        renderHealth();
 
         return;
 
     }
 
 
-    /*
-       ROUND COMPLETE
-    */
+    /* PAUSE */
+
+    battle.round++;
+
 
     story += `
 
-        <div class="round">
+        <div class="story-round">
 
-            <div class="round-title">
+            <div class="story-title">
                 ROUND ${round} COMPLETE
             </div>
 
             <p>
-                The exchange ends without either side being
-                completely broken. The surviving combatants
-                pull apart, reassess the battlefield, and
-                prepare themselves for the next engagement.
+                The exchange finally breaks apart.
+                Both sides create distance, taking a moment
+                to reassess the battlefield and the condition
+                of their remaining fighters.
             </p>
 
             <p>
-                The health displays above have been updated.
-                When you are ready, continue to the next round.
+                <strong>
+                    The battle is paused.
+                </strong>
+                The updated health bars above show the exact
+                condition of every combatant.
             </p>
 
         </div>
 
-    `;
-
-
-    battleState.round++;
-
-
-    story += `
-
-        <div class="next-round-container">
+        <div class="next-container">
 
             <button
-                class="primary next-round-button"
-                onclick="simulateNextRound()"
+                class="primary next-button"
+                onclick="simulateRound()"
             >
-
                 ▶ NEXT ROUND
-
             </button>
 
         </div>
@@ -1686,47 +1266,45 @@ function simulateNextRound() {
 
 
 /* =========================================================
-   WINNER SCREEN
+   WINNER
 ========================================================= */
 
-function createWinnerScreen(
-    winningTeam,
-    survivors
-) {
+function winnerScreen(teamName) {
+
+    const winningTeam =
+        teamName === "TEAM 1"
+            ? battle.team1
+            : battle.team2;
+
+
+    const survivors =
+        winningTeam
+            .filter(fighter => fighter.alive)
+            .map(
+                fighter =>
+                    `${fighter.name} — ${fighter.hp} HP`
+            )
+            .join("<br>");
+
 
     return `
 
         <div class="winner">
 
-            🏆 ${winningTeam} WINS
+            🏆 ${teamName} WINS
 
-            <div style="
-                font-size:15px;
-                margin-top:14px;
-                color:#d5e1ed;
-                font-weight:normal;
-            ">
+            <div class="winner-info">
 
                 The opposing team has been completely
                 eliminated from the battlefield.
 
                 <br><br>
 
-                <strong>Survivors:</strong>
+                <strong>Survivors</strong>
 
-                <br>
+                <br><br>
 
-                ${survivors
-                    .filter(
-                        fighter =>
-                            fighter.health > 0
-                    )
-                    .map(
-                        fighter =>
-                            `${fighter.name} (${fighter.health} HP)`
-                    )
-                    .join(", ")
-                }
+                ${survivors}
 
             </div>
 
@@ -1738,27 +1316,13 @@ function createWinnerScreen(
 
 
 /* =========================================================
-   FINISH BATTLE
+   END BATTLE
 ========================================================= */
 
-function finishBattle() {
+function endBattle() {
 
     const team1Alive =
-        battleState.fighters1.filter(
-            fighter => fighter.health > 0
-        );
-
-
-    const team2Alive =
-        battleState.fighters2.filter(
-            fighter => fighter.health > 0
-        );
-
-
-    battleState.finished = true;
-
-
-    renderHealthBars();
+        living(battle.team1);
 
 
     const winner =
@@ -1767,16 +1331,14 @@ function finishBattle() {
             : "TEAM 2";
 
 
-    document.getElementById(
-        "battle"
-    ).innerHTML =
+    battle.finished = true;
 
-        createWinnerScreen(
-            winner,
-            winner === "TEAM 1"
-                ? team1Alive
-                : team2Alive
-        );
+
+    renderHealth();
+
+
+    document.getElementById("battle").innerHTML =
+        winnerScreen(winner);
 
 }
 
