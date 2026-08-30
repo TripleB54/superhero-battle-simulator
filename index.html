@@ -1,3 +1,4 @@
+```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -38,7 +39,6 @@ header h1 {
 
 header p {
     color: #aaa;
-    margin-top: 10px;
 }
 
 /* SETUP */
@@ -50,17 +50,16 @@ header p {
     background: #171717;
     border: 1px solid #333;
     border-radius: 18px;
-    box-shadow: 0 10px 30px rgba(0,0,0,.4);
 }
 
 .setup h2 {
-    margin-top: 0;
     text-align: center;
+    margin-top: 0;
 }
 
 .setup-grid {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(4, 1fr);
     gap: 15px;
 }
 
@@ -87,7 +86,7 @@ select {
     font-size: 16px;
 }
 
-/* MODE BUTTONS */
+/* BUTTONS */
 
 .mode-buttons {
     display: flex;
@@ -133,7 +132,7 @@ button:hover {
     background: #c76b00;
 }
 
-/* DRAFT AREA */
+/* DRAFT */
 
 .draft-info {
     max-width: 1100px;
@@ -153,6 +152,34 @@ button:hover {
 #poolCount {
     color: #aaa;
     margin-top: 5px;
+}
+
+/* GENERATED */
+
+.generated {
+    max-width: 1100px;
+    margin: 20px auto;
+    padding: 20px;
+    background: #151515;
+    border-radius: 15px;
+    border: 1px solid #333;
+}
+
+.generated-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 10px;
+}
+
+.generated-character {
+    background: #252525;
+    padding: 12px;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+.generated-character:hover {
+    background: #383838;
 }
 
 /* TEAMS */
@@ -190,41 +217,23 @@ button:hover {
 
 .team h2 {
     margin: 0;
-    font-size: 26px;
 }
 
 .team-count {
     background: #333;
     padding: 6px 10px;
     border-radius: 20px;
-    font-size: 14px;
-}
-
-.characters {
-    min-height: 180px;
-    margin-top: 15px;
 }
 
 .character {
     display: flex;
     align-items: center;
     justify-content: space-between;
-
     background: linear-gradient(90deg, #292929, #202020);
-
     margin: 9px 0;
     padding: 12px;
-
     border-radius: 10px;
-
     border-left: 4px solid #666;
-
-    transition: .2s;
-}
-
-.character:hover {
-    transform: translateX(3px);
-    background: #303030;
 }
 
 .character-info {
@@ -248,24 +257,10 @@ button:hover {
     font-size: 13px;
 }
 
-/* EMPTY TEAM */
-
 .empty {
     color: #666;
     padding: 50px 10px;
-}
-
-/* CONTROLS */
-
-.controls {
     text-align: center;
-    margin: 30px auto;
-}
-
-.controls button {
-    margin: 5px;
-    font-size: 18px;
-    padding: 15px 25px;
 }
 
 /* BATTLE */
@@ -277,72 +272,74 @@ button:hover {
     background: #171717;
     border: 1px solid #333;
     border-radius: 18px;
-    min-height: 150px;
+}
+
+.battle-title {
+    text-align: center;
+    font-size: 30px;
+}
+
+.battle-subtitle {
+    text-align: center;
+    color: #999;
 }
 
 .battle-log {
-    background: #0d0d0d;
-    padding: 15px;
-    margin-top: 15px;
-    border-radius: 10px;
-    text-align: left;
+    margin-top: 25px;
+    background: #0b0b0b;
+    padding: 20px;
+    border-radius: 12px;
 }
 
-.battle-line {
-    padding: 8px 0;
-    border-bottom: 1px solid #222;
+.battle-paragraph {
+    line-height: 1.8;
+    color: #ddd;
+    margin-bottom: 18px;
+}
+
+.round {
+    color: #e63946;
+    font-size: 18px;
+    font-weight: bold;
+    border-bottom: 1px solid #333;
+    padding-bottom: 8px;
+    margin-top: 25px;
 }
 
 .winner {
-    font-size: 32px;
-    font-weight: bold;
-    margin-top: 25px;
     text-align: center;
-}
-
-/* GENERATOR */
-
-.generated {
-    max-width: 1100px;
-    margin: 20px auto;
-    padding: 20px;
-    background: #151515;
+    font-size: 35px;
+    font-weight: bold;
+    margin-top: 30px;
+    padding: 25px;
+    background: #111;
     border-radius: 15px;
-    border: 1px solid #333;
-}
-
-.generated-grid {
-    display: grid;
-    grid-template-columns: repeat(5, 1fr);
-    gap: 10px;
-}
-
-.generated-character {
-    background: #252525;
-    padding: 12px;
-    border-radius: 8px;
-    cursor: pointer;
-}
-
-.generated-character:hover {
-    background: #383838;
 }
 
 /* RESPONSIVE */
 
-@media (max-width: 800px) {
+@media (max-width: 900px) {
 
     .setup-grid {
-        grid-template-columns: 1fr;
+        grid-template-columns: repeat(2, 1fr);
     }
 
     .teams {
         grid-template-columns: 1fr;
     }
 
+}
+
+@media (max-width: 600px) {
+
+    .setup-grid {
+        grid-template-columns: 1fr;
+    }
+
     .generated-grid {
         grid-template-columns: repeat(2, 1fr);
     }
+
 }
 
 </style>
@@ -355,15 +352,13 @@ button:hover {
     <h1>⚔️ SUPERHERO BATTLE SIMULATOR ⚔️</h1>
 
     <p>
-        Build your teams • Draft characters • Choose versions • Simulate battles
+        Build your teams • Draft characters • Simulate epic battles
     </p>
 
 </header>
 
 
-<!-- ========================= -->
-<!-- GAME SETUP -->
-<!-- ========================= -->
+<!-- SETUP -->
 
 <section class="setup">
 
@@ -373,9 +368,7 @@ button:hover {
 
         <div class="setting">
 
-            <label for="teamSize">
-                Team Size
-            </label>
+            <label>Team Size</label>
 
             <select id="teamSize">
 
@@ -392,9 +385,7 @@ button:hover {
 
         <div class="setting">
 
-            <label for="universe">
-                Character Pool
-            </label>
+            <label>Character Pool</label>
 
             <select id="universe">
 
@@ -409,22 +400,39 @@ button:hover {
 
         <div class="setting">
 
-            <label for="versionMode">
-                Character Version
-            </label>
+            <label>Character Version</label>
 
             <select id="versionMode">
 
-                <option value="standard">
-                    Standard
+                <option value="standard">Standard</option>
+                <option value="amped">Amped</option>
+                <option value="mixed">Mixed</option>
+
+            </select>
+
+        </div>
+
+
+        <div class="setting">
+
+            <label>Simulation Depth</label>
+
+            <select id="simulationDepth">
+
+                <option value="quick">
+                    Quick — 50-80 words
                 </option>
 
-                <option value="amped">
-                    Amped
+                <option value="standard" selected>
+                    Standard — 100-150 words
                 </option>
 
-                <option value="mixed">
-                    Mixed
+                <option value="detailed">
+                    Detailed — 200-300 words
+                </option>
+
+                <option value="cinematic">
+                    Cinematic — 400-600 words
                 </option>
 
             </select>
@@ -457,9 +465,7 @@ button:hover {
 </section>
 
 
-<!-- ========================= -->
 <!-- DRAFT STATUS -->
-<!-- ========================= -->
 
 <section class="draft-info">
 
@@ -468,15 +474,13 @@ button:hover {
     </div>
 
     <div id="poolCount">
-        Choose your settings and start drafting.
+        Available characters: 0
     </div>
 
 </section>
 
 
-<!-- ========================= -->
 <!-- GENERATED CHARACTERS -->
-<!-- ========================= -->
 
 <section
     id="generatedArea"
@@ -498,13 +502,9 @@ button:hover {
 </section>
 
 
-<!-- ========================= -->
 <!-- TEAMS -->
-<!-- ========================= -->
 
 <section class="teams">
-
-    <!-- TEAM 1 -->
 
     <div class="team team1">
 
@@ -528,8 +528,6 @@ button:hover {
 
     </div>
 
-
-    <!-- TEAM 2 -->
 
     <div class="team team2">
 
@@ -556,11 +554,9 @@ button:hover {
 </section>
 
 
-<!-- ========================= -->
-<!-- MAIN CONTROLS -->
-<!-- ========================= -->
+<!-- CONTROLS -->
 
-<div class="controls">
+<div class="mode-buttons">
 
     <button
         class="primary"
@@ -579,16 +575,16 @@ button:hover {
 </div>
 
 
-<!-- ========================= -->
 <!-- BATTLE -->
-<!-- ========================= -->
 
 <div id="battle">
 
-    <h2>⚔️ BATTLE CENTER</h2>
+    <h2 class="battle-title">
+        ⚔️ BATTLE CENTER
+    </h2>
 
-    <p>
-        Complete both teams and start the battle.
+    <p class="battle-subtitle">
+        Build both teams and start the battle.
     </p>
 
 </div>
@@ -600,510 +596,371 @@ button:hover {
    CHARACTER DATABASE
    ========================================================= */
 
-/*
-    This is intentionally structured as objects instead of
-    simple strings.
-
-    Later we can add:
-
-    powers
-    weaknesses
-    combat style
-    stats
-    special abilities
-    AI behavior
-    matchup rules
-    standard / amped data
-
-    This becomes our Stage 2 foundation.
-*/
-
-
 const characterDatabase = [
 
-    /* ================= MARVEL ================= */
+    /* MARVEL */
 
     {
-        name: "Spider-Man",
-        universe: "marvel",
-        role: "Agile / Web Fighter",
-        standard: true,
-        amped: true
+        name:"Spider-Man",
+        universe:"marvel",
+        role:"Agile / Web Fighter"
     },
 
     {
-        name: "Miles Morales",
-        universe: "marvel",
-        role: "Agile / Venom Blast",
-        standard: true,
-        amped: true
+        name:"Miles Morales",
+        universe:"marvel",
+        role:"Agile / Venom Blast"
     },
 
     {
-        name: "Captain America",
-        universe: "marvel",
-        role: "Soldier / Tactician",
-        standard: true,
-        amped: true
+        name:"Captain America",
+        universe:"marvel",
+        role:"Soldier / Tactician"
     },
 
     {
-        name: "Iron Man",
-        universe: "marvel",
-        role: "Armored / Ranged",
-        standard: true,
-        amped: true
+        name:"Iron Man",
+        universe:"marvel",
+        role:"Armored / Ranged"
     },
 
     {
-        name: "Thor",
-        universe: "marvel",
-        role: "God / Powerhouse",
-        standard: true,
-        amped: true
+        name:"Thor",
+        universe:"marvel",
+        role:"God / Powerhouse"
     },
 
     {
-        name: "Hulk",
-        universe: "marvel",
-        role: "Powerhouse",
-        standard: true,
-        amped: true
+        name:"Hulk",
+        universe:"marvel",
+        role:"Powerhouse"
     },
 
     {
-        name: "She-Hulk",
-        universe: "marvel",
-        role: "Powerhouse / Fighter",
-        standard: true,
-        amped: true
+        name:"She-Hulk",
+        universe:"marvel",
+        role:"Powerhouse / Fighter"
     },
 
     {
-        name: "Wolverine",
-        universe: "marvel",
-        role: "Regenerator / Brawler",
-        standard: true,
-        amped: true
+        name:"Wolverine",
+        universe:"marvel",
+        role:"Regenerator / Brawler"
     },
 
     {
-        name: "Deadpool",
-        universe: "marvel",
-        role: "Regenerator / Weapon Specialist",
-        standard: true,
-        amped: true
+        name:"Deadpool",
+        universe:"marvel",
+        role:"Regenerator / Weapons"
     },
 
     {
-        name: "Doctor Doom",
-        universe: "marvel",
-        role: "Technomancer / Sorcerer",
-        standard: true,
-        amped: true
+        name:"Doctor Doom",
+        universe:"marvel",
+        role:"Technology / Magic"
     },
 
     {
-        name: "Magneto",
-        universe: "marvel",
-        role: "Magnetism / Battlefield Control",
-        standard: true,
-        amped: true
+        name:"Magneto",
+        universe:"marvel",
+        role:"Magnetism / Control"
     },
 
     {
-        name: "Storm",
-        universe: "marvel",
-        role: "Weather / Ranged",
-        standard: true,
-        amped: true
+        name:"Storm",
+        universe:"marvel",
+        role:"Weather / Ranged"
     },
 
     {
-        name: "Jean Grey",
-        universe: "marvel",
-        role: "Telepath / Telekinetic",
-        standard: true,
-        amped: true
+        name:"Jean Grey",
+        universe:"marvel",
+        role:"Telepath / Telekinetic"
     },
 
     {
-        name: "Cyclops",
-        universe: "marvel",
-        role: "Ranged / Tactician",
-        standard: true,
-        amped: true
+        name:"Cyclops",
+        universe:"marvel",
+        role:"Ranged / Tactician"
     },
 
     {
-        name: "Ghost Rider",
-        universe: "marvel",
-        role: "Supernatural / Brawler",
-        standard: true,
-        amped: true
+        name:"Ghost Rider",
+        universe:"marvel",
+        role:"Supernatural / Brawler"
     },
 
     {
-        name: "Ant-Man",
-        universe: "marvel",
-        role: "Size Manipulator / Infiltrator",
-        standard: true,
-        amped: true
+        name:"Ant-Man",
+        universe:"marvel",
+        role:"Infiltrator / Size Manipulator"
     },
 
     {
-        name: "Wasp",
-        universe: "marvel",
-        role: "Size Manipulator / Aerial",
-        standard: true,
-        amped: true
+        name:"Wasp",
+        universe:"marvel",
+        role:"Aerial / Size Manipulator"
     },
 
     {
-        name: "Vision",
-        universe: "marvel",
-        role: "Android / Phasing",
-        standard: true,
-        amped: true
+        name:"Vision",
+        universe:"marvel",
+        role:"Android / Phasing"
     },
 
     {
-        name: "Black Widow",
-        universe: "marvel",
-        role: "Spy / Martial Artist",
-        standard: true,
-        amped: true
+        name:"Black Widow",
+        universe:"marvel",
+        role:"Spy / Martial Artist"
     },
 
     {
-        name: "Hawkeye",
-        universe: "marvel",
-        role: "Archer / Ranged",
-        standard: true,
-        amped: true
+        name:"Hawkeye",
+        universe:"marvel",
+        role:"Archer / Ranged"
     },
 
     {
-        name: "Punisher",
-        universe: "marvel",
-        role: "Weapons / Tactician",
-        standard: true,
-        amped: true
+        name:"Punisher",
+        universe:"marvel",
+        role:"Weapons / Tactician"
     },
 
     {
-        name: "Daredevil",
-        universe: "marvel",
-        role: "Martial Artist / Enhanced Senses",
-        standard: true,
-        amped: true
+        name:"Daredevil",
+        universe:"marvel",
+        role:"Martial Artist / Senses"
     },
 
     {
-        name: "Venom",
-        universe: "marvel",
-        role: "Symbiote / Brawler",
-        standard: true,
-        amped: true
+        name:"Venom",
+        universe:"marvel",
+        role:"Symbiote / Brawler"
     },
 
     {
-        name: "Kingpin",
-        universe: "marvel",
-        role: "Brawler / Crime Boss",
-        standard: true,
-        amped: true
+        name:"Kingpin",
+        universe:"marvel",
+        role:"Brawler"
     },
 
     {
-        name: "Killmonger",
-        universe: "marvel",
-        role: "Warrior / Tactician",
-        standard: true,
-        amped: true
+        name:"Killmonger",
+        universe:"marvel",
+        role:"Warrior / Tactician"
     },
 
     {
-        name: "Groot",
-        universe: "marvel",
-        role: "Tank / Regeneration",
-        standard: true,
-        amped: true
+        name:"Groot",
+        universe:"marvel",
+        role:"Tank / Regeneration"
     },
 
     {
-        name: "Gamora",
-        universe: "marvel",
-        role: "Assassin / Warrior",
-        standard: true,
-        amped: true
+        name:"Gamora",
+        universe:"marvel",
+        role:"Assassin / Warrior"
     },
 
     {
-        name: "Hela",
-        universe: "marvel",
-        role: "God / Weapon Creation",
-        standard: true,
-        amped: true
+        name:"Hela",
+        universe:"marvel",
+        role:"God / Weapon Creation"
     },
 
     {
-        name: "Captain Marvel",
-        universe: "marvel",
-        role: "Cosmic / Energy",
-        standard: true,
-        amped: true
+        name:"Captain Marvel",
+        universe:"marvel",
+        role:"Cosmic / Energy"
     },
 
     {
-        name: "Invisible Woman",
-        universe: "marvel",
-        role: "Force Fields / Invisibility",
-        standard: true,
-        amped: true
+        name:"Invisible Woman",
+        universe:"marvel",
+        role:"Force Fields / Invisibility"
     },
 
 
-    /* ================= DC ================= */
+    /* DC */
 
     {
-        name: "Batman",
-        universe: "dc",
-        role: "Tactician / Martial Artist",
-        standard: true,
-        amped: true
+        name:"Batman",
+        universe:"dc",
+        role:"Tactician / Martial Artist"
     },
 
     {
-        name: "Superman",
-        universe: "dc",
-        role: "Kryptonian / Powerhouse",
-        standard: true,
-        amped: true
+        name:"Superman",
+        universe:"dc",
+        role:"Kryptonian / Powerhouse"
     },
 
     {
-        name: "Wonder Woman",
-        universe: "dc",
-        role: "Warrior / Demigod",
-        standard: true,
-        amped: true
+        name:"Wonder Woman",
+        universe:"dc",
+        role:"Warrior / Demigod"
     },
 
     {
-        name: "Flash",
-        universe: "dc",
-        role: "Speedster",
-        standard: true,
-        amped: true
+        name:"Flash",
+        universe:"dc",
+        role:"Speedster"
     },
 
     {
-        name: "Reverse-Flash",
-        universe: "dc",
-        role: "Speedster / Time Manipulation",
-        standard: true,
-        amped: true
+        name:"Reverse-Flash",
+        universe:"dc",
+        role:"Speedster / Time Manipulation"
     },
 
     {
-        name: "Green Lantern",
-        universe: "dc",
-        role: "Energy / Constructs",
-        standard: true,
-        amped: true
+        name:"Green Lantern",
+        universe:"dc",
+        role:"Energy / Constructs"
     },
 
     {
-        name: "Sinestro",
-        universe: "dc",
-        role: "Energy / Constructs",
-        standard: true,
-        amped: true
+        name:"Sinestro",
+        universe:"dc",
+        role:"Energy / Constructs"
     },
 
     {
-        name: "Aquaman",
-        universe: "dc",
-        role: "Warrior / Atlantean",
-        standard: true,
-        amped: true
+        name:"Aquaman",
+        universe:"dc",
+        role:"Warrior / Atlantean"
     },
 
     {
-        name: "Cyborg",
-        universe: "dc",
-        role: "Technology / Ranged",
-        standard: true,
-        amped: true
+        name:"Cyborg",
+        universe:"dc",
+        role:"Technology / Ranged"
     },
 
     {
-        name: "Martian Manhunter",
-        universe: "dc",
-        role: "Telepath / Shapeshifter",
-        standard: true,
-        amped: true
+        name:"Martian Manhunter",
+        universe:"dc",
+        role:"Telepath / Shapeshifter"
     },
 
     {
-        name: "Shazam",
-        universe: "dc",
-        role: "Magic / Powerhouse",
-        standard: true,
-        amped: true
+        name:"Shazam",
+        universe:"dc",
+        role:"Magic / Powerhouse"
     },
 
     {
-        name: "Black Adam",
-        universe: "dc",
-        role: "Magic / Powerhouse",
-        standard: true,
-        amped: true
+        name:"Black Adam",
+        universe:"dc",
+        role:"Magic / Powerhouse"
     },
 
     {
-        name: "Supergirl",
-        universe: "dc",
-        role: "Kryptonian / Powerhouse",
-        standard: true,
-        amped: true
+        name:"Supergirl",
+        universe:"dc",
+        role:"Kryptonian / Powerhouse"
     },
 
     {
-        name: "Starfire",
-        universe: "dc",
-        role: "Aerial / Energy",
-        standard: true,
-        amped: true
+        name:"Starfire",
+        universe:"dc",
+        role:"Aerial / Energy"
     },
 
     {
-        name: "Raven",
-        universe: "dc",
-        role: "Magic / Soul-Self",
-        standard: true,
-        amped: true
+        name:"Raven",
+        universe:"dc",
+        role:"Magic / Soul-Self"
     },
 
     {
-        name: "Zatanna",
-        universe: "dc",
-        role: "Magic / Reality Manipulation",
-        standard: true,
-        amped: true
+        name:"Zatanna",
+        universe:"dc",
+        role:"Magic"
     },
 
     {
-        name: "Doctor Fate",
-        universe: "dc",
-        role: "Magic / Cosmic",
-        standard: true,
-        amped: true
+        name:"Doctor Fate",
+        universe:"dc",
+        role:"Magic / Cosmic"
     },
 
     {
-        name: "Nightwing",
-        universe: "dc",
-        role: "Acrobat / Martial Artist",
-        standard: true,
-        amped: true
+        name:"Nightwing",
+        universe:"dc",
+        role:"Acrobat / Martial Artist"
     },
 
     {
-        name: "Red Hood",
-        universe: "dc",
-        role: "Weapons / Martial Artist",
-        standard: true,
-        amped: true
+        name:"Red Hood",
+        universe:"dc",
+        role:"Weapons / Martial Artist"
     },
 
     {
-        name: "Red Robin",
-        universe: "dc",
-        role: "Tactician / Martial Artist",
-        standard: true,
-        amped: true
+        name:"Red Robin",
+        universe:"dc",
+        role:"Tactician / Martial Artist"
     },
 
     {
-        name: "Deathstroke",
-        universe: "dc",
-        role: "Enhanced Soldier / Assassin",
-        standard: true,
-        amped: true
+        name:"Deathstroke",
+        universe:"dc",
+        role:"Enhanced Soldier"
     },
 
     {
-        name: "Green Arrow",
-        universe: "dc",
-        role: "Archer / Tactician",
-        standard: true,
-        amped: true
+        name:"Green Arrow",
+        universe:"dc",
+        role:"Archer / Tactician"
     },
 
     {
-        name: "Black Canary",
-        universe: "dc",
-        role: "Martial Artist / Sonic",
-        standard: true,
-        amped: true
+        name:"Black Canary",
+        universe:"dc",
+        role:"Martial Artist / Sonic"
     },
 
     {
-        name: "Harley Quinn",
-        universe: "dc",
-        role: "Acrobat / Improviser",
-        standard: true,
-        amped: true
+        name:"Harley Quinn",
+        universe:"dc",
+        role:"Acrobat / Improviser"
     },
 
     {
-        name: "Joker",
-        universe: "dc",
-        role: "Trickster / Tactician",
-        standard: true,
-        amped: true
+        name:"Joker",
+        universe:"dc",
+        role:"Trickster / Tactician"
     },
 
     {
-        name: "Lex Luthor",
-        universe: "dc",
-        role: "Technology / Armor",
-        standard: true,
-        amped: true
+        name:"Lex Luthor",
+        universe:"dc",
+        role:"Technology / Armor"
     },
 
     {
-        name: "Darkseid",
-        universe: "dc",
-        role: "New God / Cosmic",
-        standard: true,
-        amped: true
+        name:"Darkseid",
+        universe:"dc",
+        role:"New God / Cosmic"
     },
 
     {
-        name: "Doomsday",
-        universe: "dc",
-        role: "Powerhouse / Adaptation",
-        standard: true,
-        amped: true
+        name:"Doomsday",
+        universe:"dc",
+        role:"Powerhouse / Adaptation"
     },
 
     {
-        name: "Beast Boy",
-        universe: "dc",
-        role: "Shapeshifter",
-        standard: true,
-        amped: true
+        name:"Beast Boy",
+        universe:"dc",
+        role:"Shapeshifter"
     },
 
     {
-        name: "Constantine",
-        universe: "dc",
-        role: "Occult / Tactician",
-        standard: true,
-        amped: true
+        name:"Constantine",
+        universe:"dc",
+        role:"Occult / Tactician"
     }
 
 ];
@@ -1126,7 +983,7 @@ let draftActive = false;
 
 
 /* =========================================================
-   GET CURRENT SETTINGS
+   SETTINGS
    ========================================================= */
 
 function getTeamSize() {
@@ -1152,8 +1009,15 @@ function getVersionMode() {
 }
 
 
+function getSimulationDepth() {
+
+    return document.getElementById("simulationDepth").value;
+
+}
+
+
 /* =========================================================
-   CHARACTER POOL
+   BUILD POOL
    ========================================================= */
 
 function buildCharacterPool() {
@@ -1189,7 +1053,7 @@ function updatePoolCount() {
    VERSION
    ========================================================= */
 
-function getCharacterVersion(character) {
+function getCharacterVersion() {
 
     const mode = getVersionMode();
 
@@ -1201,7 +1065,7 @@ function getCharacterVersion(character) {
         return "Amped";
     }
 
-    return Math.random() < 0.5
+    return Math.random() < .5
         ? "Standard"
         : "Amped";
 
@@ -1209,14 +1073,14 @@ function getCharacterVersion(character) {
 
 
 /* =========================================================
-   DUPLICATE CHECK
+   DUPLICATES
    ========================================================= */
 
 function isAlreadySelected(name) {
 
     return (
-        team1.some(character => character.name === name) ||
-        team2.some(character => character.name === name)
+        team1.some(c => c.name === name) ||
+        team2.some(c => c.name === name)
     );
 
 }
@@ -1230,38 +1094,47 @@ function addCharacter(character, team) {
 
     const max = getTeamSize();
 
-    if (team === 1 && team1.length >= max) {
+    if (
+        team === 1 &&
+        team1.length >= max
+    ) {
 
-        alert("Team 1 is already full!");
-
-        return;
-
-    }
-
-    if (team === 2 && team2.length >= max) {
-
-        alert("Team 2 is already full!");
+        alert("Team 1 is full!");
 
         return;
 
     }
 
-    if (isAlreadySelected(character.name)) {
+    if (
+        team === 2 &&
+        team2.length >= max
+    ) {
+
+        alert("Team 2 is full!");
+
+        return;
+
+    }
+
+    if (
+        isAlreadySelected(character.name)
+    ) {
 
         alert(
             character.name +
-            " has already been selected!"
+            " is already on a team!"
         );
 
         return;
 
     }
 
-    const selectedCharacter = {
+
+    const selected = {
 
         ...character,
 
-        version: getCharacterVersion(character),
+        version: getCharacterVersion(),
 
         health: 100
 
@@ -1270,11 +1143,11 @@ function addCharacter(character, team) {
 
     if (team === 1) {
 
-        team1.push(selectedCharacter);
+        team1.push(selected);
 
     } else {
 
-        team2.push(selectedCharacter);
+        team2.push(selected);
 
     }
 
@@ -1294,11 +1167,11 @@ function getRandomAvailableCharacter() {
 
     const possible =
         availableCharacters.filter(
-            character =>
-                !isAlreadySelected(character.name)
+            c =>
+                !isAlreadySelected(c.name)
         );
 
-    if (possible.length === 0) {
+    if (!possible.length) {
 
         return null;
 
@@ -1306,42 +1179,35 @@ function getRandomAvailableCharacter() {
 
     return possible[
         Math.floor(
-            Math.random() * possible.length
+            Math.random() *
+            possible.length
         )
     ];
 
 }
 
 
-/* =========================================================
-   RANDOM PICK
-   ========================================================= */
-
 function addRandomCharacter() {
 
     buildCharacterPool();
 
-    const teamSize = getTeamSize();
+    const size = getTeamSize();
 
-    let targetTeam = currentDraftTeam;
+    let team = currentDraftTeam;
 
 
-    if (team1.length >= teamSize) {
-
-        targetTeam = 2;
-
+    if (team1.length >= size) {
+        team = 2;
     }
 
-    if (team2.length >= teamSize) {
-
-        targetTeam = 1;
-
+    if (team2.length >= size) {
+        team = 1;
     }
 
 
     if (
-        team1.length >= teamSize &&
-        team2.length >= teamSize
+        team1.length >= size &&
+        team2.length >= size
     ) {
 
         alert("Both teams are full!");
@@ -1357,7 +1223,7 @@ function addRandomCharacter() {
 
     if (!character) {
 
-        alert("No unused characters remain.");
+        alert("No characters remaining!");
 
         return;
 
@@ -1366,12 +1232,12 @@ function addRandomCharacter() {
 
     addCharacter(
         character,
-        targetTeam
+        team
     );
 
 
     currentDraftTeam =
-        targetTeam === 1
+        team === 1
             ? 2
             : 1;
 
@@ -1394,29 +1260,21 @@ function startDraft() {
 
     updateDraftStatus();
 
-    alert(
-        "Draft started!\n\n" +
-        "Team 1 picks first.\n" +
-        "Use RANDOM PICK or GENERATE 10."
-    );
-
 }
 
 
 function updateDraftStatus() {
 
-    const teamSize = getTeamSize();
-
-    const status =
-        document.getElementById("draftStatus");
-
+    const size = getTeamSize();
 
     if (
-        team1.length >= teamSize &&
-        team2.length >= teamSize
+        team1.length >= size &&
+        team2.length >= size
     ) {
 
-        status.textContent =
+        document.getElementById(
+            "draftStatus"
+        ).textContent =
             "✅ BOTH TEAMS ARE READY!";
 
         return;
@@ -1426,14 +1284,18 @@ function updateDraftStatus() {
 
     if (draftActive) {
 
-        status.textContent =
+        document.getElementById(
+            "draftStatus"
+        ).textContent =
             "🎯 TEAM " +
             currentDraftTeam +
             " PICK";
 
     } else {
 
-        status.textContent =
+        document.getElementById(
+            "draftStatus"
+        ).textContent =
             "Ready to build your teams.";
 
     }
@@ -1448,19 +1310,20 @@ function updateDraftStatus() {
 function displayTeams() {
 
     displayTeam(
-        1,
         team1,
+        1,
         "team1"
     );
 
     displayTeam(
-        2,
         team2,
+        2,
         "team2"
     );
 
 
     const size = getTeamSize();
+
 
     document.getElementById(
         "team1Count"
@@ -1481,8 +1344,8 @@ function displayTeams() {
 
 
 function displayTeam(
-    teamNumber,
     list,
+    teamNumber,
     elementID
 ) {
 
@@ -1492,12 +1355,12 @@ function displayTeam(
     element.innerHTML = "";
 
 
-    if (list.length === 0) {
+    if (!list.length) {
 
         element.innerHTML =
             '<div class="empty">' +
-            "No characters selected yet." +
-            "</div>";
+            'No characters selected yet.' +
+            '</div>';
 
         return;
 
@@ -1510,8 +1373,7 @@ function displayTeam(
             const div =
                 document.createElement("div");
 
-            div.className =
-                "character";
+            div.className = "character";
 
 
             div.innerHTML = `
@@ -1559,7 +1421,7 @@ function displayTeam(
 
 
 /* =========================================================
-   REMOVE CHARACTER
+   REMOVE
    ========================================================= */
 
 function removeCharacter(
@@ -1594,22 +1456,12 @@ function generateTen() {
 
     generatedCharacters = [];
 
+
     const possible =
         availableCharacters.filter(
-            character =>
-                !isAlreadySelected(character.name)
+            c =>
+                !isAlreadySelected(c.name)
         );
-
-
-    if (possible.length === 0) {
-
-        alert(
-            "There are no unused characters available."
-        );
-
-        return;
-
-    }
 
 
     const pool = [...possible];
@@ -1617,17 +1469,20 @@ function generateTen() {
 
     while (
         generatedCharacters.length < 10 &&
-        pool.length > 0
+        pool.length
     ) {
 
         const index =
             Math.floor(
-                Math.random() * pool.length
+                Math.random() *
+                pool.length
             );
+
 
         generatedCharacters.push(
             pool[index]
         );
+
 
         pool.splice(index, 1);
 
@@ -1686,10 +1541,13 @@ function displayGenerated() {
 
             div.onclick = () => {
 
-                let team = currentDraftTeam;
+                let team =
+                    currentDraftTeam;
+
 
                 if (
-                    team1.length >= getTeamSize()
+                    team1.length >=
+                    getTeamSize()
                 ) {
 
                     team = 2;
@@ -1698,7 +1556,8 @@ function displayGenerated() {
 
 
                 if (
-                    team2.length >= getTeamSize()
+                    team2.length >=
+                    getTeamSize()
                 ) {
 
                     team = 1;
@@ -1707,8 +1566,10 @@ function displayGenerated() {
 
 
                 if (
-                    team1.length >= getTeamSize() &&
-                    team2.length >= getTeamSize()
+                    team1.length >=
+                    getTeamSize() &&
+                    team2.length >=
+                    getTeamSize()
                 ) {
 
                     alert(
@@ -1732,7 +1593,8 @@ function displayGenerated() {
                         : 1;
 
 
-                div.style.opacity = "0.35";
+                div.style.opacity =
+                    ".35";
 
             };
 
@@ -1746,7 +1608,7 @@ function displayGenerated() {
 
 
 /* =========================================================
-   RANDOMIZE COMPLETE TEAMS
+   RANDOM TEAMS
    ========================================================= */
 
 function randomizeTeams() {
@@ -1755,27 +1617,23 @@ function randomizeTeams() {
 
     buildCharacterPool();
 
-    const teamSize = getTeamSize();
+    const size =
+        getTeamSize();
 
-    const pool = [
-        ...availableCharacters
-    ];
+    const pool =
+        [...availableCharacters];
 
 
     for (
         let i = 0;
-        i < teamSize;
+        i < size;
         i++
     ) {
 
-        if (pool.length === 0) {
-            break;
-        }
-
-
         const index =
             Math.floor(
-                Math.random() * pool.length
+                Math.random() *
+                pool.length
             );
 
 
@@ -1788,7 +1646,7 @@ function randomizeTeams() {
             ...character,
 
             version:
-                getCharacterVersion(character),
+                getCharacterVersion(),
 
             health: 100
 
@@ -1799,18 +1657,14 @@ function randomizeTeams() {
 
     for (
         let i = 0;
-        i < teamSize;
+        i < size;
         i++
     ) {
 
-        if (pool.length === 0) {
-            break;
-        }
-
-
         const index =
             Math.floor(
-                Math.random() * pool.length
+                Math.random() *
+                pool.length
             );
 
 
@@ -1823,7 +1677,7 @@ function randomizeTeams() {
             ...character,
 
             version:
-                getCharacterVersion(character),
+                getCharacterVersion(),
 
             health: 100
 
@@ -1842,7 +1696,7 @@ function randomizeTeams() {
 
 
 /* =========================================================
-   RESET TEAMS
+   RESET
    ========================================================= */
 
 function resetTeamsOnly() {
@@ -1860,10 +1714,6 @@ function resetTeamsOnly() {
 }
 
 
-/* =========================================================
-   FULL RESET
-   ========================================================= */
-
 function resetGame() {
 
     resetTeamsOnly();
@@ -1872,76 +1722,322 @@ function resetGame() {
 
     document.getElementById(
         "generatedArea"
-    ).style.display = "none";
+    ).style.display =
+        "none";
 
 
     document.getElementById(
         "battle"
     ).innerHTML = `
 
-        <h2>
+        <h2 class="battle-title">
             ⚔️ BATTLE CENTER
         </h2>
 
-        <p>
-            Complete both teams and start the battle.
+        <p class="battle-subtitle">
+            Build both teams and start the battle.
         </p>
 
     `;
 
 
-    document.getElementById(
-        "draftStatus"
-    ).textContent =
-        "Ready to build your teams.";
-
-
     buildCharacterPool();
+
+    updateDraftStatus();
 
 }
 
 
 /* =========================================================
-   BATTLE ENGINE — STAGE 1 PLACEHOLDER
+   BATTLE DESCRIPTION SYSTEM
    ========================================================= */
 
 /*
-    IMPORTANT:
+    These are the building blocks for the battle
+    narrative.
 
-    This is still NOT the final battle engine.
-
-    For now, it creates a basic matchup presentation.
-
-    Stage 3 will replace this section with:
-
-    - Stats
-    - Target selection
-    - Powers
-    - Special attacks
-    - Matchup advantages
-    - AI personalities
-    - Adaptation
-    - Health
-    - Knockouts
-    - Team synergy
-    - Battlefield effects
-    - Character-specific rules
+    Stage 3 will eventually replace these with
+    character-specific abilities and matchup rules.
 */
 
 
+const attacks = [
+
+    "launches a devastating attack",
+
+    "rushes forward with a powerful combination",
+
+    "fires a massive ranged attack",
+
+    "strikes with incredible speed",
+
+    "uses the battlefield to create an opening",
+
+    "charges directly into the fight",
+
+    "unleashes a signature ability",
+
+    "attempts to overwhelm the opponent"
+
+];
+
+
+const counters = [
+
+    "but the attack is countered at the last second",
+
+    "but the opponent reads the attack and responds",
+
+    "forcing the defender to react immediately",
+
+    "but the opponent refuses to give up ground",
+
+    "only for the opponent to turn the attack around"
+
+];
+
+
+const environments = [
+
+    "The battle begins in a destroyed city surrounded by towering buildings.",
+
+    "The teams clash across a massive abandoned industrial complex.",
+
+    "The battlefield is a ruined downtown area filled with debris and broken structures.",
+
+    "The fight begins in an enormous open arena surrounded by damaged buildings.",
+
+    "A storm rolls over the battlefield as both teams prepare for the confrontation."
+
+];
+
+
+const endings = [
+
+    "With no way to recover, the remaining fighters are forced onto the defensive.",
+
+    "The surviving members of the losing team make one final attempt to turn the battle around.",
+
+    "The final exchange happens in a matter of seconds.",
+
+    "Everything comes down to the last remaining fighters.",
+
+    "The battlefield finally falls silent after the decisive attack."
+
+];
+
+
+function randomItem(array) {
+
+    return array[
+        Math.floor(
+            Math.random() *
+            array.length
+        )
+    ];
+
+}
+
+
+function getTeamNames(team) {
+
+    return team
+        .map(c => c.name)
+        .join(", ");
+
+}
+
+
+/* =========================================================
+   CHARACTER-SPECIFIC DESCRIPTIONS
+   ========================================================= */
+
+function characterAction(character) {
+
+    const name =
+        character.name;
+
+
+    const actions = {
+
+        "Spider-Man":
+            "swings around the battlefield, using webs and rapid movement to attack from unexpected angles.",
+
+        "Miles Morales":
+            "vanishes from sight before reappearing with a sudden venom-powered strike.",
+
+        "Hulk":
+            "charges forward with overwhelming strength, forcing everyone nearby to scatter.",
+
+        "Thor":
+            "raises his weapon and unleashes a devastating burst of thunder across the battlefield.",
+
+        "Iron Man":
+            "takes to the air and fires a coordinated barrage of repulsor blasts and missiles.",
+
+        "Wolverine":
+            "closes the distance and attacks relentlessly, refusing to slow down.",
+
+        "Deadpool":
+            "moves unpredictably, mixing acrobatics, weapons and sudden close-range attacks.",
+
+        "Doctor Doom":
+            "combines advanced technology with powerful energy and mystical attacks.",
+
+        "Magneto":
+            "seizes control of the surrounding metal, turning the battlefield itself into a weapon.",
+
+        "Storm":
+            "summons powerful winds and lightning that spread across the battlefield.",
+
+        "Jean Grey":
+            "uses telekinetic force to control the battlefield while attacking from a distance.",
+
+        "Cyclops":
+            "fires a concentrated optic blast that tears through the battlefield.",
+
+        "Ant-Man":
+            "shrinks down and disappears from sight before attempting to strike from an unexpected angle.",
+
+        "Vision":
+            "phases through an incoming attack before changing density and striking back.",
+
+        "Captain Marvel":
+            "surges forward with enormous energy, combining flight with devastating energy attacks.",
+
+        "Black Widow":
+            "uses speed, precision and acrobatics to exploit an opening.",
+
+        "Batman":
+            "studies the battlefield before using gadgets and precise martial arts to counter the attack.",
+
+        "Superman":
+            "accelerates across the battlefield with overwhelming speed and power.",
+
+        "Wonder Woman":
+            "charges into the fight with her weapons ready, combining speed and elite combat skill.",
+
+        "Flash":
+            "disappears in a blur before several attacks land almost simultaneously.",
+
+        "Green Lantern":
+            "creates enormous energy constructs that reshape the battlefield.",
+
+        "Black Adam":
+            "erupts forward with magical lightning and tremendous physical force.",
+
+        "Supergirl":
+            "takes the fight into the air and attacks with incredible speed.",
+
+        "Starfire":
+            "takes flight and unleashes powerful energy blasts from above.",
+
+        "Raven":
+            "uses supernatural energy to restrain the opponent and control the battlefield.",
+
+        "Doctor Fate":
+            "creates magical barriers while preparing a powerful counterattack.",
+
+        "Nightwing":
+            "uses acrobatics and precise strikes to keep the opponent constantly off balance.",
+
+        "Deathstroke":
+            "combines enhanced physical ability with tactical precision.",
+
+        "Green Arrow":
+            "fires a sequence of specialized arrows designed to disrupt the opponent.",
+
+        "Black Canary":
+            "creates an opening before unleashing a powerful sonic attack.",
+
+        "Harley Quinn":
+            "uses unpredictable movement and improvised attacks to create chaos.",
+
+        "Darkseid":
+            "advances slowly while unleashing devastating cosmic energy.",
+
+        "Doomsday":
+            "charges through the battlefield with raw destructive force."
+
+    };
+
+
+    return actions[name] ||
+        character.name +
+        " unleashes a powerful attack using their unique abilities.";
+
+}
+
+
+/* =========================================================
+   BATTLE PHASE GENERATOR
+   ========================================================= */
+
+function createBattlePhase(
+    phase,
+    teamA,
+    teamB
+) {
+
+    const attacker =
+        randomItem(teamA);
+
+    const defender =
+        randomItem(teamB);
+
+
+    const opening =
+        characterAction(attacker);
+
+
+    const counter =
+        characterAction(defender);
+
+
+    const templates = [
+
+        `${attacker.name} ${opening} ${defender.name} reacts immediately and ${counter.toLowerCase()}`,
+
+        `${attacker.name} ${randomItem(attacks)}. ${defender.name} ${randomItem(counters)} and ${counter.toLowerCase()}`,
+
+        `${attacker.name} sees an opening and ${opening} ${defender.name} survives the first exchange and immediately answers with a counterattack.`,
+
+        `The momentum shifts when ${attacker.name} ${opening} ${defender.name} is forced to adapt, and ${counter.toLowerCase()}`
+
+    ];
+
+
+    return {
+
+        attacker,
+        defender,
+
+        text:
+            randomItem(templates)
+
+    };
+
+}
+
+
+/* =========================================================
+   BATTLE SIMULATION
+   ========================================================= */
+
 function startBattle() {
 
-    const teamSize = getTeamSize();
+    const size =
+        getTeamSize();
 
 
     if (
-        team1.length !== teamSize ||
-        team2.length !== teamSize
+        team1.length !== size ||
+        team2.length !== size
     ) {
 
         alert(
             "Both teams must have exactly " +
-            teamSize +
+            size +
             " characters!"
         );
 
@@ -1950,40 +2046,364 @@ function startBattle() {
     }
 
 
-    const battle =
-        document.getElementById(
-            "battle"
+    const depth =
+        getSimulationDepth();
+
+
+    let paragraphs = [];
+
+
+    /*
+        Determine winner.
+
+        This is still a temporary system.
+
+        Later this will be replaced by the
+        actual power/ability/AI engine.
+    */
+
+    const score1 =
+        team1.reduce(
+            (total, character) =>
+                total +
+                Math.random() * 100,
+            0
         );
 
 
-    let log = "";
+    const score2 =
+        team2.reduce(
+            (total, character) =>
+                total +
+                Math.random() * 100,
+            0
+        );
 
 
-    team1.forEach(
-        (character, index) => {
-
-            const opponent =
-                team2[
-                    index %
-                    team2.length
-                ];
+    const winner =
+        score1 >= score2
+            ? team1
+            : team2;
 
 
-            log += `
+    const loser =
+        score1 >= score2
+            ? team2
+            : team1;
 
-                <div class="battle-line">
 
-                    🔵
-                    <strong>
-                        ${character.name}
-                    </strong>
+    const winnerName =
+        score1 >= score2
+            ? "TEAM 1"
+            : "TEAM 2";
 
-                    engages
 
-                    🔴
-                    <strong>
-                        ${opponent.name}
-                    </strong>
+    /* OPENING */
+
+    paragraphs.push(
+        randomItem(environments) +
+        " " +
+        "Both teams immediately recognize that this will not be an easy fight. " +
+        getTeamNames(team1) +
+        " stand ready on one side while " +
+        getTeamNames(team2) +
+        " prepare across the battlefield."
+    );
+
+
+    /* QUICK */
+
+    if (depth === "quick") {
+
+        const phase =
+            createBattlePhase(
+                1,
+                team1,
+                team2
+            );
+
+
+        paragraphs.push(
+            phase.text +
+            " The exchange becomes increasingly intense until " +
+            randomItem(endings) +
+            " " +
+            winner[0].name +
+            " finds the decisive opening, allowing " +
+            winnerName +
+            " to claim victory."
+        );
+
+    }
+
+
+    /* STANDARD */
+
+    if (depth === "standard") {
+
+        for (
+            let i = 0;
+            i < 3;
+            i++
+        ) {
+
+            const phase =
+                createBattlePhase(
+                    i + 1,
+                    i % 2 === 0
+                        ? team1
+                        : team2,
+                    i % 2 === 0
+                        ? team2
+                        : team1
+                );
+
+
+            paragraphs.push(
+                phase.text +
+                " The battle continues as both sides adjust their strategy."
+            );
+
+        }
+
+
+        paragraphs.push(
+
+            randomItem(endings) +
+            " " +
+            winner[0].name +
+            " takes advantage of the opening and lands the decisive attack. " +
+            winnerName +
+            " wins the battle."
+
+        );
+
+    }
+
+
+    /* DETAILED */
+
+    if (depth === "detailed") {
+
+        paragraphs.push(
+
+            "The opening exchange is chaotic. " +
+            team1[0].name +
+            " immediately targets " +
+            team2[0].name +
+            ", forcing the defender to react. " +
+            "Rather than continuing the same attack, both fighters begin adapting to each other's abilities."
+
+        );
+
+
+        for (
+            let i = 0;
+            i < 5;
+            i++
+        ) {
+
+            const phase =
+                createBattlePhase(
+                    i + 1,
+                    i % 2 === 0
+                        ? team1
+                        : team2,
+                    i % 2 === 0
+                        ? team2
+                        : team1
+                );
+
+
+            paragraphs.push(
+                phase.text +
+                " " +
+                "The rest of the battlefield erupts as the other fighters join the confrontation."
+            );
+
+        }
+
+
+        paragraphs.push(
+
+            "Several fighters are beginning to show signs of exhaustion. " +
+            loser[0].name +
+            " attempts to change the momentum, but " +
+            winner[0].name +
+            " recognizes the strategy and responds immediately."
+
+        );
+
+
+        paragraphs.push(
+
+            randomItem(endings) +
+            " " +
+            winner[0].name +
+            " creates the opening that the entire battle has been building toward. " +
+            "The remaining members of " +
+            winnerName +
+            " capitalize on the opportunity and overwhelm the opposition."
+
+        );
+
+    }
+
+
+    /* CINEMATIC */
+
+    if (depth === "cinematic") {
+
+        paragraphs.push(
+
+            "For several seconds neither side commits completely. " +
+            "Every fighter is watching for the first mistake. " +
+            "Then the battlefield erupts. " +
+            team1[0].name +
+            " moves first, forcing " +
+            team2[0].name +
+            " to respond. " +
+            "The rest of both teams immediately react and the battle expands across the entire area."
+
+        );
+
+
+        for (
+            let i = 0;
+            i < 8;
+            i++
+        ) {
+
+            const phase =
+                createBattlePhase(
+                    i + 1,
+                    i % 2 === 0
+                        ? team1
+                        : team2,
+                    i % 2 === 0
+                        ? team2
+                        : team1
+                );
+
+
+            paragraphs.push(
+                phase.text +
+                " " +
+                "The impact sends debris across the battlefield, forcing nearby fighters to reposition."
+            );
+
+        }
+
+
+        paragraphs.push(
+
+            "The battle enters its second phase as both teams realize that their original strategies are no longer working. " +
+            "Instead of repeating the same attacks, the fighters begin exploiting weaknesses they have discovered during the earlier exchanges."
+
+        );
+
+
+        for (
+            let i = 0;
+            i < 5;
+            i++
+        ) {
+
+            const phase =
+                createBattlePhase(
+                    i + 1,
+                    i % 2 === 0
+                        ? team2
+                        : team1,
+                    i % 2 === 0
+                        ? team1
+                        : team2
+                );
+
+
+            paragraphs.push(
+                phase.text +
+                " " +
+                "The fight becomes increasingly desperate as both sides attempt to gain control."
+            );
+
+        }
+
+
+        paragraphs.push(
+
+            "One fighter finally falls out of the battle, changing the momentum completely. " +
+            "The remaining members immediately reorganize around the new situation. " +
+            "The losing side refuses to surrender and launches one final coordinated assault."
+
+        );
+
+
+        paragraphs.push(
+
+            randomItem(endings) +
+            " " +
+            winner[0].name +
+            " survives the final exchange and turns the attack around. " +
+            "The remaining members of " +
+            loser.map(c => c.name).join(", ") +
+            " are unable to recover."
+
+        );
+
+
+        paragraphs.push(
+
+            "As the dust settles, the battlefield is almost unrecognizable. " +
+            "The surviving members of " +
+            winnerName +
+            " remain standing while the opposing team has been defeated. " +
+            "It was not simply raw power that decided the fight—the winning side adapted better when the battle changed."
+
+        );
+
+    }
+
+
+    /* DISPLAY */
+
+    let battleHTML = `
+
+        <div class="battle-title">
+            ⚔️ BATTLE COMPLETE
+        </div>
+
+        <div class="battle-subtitle">
+
+            ${size}v${size}
+            •
+            ${getUniverse().toUpperCase()}
+            •
+            ${getVersionMode().toUpperCase()}
+            •
+            ${depth.toUpperCase()}
+
+        </div>
+
+        <div class="battle-log">
+
+    `;
+
+
+    paragraphs.forEach(
+        (paragraph, index) => {
+
+            battleHTML += `
+
+                <div class="round">
+                    ${index === 0
+                        ? "⚔️ OPENING"
+                        : "🔥 BATTLE PHASE " + index}
+                </div>
+
+                <div class="battle-paragraph">
+
+                    ${paragraph}
 
                 </div>
 
@@ -1993,64 +2413,42 @@ function startBattle() {
     );
 
 
-    const winner =
-        Math.random() < 0.5
-            ? "TEAM 1"
-            : "TEAM 2";
-
-
-    battle.innerHTML = `
-
-        <h2>
-            ⚔️ BATTLE BEGINS!
-        </h2>
-
-        <p>
-            ${getUniverse().toUpperCase()}
-            •
-            ${getVersionMode().toUpperCase()}
-            •
-            ${teamSize}v${teamSize}
-        </p>
-
-        <div class="battle-log">
-
-            ${log}
-
-            <div class="battle-line">
-                💥 The teams collide!
-            </div>
-
-            <div class="battle-line">
-                ⚡ Both sides adapt to their opponents!
-            </div>
-
-            <div class="battle-line">
-                🔥 The battlefield erupts into chaos!
-            </div>
+    battleHTML += `
 
         </div>
 
         <div class="winner">
 
-            🏆 ${winner} WINS!
+            🏆 ${winnerName} WINS!
 
         </div>
 
-        <p style="text-align:center;color:#888;">
-
-            Full intelligent battle simulation
-            coming in Stage 3.
-
-        </p>
-
     `;
+
+
+    document.getElementById(
+        "battle"
+    ).innerHTML =
+        battleHTML;
+
+
+    window.scrollTo({
+
+        top:
+            document.getElementById(
+                "battle"
+            ).offsetTop - 20,
+
+        behavior:
+            "smooth"
+
+    });
 
 }
 
 
 /* =========================================================
-   SETTING CHANGES
+   SETTINGS CHANGES
    ========================================================= */
 
 document
@@ -2083,25 +2481,6 @@ document
     );
 
 
-document
-    .getElementById("versionMode")
-    .addEventListener(
-        "change",
-        () => {
-
-            /*
-                Existing characters keep their
-                already-selected version.
-
-                New selections use the new mode.
-            */
-
-            updateDraftStatus();
-
-        }
-    );
-
-
 /* =========================================================
    INITIALIZE
    ========================================================= */
@@ -2116,3 +2495,4 @@ updateDraftStatus();
 
 </body>
 </html>
+```
