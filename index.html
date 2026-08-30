@@ -1,1 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Superhero Battle Simulator</title>
 
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: #111;
+            color: white;
+            text-align: center;
+        }
+
+        header {
+            padding: 30px;
+            background: #1b1b1b;
+        }
+
+        h1 {
+            font-size: 40px;
+            margin: 0;
+        }
+
+        .teams {
+            display: flex;
+            justify-content: center;
+            gap: 50px;
+            padding: 40px;
+        }
+
+        .team {
+            background: #222;
+            padding: 25px;
+            border-radius: 15px;
+            width: 300px;
+        }
+
+        .team h2 {
+            font-size: 28px;
+        }
+
+        .characters {
+            min-height: 200px;
+        }
+
+        .character {
+            background: #333;
+            margin: 10px;
+            padding: 12px;
+            border-radius: 8px;
+            font-size: 18px;
+        }
+
+        button {
+            background: #e63946;
+            color: white;
+            border: none;
+            padding: 15px 25px;
+            border-radius: 10px;
+            font-size: 18px;
+            cursor: pointer;
+            margin: 10px;
+        }
+
+        button:hover {
+            background: #ff5964;
+        }
+
+        #battle {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 30px;
+            background: #222;
+            border-radius: 15px;
+        }
+
+        .winner {
+            font-size: 30px;
+            font-weight: bold;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+
+<body>
+
+<header>
+    <h1>⚔️ SUPERHERO BATTLE SIMULATOR ⚔️</h1>
+    <p>Build your teams and simulate an epic battle!</p>
+</header>
+
+<div class="teams">
+
+    <div class="team">
+        <h2>🔵 TEAM 1</h2>
+        <div id="team1" class="characters"></div>
+        <button onclick="addCharacter(1)">🎲 Add Character</button>
+    </div>
+
+    <div class="team">
+        <h2>🔴 TEAM 2</h2>
+        <div id="team2" class="characters"></div>
+        <button onclick="addCharacter(2)">🎲 Add Character</button>
+    </div>
+
+</div>
+
+<button onclick="startBattle()">⚔️ START BATTLE</button>
+
+<div id="battle">
+    <h2>Battle</h2>
+    <p>Build both teams and start the battle!</p>
+</div>
+
+<script>
+
+const characters = [
+    "Spider-Man",
+    "Miles Morales",
+    "Captain Marvel",
+    "Jean Grey",
+    "Wolverine",
+    "Hulk",
+    "Thor",
+    "Iron Man",
+    "Doctor Doom",
+    "Magneto",
+    "Storm",
+    "Deadpool",
+    "Kingpin",
+    "Groot",
+    "Gamora",
+    "Hela",
+    "Mephisto",
+    "Cyclops",
+    "Quicksilver",
+    "Invisible Woman",
+    "Kraven",
+    "Ghost Rider",
+    "MODOK",
+    "Psylocke",
+    "Rocket Raccoon",
+    "Punisher",
+    "Killmonger",
+    "Ant-Man",
+    "Peni Parker",
+    "Mister Sinister"
+];
+
+let team1 = [];
+let team2 = [];
+
+function addCharacter(team) {
+
+    if (team === 1 && team1.length >= 6) {
+        alert("Team 1 already has 6 characters!");
+        return;
+    }
+
+    if (team === 2 && team2.length >= 6) {
+        alert("Team 2 already has 6 characters!");
+        return;
+    }
+
+    const randomCharacter =
+        characters[Math.floor(Math.random() * characters.length)];
+
+    if (team === 1) {
+        team1.push(randomCharacter);
+        displayTeam(1);
+    } else {
+        team2.push(randomCharacter);
+        displayTeam(2);
+    }
+}
+
+function displayTeam(team) {
+
+    const list = team === 1 ? team1 : team2;
+    const element = document.getElementById(
+        team === 1 ? "team1" : "team2"
+    );
+
+    element.innerHTML = "";
+
+    list.forEach((character, index) => {
+
+        const div = document.createElement("div");
+
+        div.className = "character";
+
+        div.innerHTML =
+            (index + 1) + ". " + character;
+
+        element.appendChild(div);
+    });
+}
+
+function startBattle() {
+
+    if (team1.length === 0 || team2.length === 0) {
+        alert("Both teams need characters!");
+        return;
+    }
+
+    const winner =
+        Math.random() < 0.5
+        ? "TEAM 1"
+        : "TEAM 2";
+
+    const battle = document.getElementById("battle");
+
+    battle.innerHTML = `
+        <h2>⚔️ BATTLE BEGINS!</h2>
+
+        <p>${team1[0]} attacks ${team2[0]}!</p>
+
+        <p>${team2[0]} counters with a powerful attack!</p>
+
+        <p>The battlefield explodes as both teams clash!</p>
+
+        <div class="winner">
+            🏆 ${winner} WINS!
+        </div>
+    `;
+}
+
+</script>
+
+</body>
+</html>
