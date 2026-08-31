@@ -2,28 +2,22 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
 
 <title>STARK // BATTLE COMMAND</title>
 
 <style>
 
-/* =========================================================
-   STARK HUD CORE
-========================================================= */
-
 :root{
     --cyan:#00eaff;
-    --cyan2:#00a9c9;
-    --gold:#ffc83d;
     --red:#ff4055;
+    --gold:#ffc83d;
     --green:#4dff9a;
-    --dark:#02070b;
-    --panel:#061119;
-    --panel2:#091923;
+    --bg:#020609;
+    --panel:#07131b;
     --line:#16485a;
     --text:#dffaff;
-    --muted:#63818d;
+    --muted:#6c8792;
 }
 
 *{
@@ -36,383 +30,163 @@ html{
 
 body{
     margin:0;
-    min-height:100vh;
-    color:var(--text);
+
     background:
         radial-gradient(
-            circle at 50% 20%,
-            rgba(0,210,255,.12),
-            transparent 35%
-        ),
-        radial-gradient(
-            circle at 50% 100%,
-            rgba(255,180,30,.06),
+            circle at 50% 10%,
+            rgba(0,234,255,.10),
             transparent 30%
         ),
         #020609;
+
+    color:var(--text);
+
     font-family:
-        "Arial Narrow",
         Arial,
         sans-serif;
-    overflow-x:hidden;
 }
-
-/* HUD GRID */
 
 body::before{
     content:"";
+
     position:fixed;
+
     inset:0;
+
     pointer-events:none;
-    opacity:.055;
+
+    opacity:.04;
+
     background-image:
-        linear-gradient(rgba(0,234,255,.8) 1px,transparent 1px),
-        linear-gradient(90deg,rgba(0,234,255,.8) 1px,transparent 1px);
-    background-size:40px 40px;
-    z-index:100;
-}
-
-body::after{
-    content:"";
-    position:fixed;
-    inset:0;
-    pointer-events:none;
-    background:
-        repeating-linear-gradient(
-            0deg,
-            transparent 0px,
-            transparent 3px,
-            rgba(255,255,255,.015) 4px
-        );
-    z-index:101;
-}
-
-/* =========================================================
-   TOP COMMAND BAR
-========================================================= */
-
-.topbar{
-    height:76px;
-    display:flex;
-    align-items:center;
-    justify-content:space-between;
-    padding:0 35px;
-
-    background:
         linear-gradient(
-            180deg,
-            rgba(8,25,35,.98),
-            rgba(2,9,13,.98)
+            rgba(0,234,255,.7) 1px,
+            transparent 1px
+        ),
+        linear-gradient(
+            90deg,
+            rgba(0,234,255,.7) 1px,
+            transparent 1px
         );
 
-    border-bottom:1px solid var(--cyan2);
+    background-size:
+        40px 40px;
+}
 
-    box-shadow:
-        0 0 30px rgba(0,220,255,.1),
-        inset 0 -1px 0 rgba(0,234,255,.15);
+/* =====================================================
+   TOP BAR
+===================================================== */
 
-    position:relative;
-    z-index:5;
+header{
+    height:72px;
+
+    border-bottom:
+        1px solid #11627a;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:space-between;
+
+    padding:
+        0 28px;
+
+    background:
+        #02090d;
 }
 
 .brand{
-    display:flex;
-    align-items:center;
-    gap:15px;
-}
-
-.arc-mini{
-    width:34px;
-    height:34px;
-    border-radius:50%;
-
-    background:
-        radial-gradient(
-            circle,
-            white 0 8%,
-            var(--cyan) 9% 30%,
-            #006d83 31% 48%,
-            transparent 49%
-        );
-
-    box-shadow:
-        0 0 12px var(--cyan),
-        0 0 28px rgba(0,234,255,.45);
-}
-
-.brand-title{
-    font-size:21px;
-    letter-spacing:6px;
     font-weight:900;
-}
 
-.brand-title span{
-    color:var(--cyan);
-}
-
-.system-status{
-    display:flex;
-    align-items:center;
-    gap:10px;
-    color:var(--green);
-    font-size:10px;
-    letter-spacing:3px;
-}
-
-.status-light{
-    width:8px;
-    height:8px;
-    border-radius:50%;
-    background:var(--green);
-    box-shadow:0 0 14px var(--green);
-    animation:pulse 1.5s infinite;
-}
-
-@keyframes pulse{
-    50%{
-        opacity:.35;
-    }
-}
-
-/* =========================================================
-   MAIN
-========================================================= */
-
-.command-center{
-    width:min(1500px,94%);
-    margin:auto;
-    padding:25px 0 60px;
-}
-
-/* =========================================================
-   COMMAND HEADER
-========================================================= */
-
-.command-header{
-    display:grid;
-    grid-template-columns:1fr 260px 1fr;
-    align-items:center;
-    gap:20px;
-    margin-bottom:20px;
-}
-
-.command-side{
-    height:1px;
-    background:
-        linear-gradient(
-            90deg,
-            transparent,
-            var(--cyan),
-            transparent
-        );
-}
-
-.command-title{
-    text-align:center;
-}
-
-.command-title .small{
-    font-size:9px;
     letter-spacing:5px;
-    color:var(--muted);
+
+    font-size:20px;
 }
 
-.command-title h1{
-    margin:5px 0 0;
-    font-size:27px;
-    letter-spacing:6px;
-    color:white;
-    text-shadow:0 0 20px rgba(0,234,255,.35);
+.brand span{
+    color:var(--cyan);
 }
 
-/* =========================================================
-   REACTOR
-========================================================= */
+.online{
+    color:var(--green);
 
-.reactor-section{
-    display:flex;
-    justify-content:center;
-    margin:5px 0 28px;
+    font-size:9px;
+
+    letter-spacing:2px;
 }
 
-.reactor{
-    width:190px;
-    height:190px;
-    position:relative;
-    display:grid;
-    place-items:center;
-}
+/* =====================================================
+   MAIN
+===================================================== */
 
-.reactor-ring{
-    position:absolute;
-    border-radius:50%;
-    border:1px solid var(--cyan);
-}
-
-.r1{
-    width:180px;
-    height:180px;
-    opacity:.35;
-    animation:spin 15s linear infinite;
-}
-
-.r2{
-    width:150px;
-    height:150px;
-    border-style:dashed;
-    opacity:.6;
-    animation:spinReverse 10s linear infinite;
-}
-
-.r3{
-    width:115px;
-    height:115px;
-    opacity:.8;
-}
-
-.reactor-core{
-    width:70px;
-    height:70px;
-    border-radius:50%;
-
-    background:
-        radial-gradient(
-            circle,
-            white 0 7%,
-            #7fffff 8% 22%,
-            var(--cyan) 23% 45%,
-            #00728d 46% 65%,
-            #03242e 66%
+main{
+    width:
+        min(
+            1500px,
+            94%
         );
 
-    box-shadow:
-        0 0 15px var(--cyan),
-        0 0 40px var(--cyan),
-        0 0 80px rgba(0,234,255,.35);
+    margin:auto;
+
+    padding:
+        26px 0 60px;
 }
 
-@keyframes spin{
-    to{
-        transform:rotate(360deg);
-    }
+.title{
+    text-align:center;
+
+    margin-bottom:18px;
 }
 
-@keyframes spinReverse{
-    to{
-        transform:rotate(-360deg);
-    }
-}
+.title small{
+    color:var(--muted);
 
-.reactor-label{
-    position:absolute;
-    bottom:-25px;
-    font-size:8px;
     letter-spacing:4px;
-    color:var(--cyan);
-}
 
-/* =========================================================
-   CONTROL DECK
-========================================================= */
-
-.control-deck{
-    display:grid;
-    grid-template-columns:repeat(5,1fr);
-    gap:1px;
-
-    background:var(--line);
-    border:1px solid var(--line);
-
-    box-shadow:
-        0 0 35px rgba(0,0,0,.8);
-}
-
-.control{
-    padding:15px;
-    background:
-        linear-gradient(
-            135deg,
-            #081821,
-            #03090d
-        );
-
-    position:relative;
-}
-
-.control::before{
-    content:"";
-    position:absolute;
-    top:0;
-    left:0;
-    width:25px;
-    height:1px;
-    background:var(--cyan);
-}
-
-.control label{
-    display:block;
     font-size:8px;
-    letter-spacing:3px;
-    color:var(--muted);
-    margin-bottom:9px;
 }
 
-select{
-    width:100%;
-    background:#02080c;
-    border:1px solid #1a5365;
-    color:var(--cyan);
-    padding:10px;
-    outline:none;
-    font-weight:bold;
-    letter-spacing:1px;
+.title h1{
+    letter-spacing:6px;
+
+    font-size:26px;
 }
 
-select:focus{
-    border-color:var(--cyan);
-    box-shadow:0 0 12px rgba(0,234,255,.15);
-}
-
-/* =========================================================
-   COMMAND BUTTONS
-========================================================= */
-
-.command-buttons{
-    display:grid;
-    grid-template-columns:2fr 1fr 1fr;
-    gap:10px;
-    margin:12px 0;
-}
+/* =====================================================
+   BUTTONS
+===================================================== */
 
 button{
-    position:relative;
-    padding:14px 18px;
-    color:white;
     background:#06131b;
-    border:1px solid #1a596c;
-    font-weight:bold;
-    letter-spacing:2px;
-    cursor:pointer;
-    overflow:hidden;
-    transition:.15s;
-}
 
-button::before{
-    content:"";
-    position:absolute;
-    left:0;
-    top:0;
-    bottom:0;
-    width:3px;
-    background:var(--cyan);
+    color:white;
+
+    border:
+        1px solid #1a596c;
+
+    padding:
+        12px 16px;
+
+    font-weight:bold;
+
+    letter-spacing:1.5px;
+
+    cursor:pointer;
 }
 
 button:hover{
-    color:var(--cyan);
-    border-color:var(--cyan);
-    box-shadow:
-        0 0 20px rgba(0,234,255,.15),
-        inset 0 0 15px rgba(0,234,255,.05);
+    border-color:
+        var(--cyan);
+
+    color:
+        var(--cyan);
+}
+
+button:disabled{
+    opacity:.3;
+
+    cursor:
+        not-allowed;
 }
 
 .primary{
@@ -425,188 +199,352 @@ button:hover{
 }
 
 .gold{
-    border-color:#796024;
+    border-color:
+        #7d6425;
 }
 
-.gold::before{
-    background:var(--gold);
+.red{
+    border-color:
+        #74303a;
 }
 
-.danger{
-    border-color:#6d2932;
+/* =====================================================
+   TABS
+===================================================== */
+
+.tabs{
+    display:flex;
+
+    gap:8px;
+
+    margin-bottom:12px;
 }
 
-.danger::before{
-    background:var(--red);
+.tab{
+    flex:1;
 }
 
-/* =========================================================
-   GENERIC HUD PANEL
-========================================================= */
+.tab.active{
+    border-color:
+        var(--cyan);
 
-.hud-panel{
-    position:relative;
+    color:
+        var(--cyan);
+}
+
+/* =====================================================
+   PANELS
+===================================================== */
+
+.panel{
     background:
         linear-gradient(
             135deg,
-            rgba(7,22,31,.98),
-            rgba(2,8,12,.98)
+            #07161f,
+            #02080c
         );
 
-    border:1px solid var(--line);
+    border:
+        1px solid var(--line);
 
-    box-shadow:
-        0 15px 40px rgba(0,0,0,.55),
-        inset 0 0 30px rgba(0,234,255,.025);
+    padding:16px;
 
-    padding:18px;
+    margin-bottom:12px;
+
+    position:relative;
 }
 
-.hud-panel::before,
-.hud-panel::after{
+.panel::before{
     content:"";
+
     position:absolute;
-    width:20px;
-    height:20px;
-    pointer-events:none;
-}
 
-.hud-panel::before{
-    top:-1px;
     left:-1px;
-    border-top:2px solid var(--cyan);
-    border-left:2px solid var(--cyan);
+
+    top:-1px;
+
+    width:18px;
+
+    height:18px;
+
+    border-left:
+        2px solid var(--cyan);
+
+    border-top:
+        2px solid var(--cyan);
 }
 
-.hud-panel::after{
-    bottom:-1px;
-    right:-1px;
-    border-bottom:2px solid var(--cyan);
-    border-right:2px solid var(--cyan);
-}
-
-.panel-heading{
+.heading{
     display:flex;
+
     justify-content:space-between;
-    align-items:center;
-    padding-bottom:12px;
-    margin-bottom:14px;
-    border-bottom:1px solid #153b49;
+
+    gap:10px;
+
+    border-bottom:
+        1px solid #153b49;
+
+    padding-bottom:10px;
+
+    margin-bottom:12px;
 }
 
-.panel-heading h2{
+.heading h2{
     margin:0;
+
     font-size:11px;
-    letter-spacing:4px;
+
+    letter-spacing:3px;
 }
 
-.panel-code{
+.code{
     color:var(--gold);
-    font-size:9px;
+
+    font-size:8px;
+
     letter-spacing:2px;
 }
 
-/* =========================================================
-   CHARACTER BOARD
-========================================================= */
+/* =====================================================
+   CONTROLS
+===================================================== */
 
-.pool-panel{
-    margin-top:12px;
-}
-
-.pool{
+.controls{
     display:grid;
-    grid-template-columns:repeat(5,1fr);
+
+    grid-template-columns:
+        repeat(
+            6,
+            1fr
+        );
+
     gap:8px;
 }
 
-.character-card{
-    min-height:78px;
-    position:relative;
-    padding:12px;
+.control{
+    background:#02090d;
 
+    border:
+        1px solid #153743;
+
+    padding:10px;
+}
+
+.control label{
+    display:block;
+
+    font-size:8px;
+
+    color:var(--muted);
+
+    letter-spacing:2px;
+
+    margin-bottom:7px;
+}
+
+.control select,
+.control input{
+    width:100%;
+
+    background:#02080c;
+
+    color:var(--cyan);
+
+    border:
+        1px solid #1a5365;
+
+    padding:9px;
+}
+
+/* =====================================================
+   TIERS
+===================================================== */
+
+.tiers{
+    display:flex;
+
+    flex-wrap:wrap;
+
+    gap:8px;
+}
+
+.tier{
+    display:flex !important;
+
+    align-items:center;
+
+    gap:6px;
+
+    margin:0 !important;
+
+    color:#b8d1d9 !important;
+
+    letter-spacing:1px !important;
+}
+
+.tier input{
+    width:auto !important;
+}
+
+.tier-buttons{
+    display:flex;
+
+    gap:6px;
+
+    margin-top:8px;
+}
+
+.tier-buttons button{
+    padding:7px;
+
+    font-size:8px;
+
+    flex:1;
+}
+
+.actions{
+    display:grid;
+
+    grid-template-columns:
+        2fr 1fr 1fr;
+
+    gap:8px;
+
+    margin-top:10px;
+}
+
+/* =====================================================
+   STATUS
+===================================================== */
+
+.status{
+    padding:10px;
+
+    text-align:center;
+
+    background:#02080c;
+
+    border:
+        1px solid #153743;
+
+    color:var(--gold);
+
+    font-size:9px;
+
+    letter-spacing:2px;
+
+    margin-bottom:10px;
+}
+
+/* =====================================================
+   CHARACTER GRID
+===================================================== */
+
+.grid{
+    display:grid;
+
+    grid-template-columns:
+        repeat(
+            5,
+            1fr
+        );
+
+    gap:8px;
+}
+
+.card{
     background:
         linear-gradient(
             135deg,
-            rgba(12,29,39,.95),
-            rgba(3,10,14,.98)
+            #0a1b24,
+            #03090d
         );
 
-    border:1px solid #183d4a;
+    border:
+        1px solid #183d4a;
+
+    padding:10px;
+
+    min-height:92px;
 
     cursor:pointer;
 
-    transition:
-        transform .15s,
-        border .15s,
-        box-shadow .15s;
-
-    overflow:hidden;
+    position:relative;
 }
 
-.character-card::after{
-    content:"";
-    position:absolute;
-    right:-15px;
-    top:-15px;
-    width:45px;
-    height:45px;
-    border-radius:50%;
-    background:var(--accent);
-    opacity:.07;
-    filter:blur(3px);
-}
-
-.character-card:hover{
-    transform:translateY(-3px);
-    border-color:var(--accent);
-    box-shadow:
-        0 0 20px color-mix(
-            in srgb,
-            var(--accent),
-            transparent 75%
+.card:hover{
+    border-color:
+        var(
+            --accent,
+            var(--cyan)
         );
+
+    transform:
+        translateY(-2px);
 }
 
-.character-card.selected{
-    opacity:.18;
-    pointer-events:none;
-}
-
-.character-name{
-    font-size:12px;
+.name{
     font-weight:bold;
-    color:white;
+
+    font-size:11px;
 }
 
-.character-info{
-    margin-top:7px;
-    color:var(--muted);
+.meta{
     font-size:8px;
+
+    color:var(--muted);
+
+    margin-top:5px;
+}
+
+.badge{
+    font-size:7px;
+
+    color:var(--gold);
+
+    margin-top:7px;
+
     letter-spacing:1px;
 }
 
-.pick-label{
-    position:absolute;
-    top:7px;
-    right:7px;
-    font-size:7px;
-    color:var(--gold);
-}
+.emblem{
+    width:34px;
 
-/* =========================================================
-   TEAMS
-========================================================= */
+    height:34px;
 
-.team-grid{
+    border-radius:50%;
+
     display:grid;
-    grid-template-columns:1fr 1fr;
-    gap:12px;
-    margin-top:12px;
+
+    place-items:center;
+
+    border:
+        1px solid
+        var(
+            --accent,
+            var(--cyan)
+        );
+
+    color:
+        var(
+            --accent,
+            var(--cyan)
+        );
+
+    margin-bottom:8px;
 }
 
-.team-panel{
-    min-height:230px;
+/* =====================================================
+   TEAMS
+===================================================== */
+
+.teams{
+    display:grid;
+
+    grid-template-columns:
+        1fr 1fr;
+
+    gap:12px;
 }
 
 .alpha{
@@ -614,286 +552,5141 @@ button:hover{
 }
 
 .omega{
-    border-color:#672b34;
+    border-color:#6b2a35;
 }
 
-.alpha .panel-heading{
-    border-color:#15566a;
-}
-
-.omega .panel-heading{
-    border-color:#5c2931;
-}
-
-.team-title{
-    font-size:12px;
-    letter-spacing:4px;
-}
-
-.alpha .team-title{
+.alpha h2{
     color:var(--cyan);
 }
 
-.omega .team-title{
+.omega h2{
     color:var(--red);
 }
 
 .slots{
     display:grid;
-    grid-template-columns:repeat(5,1fr);
+
+    grid-template-columns:
+        repeat(
+            5,
+            1fr
+        );
+
     gap:8px;
 }
 
 .slot{
-    min-height:110px;
+    min-height:105px;
+
+    border:
+        1px dashed #1b3a46;
+
+    background:#02080c;
+
     display:flex;
-    flex-direction:column;
-    justify-content:center;
+
     align-items:center;
-    background:#03090d;
-    border:1px dashed #1c3944;
+
+    justify-content:center;
+
     text-align:center;
+
+    padding:8px;
 }
 
 .slot.filled{
     border-style:solid;
-    border-color:var(--accent);
-    box-shadow:inset 0 0 20px color-mix(
-        in srgb,
-        var(--accent),
-        transparent 90%
-    );
-}
 
-.avatar{
-    width:43px;
-    height:43px;
-    border-radius:50%;
-    display:grid;
-    place-items:center;
-    margin-bottom:8px;
-
-    background:
-        radial-gradient(
-            circle,
-            white 0 5%,
-            var(--accent) 6% 60%,
-            #071018 61%
+    border-color:
+        var(
+            --accent,
+            var(--cyan)
         );
+}
 
-    box-shadow:0 0 15px var(--accent);
+.slot .emblem{
+    margin:
+        0 auto 7px;
+}
+
+.slotname{
     font-size:9px;
+
     font-weight:bold;
 }
 
-.slot-name{
-    font-size:9px;
-    font-weight:bold;
-}
+.slotver{
+    font-size:7px;
 
-/* =========================================================
-   BATTLE COMMAND CENTER
-========================================================= */
+    color:var(--gold);
 
-.battle-panel{
-    margin-top:12px;
-}
-
-.battle-top{
-    display:grid;
-    grid-template-columns:1fr 170px 1fr;
-    gap:15px;
-    align-items:center;
-    margin-bottom:18px;
-}
-
-.side-readout{
-    padding:12px;
-    background:#03090d;
-    border:1px solid #163b48;
-}
-
-.readout-label{
-    color:var(--muted);
-    font-size:8px;
-    letter-spacing:3px;
-}
-
-.readout-value{
-    margin-top:5px;
-    font-size:17px;
-    font-weight:bold;
-}
-
-.alpha-value{
-    color:var(--cyan);
-}
-
-.omega-value{
-    color:var(--red);
-}
-
-.battle-reactor{
-    width:95px;
-    height:95px;
-    margin:auto;
-    border-radius:50%;
-    display:grid;
-    place-items:center;
-
-    border:1px solid var(--cyan);
-
-    background:
-        radial-gradient(
-            circle,
-            white 0 5%,
-            var(--cyan) 6% 20%,
-            #005a70 21% 40%,
-            transparent 41%
-        );
-
-    box-shadow:
-        0 0 20px var(--cyan),
-        0 0 50px rgba(0,234,255,.25);
-
-    animation:battlePulse 2s infinite;
-}
-
-@keyframes battlePulse{
-    50%{
-        box-shadow:
-            0 0 30px var(--cyan),
-            0 0 70px rgba(0,234,255,.35);
-    }
-}
-
-/* =========================================================
-   HEALTH
-========================================================= */
-
-.health-panel{
-    display:grid;
-    grid-template-columns:1fr 1fr;
-    gap:10px;
-    margin-bottom:15px;
-}
-
-.health-team{
-    padding:12px;
-    background:#03090d;
-    border:1px solid #143542;
-}
-
-.health-title{
-    font-size:9px;
-    letter-spacing:3px;
-    margin-bottom:10px;
-}
-
-.health-row{
-    margin:8px 0;
-}
-
-.health-label{
-    display:flex;
-    justify-content:space-between;
-    font-size:8px;
-    color:#9db4be;
-}
-
-.health-bar{
-    height:5px;
     margin-top:4px;
-    background:#10212a;
-    overflow:hidden;
 }
 
-.health-fill{
-    height:100%;
-    background:var(--green);
-    box-shadow:0 0 8px var(--green);
-    transition:width .5s;
+/* =====================================================
+   BATTLE
+===================================================== */
+
+#battleOutput{
+    display:none;
 }
 
-.health-fill.low{
-    background:#ffb14e;
-    box-shadow:0 0 8px #ffb14e;
+.versus{
+    display:grid;
+
+    grid-template-columns:
+        1fr auto 1fr;
+
+    gap:10px;
+
+    align-items:center;
 }
 
-.health-fill.dead{
-    background:var(--red);
-    box-shadow:0 0 8px var(--red);
+.readout{
+    background:#02080c;
+
+    border:
+        1px solid #153743;
+
+    padding:12px;
 }
 
-/* =========================================================
-   BATTLE FEED
-========================================================= */
+.readout small{
+    display:block;
 
-.battle-feed{
-    height:620px;
-    overflow-y:auto;
-    padding-right:8px;
+    color:var(--muted);
+
+    font-size:8px;
 }
 
-.battle-feed::-webkit-scrollbar{
-    width:5px;
+.readout strong{
+    display:block;
+
+    margin-top:4px;
 }
 
-.battle-feed::-webkit-scrollbar-track{
-    background:#02070a;
+.vs{
+    color:var(--gold);
+
+    font-weight:bold;
 }
 
-.battle-feed::-webkit-scrollbar-thumb{
-    background:#15566a;
-}
+/* =====================================================
+   STORY
+===================================================== */
 
-.round-card{
+.round{
     margin:12px 0;
-    padding:17px 18px;
+
+    padding:17px;
+
+    border-left:
+        2px solid var(--cyan);
 
     background:
         linear-gradient(
             90deg,
-            rgba(8,27,36,.98),
-            rgba(3,10,14,.98)
+            #081b24,
+            #030a0e
         );
-
-    border-left:2px solid var(--cyan);
-
-    color:#bdd1d8;
-
-    line-height:1.75;
-
-    font-family:
-        Georgia,
-        "Times New Roman",
-        serif;
-
-    font-size:14px;
 }
 
-.round-heading{
+.roundtitle{
     color:var(--gold);
-    font-family:Arial,sans-serif;
+
     font-size:9px;
+
     font-weight:bold;
+
     letter-spacing:3px;
+
     margin-bottom:10px;
 }
 
-.move{
-    display:inline-block;
-    padding:3px 7px;
-    margin:3px 0;
-    color:var(--cyan);
-    font-family:Arial,sans-serif;
-    font-weight:bold;
-    letter-spacing:1px;
-    border:1px solid #15576a;
-    background:#061820;
+.story{
+    font:
+        14px/1.8
+        Georgia,
+        serif;
+
+    color:#c9dbe0;
 }
 
-.impact{
-    color:white;
-    font-weight:bold;
+.story p{
+    margin:
+        0 0 14px;
 }
+
+/* =====================================================
+   HEALTH
+===================================================== */
+
+.health{
+    margin:10px 0;
+
+    padding:12px;
+
+    background:#02080c;
+
+    border:
+        1px solid #143542;
+}
+
+.healthtitle{
+    color:var(--gold);
+
+    font-size:8px;
+
+    letter-spacing:2px;
+
+    margin-bottom:8px;
+}
+
+.healthcols{
+    display:grid;
+
+    grid-template-columns:
+        1fr 1fr;
+
+    gap:14px;
+}
+
+.hrow{
+    margin-bottom:7px;
+}
+
+.hlabel{
+    display:flex;
+
+    justify-content:space-between;
+
+    font-size:8px;
+
+    color:#9db4be;
+}
+
+.track{
+    height:6px;
+
+    background:#10212a;
+
+    margin-top:3px;
+}
+
+.fill{
+    height:100%;
+
+    background:
+        var(--green);
+}
+
+.fill.mid{
+    background:
+        var(--gold);
+}
+
+.fill.low{
+    background:
+        var(--red);
+}
+
+.winner{
+    padding:24px;
+
+    text-align:center;
+
+    border:
+        1px solid var(--gold);
+
+    color:var(--gold);
+
+    letter-spacing:3px;
+
+    margin-top:15px;
+}
+
+/* =====================================================
+   DATABASE
+===================================================== */
+
+.hidden{
+    display:none;
+}
+
+.dbtools{
+    display:grid;
+
+    grid-template-columns:
+        2fr 1fr;
+
+    gap:8px;
+
+    margin-bottom:10px;
+}
+
+.dbtools input,
+.dbtools select{
+    background:#02080c;
+
+    border:
+        1px solid #1a5365;
+
+    color:var(--cyan);
+
+    padding:10px;
+}
+
+.profiles{
+    display:grid;
+
+    grid-template-columns:
+        repeat(
+            3,
+            1fr
+        );
+
+    gap:8px;
+}
+
+.profile{
+    background:#02080c;
+
+    border:
+        1px solid #183d4a;
+
+    padding:12px;
+}
+
+.profile h3{
+    margin:0;
+}
+
+.profile p{
+    font-size:9px;
+
+    color:#b7cbd2;
+
+    line-height:1.5;
+}
+
+.profile strong{
+    color:var(--gold);
+}
+
+/* =====================================================
+   WHEEL
+===================================================== */
+
+#wheelModal{
+    display:none;
+
+    position:fixed;
+
+    inset:0;
+
+    background:
+        rgba(
+            0,
+            4,
+            7,
+            .95
+        );
+
+    z-index:500;
+
+    place-items:center;
+}
+
+.wheelbox{
+    width:
+        min(
+            520px,
+            94vw
+        );
+
+    padding:24px;
+
+    border:
+        1px solid var(--cyan);
+
+    background:#041018;
+
+    text-align:center;
+}
+
+#wheel{
+    width:280px;
+
+    height:280px;
+
+    margin:
+        12px auto;
+
+    border-radius:50%;
+
+    border:
+        7px solid #173742;
+
+    background:
+        conic-gradient(
+            #0b7187 0 45deg,
+            #85692e 45deg 90deg,
+            #8c3441 90deg 135deg,
+            #326b83 135deg 180deg,
+            #684986 180deg 225deg,
+            #3a7c56 225deg 270deg,
+            #916b38 270deg 315deg,
+            #315c91 315deg 360deg
+        );
+
+    transition:
+        transform
+        3s
+        cubic-bezier(
+            .1,
+            .8,
+            .15,
+            1
+        );
+}
+
+/* =====================================================
+   RESPONSIVE
+===================================================== */
+
+@media(max-width:1100px){
+
+    .controls{
+        grid-template-columns:
+            repeat(
+                3,
+                1fr
+            );
+    }
+
+    .grid{
+        grid-template-columns:
+            repeat(
+                3,
+                1fr
+            );
+    }
+
+}
+
+@media(max-width:800px){
+
+    .teams,
+    .healthcols{
+        grid-template-columns:
+            1fr;
+    }
+
+    .profiles{
+        grid-template-columns:
+            repeat(
+                2,
+                1fr
+            );
+    }
+
+}
+
+@media(max-width:600px){
+
+    .controls,
+    .actions,
+    .grid,
+    .profiles,
+    .dbtools{
+        grid-template-columns:
+            1fr;
+    }
+
+    .slots{
+        grid-template-columns:
+            repeat(
+                2,
+                1fr
+            );
+    }
+
+    .versus{
+        grid-template-columns:
+            1fr;
+    }
+
+    .online{
+        display:none;
+    }
+
+}
+
+</style>
+</head>
+
+<body>
+
+<header>
+
+    <div class="brand">
+        STARK
+        <span>//</span>
+        BATTLE COMMAND
+    </div>
+
+    <div class="online">
+        JARVIS BATTLE ENGINE ONLINE
+    </div>
+
+</header>
+
+<main>
+
+<div class="title">
+
+    <small>
+        STARK INDUSTRIES //
+        COMBAT SIMULATION SYSTEM
+    </small>
+
+    <h1>
+        SUPERHERO BATTLE COMMAND
+    </h1>
+
+</div>
+
+<div class="tabs">
+
+    <button
+        id="battleTab"
+        class="tab active"
+        onclick="switchPage('battle')"
+    >
+        BATTLE COMMAND
+    </button>
+
+    <button
+        id="databaseTab"
+        class="tab"
+        onclick="switchPage('database')"
+    >
+        CHARACTER DATABASE
+    </button>
+
+</div>
+
+<!-- =====================================================
+     BATTLE PAGE
+===================================================== -->
+
+<section id="battlePage">
+
+<div class="panel">
+
+<div class="heading">
+
+    <h2>
+        SIMULATION PARAMETERS
+    </h2>
+
+    <span class="code">
+        SYS // 001
+    </span>
+
+</div>
+
+<div class="controls">
+
+    <div class="control">
+
+        <label>
+            TEAM ALPHA SIZE
+        </label>
+
+        <select
+            id="alphaTeamSize"
+            onchange="sizeChanged()"
+        >
+            <option value="1">
+                1 FIGHTER
+            </option>
+
+            <option value="2">
+                2 FIGHTERS
+            </option>
+
+            <option value="3">
+                3 FIGHTERS
+            </option>
+
+            <option value="4">
+                4 FIGHTERS
+            </option>
+
+            <option value="5">
+                5 FIGHTERS
+            </option>
+        </select>
+
+    </div>
+
+    <div class="control">
+
+        <label>
+            TEAM OMEGA SIZE
+        </label>
+
+        <select
+            id="omegaTeamSize"
+            onchange="sizeChanged()"
+        >
+            <option value="1">
+                1 FIGHTER
+            </option>
+
+            <option value="2">
+                2 FIGHTERS
+            </option>
+
+            <option value="3">
+                3 FIGHTERS
+            </option>
+
+            <option value="4">
+                4 FIGHTERS
+            </option>
+
+            <option value="5">
+                5 FIGHTERS
+            </option>
+        </select>
+
+    </div>
+
+    <div class="control">
+
+        <label>
+            UNIVERSE
+        </label>
+
+        <select id="universe">
+
+            <option value="Both">
+                MARVEL + DC
+            </option>
+
+            <option value="Marvel">
+                MARVEL
+            </option>
+
+            <option value="DC">
+                DC
+            </option>
+
+        </select>
+
+    </div>
+
+    <div class="control">
+
+        <label>
+            VERSION
+        </label>
+
+        <select id="versionMode">
+
+            <option value="Standard">
+                STANDARD
+            </option>
+
+            <option value="Amped">
+                AMPED
+            </option>
+
+            <option value="Mixed">
+                MIXED
+            </option>
+
+        </select>
+
+    </div>
+
+    <div class="control">
+
+        <label>
+            BATTLEFIELD
+        </label>
+
+        <select id="battlefield">
+
+            <option>
+                Abandoned City
+            </option>
+
+            <option>
+                Stark Tower
+            </option>
+
+            <option>
+                Gotham Rooftops
+            </option>
+
+            <option>
+                Savage Land
+            </option>
+
+            <option>
+                Cosmic Arena
+            </option>
+
+        </select>
+
+    </div>
+
+    <div class="control">
+
+        <label>
+            STORY DEPTH
+        </label>
+
+        <select id="storyDepth">
+
+            <option value="brief">
+                BRIEF
+            </option>
+
+            <option
+                value="detailed"
+                selected
+            >
+                DETAILED
+            </option>
+
+            <option value="cinematic">
+                CINEMATIC
+            </option>
+
+        </select>
+
+    </div>
+
+</div>
+
+<!-- =====================================================
+     POWER TIERS
+===================================================== -->
+
+<div
+    class="control"
+    style="margin-top:8px"
+>
+
+<label>
+    POWER TIERS //
+    SELECT ANY COMBINATION
+</label>
+
+<div class="tiers">
+
+    <label class="tier">
+
+        <input
+            class="tierCheck"
+            type="checkbox"
+            value="Street"
+            checked
+        >
+
+        STREET
+
+    </label>
+
+    <label class="tier">
+
+        <input
+            class="tierCheck"
+            type="checkbox"
+            value="Enhanced"
+            checked
+        >
+
+        ENHANCED
+
+    </label>
+
+    <label class="tier">
+
+        <input
+            class="tierCheck"
+            type="checkbox"
+            value="Heavy"
+            checked
+        >
+
+        HEAVY
+
+    </label>
+
+    <label class="tier">
+
+        <input
+            class="tierCheck"
+            type="checkbox"
+            value="Mystic"
+            checked
+        >
+
+        MYSTIC
+
+    </label>
+
+    <label class="tier">
+
+        <input
+            class="tierCheck"
+            type="checkbox"
+            value="Cosmic"
+            checked
+        >
+
+        COSMIC
+
+    </label>
+
+</div>
+
+<div class="tier-buttons">
+
+    <button
+        onclick="allTiers(true)"
+    >
+        ALL TIERS
+    </button>
+
+    <button
+        onclick="allTiers(false)"
+    >
+        CLEAR TIERS
+    </button>
+
+</div>
+
+</div>
+
+<div class="actions">
+
+    <button
+        class="primary"
+        onclick="generateSelection()"
+    >
+        GENERATE 10
+    </button>
+
+    <button
+        class="gold"
+        onclick="openWheel()"
+    >
+        SPIN WHEEL
+    </button>
+
+    <button
+        class="red"
+        onclick="resetBattle()"
+    >
+        RESET
+    </button>
+
+</div>
+
+</div>
+
+<!-- =====================================================
+     AVAILABLE CHARACTERS
+===================================================== -->
+
+<div class="panel">
+
+<div class="heading">
+
+    <h2>
+        AVAILABLE COMBATANTS
+    </h2>
+
+    <span
+        id="draftStatus"
+        class="code"
+    >
+        GENERATE A SELECTION
+    </span>
+
+</div>
+
+<div
+    id="selectionStatus"
+    class="status"
+>
+    Generate 10 characters
+    or use the wheel.
+</div>
+
+<div
+    id="characterPool"
+    class="grid"
+></div>
+
+</div>
+
+<!-- =====================================================
+     TEAMS
+===================================================== -->
+
+<div class="teams">
+
+<div class="panel alpha">
+
+<div class="heading">
+
+    <h2>
+        TEAM ALPHA
+    </h2>
+
+    <span
+        id="alphaCount"
+        class="code"
+    >
+        0 / 1
+    </span>
+
+</div>
+
+<div
+    id="alphaSlots"
+    class="slots"
+></div>
+
+</div>
+
+<div class="panel omega">
+
+<div class="heading">
+
+    <h2>
+        TEAM OMEGA
+    </h2>
+
+    <span
+        id="omegaCount"
+        class="code"
+    >
+        0 / 1
+    </span>
+
+</div>
+
+<div
+    id="omegaSlots"
+    class="slots"
+></div>
+
+</div>
+
+</div>
+
+<div class="panel">
+
+<button
+    id="startBattleButton"
+    class="primary"
+    style="width:100%"
+    onclick="startBattle()"
+    disabled
+>
+    START MATCH
+</button>
+
+</div>
+
+<!-- =====================================================
+     BATTLE OUTPUT
+===================================================== -->
+
+<div
+    id="battleOutput"
+    class="panel"
+>
+
+<div class="heading">
+
+    <h2>
+        BATTLE SIMULATION
+    </h2>
+
+    <span class="code">
+        STORY ENGINE // ACTIVE
+    </span>
+
+</div>
+
+<div class="versus">
+
+    <div class="readout">
+
+        <small>
+            TEAM ALPHA
+        </small>
+
+        <strong
+            id="alphaReadout"
+        ></strong>
+
+    </div>
+
+    <div class="vs">
+        VS
+    </div>
+
+    <div class="readout">
+
+        <small>
+            TEAM OMEGA
+        </small>
+
+        <strong
+            id="omegaReadout"
+        ></strong>
+
+    </div>
+
+</div>
+
+<div id="battleFeed"></div>
+
+</div>
+
+</section>
+
+<!-- =====================================================
+     DATABASE
+===================================================== -->
+
+<section
+    id="databasePage"
+    class="hidden"
+>
+
+<div class="panel">
+
+<div class="heading">
+
+    <h2>
+        CHARACTER DATABASE
+    </h2>
+
+    <span class="code">
+        60 COMBATANTS
+    </span>
+
+</div>
+
+<div class="dbtools">
+
+    <input
+        id="dbSearch"
+        placeholder="SEARCH CHARACTER..."
+        oninput="renderDatabase()"
+    >
+
+    <select
+        id="dbUniverse"
+        onchange="renderDatabase()"
+    >
+
+        <option value="Both">
+            MARVEL + DC
+        </option>
+
+        <option value="Marvel">
+            MARVEL
+        </option>
+
+        <option value="DC">
+            DC
+        </option>
+
+    </select>
+
+</div>
+
+<div
+    id="databaseGrid"
+    class="profiles"
+></div>
+
+</div>
+
+</section>
+
+</main>
+
+<!-- =====================================================
+     WHEEL
+===================================================== -->
+
+<div id="wheelModal">
+
+<div class="wheelbox">
+
+    <div
+        style="
+            color:var(--gold);
+            font-size:26px
+        "
+    >
+        ▼
+    </div>
+
+    <div id="wheel"></div>
+
+    <div
+        id="wheelResult"
+        class="status"
+    ></div>
+
+    <button
+        id="spinButton"
+        class="primary"
+        onclick="spinWheel()"
+    >
+        SPIN
+    </button>
+
+    <button
+        onclick="closeWheel()"
+    >
+        CLOSE
+    </button>
+
+</div>
+
+</div>
+
+<script>
+
+/* =====================================================
+   CHARACTER DATABASE
+===================================================== */
+
+const ROSTER=[
+
+[
+"Spider-Man",
+"Marvel",
+"Enhanced",
+"Agile",
+"Mobile",
+"web",
+"Web Swing|Web Shot|Spider-Sense Evade|Web Restraint|Impact Combo",
+72,91,78,87,88
+],
+
+[
+"Iron Man",
+"Marvel",
+"Heavy",
+"Ranged",
+"Tech",
+"reactor",
+"Repulsor Burst|Micro Missiles|Unibeam|Flight Dash|Adaptive Shield",
+86,82,86,91,84
+],
+
+[
+"Thor",
+"Marvel",
+"Cosmic",
+"Powerhouse",
+"Hybrid",
+"lightning",
+"Mjolnir Strike|Hammer Throw|Lightning Call|Flight Rush|God Blast",
+96,82,96,84,94
+],
+
+[
+"Hulk",
+"Marvel",
+"Cosmic",
+"Brawler",
+"Melee",
+"impact",
+"Thunderclap|Ground Smash|Gamma Rush|Leaping Slam|Rage Crush",
+100,72,100,69,96
+],
+
+[
+"Wolverine",
+"Marvel",
+"Enhanced",
+"Brawler",
+"Melee",
+"claw",
+"Adamantium Slash|Lunge|Berserker Rush|Regeneration|Counter Slash",
+84,82,91,83,88
+],
+
+[
+"Captain Marvel",
+"Marvel",
+"Cosmic",
+"Powerhouse",
+"Hybrid",
+"star",
+"Photon Blast|Flight Rush|Energy Burst|Binary Surge|Power Strike",
+95,91,94,84,93
+],
+
+[
+"Doctor Doom",
+"Marvel",
+"Mystic",
+"Controller",
+"Hybrid",
+"armor",
+"Arcane Bolt|Force Field|Tech Blast|Mystic Bind|Doom Strike",
+89,78,92,98,92
+],
+
+[
+"Magneto",
+"Marvel",
+"Heavy",
+"Controller",
+"Ranged",
+"field",
+"Magnetic Crush|Metal Barrage|Flight|Magnetic Shield|Field Pulse",
+90,80,88,94,90
+],
+
+[
+"Storm",
+"Marvel",
+"Heavy",
+"Controller",
+"Ranged",
+"storm",
+"Lightning Strike|Gale Burst|Tornado Lift|Fog Cover|Sky Assault",
+88,84,80,91,86
+],
+
+[
+"Deadpool",
+"Marvel",
+"Street",
+"Skirmisher",
+"Hybrid",
+"blade",
+"Blade Rush|Pistol Burst|Acrobatic Dodge|Regeneration|Wild Counter",
+67,80,85,76,74
+],
+
+[
+"Black Panther",
+"Marvel",
+"Street",
+"Tactician",
+"Melee",
+"claw",
+"Vibranium Slash|Kinetic Burst|Pounce|Counter Guard|Stealth Strike",
+73,86,84,91,81
+],
+
+[
+"Captain America",
+"Marvel",
+"Street",
+"Tactician",
+"Melee",
+"shield",
+"Shield Bash|Shield Throw|Ricochet Throw|Defensive Guard|Counter Strike",
+75,82,86,94,84
+],
+
+[
+"Scarlet Witch",
+"Marvel",
+"Mystic",
+"Controller",
+"Ranged",
+"magic",
+"Hex Bolt|Chaos Wave|Telekinetic Crush|Mystic Shield|Reality Surge",
+95,79,82,90,94
+],
+
+[
+"Vision",
+"Marvel",
+"Heavy",
+"Controller",
+"Hybrid",
+"gem",
+"Solar Beam|Density Shift|Phase Strike|Flight|Mind Stone Burst",
+88,86,92,90,90
+],
+
+[
+"Ant-Man",
+"Marvel",
+"Enhanced",
+"Skirmisher",
+"Melee",
+"atom",
+"Shrink Rush|Giant Punch|Size Shift|Aerial Ant Swarm|Giant Stomp",
+74,88,79,87,80
+],
+
+[
+"Groot",
+"Marvel",
+"Heavy",
+"Tank",
+"Melee",
+"plant",
+"Root Snare|Branch Slam|Vine Guard|Regrow|Ground Spear",
+82,62,91,72,84
+],
+
+[
+"Gamora",
+"Marvel",
+"Street",
+"Assassin",
+"Melee",
+"blade",
+"Godslayer Slash|Leap Strike|Parry|Blade Combo|Finisher Lunge",
+76,87,81,90,82
+],
+
+[
+"Hela",
+"Marvel",
+"Cosmic",
+"Controller",
+"Hybrid",
+"spike",
+"Necrosword Volley|Blade Rain|Death Rush|Weapon Shield|Black Blade Impale",
+96,85,94,91,95
+],
+
+[
+"Ghost Rider",
+"Marvel",
+"Mystic",
+"Powerhouse",
+"Hybrid",
+"flame",
+"Hellfire Chain|Hellfire Burst|Chain Snare|Bike Rush|Penance Stare",
+94,82,93,87,95
+],
+
+[
+"Rocket Raccoon",
+"Marvel",
+"Street",
+"Ranged",
+"Ranged",
+"target",
+"Plasma Rifle|Grenade Volley|Jet Dash|Trap Mine|Heavy Cannon",
+65,82,67,91,72
+],
+
+[
+"Superman",
+"DC",
+"Cosmic",
+"Powerhouse",
+"Hybrid",
+"sun",
+"Heat Vision|Flight Rush|Super Punch|Freeze Breath|Solar Overdrive",
+100,99,100,89,98
+],
+
+[
+"Batman",
+"DC",
+"Street",
+"Tactician",
+"Hybrid",
+"wings",
+"Batarang|Grapple Shift|Smoke Bomb|Explosive Gel|Counter Takedown",
+68,83,73,100,80
+],
+
+[
+"Wonder Woman",
+"DC",
+"Cosmic",
+"Powerhouse",
+"Hybrid",
+"lasso",
+"Sword Strike|Lasso Bind|Shield Bash|Aerial Rush|Bracelet Deflect",
+95,94,96,94,96
+],
+
+[
+"The Flash",
+"DC",
+"Cosmic",
+"Speedster",
+"Melee",
+"speed",
+"Speed Blitz|Lightning Arc|Phase Dodge|Cyclone Rush|Infinite Mass Strike",
+88,100,86,92,96
+],
+
+[
+"Green Lantern",
+"DC",
+"Cosmic",
+"Controller",
+"Ranged",
+"ring",
+"Energy Beam|Construct Hammer|Barrier|Restraint Cage|Aerial Barrage",
+94,91,94,90,94
+],
+
+[
+"Aquaman",
+"DC",
+"Heavy",
+"Powerhouse",
+"Melee",
+"wave",
+"Trident Strike|Water Burst|Leaping Charge|Trident Guard|Ocean Slam",
+91,80,94,86,90
+],
+
+[
+"Cyborg",
+"DC",
+"Heavy",
+"Ranged",
+"Ranged",
+"circuit",
+"Sonic Cannon|Plasma Cannon|Target Lock|Energy Shield|Tech Overload",
+86,78,88,94,85
+],
+
+[
+"Martian Manhunter",
+"DC",
+"Cosmic",
+"Controller",
+"Hybrid",
+"mind",
+"Telepathic Assault|Phase Strike|Flight Rush|Shape Shift|Density Crush",
+96,92,97,96,96
+],
+
+[
+"Shazam",
+"DC",
+"Cosmic",
+"Powerhouse",
+"Hybrid",
+"lightning",
+"Magic Lightning|Flight Rush|Power Punch|Thunder Clap|Champion Strike",
+97,94,96,84,95
+],
+
+[
+"Black Adam",
+"DC",
+"Cosmic",
+"Powerhouse",
+"Hybrid",
+"lightning",
+"Lightning Burst|Flight Rush|Power Strike|Thunder Wave|Champion Crush",
+97,94,97,91,96
+],
+
+[
+"Green Arrow",
+"DC",
+"Street",
+"Ranged",
+"Ranged",
+"arrow",
+"Explosive Arrow|Taser Arrow|Grapple Arrow|Smoke Arrow|Rapid Volley",
+61,80,65,88,70
+],
+
+[
+"Deathstroke",
+"DC",
+"Street",
+"Tactician",
+"Hybrid",
+"target",
+"Sword Combo|Rifle Burst|Counter Shot|Explosive Charge|Precision Strike",
+75,84,80,94,82
+],
+
+[
+"Raven",
+"DC",
+"Mystic",
+"Controller",
+"Ranged",
+"portal",
+"Soul Self|Dark Bind|Teleport|Mystic Shield|Shadow Burst",
+92,82,88,93,92
+],
+
+[
+"Starfire",
+"DC",
+"Heavy",
+"Ranged",
+"Hybrid",
+"star",
+"Starbolt|Flight Rush|Energy Wave|Aerial Barrage|Nova Burst",
+88,89,88,80,88
+],
+
+[
+"Beast Boy",
+"DC",
+"Enhanced",
+"Skirmisher",
+"Melee",
+"claw",
+"Tiger Rush|Gorilla Slam|Falcon Dive|Rhino Charge|Form Shift",
+78,86,82,84,82
+],
+
+[
+"Nightwing",
+"DC",
+"Street",
+"Skirmisher",
+"Melee",
+"wings",
+"Escrima Combo|Flip Kick|Wing Ding|Acrobatic Dodge|Counter Strike",
+68,88,72,91,78
+],
+
+[
+"Harley Quinn",
+"DC",
+"Street",
+"Skirmisher",
+"Hybrid",
+"diamond",
+"Mallet Smash|Pistol Burst|Cartwheel Dodge|Trap Charge|Wild Swing",
+59,78,65,72,68
+],
+
+[
+"Bane",
+"DC",
+"Street",
+"Brawler",
+"Melee",
+"impact",
+"Venom Punch|Power Charge|Ground Slam|Guard Crush|Heavy Throw",
+79,64,82,81,77
+],
+
+[
+"Poison Ivy",
+"DC",
+"Enhanced",
+"Controller",
+"Ranged",
+"plant",
+"Vine Snare|Thorn Volley|Plant Shield|Toxic Bloom|Root Crush",
+77,72,75,88,79
+],
+
+[
+"Mister Freeze",
+"DC",
+"Enhanced",
+"Ranged",
+"Ranged",
+"snow",
+"Freeze Ray|Ice Wall|Cryo Burst|Ice Slide|Zero Beam",
+76,65,82,89,79
+],
+
+[
+"Zatanna",
+"DC",
+"Mystic",
+"Controller",
+"Ranged",
+"magic",
+"Arcane Bolt|Binding Spell|Teleport|Mystic Shield|Reality Twist",
+92,80,82,95,91
+],
+
+[
+"Constantine",
+"DC",
+"Mystic",
+"Tactician",
+"Ranged",
+"magic",
+"Ward Seal|Hellfire Hex|Binding Circle|Counterspell|Demon Flame",
+78,68,72,100,88
+],
+
+[
+"Doomsday",
+"DC",
+"Cosmic",
+"Brawler",
+"Melee",
+"spike",
+"Bone Spike|Ground Smash|Leaping Crush|Adaptive Charge|Doom Strike",
+100,77,100,70,99
+],
+
+[
+"Darkseid",
+"DC",
+"Cosmic",
+"Powerhouse",
+"Hybrid",
+"field",
+"Omega Beams|Power Strike|Energy Wave|Force Crush|Omega Burst",
+100,84,100,98,100
+],
+
+[
+"Lex Luthor",
+"DC",
+"Heavy",
+"Tactician",
+"Hybrid",
+"circuit",
+"Warsuit Blast|Rocket Punch|Energy Shield|Missile Volley|Power Core Beam",
+86,74,88,99,87
+],
+
+[
+"Black Canary",
+"DC",
+"Street",
+"Skirmisher",
+"Hybrid",
+"sonic",
+"Canary Cry|Roundhouse|Sonic Burst|Evasive Step|Cry Finisher",
+69,86,72,91,78
+],
+
+[
+"Batgirl",
+"DC",
+"Street",
+"Tactician",
+"Melee",
+"wings",
+"Batarang|Grapple Kick|Smoke Bomb|Counter Strike|Staff Combo",
+64,87,70,92,76
+],
+
+[
+"Red Hood",
+"DC",
+"Street",
+"Ranged",
+"Hybrid",
+"target",
+"Pistol Burst|Knife Rush|Explosive Round|Roll Dodge|Point Blank Shot",
+68,81,72,88,77
+],
+
+[
+"Supergirl",
+"DC",
+"Cosmic",
+"Powerhouse",
+"Hybrid",
+"sun",
+"Heat Vision|Flight Rush|Super Strike|Freeze Breath|Solar Burst",
+97,96,97,82,95
+],
+
+[
+"Power Girl",
+"DC",
+"Cosmic",
+"Powerhouse",
+"Melee",
+"sun",
+"Flight Rush|Power Punch|Heat Vision|Shockwave Clap|Solar Charge",
+97,94,98,82,95
+],
+
+[
+"Blue Beetle",
+"DC",
+"Enhanced",
+"Ranged",
+"Hybrid",
+"armor",
+"Plasma Cannon|Blade Arm|Flight Dash|Energy Shield|Scarab Burst",
+82,86,84,88,84
+],
+
+[
+"Static",
+"DC",
+"Enhanced",
+"Controller",
+"Ranged",
+"lightning",
+"Electric Bolt|Metal Disc Ride|EMP Burst|Magnetic Push|Chain Lightning",
+78,86,77,88,82
+],
+
+[
+"Swamp Thing",
+"DC",
+"Mystic",
+"Tank",
+"Hybrid",
+"plant",
+"Vine Crush|Root Bind|Regrow|Plant Body|Green Eruption",
+91,58,96,86,92
+],
+
+[
+"Etrigan",
+"DC",
+"Mystic",
+"Powerhouse",
+"Hybrid",
+"flame",
+"Hellfire Breath|Demon Claw|Leaping Smash|Magic Guard|Infernal Rush",
+90,78,91,83,90
+],
+
+[
+"Solomon Grundy",
+"DC",
+"Heavy",
+"Brawler",
+"Melee",
+"chain",
+"Heavy Punch|Chain Swing|Ground Slam|Grab Crush|Undead Rush",
+88,55,94,63,85
+],
+
+[
+"Cheetah",
+"DC",
+"Enhanced",
+"Assassin",
+"Melee",
+"claw",
+"Claw Rush|Pounce|Dodge Slash|Predator Sprint|Savage Combo",
+79,92,80,83,84
+],
+
+[
+"Sinestro",
+"DC",
+"Cosmic",
+"Controller",
+"Ranged",
+"ring",
+"Fear Beam|Construct Blade|Fear Cage|Energy Shield|Yellow Barrage",
+94,90,93,93,94
+],
+
+[
+"Mera",
+"DC",
+"Heavy",
+"Controller",
+"Ranged",
+"wave",
+"Water Spear|Hydro Shield|Water Bind|Wave Crash|Hydro Cannon",
+84,80,84,89,86
+],
+
+[
+"Atom",
+"DC",
+"Enhanced",
+"Skirmisher",
+"Melee",
+"atom",
+"Shrink Strike|Density Blow|Size Shift|Micro Dodge|Particle Rush",
+73,90,77,93,81
+],
+
+[
+"Vixen",
+"DC",
+"Enhanced",
+"Skirmisher",
+"Melee",
+"claw",
+"Cheetah Rush|Rhino Charge|Gorilla Slam|Falcon Dive|Spirit Combo",
+77,88,80,86,82
+]
+
+];
+
+/* =====================================================
+   BUILD CHARACTER OBJECTS
+===================================================== */
+
+const CHARACTERS=
+    ROSTER.map(
+        r=>({
+
+            name:r[0],
+
+            universe:r[1],
+
+            tier:r[2],
+
+            role:r[3],
+
+            range:r[4],
+
+            icon:r[5],
+
+            moves:
+                r[6].split("|"),
+
+            strength:r[7],
+
+            speed:r[8],
+
+            durability:r[9],
+
+            iq:r[10],
+
+            power:r[11]
+
+        })
+    );
+
+/* =====================================================
+   ICONS
+===================================================== */
+
+const ICONS={
+
+    web:"🕸",
+
+    reactor:"◉",
+
+    lightning:"ϟ",
+
+    impact:"✹",
+
+    claw:"≋",
+
+    star:"✦",
+
+    armor:"⬡",
+
+    field:"◌",
+
+    storm:"↯",
+
+    blade:"†",
+
+    shield:"◈",
+
+    magic:"✧",
+
+    gem:"◆",
+
+    atom:"⚛",
+
+    plant:"♣",
+
+    flame:"♨",
+
+    target:"◎",
+
+    sun:"☀",
+
+    wings:"⌁",
+
+    lasso:"∞",
+
+    speed:"ϟ",
+
+    ring:"○",
+
+    wave:"≈",
+
+    circuit:"⌗",
+
+    mind:"◉",
+
+    arrow:"➤",
+
+    portal:"◍",
+
+    diamond:"♦",
+
+    snow:"❄",
+
+    spike:"▲",
+
+    sonic:")))",
+
+    chain:"⛓"
+
+};
+
+/* =====================================================
+   BATTLEFIELDS
+===================================================== */
+
+const BATTLEFIELDS={
+
+    "Abandoned City":
+        "Broken streets, damaged towers, abandoned vehicles and fractured concrete cover the battlefield.",
+
+    "Stark Tower":
+        "Glass, machinery, enclosed corridors and open vertical drops turn the tower into a dangerous technological arena.",
+
+    "Gotham Rooftops":
+        "Narrow rooftops, ledges, shadows, antennas and deep gaps between buildings shape every movement.",
+
+    "Savage Land":
+        "Dense vegetation, rock shelves, water, enormous trees and uneven ground fill the battlefield.",
+
+    "Cosmic Arena":
+        "A huge open arena leaves little cover, giving speed, flight and ranged power room to dominate."
+
+};
+
+/* =====================================================
+   STATE
+===================================================== */
+
+let alpha=[];
+
+let omega=[];
+
+let selection=[];
+
+let turn=1;
+
+let wheelRotation=0;
+
+/* =====================================================
+   HELPERS
+===================================================== */
+
+function random(array){
+
+    return array[
+        Math.floor(
+            Math.random()
+            *
+            array.length
+        )
+    ];
+
+}
+
+/*
+    FISHER-YATES SHUFFLE
+*/
+
+function shuffle(array){
+
+    const copy=[
+        ...array
+    ];
+
+    for(
+        let i=
+            copy.length-1;
+        i>0;
+        i--
+    ){
+
+        const j=
+            Math.floor(
+                Math.random()
+                *
+                (i+1)
+            );
+
+        [
+            copy[i],
+            copy[j]
+        ]=[
+            copy[j],
+            copy[i]
+        ];
+
+    }
+
+    return copy;
+
+}
+
+function clamp(
+    value,
+    min,
+    max
+){
+
+    return Math.max(
+        min,
+        Math.min(
+            max,
+            value
+        )
+    );
+
+}
+
+function qs(id){
+
+    return document.getElementById(
+        id
+    );
+
+}
+
+/* =====================================================
+   TEAM SIZE SYSTEM
+===================================================== */
+
+function sizes(){
+
+    return{
+
+        alpha:
+            Number(
+                qs(
+                    "alphaTeamSize"
+                ).value
+            ),
+
+        omega:
+            Number(
+                qs(
+                    "omegaTeamSize"
+                ).value
+            )
+
+    };
+
+}
+
+/* =====================================================
+   POWER TIER SYSTEM
+===================================================== */
+
+function selectedTiers(){
+
+    return[
+        ...document.querySelectorAll(
+            ".tierCheck:checked"
+        )
+    ].map(
+        checkbox=>
+            checkbox.value
+    );
+
+}
+
+function allTiers(on){
+
+    document
+        .querySelectorAll(
+            ".tierCheck"
+        )
+        .forEach(
+            checkbox=>{
+                checkbox.checked=on;
+            }
+        );
+
+}
+
+/* =====================================================
+   PAGE SWITCHING
+===================================================== */
+
+function switchPage(page){
+
+    qs("battlePage")
+        .classList
+        .toggle(
+            "hidden",
+            page!=="battle"
+        );
+
+    qs("databasePage")
+        .classList
+        .toggle(
+            "hidden",
+            page!=="database"
+        );
+
+    qs("battleTab")
+        .classList
+        .toggle(
+            "active",
+            page==="battle"
+        );
+
+    qs("databaseTab")
+        .classList
+        .toggle(
+            "active",
+            page==="database"
+        );
+
+    if(
+        page==="database"
+    ){
+
+        renderDatabase();
+
+    }
+
+}
+
+/* =====================================================
+   VERSION SYSTEM
+===================================================== */
+
+function assignedVersion(){
+
+    const mode=
+        qs(
+            "versionMode"
+        ).value;
+
+    if(
+        mode==="Mixed"
+    ){
+
+        return(
+            Math.random()<.5
+            ?"Standard"
+            :"Amped"
+        );
+
+    }
+
+    return mode;
+
+}
+
+/* =====================================================
+   ELIGIBLE CHARACTERS
+===================================================== */
+
+function eligible(){
+
+    const universe=
+        qs(
+            "universe"
+        ).value;
+
+    const tiers=
+        selectedTiers();
+
+    return CHARACTERS.filter(
+        character=>{
+
+            const universeMatch=
+                universe==="Both"
+                ||
+                character.universe===
+                universe;
+
+            const tierMatch=
+                tiers.includes(
+                    character.tier
+                );
+
+            const alreadyUsed=
+                alpha.some(
+                    fighter=>
+                        fighter.name===
+                        character.name
+                )
+                ||
+                omega.some(
+                    fighter=>
+                        fighter.name===
+                        character.name
+                );
+
+            return(
+                universeMatch
+                &&
+                tierMatch
+                &&
+                !alreadyUsed
+            );
+
+        }
+    );
+
+}
+
+/* =====================================================
+   GENERATE 10
+===================================================== */
+
+function generateSelection(){
+
+    const tiers=
+        selectedTiers();
+
+    if(
+        tiers.length===0
+    ){
+
+        qs(
+            "selectionStatus"
+        ).textContent=
+            "SELECT AT LEAST ONE POWER TIER";
+
+        return;
+
+    }
+
+    const available=
+        shuffle(
+            eligible()
+        );
+
+    selection=
+        available
+            .slice(
+                0,
+                10
+            )
+            .map(
+                character=>({
+
+                    ...character,
+
+                    version:
+                        assignedVersion()
+
+                })
+            );
+
+    if(
+        selection.length===0
+    ){
+
+        qs(
+            "selectionStatus"
+        ).textContent=
+            "NO ELIGIBLE CHARACTERS";
+
+        return;
+
+    }
+
+    qs(
+        "selectionStatus"
+    ).textContent=
+        selection.length
+        +
+        " COMBATANTS READY // "
+        +
+        tiers.join(
+            " + "
+        );
+
+    renderSelection();
+
+}
+
+/* =====================================================
+   RENDER GENERATED SELECTION
+===================================================== */
+
+function renderSelection(){
+
+    qs(
+        "characterPool"
+    ).innerHTML=
+        selection
+            .map(
+                (
+                    character,
+                    index
+                )=>`
+
+<div
+    class="card"
+    style="
+        --accent:
+        ${
+            character.universe===
+            "Marvel"
+            ?"#ff4055"
+            :"#00eaff"
+        }
+    "
+    onclick="
+        draft(${index})
+    "
+>
+
+    <div class="emblem">
+        ${
+            ICONS[
+                character.icon
+            ]
+            ||
+            "◆"
+        }
+    </div>
+
+    <div class="name">
+        ${character.name}
+    </div>
+
+    <div class="meta">
+        ${character.universe}
+        //
+        ${character.tier}
+        //
+        ${character.role}
+    </div>
+
+    <div class="badge">
+        ${
+            character.version
+                .toUpperCase()
+        }
+    </div>
+
+</div>
+
+`
+            )
+            .join("");
+
+}
+
+/* =====================================================
+   DRAFT SYSTEM
+===================================================== */
+
+function draft(index){
+
+    const teamSizes=
+        sizes();
+
+    const character=
+        selection[index];
+
+    if(
+        !character
+    ){
+
+        return;
+
+    }
+
+    if(
+        turn===1
+        &&
+        alpha.length<
+        teamSizes.alpha
+    ){
+
+        alpha.push(
+            character
+        );
+
+        selection.splice(
+            index,
+            1
+        );
+
+        if(
+            omega.length<
+            teamSizes.omega
+        ){
+
+            turn=2;
+
+        }
+
+    }
+    else if(
+        turn===2
+        &&
+        omega.length<
+        teamSizes.omega
+    ){
+
+        omega.push(
+            character
+        );
+
+        selection.splice(
+            index,
+            1
+        );
+
+        if(
+            alpha.length<
+            teamSizes.alpha
+        ){
+
+            turn=1;
+
+        }
+
+    }
+
+    if(
+        alpha.length>=
+        teamSizes.alpha
+        &&
+        omega.length>=
+        teamSizes.omega
+    ){
+
+        turn=0;
+
+    }
+    else if(
+        alpha.length>=
+        teamSizes.alpha
+    ){
+
+        turn=2;
+
+    }
+    else if(
+        omega.length>=
+        teamSizes.omega
+    ){
+
+        turn=1;
+
+    }
+
+    renderSelection();
+
+    renderTeams();
+
+    updateDraftStatus();
+
+}
+
+/* =====================================================
+   TEAM RENDERING
+===================================================== */
+
+function slotHTML(
+    team,
+    count,
+    color
+){
+
+    let html="";
+
+    for(
+        let i=0;
+        i<count;
+        i++
+    ){
+
+        const character=
+            team[i];
+
+        if(
+            character
+        ){
+
+            html+=`
+
+<div
+    class="slot filled"
+    style="
+        --accent:${color}
+    "
+>
+
+<div>
+
+    <div class="emblem">
+        ${
+            ICONS[
+                character.icon
+            ]
+            ||
+            "◆"
+        }
+    </div>
+
+    <div class="slotname">
+        ${character.name}
+    </div>
+
+    <div class="slotver">
+        ${character.version}
+    </div>
+
+</div>
+
+</div>
+
+`;
+
+        }
+        else{
+
+            html+=`
+
+<div class="slot">
+    EMPTY
+</div>
+
+`;
+
+        }
+
+    }
+
+    return html;
+
+}
+
+function renderTeams(){
+
+    const teamSizes=
+        sizes();
+
+    qs(
+        "alphaCount"
+    ).textContent=
+        alpha.length
+        +
+        " / "
+        +
+        teamSizes.alpha;
+
+    qs(
+        "omegaCount"
+    ).textContent=
+        omega.length
+        +
+        " / "
+        +
+        teamSizes.omega;
+
+    qs(
+        "alphaSlots"
+    ).innerHTML=
+        slotHTML(
+            alpha,
+            teamSizes.alpha,
+            "#00eaff"
+        );
+
+    qs(
+        "omegaSlots"
+    ).innerHTML=
+        slotHTML(
+            omega,
+            teamSizes.omega,
+            "#ff4055"
+        );
+
+    updateDraftStatus();
+
+}
+
+/* =====================================================
+   DRAFT STATUS
+===================================================== */
+
+function updateDraftStatus(){
+
+    const teamSizes=
+        sizes();
+
+    if(
+        turn===0
+    ){
+
+        qs(
+            "draftStatus"
+        ).textContent=
+            "DRAFT COMPLETE";
+
+    }
+    else if(
+        turn===1
+    ){
+
+        qs(
+            "draftStatus"
+        ).textContent=
+            "TEAM ALPHA PICK";
+
+    }
+    else{
+
+        qs(
+            "draftStatus"
+        ).textContent=
+            "TEAM OMEGA PICK";
+
+    }
+
+    qs(
+        "startBattleButton"
+    ).disabled=
+        !(
+            alpha.length===
+            teamSizes.alpha
+            &&
+            omega.length===
+            teamSizes.omega
+        );
+
+}
+
+/* =====================================================
+   RESET
+===================================================== */
+
+function resetDraftOnly(){
+
+    alpha=[];
+
+    omega=[];
+
+    selection=[];
+
+    turn=1;
+
+    qs(
+        "characterPool"
+    ).innerHTML="";
+
+    qs(
+        "selectionStatus"
+    ).textContent=
+        "Generate 10 characters or use the wheel.";
+
+    qs(
+        "battleOutput"
+    ).style.display=
+        "none";
+
+}
+
+function resetBattle(){
+
+    resetDraftOnly();
+
+    renderTeams();
+
+    qs(
+        "battleFeed"
+    ).innerHTML="";
+
+}
+
+function sizeChanged(){
+
+    resetDraftOnly();
+
+    renderTeams();
+
+}
+
+/* =====================================================
+   WHEEL
+===================================================== */
+
+function openWheel(){
+
+    if(
+        selectedTiers()
+            .length===0
+    ){
+
+        qs(
+            "selectionStatus"
+        ).textContent=
+            "SELECT AT LEAST ONE POWER TIER";
+
+        return;
+
+    }
+
+    qs(
+        "wheelModal"
+    ).style.display=
+        "grid";
+
+    qs(
+        "wheelResult"
+    ).textContent="";
+
+}
+
+function closeWheel(){
+
+    qs(
+        "wheelModal"
+    ).style.display=
+        "none";
+
+}
+
+function spinWheel(){
+
+    const available=
+        eligible();
+
+    if(
+        available.length===0
+    ){
+
+        qs(
+            "wheelResult"
+        ).textContent=
+            "NO ELIGIBLE CHARACTERS";
+
+        return;
+
+    }
+
+    const character=
+        random(
+            available
+        );
+
+    const rotation=
+        1440
+        +
+        Math.floor(
+            Math.random()
+            *
+            720
+        );
+
+    wheelRotation+=
+        rotation;
+
+    qs(
+        "wheel"
+    ).style.transform=
+        "rotate("
+        +
+        wheelRotation
+        +
+        "deg)";
+
+    qs(
+        "spinButton"
+    ).disabled=true;
+
+    setTimeout(
+        ()=>{
+
+            qs(
+                "wheelResult"
+            ).textContent=
+                character.name;
+
+            if(
+                !selection.some(
+                    fighter=>
+                        fighter.name===
+                        character.name
+                )
+            ){
+
+                selection.push({
+
+                    ...character,
+
+                    version:
+                        assignedVersion()
+
+                });
+
+            }
+
+            renderSelection();
+
+            qs(
+                "spinButton"
+            ).disabled=false;
+
+        },
+        3000
+    );
+
+}
+
+/* =====================================================
+   DATABASE
+===================================================== */
+
+function renderDatabase(){
+
+    const search=
+        (
+            qs(
+                "dbSearch"
+            ).value
+            ||
+            ""
+        )
+        .toLowerCase();
+
+    const universe=
+        qs(
+            "dbUniverse"
+        ).value;
+
+    qs(
+        "databaseGrid"
+    ).innerHTML=
+        CHARACTERS
+            .filter(
+                character=>{
+
+                    const universeMatch=
+                        universe==="Both"
+                        ||
+                        character.universe===
+                        universe;
+
+                    const searchMatch=
+                        character.name
+                            .toLowerCase()
+                            .includes(
+                                search
+                            );
+
+                    return(
+                        universeMatch
+                        &&
+                        searchMatch
+                    );
+
+                }
+            )
+            .map(
+                character=>`
+
+<div class="profile">
+
+    <h3>
+        ${character.name}
+    </h3>
+
+    <p>
+        ${character.universe}
+        //
+        <strong>
+            ${character.tier}
+        </strong>
+        //
+        ${character.role}
+    </p>
+
+    <p>
+        <strong>
+            STYLE
+        </strong>
+
+        ${character.range}
+    </p>
+
+    <p>
+        <strong>
+            MOVES
+        </strong>
+
+        ${
+            character.moves
+                .join(", ")
+        }
+    </p>
+
+    <p>
+        <strong>
+            STATS
+        </strong>
+
+        STR
+        ${character.strength}
+
+        • SPD
+        ${character.speed}
+
+        • DUR
+        ${character.durability}
+
+        • IQ
+        ${character.iq}
+
+        • PWR
+        ${character.power}
+    </p>
+
+</div>
+
+`
+            )
+            .join("");
+
+}
+
+/* =====================================================
+   CREATE BATTLE UNIT
+===================================================== */
+
+function unitFrom(
+    character,
+    team
+){
+
+    const amp=
+        character.version===
+        "Amped"
+        ?1.12
+        :1;
+
+    return{
+
+        ...character,
+
+        team,
+
+        maxHp:100,
+
+        hp:100,
+
+        fatigue:0,
+
+        rage:0,
+
+        adaptation:0,
+
+        recentMoves:[],
+
+        position:"mid",
+
+        airborne:false,
+
+        location:"center",
+
+        strength:
+            character.strength
+            *
+            amp,
+
+        speed:
+            character.speed
+            *
+            amp,
+
+        durability:
+            character.durability
+            *
+            amp,
+
+        iq:
+            character.iq
+            *
+            amp,
+
+        power:
+            character.power
+            *
+            amp
+
+    };
+
+}
+
+/* =====================================================
+   MATCH CONTEXT
+===================================================== */
+
+function living(
+    units,
+    team
+){
+
+    return units.filter(
+        unit=>
+            unit.team===team
+            &&
+            unit.hp>0
+    );
+
+}
+
+function getMatchContext(
+    units
+){
+
+    const alphaCount=
+        units.filter(
+            unit=>
+                unit.team===1
+        ).length;
+
+    const omegaCount=
+        units.filter(
+            unit=>
+                unit.team===2
+        ).length;
+
+    return{
+
+        alphaCount,
+
+        omegaCount,
+
+        duel:
+            alphaCount===1
+            &&
+            omegaCount===1,
+
+        uneven:
+            alphaCount!==
+            omegaCount,
+
+        mode:
+            alphaCount
+            +
+            "v"
+            +
+            omegaCount,
+
+        alphaOutnumbered:
+            alphaCount<
+            omegaCount,
+
+        omegaOutnumbered:
+            omegaCount<
+            alphaCount,
+
+        difference:
+            Math.abs(
+                alphaCount-
+                omegaCount
+            )
+
+    };
+
+}
+
+/* =====================================================
+   THREAT
+===================================================== */
+
+function threat(
+    fighter
+){
+
+    return(
+        fighter.power*.35
+        +
+        fighter.speed*.20
+        +
+        fighter.iq*.20
+        +
+        fighter.strength*.15
+        +
+        fighter.hp*.10
+    );
+
+}
+
+/* =====================================================
+   TARGET SELECTION
+===================================================== */
+
+function chooseTarget(
+    attacker,
+    enemies,
+    context
+){
+
+    if(
+        enemies.length===1
+    ){
+
+        return enemies[0];
+
+    }
+
+    const ranked=[
+        ...enemies
+    ].sort(
+        (
+            a,
+            b
+        )=>{
+
+            let scoreA=
+                threat(a);
+
+            let scoreB=
+                threat(b);
+
+            if(
+                a.hp<35
+            ){
+
+                scoreA+=15;
+
+            }
+
+            if(
+                b.hp<35
+            ){
+
+                scoreB+=15;
+
+            }
+
+            return(
+                scoreB-
+                scoreA
+            );
+
+        }
+    );
+
+    return ranked[0];
+
+}
+
+/* =====================================================
+   MOVE TAGS
+===================================================== */
+
+function moveTags(
+    move
+){
+
+    const text=
+        move.toLowerCase();
+
+    return{
+
+        ranged:
+            /beam|bolt|arrow|shot|vision|cannon|blast|volley|barrage|missile|cry|breath/.test(
+                text
+            ),
+
+        control:
+            /bind|snare|cage|restraint|trap|freeze|crush/.test(
+                text
+            ),
+
+        defense:
+            /shield|guard|dodge|phase|counter|parry|smoke|teleport/.test(
+                text
+            ),
+
+        area:
+            /wave|storm|clap|thunder|eruption|burst|ground smash|slam/.test(
+                text
+            ),
+
+        finisher:
+            /finisher|overdrive|infinite|god blast|penance|omega burst|reality surge|doom strike/.test(
+                text
+            )
+
+    };
+
+}
+
+/* =====================================================
+   MOVE SELECTION
+===================================================== */
+
+function chooseMove(
+    attacker,
+    target,
+    allies,
+    enemies,
+    context
+){
+
+    let bestMove=
+        attacker.moves[0];
+
+    let bestScore=
+        -99999;
+
+    for(
+        const move
+        of
+        attacker.moves
+    ){
+
+        const tags=
+            moveTags(
+                move
+            );
+
+        let score=
+            Math.random()*8
+            +
+            attacker.iq*.05;
+
+        if(
+            tags.ranged
+            &&
+            attacker.speed<
+            target.speed
+        ){
+
+            score+=10;
+
+        }
+
+        if(
+            tags.control
+            &&
+            enemies.length>1
+        ){
+
+            score+=8;
+
+        }
+
+        if(
+            tags.area
+            &&
+            enemies.length>1
+        ){
+
+            score+=12;
+
+        }
+
+        if(
+            tags.defense
+            &&
+            attacker.hp<40
+        ){
+
+            score+=10;
+
+        }
+
+        if(
+            tags.finisher
+            &&
+            target.hp<30
+        ){
+
+            score+=15;
+
+        }
+
+        if(
+            attacker.recentMoves
+                .includes(
+                    move
+                )
+        ){
+
+            score-=14;
+
+        }
+
+        /*
+            OUTNUMBERED AI
+        */
+
+        const attackerOutnumbered=
+            (
+                attacker.team===1
+                &&
+                context.alphaOutnumbered
+            )
+            ||
+            (
+                attacker.team===2
+                &&
+                context.omegaOutnumbered
+            );
+
+        if(
+            attackerOutnumbered
+        ){
+
+            if(
+                tags.area
+            ){
+
+                score+=12;
+
+            }
+
+            if(
+                tags.control
+            ){
+
+                score+=10;
+
+            }
+
+            if(
+                tags.defense
+            ){
+
+                score+=7;
+
+            }
+
+        }
+
+        /*
+            CHARACTER BEHAVIOR
+        */
+
+        if(
+            attacker.name==="Thor"
+            &&
+            target.name==="Hulk"
+            &&
+            tags.ranged
+        ){
+
+            score+=13;
+
+        }
+
+        if(
+            attacker.name===
+            "Spider-Man"
+            &&
+            (
+                tags.control
+                ||
+                tags.defense
+            )
+        ){
+
+            score+=8;
+
+        }
+
+        if(
+            attacker.name===
+            "Batman"
+            &&
+            (
+                tags.control
+                ||
+                tags.defense
+            )
+        ){
+
+            score+=9;
+
+        }
+
+        if(
+            attacker.name===
+            "Beast Boy"
+            &&
+            /Shift|Falcon|Rhino|Tiger|Gorilla/.test(
+                move
+            )
+        ){
+
+            score+=6;
+
+        }
+
+        if(
+            attacker.name===
+            "The Flash"
+            &&
+            /Phase|Speed|Cyclone/.test(
+                move
+            )
+        ){
+
+            score+=9;
+
+        }
+
+        if(
+            score>
+            bestScore
+        ){
+
+            bestScore=
+                score;
+
+            bestMove=
+                move;
+
+        }
+
+    }
+
+    return bestMove;
+
+}
+
+/* =====================================================
+   REACTION
+===================================================== */
+
+function reaction(
+    attacker,
+    target,
+    move
+){
+
+    const tags=
+        moveTags(
+            move
+        );
+
+    const roll=
+        Math.random()*100;
+
+    const evasion=
+        target.speed*.45
+        +
+        target.iq*.15
+        -
+        attacker.speed*.25;
+
+    if(
+        target.name===
+        "Vision"
+        &&
+        roll<25
+    ){
+
+        return"phase";
+
+    }
+
+    const defensiveMoves=
+        target.moves
+            .join(" ")
+            .toLowerCase();
+
+    if(
+        /shield|guard|bracelet|barrier/.test(
+            defensiveMoves
+        )
+        &&
+        roll<25
+    ){
+
+        return"block";
+
+    }
+
+    if(
+        roll<
+        12
+        +
+        evasion*.10
+    ){
+
+        return"counter";
+
+    }
+
+    if(
+        roll<
+        25
+        +
+        evasion*.18
+    ){
+
+        return"dodge";
+
+    }
+
+    if(
+        roll<
+        40
+        +
+        evasion*.15
+    ){
+
+        return"partial";
+
+    }
+
+    return"hit";
+
+}
+
+/* =====================================================
+   POWER INTERACTIONS
+===================================================== */
+
+function interactionMod(
+    attacker,
+    target,
+    move
+){
+
+    let modifier=1;
+
+    /*
+        MAGNETISM VS TECH / METAL
+    */
+
+    if(
+        attacker.name===
+        "Magneto"
+        &&
+        [
+            "Iron Man",
+            "Cyborg",
+            "Lex Luthor",
+            "Blue Beetle"
+        ].includes(
+            target.name
+        )
+    ){
+
+        modifier*=1.18;
+
+    }
+
+    /*
+        MAGIC VS KRYPTONIANS
+    */
+
+    if(
+        (
+            attacker.tier===
+            "Mystic"
+            ||
+            /Magic|Hex|Mystic|Hellfire|Arcane/.test(
+                move
+            )
+        )
+        &&
+        [
+            "Superman",
+            "Supergirl",
+            "Power Girl"
+        ].includes(
+            target.name
+        )
+    ){
+
+        modifier*=1.12;
+
+    }
+
+    /*
+        FIRE VS PLANTS
+    */
+
+    if(
+        /fire|hellfire/i.test(
+            move
+        )
+        &&
+        [
+            "Groot",
+            "Poison Ivy",
+            "Swamp Thing"
+        ].includes(
+            target.name
+        )
+    ){
+
+        modifier*=1.12;
+
+    }
+
+    /*
+        ELECTRICITY VS TECH
+    */
+
+    if(
+        /electric|lightning|emp/i.test(
+            move
+        )
+        &&
+        [
+            "Iron Man",
+            "Cyborg",
+            "Lex Luthor",
+            "Blue Beetle"
+        ].includes(
+            target.name
+        )
+    ){
+
+        modifier*=1.08;
+
+    }
+
+    /*
+        DOOMSDAY ADAPTATION
+    */
+
+    if(
+        attacker.name===
+        "Doomsday"
+        &&
+        attacker.adaptation>2
+    ){
+
+        modifier*=1.08;
+
+    }
+
+    return modifier;
+
+}
+
+/* =====================================================
+   DAMAGE
+===================================================== */
+
+function calculateDamage(
+    attacker,
+    target,
+    move,
+    reactionType
+){
+
+    const tags=
+        moveTags(
+            move
+        );
+
+    let damage=
+        8
+        +
+        attacker.power*.08
+        +
+        attacker.strength*.05
+        -
+        target.durability*.05
+        +
+        Math.random()*8;
+
+    if(
+        tags.finisher
+    ){
+
+        damage+=7;
+
+    }
+
+    if(
+        tags.area
+    ){
+
+        damage+=2;
+
+    }
+
+    damage*=
+        interactionMod(
+            attacker,
+            target,
+            move
+        );
+
+    if(
+        reactionType===
+        "dodge"
+        ||
+        reactionType===
+        "phase"
+    ){
+
+        damage*=.10;
+
+    }
+
+    if(
+        reactionType===
+        "block"
+    ){
+
+        damage*=.35;
+
+    }
+
+    if(
+        reactionType===
+        "partial"
+    ){
+
+        damage*=.60;
+
+    }
+
+    if(
+        reactionType===
+        "counter"
+    ){
+
+        damage*=.25;
+
+    }
+
+    return clamp(
+        damage,
+        1,
+        32
+    );
+
+}
+
+/* =====================================================
+   BATTLEFIELD LOCATION
+===================================================== */
+
+function battlefieldLocation(
+    battlefield,
+    attacker
+){
+
+    if(
+        battlefield===
+        "Gotham Rooftops"
+    ){
+
+        return(
+            "near a rooftop edge"
+        );
+
+    }
+
+    if(
+        battlefield===
+        "Stark Tower"
+    ){
+
+        return(
+            "among shattered glass and machinery"
+        );
+
+    }
+
+    if(
+        battlefield===
+        "Savage Land"
+    ){
+
+        return(
+            "between rock shelves and heavy vegetation"
+        );
+
+    }
+
+    if(
+        battlefield===
+        "Cosmic Arena"
+    ){
+
+        return(
+            "across the open arena floor"
+        );
+
+    }
+
+    return(
+        "among broken streets and damaged structures"
+    );
+
+}
+
+/* =====================================================
+   SIMULATION
+===================================================== */
+
+function simulateBattle(){
+
+    const units=[
+
+        ...alpha.map(
+            character=>
+                unitFrom(
+                    character,
+                    1
+                )
+        ),
+
+        ...omega.map(
+            character=>
+                unitFrom(
+                    character,
+                    2
+                )
+        )
+
+    ];
+
+    const context=
+        getMatchContext(
+            units
+        );
+
+    const rounds=[];
+
+    let round=1;
+
+    while(
+        living(
+            units,
+            1
+        ).length
+        &&
+        living(
+            units,
+            2
+        ).length
+        &&
+        round<=16
+    ){
+
+        const actions=[];
+
+        const fighters=
+            shuffle(
+                units.filter(
+                    fighter=>
+                        fighter.hp>0
+                )
+            );
+
+        for(
+            const attacker
+            of
+            fighters
+        ){
+
+            if(
+                attacker.hp<=0
+            ){
+
+                continue;
+
+            }
+
+            const enemyTeam=
+                attacker.team===1
+                ?2
+                :1;
+
+            const enemies=
+                living(
+                    units,
+                    enemyTeam
+                );
+
+            if(
+                enemies.length===0
+            ){
+
+                break;
+
+            }
+
+            const allies=
+                living(
+                    units,
+                    attacker.team
+                );
+
+            const target=
+                chooseTarget(
+                    attacker,
+                    enemies,
+                    context
+                );
+
+            const move=
+                chooseMove(
+                    attacker,
+                    target,
+                    allies,
+                    enemies,
+                    context
+                );
+
+            const reactionType=
+                reaction(
+                    attacker,
+                    target,
+                    move
+                );
+
+            const damage=
+                calculateDamage(
+                    attacker,
+                    target,
+                    move,
+                    reactionType
+                );
+
+            target.hp=
+                clamp(
+                    target.hp-
+                    damage,
+                    0,
+                    target.maxHp
+                );
+
+            target.fatigue=
+                clamp(
+                    target.fatigue
+                    +
+                    damage*.45,
+                    0,
+                    100
+                );
+
+            attacker.fatigue=
+                clamp(
+                    attacker.fatigue
+                    +
+                    2,
+                    0,
+                    100
+                );
+
+            /*
+                HULK RAGE
+            */
+
+            if(
+                attacker.name===
+                "Hulk"
+            ){
+
+                attacker.rage+=
+                    damage*.08;
+
+                attacker.strength+=
+                    .3;
+
+            }
+
+            /*
+                DOOMSDAY ADAPTATION
+            */
+
+            if(
+                attacker.name===
+                "Doomsday"
+            ){
+
+                attacker.adaptation+=
+                    .18;
+
+            }
+
+            attacker
+                .recentMoves
+                .push(
+                    move
+                );
+
+            if(
+                attacker
+                    .recentMoves
+                    .length>2
+            ){
+
+                attacker
+                    .recentMoves
+                    .shift();
+
+            }
+
+            actions.push({
+
+                attacker:
+                    attacker.name,
+
+                attackerTeam:
+                    attacker.team,
+
+                target:
+                    target.name,
+
+                targetTeam:
+                    target.team,
+
+                move,
+
+                reaction:
+                    reactionType,
+
+                damage,
+
+                targetHp:
+                    target.hp,
+
+                attackerHp:
+                    attacker.hp,
+
+                location:
+                    battlefieldLocation(
+                        qs(
+                            "battlefield"
+                        ).value,
+                        attacker
+                    ),
+
+                elimination:
+                    target.hp<=0
+
+            });
+
+        }
+
+        rounds.push({
+
+            round,
+
+            actions,
+
+            snapshot:
+                units.map(
+                    fighter=>({
+
+                        name:
+                            fighter.name,
+
+                        team:
+                            fighter.team,
+
+                        hp:
+                            fighter.hp
+
+                    })
+                )
+
+        });
+
+        round++;
+
+    }
+
+    const alphaAlive=
+        living(
+            units,
+            1
+        );
+
+    const omegaAlive=
+        living(
+            units,
+            2
+        );
+
+    let winner;
+
+    if(
+        alphaAlive.length
+        &&
+        !omegaAlive.length
+    ){
+
+        winner=
+            "TEAM ALPHA";
+
+    }
+    else if(
+        omegaAlive.length
+        &&
+        !alphaAlive.length
+    ){
+
+        winner=
+            "TEAM OMEGA";
+
+    }
+    else{
+
+        const alphaHealth=
+            units
+                .filter(
+                    fighter=>
+                        fighter.team===1
+                )
+                .reduce(
+                    (
+                        total,
+                        fighter
+                    )=>
+                        total
+                        +
+                        fighter.hp,
+                    0
+                );
+
+        const omegaHealth=
+            units
+                .filter(
+                    fighter=>
+                        fighter.team===2
+                )
+                .reduce(
+                    (
+                        total,
+                        fighter
+                    )=>
+                        total
+                        +
+                        fighter.hp,
+                    0
+                );
+
+        winner=
+            alphaHealth>=
+            omegaHealth
+            ?"TEAM ALPHA"
+            :"TEAM OMEGA";
+
+    }
+
+    return{
+
+        units,
+
+        rounds,
+
+        winner,
+
+        context
+
+    };
+
+}
+
+/* =====================================================
+   PHYSICAL CONDITION
+===================================================== */
+
+function condition(
+    hp
+){
+
+    if(
+        hp<=0
+    ){
+
+        return(
+            "unable to continue"
+        );
+
+    }
+
+    if(
+        hp<20
+    ){
+
+        return random([
+
+            "barely able to hold a stable stance",
+
+            "struggling to force their legs underneath them",
+
+            "moving with almost no room left for another mistake",
+
+            "taking several seconds just to recover their footing"
+
+        ]);
+
+    }
+
+    if(
+        hp<40
+    ){
+
+        return random([
+
+            "slow to recover and visibly worn down",
+
+            "moving more carefully after the punishment already taken",
+
+            "taking longer to regain balance",
+
+            "showing a delay whenever they have to change direction"
+
+        ]);
+
+    }
+
+    if(
+        hp<65
+    ){
+
+        return random([
+
+            "battered but still dangerous",
+
+            "carrying the damage into every movement",
+
+            "slower than at the beginning of the fight",
+
+            "still capable of fighting despite the accumulated punishment"
+
+        ]);
+
+    }
+
+    return random([
+
+        "still moving with control",
+
+        "still reacting sharply",
+
+        "steady enough to maintain pressure",
+
+        "showing little difficulty recovering"
+
+    ]);
+
+}
+
+/* =====================================================
+   STORY OPENINGS
+===================================================== */
+
+function storyOpening(
+    attacker,
+    target,
+    context,
+    location
+){
+
+    const capitalLocation=
+        location.charAt(0)
+        .toUpperCase()
+        +
+        location.slice(1);
+
+    if(
+        context.duel
+    ){
+
+        return random([
+
+            capitalLocation
+            +
+            ", "
+            +
+            attacker
+            +
+            " begins to shift position without rushing the approach",
+
+            "Distance hangs between "
+            +
+            attacker
+            +
+            " and "
+            +
+            target
+            +
+            " for a moment before "
+            +
+            attacker
+            +
+            " commits",
+
+            "The space around "
+            +
+            target
+            +
+            " changes as "
+            +
+            attacker
+            +
+            " moves away from the direct line of attack",
+
+            "For several seconds, neither fighter gives away an easy angle before "
+            +
+            attacker
+            +
+            " breaks the stillness",
+
+            "The damaged ground separates "
+            +
+            attacker
+            +
+            " from "
+            +
+            target
+            +
+            " until "
+            +
+            attacker
+            +
+            " begins closing the distance"
+
+        ]);
+
+    }
+
+    return random([
+
+        capitalLocation
+        +
+        ", "
+        +
+        attacker
+        +
+        " finds a lane toward "
+        +
+        target
+        +
+        " while the larger fight keeps moving around them",
+
+        "A gap opens in the fighting and "
+        +
+        attacker
+        +
+        " uses it to move toward "
+        +
+        target,
+
+        target
+        +
+        " loses open space as "
+        +
+        attacker
+        +
+        " pushes through the battlefield",
+
+        "Movement elsewhere forces "
+        +
+        target
+        +
+        " into a different lane just as "
+        +
+        attacker
+        +
+        " begins the attack"
+
+    ]);
+
+}
+
+/* =====================================================
+   DESCRIBE MOVE
+===================================================== */
+
+function describeMove(
+    attacker,
+    target,
+    move
+){
+
+    const tags=
+        moveTags(
+            move
+        );
+
+    if(
+        tags.ranged
+    ){
+
+        return(
+            attacker
+            +
+            " sends "
+            +
+            move
+            +
+            " across the gap, forcing "
+            +
+            target
+            +
+            " to react before the attack reaches full force."
+        );
+
+    }
+
+    if(
+        tags.control
+    ){
+
+        return(
+            attacker
+            +
+            " uses "
+            +
+            move
+            +
+            " to take away space rather than simply trading blows, driving the pressure toward "
+            +
+            target
+            +
+            "."
+        );
+
+    }
+
+    if(
+        tags.defense
+    ){
+
+        return(
+            attacker
+            +
+            " turns "
+            +
+            move
+            +
+            " into a change of position, using the motion to alter the angle between them."
+        );
+
+    }
+
+    if(
+        tags.area
+    ){
+
+        return(
+            attacker
+            +
+            " unleashes "
+            +
+            move
+            +
+            " across the surrounding space, making the terrain itself part of the attack."
+        );
+
+    }
+
+    return(
+        attacker
+        +
+        " drives in with "
+        +
+        move
+        +
+        ", committing enough force to carry the exchange across the ground between them."
+    );
+
+}
+
+/* =====================================================
+   DESCRIBE REACTION
+===================================================== */
+
+function describeReaction(
+    target,
+    reactionType,
+    hp
+){
+
+    const state=
+        condition(
+            hp
+        );
+
+    if(
+        reactionType===
+        "dodge"
+    ){
+
+        return(
+            target
+            +
+            " slips clear at the last possible moment, the attack cutting through the space just behind them."
+        );
+
+    }
+
+    if(
+        reactionType===
+        "phase"
+    ){
+
+        return(
+            target
+            +
+            " phases through the line of attack and reforms several steps away before the position can collapse."
+        );
+
+    }
+
+    if(
+        reactionType===
+        "block"
+    ){
+
+        return(
+            target
+            +
+            " gets a defense in place, but the impact still forces them backward and leaves them "
+            +
+            state
+            +
+            "."
+        );
+
+    }
+
+    if(
+        reactionType===
+        "partial"
+    ){
+
+        return(
+            target
+            +
+            " turns away from the center of the hit, taking only part of it before being driven off balance."
+        );
+
+    }
+
+    if(
+        reactionType===
+        "counter"
+    ){
+
+        return(
+            target
+            +
+            " catches the approach early enough to break the rhythm of the attack and force separation."
+        );
+
+    }
+
+    return(
+        target
+        +
+        " takes the hit cleanly and is driven backward, needing visible time to recover; they are "
+        +
+        state
+        +
+        "."
+    );
+
+}
+
+/* =====================================================
+   AFTERMATH
+===================================================== */
+
+function describeAftermath(
+    attacker,
+    target,
+    hp,
+    depth,
+    context
+){
+
+    if(
+        depth==="brief"
+    ){
+
+        return"";
+
+    }
+
+    let text;
+
+    if(
+        context.duel
+    ){
+
+        text=
+            random([
+
+                "The distance does not disappear immediately. "
+                +
+                attacker
+                +
+                " stays outside a reckless follow-up while "
+                +
+                target
+                +
+                " works back into position.",
+
+                "Debris settles between them. "
+                +
+                target
+                +
+                " takes the extra second to regain footing while "
+                +
+                attacker
+                +
+                " changes angle instead of charging straight in.",
+
+                "The impact leaves space between the two fighters, and neither wastes it with an immediate second attack.",
+
+                target
+                +
+                " remains in place long enough to recover their stance while "
+                +
+                attacker
+                +
+                " circles toward a different approach."
+
+            ]);
+
+    }
+    else{
+
+        text=
+            random([
+
+                target
+                +
+                " is forced to recover while movement elsewhere on the battlefield changes the lanes around the fight.",
+
+                "The separation created by the hit briefly changes who can reach whom before another exchange develops.",
+
+                target
+                +
+                " gives ground while the fighters around them shift positions and close off parts of the battlefield."
+
+            ]);
+
+    }
+
+    if(
+        depth==="cinematic"
+    ){
+
+        text+=(
+            " The damaged ground remains part of the scene, forcing every step around the area to account for what the last exchange just broke."
+        );
+
+    }
+
+    return text;
+
+}
+
+/* =====================================================
+   NARRATION DENSITY
+===================================================== */
+
+function narrativeConfig(
+    depth
+){
+
+    if(
+        depth==="brief"
+    ){
+
+        return{
+
+            rounds:4,
+
+            actions:2
+
+        };
+
+    }
+
+    if(
+        depth==="detailed"
+    ){
+
+        return{
+
+            rounds:8,
+
+            actions:4
+
+        };
+
+    }
+
+    return{
+
+        rounds:99,
+
+        actions:8
+
+    };
+
+}
+
+/* =====================================================
+   NARRATE BATTLE
+===================================================== */
+
+function narrateBattle(
+    simulation
+){
+
+    const depth=
+        qs(
+            "storyDepth"
+        ).value;
+
+    const config=
+        narrativeConfig(
+            depth
+        );
+
+    const shownRounds=
+        simulation.rounds.slice(
+            0,
+            config.rounds
+        );
+
+    return shownRounds.map(
+        round=>{
+
+            const actions=
+                round.actions.slice(
+                    0,
+                    config.actions
+                );
+
+            let paragraphs="";
+
+            for(
+                const event
+                of
+                actions
+            ){
+
+                const opening=
+                    storyOpening(
+                        event.attacker,
+                        event.target,
+                        simulation.context,
+                        event.location
+                    );
+
+                const move=
+                    describeMove(
+                        event.attacker,
+                        event.target,
+                        event.move
+                    );
+
+                const reaction=
+                    describeReaction(
+                        event.target,
+                        event.reaction,
+                        event.targetHp
+                    );
+
+                const aftermath=
+                    describeAftermath(
+                        event.attacker,
+                        event.target,
+                        event.targetHp,
+                        depth,
+                        simulation.context
+                    );
+
+                let elimination="";
+
+                if(
+                    event.elimination
+                ){
+
+                    if(
+                        simulation.context.duel
+                    ){
+
+                        elimination=
+                            event.target
+                            +
+                            " tries to rise again, but the recovery never comes together strongly enough to continue the duel.";
+
+                    }
+                    else{
+
+                        elimination=
+                            event.target
+                            +
+                            " can no longer continue, changing the number of fighters still active on the battlefield.";
+
+                    }
+
+                }
+
+                paragraphs+=`
+
+<p>
+${opening}.
+${move}
+${reaction}
+${aftermath}
+${elimination}
+</p>
+
+`;
+
+            }
+
+            if(
+                !paragraphs
+            ){
+
+                paragraphs=`
+
+<p>
+The fighters reposition without a decisive exchange.
+</p>
+
+`;
+
+            }
+
+            return{
+
+                round:
+                    round.round,
+
+                text:
+                    paragraphs,
+
+                snapshot:
+                    round.snapshot
+
+            };
+
+        }
+    );
+
+}
+
+/* =====================================================
+   HEALTH
+===================================================== */
+
+function healthHTML(
+    snapshot,
+    round
+){
+
+    function side(
+        team
+    ){
+
+        return snapshot
+            .filter(
+                fighter=>
+                    fighter.team===
+                    team
+            )
+            .map(
+                fighter=>{
+
+                    const health=
+                        Math.round(
+                            fighter.hp
+                        );
+
+                    const healthClass=
+                        health<30
+                        ?"low"
+                        :health<60
+                        ?"mid"
+                        :"";
+
+                    return`
+
+<div class="hrow">
+
+<div class="hlabel">
+
+    <span>
+        ${fighter.name}
+    </span>
+
+    <span>
+        ${health}%
+    </span>
+
+</div>
+
+<div class="track">
+
+    <div
+        class="
+            fill
+            ${healthClass}
+        "
+        style="
+            width:
+            ${health}%
+        "
+    ></div>
+
+</div>
+
+</div>
+
+`;
+
+                }
+            )
+            .join("");
+
+    }
+
+    return`
+
+<div class="health">
+
+<div class="healthtitle">
+ROUND
+${round}
+//
+HEALTH STATUS
+</div>
+
+<div class="healthcols">
+
+<div>
+${side(1)}
+</div>
+
+<div>
+${side(2)}
+</div>
+
+</div>
+
+</div>
+
+`;
+
+}
+
+/* =====================================================
+   START BATTLE
+===================================================== */
+
+function startBattle(){
+
+    const teamSizes=
+        sizes();
+
+    if(
+        alpha.length!==
+        teamSizes.alpha
+        ||
+        omega.length!==
+        teamSizes.omega
+    ){
+
+        return;
+
+    }
+
+    const simulation=
+        simulateBattle();
+
+    const story=
+        narrateBattle(
+            simulation
+        );
+
+    qs(
+        "battleOutput"
+    ).style.display=
+        "block";
+
+    qs(
+        "alphaReadout"
+    ).textContent=
+        alpha
+            .map(
+                fighter=>
+                    fighter.name
+            )
+            .join(" • ");
+
+    qs(
+        "omegaReadout"
+    ).textContent=
+        omega
+            .map(
+                fighter=>
+                    fighter.name
+            )
+            .join(" • ");
+
+    let html="";
+
+    html+=`
+
+<div class="round">
+
+<div class="roundtitle">
+${simulation.context.mode.toUpperCase()}
+//
+${qs("battlefield").value.toUpperCase()}
+</div>
+
+<div class="story">
+
+<p>
+${BATTLEFIELDS[
+    qs(
+        "battlefield"
+    ).value
+]}
+</p>
+
+</div>
+
+</div>
+
+`;
+
+    for(
+        const round
+        of
+        story
+    ){
+
+        html+=`
+
+<div class="round">
+
+<div class="roundtitle">
+ROUND ${round.round}
+</div>
+
+<div class="story">
+${round.text}
+</div>
+
+</div>
+
+`;
+
+        html+=
+            healthHTML(
+                round.snapshot,
+                round.round
+            );
+
+    }
+
+    /*
+        BRIEF / DETAILED MAY SKIP
+        LATER SIMULATED ROUNDS.
+
+        SHOW FINAL HEALTH WITHOUT
+        DUMPING EMPTY ROUND CARDS.
+    */
+
+    if(
+        story.length<
+        simulation.rounds.length
+    ){
+
+        const finalRound=
+            simulation.rounds[
+                simulation.rounds.length-1
+            ];
+
+        html+=`
+
+<div class="round">
+
+<div class="roundtitle">
+FINAL EXCHANGE
+</div>
+
+<div class="story">
+
+<p>
+The remaining exchanges decide the fight without expanding every smaller movement.
+</p>
+
+</div>
+
+</div>
+
+`;
+
+        html+=
+            healthHTML(
+                finalRound.snapshot,
+                finalRound.round
+            );
+
+    }
+
+    html+=`
+
+<div class="winner">
+${simulation.winner}
+WINS
+</div>
+
+`;
+
+    qs(
+        "battleFeed"
+    ).innerHTML=
+        html;
+
+    qs(
+        "battleOutput"
+    ).scrollIntoView({
+
+        behavior:
+            "smooth"
+
+    });
+
+}
+
+/* =====================================================
+   INITIALIZE
+===================================================== */
+
+renderTeams();
+
+renderDatabase();
+
+</script>
+
+</body>
+</html>
