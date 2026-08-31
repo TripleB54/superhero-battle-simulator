@@ -34,25 +34,11 @@ body{
     margin:0;
     min-height:100vh;
     color:var(--text);
-
     background:
-        radial-gradient(
-            circle at 50% 20%,
-            rgba(0,210,255,.12),
-            transparent 35%
-        ),
-        radial-gradient(
-            circle at 50% 100%,
-            rgba(255,180,30,.06),
-            transparent 30%
-        ),
+        radial-gradient(circle at 50% 20%,rgba(0,210,255,.12),transparent 35%),
+        radial-gradient(circle at 50% 100%,rgba(255,180,30,.06),transparent 30%),
         #020609;
-
-    font-family:
-        "Arial Narrow",
-        Arial,
-        sans-serif;
-
+    font-family:"Arial Narrow",Arial,sans-serif;
     overflow-x:hidden;
 }
 
@@ -62,18 +48,9 @@ body::before{
     inset:0;
     pointer-events:none;
     opacity:.055;
-
     background-image:
-        linear-gradient(
-            rgba(0,234,255,.8) 1px,
-            transparent 1px
-        ),
-        linear-gradient(
-            90deg,
-            rgba(0,234,255,.8) 1px,
-            transparent 1px
-        );
-
+        linear-gradient(rgba(0,234,255,.8) 1px,transparent 1px),
+        linear-gradient(90deg,rgba(0,234,255,.8) 1px,transparent 1px);
     background-size:40px 40px;
     z-index:100;
 }
@@ -83,7 +60,6 @@ body::after{
     position:fixed;
     inset:0;
     pointer-events:none;
-
     background:
         repeating-linear-gradient(
             0deg,
@@ -91,36 +67,20 @@ body::after{
             transparent 3px,
             rgba(255,255,255,.015) 4px
         );
-
     z-index:101;
 }
 
-/* =========================================================
-   TOP BAR
-========================================================= */
+/* TOP BAR */
 
 .topbar{
     height:76px;
-
     display:flex;
     align-items:center;
     justify-content:space-between;
-
     padding:0 35px;
-
-    background:
-        linear-gradient(
-            180deg,
-            rgba(8,25,35,.98),
-            rgba(2,9,13,.98)
-        );
-
+    background:linear-gradient(180deg,rgba(8,25,35,.98),rgba(2,9,13,.98));
     border-bottom:1px solid var(--cyan2);
-
-    box-shadow:
-        0 0 30px rgba(0,220,255,.1),
-        inset 0 -1px 0 rgba(0,234,255,.15);
-
+    box-shadow:0 0 30px rgba(0,220,255,.1),inset 0 -1px 0 rgba(0,234,255,.15);
     position:relative;
     z-index:5;
 }
@@ -135,7 +95,6 @@ body::after{
     width:34px;
     height:34px;
     border-radius:50%;
-
     background:
         radial-gradient(
             circle,
@@ -144,10 +103,7 @@ body::after{
             #006d83 31% 48%,
             transparent 49%
         );
-
-    box-shadow:
-        0 0 12px var(--cyan),
-        0 0 28px rgba(0,234,255,.45);
+    box-shadow:0 0 12px var(--cyan),0 0 28px rgba(0,234,255,.45);
 }
 
 .brand-title{
@@ -164,9 +120,7 @@ body::after{
     display:flex;
     align-items:center;
     gap:10px;
-
     color:var(--green);
-
     font-size:10px;
     letter-spacing:3px;
 }
@@ -175,23 +129,16 @@ body::after{
     width:8px;
     height:8px;
     border-radius:50%;
-
     background:var(--green);
-
     box-shadow:0 0 14px var(--green);
-
     animation:pulse 1.5s infinite;
 }
 
 @keyframes pulse{
-    50%{
-        opacity:.35;
-    }
+    50%{opacity:.35;}
 }
 
-/* =========================================================
-   MAIN
-========================================================= */
+/* MAIN */
 
 .command-center{
     width:min(1500px,94%);
@@ -199,31 +146,19 @@ body::after{
     padding:25px 0 60px;
 }
 
-/* =========================================================
-   HEADER
-========================================================= */
+/* HEADER */
 
 .command-header{
     display:grid;
-    grid-template-columns:1fr 260px 1fr;
-
+    grid-template-columns:1fr 300px 1fr;
     align-items:center;
-
     gap:20px;
-
     margin-bottom:20px;
 }
 
 .command-side{
     height:1px;
-
-    background:
-        linear-gradient(
-            90deg,
-            transparent,
-            var(--cyan),
-            transparent
-        );
+    background:linear-gradient(90deg,transparent,var(--cyan),transparent);
 }
 
 .command-title{
@@ -238,33 +173,24 @@ body::after{
 
 .command-title h1{
     margin:5px 0 0;
-
     font-size:27px;
     letter-spacing:6px;
-
     color:white;
-
-    text-shadow:
-        0 0 20px rgba(0,234,255,.35);
+    text-shadow:0 0 20px rgba(0,234,255,.35);
 }
 
-/* =========================================================
-   REACTOR
-========================================================= */
+/* REACTOR */
 
 .reactor-section{
     display:flex;
     justify-content:center;
-
     margin:5px 0 28px;
 }
 
 .reactor{
     width:190px;
     height:190px;
-
     position:relative;
-
     display:grid;
     place-items:center;
 }
@@ -278,36 +204,28 @@ body::after{
 .r1{
     width:180px;
     height:180px;
-
     opacity:.35;
-
     animation:spin 15s linear infinite;
 }
 
 .r2{
     width:150px;
     height:150px;
-
     border-style:dashed;
-
     opacity:.6;
-
     animation:spinReverse 10s linear infinite;
 }
 
 .r3{
     width:115px;
     height:115px;
-
     opacity:.8;
 }
 
 .reactor-core{
     width:70px;
     height:70px;
-
     border-radius:50%;
-
     background:
         radial-gradient(
             circle,
@@ -317,7 +235,6 @@ body::after{
             #00728d 46% 65%,
             #03242e 66%
         );
-
     box-shadow:
         0 0 15px var(--cyan),
         0 0 40px var(--cyan),
@@ -325,173 +242,112 @@ body::after{
 }
 
 @keyframes spin{
-    to{
-        transform:rotate(360deg);
-    }
+    to{transform:rotate(360deg);}
 }
 
 @keyframes spinReverse{
-    to{
-        transform:rotate(-360deg);
-    }
+    to{transform:rotate(-360deg);}
 }
 
 .reactor-label{
     position:absolute;
     bottom:-25px;
-
     font-size:8px;
     letter-spacing:4px;
-
     color:var(--cyan);
 }
 
-/* =========================================================
-   CONTROL DECK
-========================================================= */
+/* CONTROL DECK */
 
 .control-deck{
     display:grid;
-    grid-template-columns:repeat(5,1fr);
-
+    grid-template-columns:repeat(6,1fr);
     gap:1px;
-
     background:var(--line);
-
     border:1px solid var(--line);
-
-    box-shadow:
-        0 0 35px rgba(0,0,0,.8);
+    box-shadow:0 0 35px rgba(0,0,0,.8);
 }
 
 .control{
     padding:15px;
-
-    background:
-        linear-gradient(
-            135deg,
-            #081821,
-            #03090d
-        );
-
+    background:linear-gradient(135deg,#081821,#03090d);
     position:relative;
 }
 
 .control::before{
     content:"";
-
     position:absolute;
-
     top:0;
     left:0;
-
     width:25px;
     height:1px;
-
     background:var(--cyan);
 }
 
 .control label{
     display:block;
-
     font-size:8px;
     letter-spacing:3px;
-
     color:var(--muted);
-
     margin-bottom:9px;
 }
 
 select{
     width:100%;
-
     background:#02080c;
-
     border:1px solid #1a5365;
-
     color:var(--cyan);
-
     padding:10px;
-
     outline:none;
-
     font-weight:bold;
     letter-spacing:1px;
 }
 
 select:focus{
     border-color:var(--cyan);
-
-    box-shadow:
-        0 0 12px rgba(0,234,255,.15);
+    box-shadow:0 0 12px rgba(0,234,255,.15);
 }
 
-/* =========================================================
-   BUTTONS
-========================================================= */
+/* BUTTONS */
 
 .command-buttons{
     display:grid;
-
     grid-template-columns:2fr 1fr 1fr;
-
     gap:10px;
-
     margin:12px 0;
 }
 
 button{
     position:relative;
-
     padding:14px 18px;
-
     color:white;
-
     background:#06131b;
-
     border:1px solid #1a596c;
-
     font-weight:bold;
     letter-spacing:2px;
-
     cursor:pointer;
-
     overflow:hidden;
-
     transition:.15s;
 }
 
 button::before{
     content:"";
-
     position:absolute;
-
     left:0;
     top:0;
     bottom:0;
-
     width:3px;
-
     background:var(--cyan);
 }
 
 button:hover{
     color:var(--cyan);
-
     border-color:var(--cyan);
-
-    box-shadow:
-        0 0 20px rgba(0,234,255,.15),
-        inset 0 0 15px rgba(0,234,255,.05);
+    box-shadow:0 0 20px rgba(0,234,255,.15),inset 0 0 15px rgba(0,234,255,.05);
 }
 
 .primary{
-    background:
-        linear-gradient(
-            90deg,
-            #063949,
-            #061821
-        );
+    background:linear-gradient(90deg,#063949,#061821);
 }
 
 .gold{
@@ -510,45 +366,30 @@ button:hover{
     background:var(--red);
 }
 
-/* =========================================================
-   PANELS
-========================================================= */
+/* PANELS */
 
 .hud-panel{
     position:relative;
-
-    background:
-        linear-gradient(
-            135deg,
-            rgba(7,22,31,.98),
-            rgba(2,8,12,.98)
-        );
-
+    background:linear-gradient(135deg,rgba(7,22,31,.98),rgba(2,8,12,.98));
     border:1px solid var(--line);
-
     box-shadow:
         0 15px 40px rgba(0,0,0,.55),
         inset 0 0 30px rgba(0,234,255,.025);
-
     padding:18px;
 }
 
 .hud-panel::before,
 .hud-panel::after{
     content:"";
-
     position:absolute;
-
     width:20px;
     height:20px;
-
     pointer-events:none;
 }
 
 .hud-panel::before{
     top:-1px;
     left:-1px;
-
     border-top:2px solid var(--cyan);
     border-left:2px solid var(--cyan);
 }
@@ -556,40 +397,32 @@ button:hover{
 .hud-panel::after{
     bottom:-1px;
     right:-1px;
-
     border-bottom:2px solid var(--cyan);
     border-right:2px solid var(--cyan);
 }
 
 .panel-heading{
     display:flex;
-
     justify-content:space-between;
     align-items:center;
-
     padding-bottom:12px;
     margin-bottom:14px;
-
     border-bottom:1px solid #153b49;
 }
 
 .panel-heading h2{
     margin:0;
-
     font-size:11px;
     letter-spacing:4px;
 }
 
 .panel-code{
     color:var(--gold);
-
     font-size:9px;
     letter-spacing:2px;
 }
 
-/* =========================================================
-   CHARACTER BOARD
-========================================================= */
+/* CHARACTER BOARD */
 
 .pool-panel{
     margin-top:12px;
@@ -597,70 +430,38 @@ button:hover{
 
 .pool{
     display:grid;
-
-    grid-template-columns:
-        repeat(5,1fr);
-
+    grid-template-columns:repeat(5,1fr);
     gap:8px;
 }
 
 .character-card{
-    min-height:78px;
-
+    min-height:90px;
     position:relative;
-
     padding:12px;
-
-    background:
-        linear-gradient(
-            135deg,
-            rgba(12,29,39,.95),
-            rgba(3,10,14,.98)
-        );
-
+    background:linear-gradient(135deg,rgba(12,29,39,.95),rgba(3,10,14,.98));
     border:1px solid #183d4a;
-
     cursor:pointer;
-
-    transition:
-        transform .15s,
-        border .15s,
-        box-shadow .15s;
-
+    transition:.15s;
     overflow:hidden;
 }
 
 .character-card::after{
     content:"";
-
     position:absolute;
-
     right:-15px;
     top:-15px;
-
     width:45px;
     height:45px;
-
     border-radius:50%;
-
     background:var(--accent);
-
     opacity:.07;
-
     filter:blur(3px);
 }
 
 .character-card:hover{
     transform:translateY(-3px);
-
     border-color:var(--accent);
-
-    box-shadow:
-        0 0 20px color-mix(
-            in srgb,
-            var(--accent),
-            transparent 75%
-        );
+    box-shadow:0 0 20px color-mix(in srgb,var(--accent),transparent 75%);
 }
 
 .character-card.selected{
@@ -670,44 +471,31 @@ button:hover{
 
 .character-name{
     font-size:12px;
-
     font-weight:bold;
-
     color:white;
 }
 
 .character-info{
     margin-top:7px;
-
     color:var(--muted);
-
     font-size:8px;
-
     letter-spacing:1px;
 }
 
 .pick-label{
     position:absolute;
-
     top:7px;
     right:7px;
-
     font-size:7px;
-
     color:var(--gold);
 }
 
-/* =========================================================
-   TEAMS
-========================================================= */
+/* TEAMS */
 
 .team-grid{
     display:grid;
-
     grid-template-columns:1fr 1fr;
-
     gap:12px;
-
     margin-top:12px;
 }
 
@@ -746,54 +534,34 @@ button:hover{
 
 .slots{
     display:grid;
-
-    grid-template-columns:
-        repeat(5,1fr);
-
+    grid-template-columns:repeat(5,1fr);
     gap:8px;
 }
 
 .slot{
     min-height:110px;
-
     display:flex;
-
     flex-direction:column;
-
     justify-content:center;
     align-items:center;
-
     background:#03090d;
-
     border:1px dashed #1c3944;
-
     text-align:center;
 }
 
 .slot.filled{
     border-style:solid;
-
     border-color:var(--accent);
-
-    box-shadow:
-        inset 0 0 20px color-mix(
-            in srgb,
-            var(--accent),
-            transparent 90%
-        );
+    box-shadow:inset 0 0 20px color-mix(in srgb,var(--accent),transparent 90%);
 }
 
 .avatar{
     width:43px;
     height:43px;
-
     border-radius:50%;
-
     display:grid;
     place-items:center;
-
     margin-bottom:8px;
-
     background:
         radial-gradient(
             circle,
@@ -801,10 +569,7 @@ button:hover{
             var(--accent) 6% 60%,
             #071018 61%
         );
-
-    box-shadow:
-        0 0 15px var(--accent);
-
+    box-shadow:0 0 15px var(--accent);
     font-size:9px;
     font-weight:bold;
 }
@@ -814,9 +579,7 @@ button:hover{
     font-weight:bold;
 }
 
-/* =========================================================
-   BATTLE
-========================================================= */
+/* BATTLE */
 
 .battle-panel{
     margin-top:12px;
@@ -824,37 +587,27 @@ button:hover{
 
 .battle-top{
     display:grid;
-
-    grid-template-columns:
-        1fr 170px 1fr;
-
+    grid-template-columns:1fr 170px 1fr;
     gap:15px;
-
     align-items:center;
-
     margin-bottom:18px;
 }
 
 .side-readout{
     padding:12px;
-
     background:#03090d;
-
     border:1px solid #163b48;
 }
 
 .readout-label{
     color:var(--muted);
-
     font-size:8px;
     letter-spacing:3px;
 }
 
 .readout-value{
     margin-top:5px;
-
     font-size:17px;
-
     font-weight:bold;
 }
 
@@ -869,16 +622,11 @@ button:hover{
 .battle-reactor{
     width:95px;
     height:95px;
-
     margin:auto;
-
     border-radius:50%;
-
     display:grid;
     place-items:center;
-
     border:1px solid var(--cyan);
-
     background:
         radial-gradient(
             circle,
@@ -887,51 +635,38 @@ button:hover{
             #005a70 21% 40%,
             transparent 41%
         );
-
     box-shadow:
         0 0 20px var(--cyan),
         0 0 50px rgba(0,234,255,.25);
-
     animation:battlePulse 2s infinite;
 }
 
 @keyframes battlePulse{
-
     50%{
         box-shadow:
             0 0 30px var(--cyan),
             0 0 70px rgba(0,234,255,.35);
     }
-
 }
 
-/* =========================================================
-   HEALTH
-========================================================= */
+/* HEALTH */
 
 .health-panel{
     display:grid;
-
     grid-template-columns:1fr 1fr;
-
     gap:10px;
-
     margin-bottom:15px;
 }
 
 .health-team{
     padding:12px;
-
     background:#03090d;
-
     border:1px solid #143542;
 }
 
 .health-title{
     font-size:9px;
-
     letter-spacing:3px;
-
     margin-bottom:10px;
 }
 
@@ -941,55 +676,40 @@ button:hover{
 
 .health-label{
     display:flex;
-
     justify-content:space-between;
-
     font-size:8px;
-
     color:#9db4be;
 }
 
 .health-bar{
     height:5px;
-
     margin-top:4px;
-
     background:#10212a;
-
     overflow:hidden;
 }
 
 .health-fill{
     height:100%;
-
     background:var(--green);
-
     box-shadow:0 0 8px var(--green);
-
     transition:width .5s;
 }
 
 .health-fill.low{
     background:#ffb14e;
-
     box-shadow:0 0 8px #ffb14e;
 }
 
 .health-fill.dead{
     background:var(--red);
-
     box-shadow:0 0 8px var(--red);
 }
 
-/* =========================================================
-   BATTLE FEED
-========================================================= */
+/* FEED */
 
 .battle-feed{
     height:620px;
-
     overflow-y:auto;
-
     padding-right:8px;
 }
 
@@ -1007,61 +727,33 @@ button:hover{
 
 .round-card{
     margin:12px 0;
-
     padding:17px 18px;
-
-    background:
-        linear-gradient(
-            90deg,
-            rgba(8,27,36,.98),
-            rgba(3,10,14,.98)
-        );
-
+    background:linear-gradient(90deg,rgba(8,27,36,.98),rgba(3,10,14,.98));
     border-left:2px solid var(--cyan);
-
     color:#bdd1d8;
-
     line-height:1.75;
-
-    font-family:
-        Georgia,
-        "Times New Roman",
-        serif;
-
+    font-family:Georgia,"Times New Roman",serif;
     font-size:14px;
 }
 
 .round-heading{
     color:var(--gold);
-
     font-family:Arial,sans-serif;
-
     font-size:9px;
-
     font-weight:bold;
-
     letter-spacing:3px;
-
     margin-bottom:10px;
 }
 
 .move{
     display:inline-block;
-
     padding:3px 7px;
-
     margin:3px 0;
-
     color:var(--cyan);
-
     font-family:Arial,sans-serif;
-
     font-weight:bold;
-
     letter-spacing:1px;
-
     border:1px solid #15576a;
-
     background:#061820;
 }
 
@@ -1072,111 +764,113 @@ button:hover{
 
 .eliminated{
     color:var(--red);
-
     font-family:Arial,sans-serif;
-
     letter-spacing:2px;
 }
 
 .winner{
     margin:20px 0;
-
     padding:30px;
-
     text-align:center;
-
     border:1px solid var(--gold);
-
     background:
-        radial-gradient(
-            circle at center,
-            rgba(255,200,61,.12),
-            transparent 60%
-        ),
+        radial-gradient(circle at center,rgba(255,200,61,.12),transparent 60%),
         #100e06;
-
-    box-shadow:
-        0 0 35px rgba(255,200,61,.12);
+    box-shadow:0 0 35px rgba(255,200,61,.12);
 }
 
 .winner-title{
     color:var(--gold);
-
     font-family:Arial,sans-serif;
-
     font-size:30px;
-
     font-weight:900;
-
     letter-spacing:5px;
 }
 
-/* =========================================================
-   WHEEL
-========================================================= */
+/* ONE AT A TIME */
+
+.single-panel{
+    margin-top:12px;
+}
+
+.single-result{
+    min-height:230px;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+    background:
+        radial-gradient(circle,rgba(0,234,255,.08),transparent 60%),
+        #03090d;
+    border:1px solid #153e4d;
+    padding:30px;
+}
+
+.single-avatar{
+    width:100px;
+    height:100px;
+    border-radius:50%;
+    display:grid;
+    place-items:center;
+    font-size:20px;
+    font-weight:bold;
+    margin-bottom:20px;
+    box-shadow:0 0 30px var(--accent);
+    background:
+        radial-gradient(
+            circle,
+            white 0 5%,
+            var(--accent) 6% 60%,
+            #071018 61%
+        );
+}
+
+.single-name{
+    font-size:28px;
+    font-weight:900;
+    letter-spacing:4px;
+}
+
+.single-info{
+    color:var(--muted);
+    margin-top:8px;
+    letter-spacing:2px;
+}
+
+.single-counter{
+    margin-top:12px;
+    color:var(--gold);
+    font-size:10px;
+    letter-spacing:3px;
+}
+
+/* WHEEL MODAL */
 
 #wheelModal{
     position:fixed;
-
     inset:0;
-
     display:none;
-
     place-items:center;
-
     background:rgba(0,4,7,.94);
-
     z-index:200;
 }
 
 .wheel-box{
     width:min(550px,92vw);
-
     padding:28px;
-
     text-align:center;
-
-    background:
-        linear-gradient(
-            145deg,
-            #0a1b25,
-            #02080c
-        );
-
+    background:linear-gradient(145deg,#0a1b25,#02080c);
     border:1px solid var(--cyan);
-
-    box-shadow:
-        0 0 50px rgba(0,234,255,.12);
-}
-
-.wheel-title{
-    color:var(--cyan);
-
-    font-size:12px;
-
-    letter-spacing:4px;
-
-    margin-bottom:5px;
-}
-
-.wheel-subtitle{
-    color:var(--muted);
-
-    font-size:8px;
-
-    letter-spacing:2px;
+    box-shadow:0 0 50px rgba(0,234,255,.12);
 }
 
 .wheel{
     width:300px;
     height:300px;
-
     margin:20px auto;
-
     border-radius:50%;
-
     border:8px solid #16333f;
-
     background:
         conic-gradient(
             #0b7187 0deg 45deg,
@@ -1188,36 +882,35 @@ button:hover{
             #9b6c38 270deg 315deg,
             #315b91 315deg 360deg
         );
-
-    box-shadow:
-        0 0 40px rgba(0,234,255,.18);
-
-    transition:
-        transform 2.8s
-        cubic-bezier(.1,.8,.15,1);
+    box-shadow:0 0 40px rgba(0,234,255,.18);
+    transition:transform 2.8s cubic-bezier(.1,.8,.15,1);
 }
 
 .pointer{
     color:var(--gold);
-
     font-size:30px;
 }
 
 #wheelResult{
-    min-height:25px;
-
+    min-height:20px;
     margin-top:10px;
-
     color:var(--gold);
-
     font-weight:bold;
-
     letter-spacing:2px;
 }
 
-/* =========================================================
-   RESPONSIVE
-========================================================= */
+/* RESPONSIVE */
+
+@media(max-width:1150px){
+
+    .control-deck{
+        grid-template-columns:repeat(3,1fr);
+    }
+
+    .pool{
+        grid-template-columns:repeat(4,1fr);
+    }
+}
 
 @media(max-width:1000px){
 
@@ -1240,7 +933,6 @@ button:hover{
     .health-panel{
         grid-template-columns:1fr;
     }
-
 }
 
 @media(max-width:600px){
@@ -1277,7 +969,6 @@ button:hover{
     .pool{
         grid-template-columns:1fr;
     }
-
 }
 
 </style>
@@ -1288,21 +979,16 @@ button:hover{
 <header class="topbar">
 
     <div class="brand">
-
         <div class="arc-mini"></div>
 
         <div class="brand-title">
             <span>STARK</span> // BATTLE COMMAND
         </div>
-
     </div>
 
     <div class="system-status">
-
         <div class="status-light"></div>
-
         ALL SYSTEMS OPERATIONAL
-
     </div>
 
 </header>
@@ -1348,19 +1034,23 @@ button:hover{
 </div>
 
 
+<!-- CONTROL DECK -->
+
 <section class="control-deck">
 
     <div class="control">
 
-        <label>COMBAT FORMAT</label>
+        <label>SELECTION MODE</label>
 
-        <select id="teamSize">
+        <select id="selectionMode">
 
-            <option value="1">1v1</option>
-            <option value="2">2v2</option>
-            <option value="3">3v3</option>
-            <option value="4">4v4</option>
-            <option value="5">5v5</option>
+            <option value="draft10">
+                GENERATE 10 // DRAFT
+            </option>
+
+            <option value="single">
+                ONE AT A TIME
+            </option>
 
         </select>
 
@@ -1376,6 +1066,23 @@ button:hover{
             <option>Marvel + DC</option>
             <option>Marvel</option>
             <option>DC</option>
+
+        </select>
+
+    </div>
+
+
+    <div class="control">
+
+        <label>TEAM FORMAT</label>
+
+        <select id="teamSize">
+
+            <option value="1">1v1</option>
+            <option value="2">2v2</option>
+            <option value="3">3v3</option>
+            <option value="4">4v4</option>
+            <option value="5" selected>5v5</option>
 
         </select>
 
@@ -1444,9 +1151,9 @@ button:hover{
 
     <button
         class="gold"
-        onclick="openWheel()">
+        onclick="nextSingleCharacter()">
 
-        ◉ FULL DATABASE WHEEL
+        ◉ NEXT COMBATANT
 
     </button>
 
@@ -1462,12 +1169,16 @@ button:hover{
 </div>
 
 
-<section class="hud-panel pool-panel">
+<!-- 10 PERSON BOARD -->
+
+<section
+    class="hud-panel pool-panel"
+    id="draftPanel">
 
     <div class="panel-heading">
 
         <h2>
-            10-COMBATANT DRAFT BOARD
+            COMBATANT ACQUISITION BOARD
         </h2>
 
         <div
@@ -1487,6 +1198,64 @@ button:hover{
 
 </section>
 
+
+<!-- ONE AT A TIME PANEL -->
+
+<section
+    class="hud-panel single-panel"
+    id="singlePanel"
+    style="display:none;">
+
+    <div class="panel-heading">
+
+        <h2>
+            ONE-AT-A-TIME COMBATANT SELECTOR
+        </h2>
+
+        <div
+            class="panel-code"
+            id="singleStatus">
+
+            READY
+
+        </div>
+
+    </div>
+
+    <div
+        id="singleResult"
+        class="single-result">
+
+        <div
+            class="single-avatar"
+            style="--accent:#00eaff;">
+
+            ?
+
+        </div>
+
+        <div class="single-name">
+            AWAITING SELECTION
+        </div>
+
+        <div class="single-info">
+            PRESS NEXT COMBATANT
+        </div>
+
+        <div
+            class="single-counter"
+            id="singleCounter">
+
+            FULL DATABASE // READY
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- TEAMS -->
 
 <section class="team-grid">
 
@@ -1534,9 +1303,10 @@ button:hover{
 
     </div>
 
-
 </section>
 
+
+<!-- BATTLE -->
 
 <section class="hud-panel battle-panel">
 
@@ -1613,9 +1383,8 @@ button:hover{
             </div>
 
             Tactical command center awaiting combatants.
-
-            Generate a 10-character draft or use the
-            full-database wheel to begin selecting fighters.
+            Generate 10 combatants and draft both teams,
+            or switch to One-at-a-Time mode.
 
         </div>
 
@@ -1642,83 +1411,12 @@ button:hover{
 </main>
 
 
-<!-- =======================================================
-     FULL DATABASE WHEEL
-======================================================== -->
-
-<div id="wheelModal">
-
-    <div class="wheel-box">
-
-        <div class="wheel-title">
-            FULL DATABASE COMBAT WHEEL
-        </div>
-
-        <div class="wheel-subtitle">
-            ONE RANDOM COMBATANT // ENTIRE ACTIVE DATABASE
-        </div>
-
-        <div class="pointer">
-            ▼
-        </div>
-
-        <div
-            id="wheel"
-            class="wheel">
-        </div>
-
-        <button
-            class="primary"
-            onclick="spinWheel()">
-
-            SPIN // SELECT ONE COMBATANT
-
-        </button>
-
-        <button
-            onclick="closeWheel()">
-
-            CLOSE
-
-        </button>
-
-        <div
-            id="wheelResult">
-        </div>
-
-    </div>
-
-</div>
-
-
 <script>
 
 /* =========================================================
-   CHARACTER DATABASE
-   KEEP YOUR ENTIRE ORIGINAL DATABASE HERE
+   COMPLETE CHARACTER DATABASE
+   EVERY CHARACTER IS IN THE ROTATION
 ========================================================= */
-
-/*
-    IMPORTANT:
-
-    Paste your complete characters array from your
-    original code here.
-
-    The database includes characters such as:
-
-    Beast Boy
-    Superman
-    Batman
-    Hulk
-    Spider-Man
-    Iron Man
-    Thor
-    Wonder Woman
-    Flash
-    Green Lantern
-    etc.
-
-*/
 
 const characters = [
 
@@ -1732,16 +1430,8 @@ power:86,
 defense:82,
 speed:91,
 intelligence:91,
-moves:[
-"Web Strike",
-"Web Barrage",
-"Spider-Sense Counter",
-"Impact Web"
-],
-traits:[
-"protects weaker allies",
-"uses the environment intelligently"
-]
+moves:["Web Strike","Web Barrage","Spider-Sense Counter","Impact Web"],
+traits:["protects weaker allies","uses the environment intelligently"]
 },
 
 {
@@ -1752,16 +1442,8 @@ power:91,
 defense:88,
 speed:95,
 intelligence:98,
-moves:[
-"Repulsor Burst",
-"Unibeam",
-"Micro-Missile Salvo",
-"Bleeding Edge Overdrive"
-],
-traits:[
-"analyzes opponents",
-"uses technology to adapt"
-]
+moves:["Repulsor Burst","Unibeam","Micro-Missile Salvo","Bleeding Edge Overdrive"],
+traits:["analyzes opponents","uses technology to adapt"]
 },
 
 {
@@ -1772,16 +1454,8 @@ power:99,
 defense:96,
 speed:88,
 intelligence:86,
-moves:[
-"Mjolnir Strike",
-"Lightning Call",
-"God Blast",
-"Stormbreaker"
-],
-traits:[
-"warrior instinct",
-"becomes more aggressive under pressure"
-]
+moves:["Mjolnir Strike","Lightning Call","God Blast","Stormbreaker"],
+traits:["warrior instinct","becomes more aggressive under pressure"]
 },
 
 {
@@ -1792,16 +1466,8 @@ power:100,
 defense:97,
 speed:70,
 intelligence:65,
-moves:[
-"Thunderclap",
-"Gamma Smash",
-"Ground Quake",
-"Unstoppable Charge"
-],
-traits:[
-"rage escalation",
-"overwhelming physical strength"
-]
+moves:["Thunderclap","Gamma Smash","Ground Quake","Unstoppable Charge"],
+traits:["rage escalation","overwhelming physical strength"]
 },
 
 {
@@ -1812,16 +1478,8 @@ power:88,
 defense:90,
 speed:84,
 intelligence:82,
-moves:[
-"Adamantium Slash",
-"Berserker Rush",
-"Claw Counter",
-"Regeneration"
-],
-traits:[
-"relentless endurance",
-"close-range specialist"
-]
+moves:["Adamantium Slash","Berserker Rush","Claw Counter","Regeneration"],
+traits:["relentless endurance","close-range specialist"]
 },
 
 {
@@ -1832,16 +1490,8 @@ power:96,
 defense:93,
 speed:92,
 intelligence:87,
-moves:[
-"Photon Blast",
-"Binary Burst",
-"Aerial Ram",
-"Energy Nova"
-],
-traits:[
-"absorbs energy",
-"high aerial mobility"
-]
+moves:["Photon Blast","Binary Burst","Aerial Ram","Energy Nova"],
+traits:["absorbs energy","high aerial mobility"]
 },
 
 {
@@ -1852,16 +1502,8 @@ power:96,
 defense:94,
 speed:82,
 intelligence:99,
-moves:[
-"Doom Bolt",
-"Force Field",
-"Mystic Bind",
-"Armor Overdrive"
-],
-traits:[
-"master strategist",
-"combines magic and technology"
-]
+moves:["Doom Bolt","Force Field","Mystic Bind","Armor Overdrive"],
+traits:["master strategist","combines magic and technology"]
 },
 
 {
@@ -1872,16 +1514,8 @@ power:94,
 defense:88,
 speed:82,
 intelligence:96,
-moves:[
-"Metal Lance",
-"Magnetic Crush",
-"EMP Wave",
-"Magnetic Storm"
-],
-traits:[
-"controls metal",
-"turns the battlefield into a weapon"
-]
+moves:["Metal Lance","Magnetic Crush","EMP Wave","Magnetic Storm"],
+traits:["controls metal","turns the battlefield into a weapon"]
 },
 
 {
@@ -1892,16 +1526,8 @@ power:92,
 defense:84,
 speed:88,
 intelligence:91,
-moves:[
-"Lightning Spear",
-"Wind Shear",
-"Ice Cyclone",
-"Tempest"
-],
-traits:[
-"controls terrain",
-"aerial superiority"
-]
+moves:["Lightning Spear","Wind Shear","Ice Cyclone","Tempest"],
+traits:["controls terrain","aerial superiority"]
 },
 
 {
@@ -1912,16 +1538,8 @@ power:82,
 defense:78,
 speed:87,
 intelligence:73,
-moves:[
-"Twin-Blade Rush",
-"Pistol Volley",
-"Grenade Toss",
-"Regenerative Counter"
-],
-traits:[
-"unpredictable",
-"rapid healing"
-]
+moves:["Twin-Blade Rush","Pistol Volley","Grenade Toss","Regenerative Counter"],
+traits:["unpredictable","rapid healing"]
 },
 
 {
@@ -1932,16 +1550,8 @@ power:87,
 defense:85,
 speed:94,
 intelligence:92,
-moves:[
-"Vibranium Claw",
-"Kinetic Burst",
-"Shadow Pounce",
-"Royal Counter"
-],
-traits:[
-"elite fighter",
-"stores kinetic energy"
-]
+moves:["Vibranium Claw","Kinetic Burst","Shadow Pounce","Royal Counter"],
+traits:["elite fighter","stores kinetic energy"]
 },
 
 {
@@ -1952,16 +1562,8 @@ power:82,
 defense:84,
 speed:86,
 intelligence:91,
-moves:[
-"Shield Throw",
-"Shield Bash",
-"Ricochet Strike",
-"Last Stand"
-],
-traits:[
-"team leader",
-"reads opponents"
-]
+moves:["Shield Throw","Shield Bash","Ricochet Strike","Last Stand"],
+traits:["team leader","reads opponents"]
 },
 
 {
@@ -1972,16 +1574,8 @@ power:98,
 defense:82,
 speed:80,
 intelligence:97,
-moves:[
-"Hex Bolt",
-"Chaos Wave",
-"Probability Twist",
-"Crimson Surge"
-],
-traits:[
-"reality manipulation",
-"danger increases under pressure"
-]
+moves:["Hex Bolt","Chaos Wave","Probability Twist","Crimson Surge"],
+traits:["reality manipulation","danger increases under pressure"]
 },
 
 {
@@ -1992,16 +1586,8 @@ power:94,
 defense:91,
 speed:90,
 intelligence:95,
-moves:[
-"Mind Stone Beam",
-"Density Shift",
-"Solar Burst",
-"Phasing Strike"
-],
-traits:[
-"can phase",
-"highly analytical"
-]
+moves:["Mind Stone Beam","Density Shift","Solar Burst","Phasing Strike"],
+traits:["can phase","highly analytical"]
 },
 
 {
@@ -2012,16 +1598,8 @@ power:77,
 defense:75,
 speed:89,
 intelligence:89,
-moves:[
-"Size Shift",
-"Giant Punch",
-"Micro Ambush",
-"Giant Stomp"
-],
-traits:[
-"size manipulation",
-"difficult to target"
-]
+moves:["Size Shift","Giant Punch","Micro Ambush","Giant Stomp"],
+traits:["size manipulation","difficult to target"]
 },
 
 {
@@ -2032,16 +1610,8 @@ power:85,
 defense:90,
 speed:67,
 intelligence:72,
-moves:[
-"Branch Snare",
-"Root Crush",
-"Regrowth",
-"Timber Slam"
-],
-traits:[
-"regeneration",
-"protective instincts"
-]
+moves:["Branch Snare","Root Crush","Regrowth","Timber Slam"],
+traits:["regeneration","protective instincts"]
 },
 
 {
@@ -2052,16 +1622,8 @@ power:84,
 defense:82,
 speed:95,
 intelligence:84,
-moves:[
-"Godslayer Slash",
-"Acrobatic Strike",
-"Blade Feint",
-"Execution Rush"
-],
-traits:[
-"elite assassin",
-"fast reactions"
-]
+moves:["Godslayer Slash","Acrobatic Strike","Blade Feint","Execution Rush"],
+traits:["elite assassin","fast reactions"]
 },
 
 {
@@ -2072,16 +1634,8 @@ power:98,
 defense:94,
 speed:86,
 intelligence:90,
-moves:[
-"Necrosword Barrage",
-"Blade Rain",
-"Soul Pierce",
-"Asgardian Surge"
-],
-traits:[
-"weapon generation",
-"exceptional endurance"
-]
+moves:["Necrosword Barrage","Blade Rain","Soul Pierce","Asgardian Surge"],
+traits:["weapon generation","exceptional endurance"]
 },
 
 {
@@ -2092,16 +1646,8 @@ power:96,
 defense:95,
 speed:83,
 intelligence:82,
-moves:[
-"Hellfire Chain",
-"Penance Stare",
-"Hellfire Blast",
-"Chain Drag"
-],
-traits:[
-"hellfire",
-"punishes aggression"
-]
+moves:["Hellfire Chain","Penance Stare","Hellfire Blast","Chain Drag"],
+traits:["hellfire","punishes aggression"]
 },
 
 {
@@ -2112,16 +1658,152 @@ power:75,
 defense:68,
 speed:91,
 intelligence:94,
-moves:[
-"Heavy Blaster",
-"Trap Mine",
-"Explosive Volley",
-"Jetpack Dash"
-],
-traits:[
-"engineering genius",
-"creative gadget use"
-]
+moves:["Heavy Blaster","Trap Mine","Explosive Volley","Jetpack Dash"],
+traits:["engineering genius","creative gadget use"]
+},
+
+{
+name:"She-Hulk",
+universe:"Marvel",
+color:"#4e9c55",
+power:94,
+defense:94,
+speed:78,
+intelligence:89,
+moves:["Gamma Punch","Ground Slam","She-Hulk Charge","Power Throw"],
+traits:["gamma strength","legal expertise"]
+},
+
+{
+name:"Venom",
+universe:"Marvel",
+color:"#56606b",
+power:91,
+defense:90,
+speed:83,
+intelligence:76,
+moves:["Symbiote Lash","Web Strike","Venom Smash","Tendril Barrage"],
+traits:["symbiote regeneration","adaptive combat"]
+},
+
+{
+name:"X-23",
+universe:"Marvel",
+color:"#6f6387",
+power:84,
+defense:83,
+speed:96,
+intelligence:80,
+moves:["Adamantium Rush","Claw Flurry","Predator Strike","Regeneration"],
+traits:["assassin training","healing factor"]
+},
+
+{
+name:"Abomination",
+universe:"Marvel",
+color:"#557d55",
+power:97,
+defense:96,
+speed:67,
+intelligence:72,
+moves:["Abomination Smash","Ground Pound","Gamma Charge","Brutal Throw"],
+traits:["gamma durability","massive strength"]
+},
+
+{
+name:"Falcon",
+universe:"Marvel",
+color:"#4d718c",
+power:78,
+defense:73,
+speed:94,
+intelligence:88,
+moves:["Wing Strike","Aerial Dive","Redwing Assault","Tactical Volley"],
+traits:["aerial combat","team coordination"]
+},
+
+{
+name:"Crossbones",
+universe:"Marvel",
+color:"#75634f",
+power:80,
+defense:79,
+speed:78,
+intelligence:81,
+moves:["Brutal Strike","Shield Breaker","Combat Rush","Tactical Counter"],
+traits:["elite mercenary","close combat specialist"]
+},
+
+{
+name:"Moon Knight",
+universe:"Marvel",
+color:"#a5a9aa",
+power:84,
+defense:82,
+speed:86,
+intelligence:84,
+moves:["Crescent Dart","Staff Strike","Moon Rush","Crescent Barrage"],
+traits:["unpredictable fighter","high endurance"]
+},
+
+{
+name:"Luke Cage",
+universe:"Marvel",
+color:"#a47545",
+power:89,
+defense:98,
+speed:68,
+intelligence:73,
+moves:["Power Punch","Iron Skin Counter","Ground Slam","Cage Charge"],
+traits:["extreme durability","super strength"]
+},
+
+{
+name:"Mysterio",
+universe:"Marvel",
+color:"#6578a7",
+power:79,
+defense:71,
+speed:76,
+intelligence:94,
+moves:["Illusion Trap","Mystic Gas","Hologram Strike","Fear Projection"],
+traits:["illusion technology","psychological warfare"]
+},
+
+{
+name:"Killmonger",
+universe:"Marvel",
+color:"#775a4b",
+power:85,
+defense:82,
+speed:91,
+intelligence:86,
+moves:["Vibranium Strike","Warrior Rush","Spear Throw","Predator Counter"],
+traits:["elite warrior","tactical aggression"]
+},
+
+{
+name:"Cindy Moon",
+universe:"Marvel",
+color:"#6a73b8",
+power:81,
+defense:78,
+speed:96,
+intelligence:87,
+moves:["Silk Strike","Web Kick","Silk Sense","Web Barrage"],
+traits:["spider-sense","extreme agility"]
+},
+
+{
+name:"Sentinel",
+universe:"Marvel",
+color:"#737d87",
+power:92,
+defense:95,
+speed:75,
+intelligence:80,
+moves:["Energy Beam","Missile Barrage","Crushing Grip","Target Lock"],
+traits:["mutant detection","heavy armor"]
 },
 
 /* ================= DC ================= */
@@ -2134,16 +1816,8 @@ power:100,
 defense:99,
 speed:96,
 intelligence:90,
-moves:[
-"Heat Vision",
-"Super Breath",
-"Kryptonian Charge",
-"Solar Overdrive"
-],
-traits:[
-"extreme speed",
-"solar-powered strength"
-]
+moves:["Heat Vision","Super Breath","Kryptonian Charge","Solar Overdrive"],
+traits:["extreme speed","solar-powered strength"]
 },
 
 {
@@ -2154,16 +1828,8 @@ power:82,
 defense:78,
 speed:88,
 intelligence:99,
-moves:[
-"Batarang Burst",
-"Grapnel Strike",
-"Smoke Screen",
-"Counter Protocol"
-],
-traits:[
-"preparation",
-"reads combat patterns"
-]
+moves:["Batarang Burst","Grapnel Strike","Smoke Screen","Counter Protocol"],
+traits:["preparation","reads combat patterns"]
 },
 
 {
@@ -2174,16 +1840,8 @@ power:98,
 defense:96,
 speed:94,
 intelligence:91,
-moves:[
-"Lasso Bind",
-"Bracelet Deflection",
-"Amazon Rush",
-"Godkiller Strike"
-],
-traits:[
-"elite warrior",
-"exceptional durability"
-]
+moves:["Lasso Bind","Bracelet Deflection","Amazon Rush","Godkiller Strike"],
+traits:["elite warrior","exceptional durability"]
 },
 
 {
@@ -2194,16 +1852,8 @@ power:95,
 defense:82,
 speed:100,
 intelligence:94,
-moves:[
-"Speed Blitz",
-"Infinite Mass Punch",
-"Rapid Disarm",
-"Time-Step"
-],
-traits:[
-"extreme speed",
-"overwhelms slower opponents"
-]
+moves:["Speed Blitz","Infinite Mass Punch","Rapid Disarm","Time-Step"],
+traits:["extreme speed","overwhelms slower opponents"]
 },
 
 {
@@ -2214,16 +1864,8 @@ power:93,
 defense:89,
 speed:88,
 intelligence:94,
-moves:[
-"Construct Hammer",
-"Energy Cage",
-"Lantern Beam",
-"Emerald Fortress"
-],
-traits:[
-"versatile constructs",
-"strong willpower"
-]
+moves:["Construct Hammer","Energy Cage","Lantern Beam","Emerald Fortress"],
+traits:["versatile constructs","strong willpower"]
 },
 
 {
@@ -2234,16 +1876,8 @@ power:87,
 defense:88,
 speed:82,
 intelligence:80,
-moves:[
-"Trident Strike",
-"Tidal Crash",
-"Atlantean Charge",
-"Sea Command"
-],
-traits:[
-"elite strength",
-"benefits from water"
-]
+moves:["Trident Strike","Tidal Crash","Atlantean Charge","Sea Command"],
+traits:["elite strength","benefits from water"]
 },
 
 {
@@ -2254,16 +1888,8 @@ power:89,
 defense:86,
 speed:82,
 intelligence:96,
-moves:[
-"Sonic Cannon",
-"Plasma Burst",
-"Tech Override",
-"Mother Box Surge"
-],
-traits:[
-"hacks technology",
-"adaptive systems"
-]
+moves:["Sonic Cannon","Plasma Burst","Tech Override","Mother Box Surge"],
+traits:["hacks technology","adaptive systems"]
 },
 
 {
@@ -2274,16 +1900,8 @@ power:97,
 defense:92,
 speed:91,
 intelligence:95,
-moves:[
-"Telepathic Assault",
-"Phase Strike",
-"Martian Strength",
-"Shapeshift Feint"
-],
-traits:[
-"telepathy",
-"intangibility"
-]
+moves:["Telepathic Assault","Phase Strike","Martian Strength","Shapeshift Feint"],
+traits:["telepathy","intangibility"]
 },
 
 {
@@ -2294,16 +1912,8 @@ power:96,
 defense:94,
 speed:91,
 intelligence:80,
-moves:[
-"Living Lightning",
-"Thunderclap",
-"Magic Punch",
-"Shazam Surge"
-],
-traits:[
-"magic power",
-"high durability"
-]
+moves:["Living Lightning","Thunderclap","Magic Punch","Shazam Surge"],
+traits:["magic power","high durability"]
 },
 
 {
@@ -2314,16 +1924,8 @@ power:98,
 defense:95,
 speed:94,
 intelligence:84,
-moves:[
-"Electro Bolt",
-"Adamantine Strike",
-"Lightning Rush",
-"Black Adam Fury"
-],
-traits:[
-"ancient magic",
-"extremely aggressive"
-]
+moves:["Electro Bolt","Adamantine Strike","Lightning Rush","Black Adam Fury"],
+traits:["ancient magic","extremely aggressive"]
 },
 
 {
@@ -2334,16 +1936,8 @@ power:77,
 defense:72,
 speed:91,
 intelligence:90,
-moves:[
-"Trick Arrow",
-"Explosive Arrow",
-"Grapnel Shot",
-"Precision Volley"
-],
-traits:[
-"perfect accuracy",
-"specialized arrows"
-]
+moves:["Trick Arrow","Explosive Arrow","Grapnel Shot","Precision Volley"],
+traits:["perfect accuracy","specialized arrows"]
 },
 
 {
@@ -2354,16 +1948,8 @@ power:87,
 defense:84,
 speed:96,
 intelligence:93,
-moves:[
-"Promethium Strike",
-"Tactical Volley",
-"Sword Counter",
-"Adrenal Overdrive"
-],
-traits:[
-"combat mastery",
-"enhanced reflexes"
-]
+moves:["Promethium Strike","Tactical Volley","Sword Counter","Adrenal Overdrive"],
+traits:["combat mastery","enhanced reflexes"]
 },
 
 {
@@ -2374,16 +1960,8 @@ power:94,
 defense:87,
 speed:82,
 intelligence:96,
-moves:[
-"Soul-Self Strike",
-"Shadow Bind",
-"Dark Energy Wave",
-"Soul Drain"
-],
-traits:[
-"soul-self",
-"emotional power spikes"
-]
+moves:["Soul-Self Strike","Shadow Bind","Dark Energy Wave","Soul Drain"],
+traits:["soul-self","emotional power spikes"]
 },
 
 {
@@ -2394,16 +1972,8 @@ power:91,
 defense:89,
 speed:89,
 intelligence:80,
-moves:[
-"Starbolt",
-"Solar Burst",
-"Energy Rush",
-"Starfire Barrage"
-],
-traits:[
-"energy projection",
-"flight"
-]
+moves:["Starbolt","Solar Burst","Energy Rush","Starfire Barrage"],
+traits:["energy projection","flight"]
 },
 
 {
@@ -2414,16 +1984,8 @@ power:83,
 defense:80,
 speed:86,
 intelligence:78,
-moves:[
-"Tiger Pounce",
-"Rhino Charge",
-"Falcon Dive",
-"T-Rex Smash"
-],
-traits:[
-"animal versatility",
-"unpredictable forms"
-]
+moves:["Tiger Pounce","Rhino Charge","Falcon Dive","T-Rex Smash"],
+traits:["animal versatility","unpredictable forms"]
 },
 
 {
@@ -2434,16 +1996,8 @@ power:81,
 defense:79,
 speed:97,
 intelligence:92,
-moves:[
-"Escrima Flurry",
-"Wingdings",
-"Acrobat Counter",
-"Electric Strike"
-],
-traits:[
-"elite acrobat",
-"team coordination"
-]
+moves:["Escrima Flurry","Wingdings","Acrobat Counter","Electric Strike"],
+traits:["elite acrobat","team coordination"]
 },
 
 {
@@ -2454,16 +2008,8 @@ power:72,
 defense:67,
 speed:88,
 intelligence:76,
-moves:[
-"Hammer Swing",
-"Acrobat Feint",
-"Jack-in-the-Box",
-"Wildcard Assault"
-],
-traits:[
-"unpredictable",
-"improvises constantly"
-]
+moves:["Hammer Swing","Acrobat Feint","Jack-in-the-Box","Wildcard Assault"],
+traits:["unpredictable","improvises constantly"]
 },
 
 {
@@ -2474,16 +2020,8 @@ power:87,
 defense:89,
 speed:75,
 intelligence:80,
-moves:[
-"Venom Smash",
-"Ground Slam",
-"Bone Breaker",
-"Venom Overdrive"
-],
-traits:[
-"strength amplification",
-"close combat"
-]
+moves:["Venom Smash","Ground Slam","Bone Breaker","Venom Overdrive"],
+traits:["strength amplification","close combat"]
 },
 
 {
@@ -2494,16 +2032,8 @@ power:87,
 defense:80,
 speed:72,
 intelligence:91,
-moves:[
-"Vine Snare",
-"Thorn Barrage",
-"Toxic Pollen",
-"Greenhouse Surge"
-],
-traits:[
-"plant control",
-"terrain manipulation"
-]
+moves:["Vine Snare","Thorn Barrage","Toxic Pollen","Greenhouse Surge"],
+traits:["plant control","terrain manipulation"]
 },
 
 {
@@ -2514,16 +2044,8 @@ power:82,
 defense:81,
 speed:68,
 intelligence:92,
-moves:[
-"Freeze Ray",
-"Cryo Grenade",
-"Ice Wall",
-"Absolute Zero"
-],
-traits:[
-"freezing technology",
-"controls movement"
-]
+moves:["Freeze Ray","Cryo Grenade","Ice Wall","Absolute Zero"],
+traits:["freezing technology","controls movement"]
 },
 
 {
@@ -2534,16 +2056,8 @@ power:94,
 defense:81,
 speed:84,
 intelligence:97,
-moves:[
-"Binding Spell",
-"Reverse Force",
-"Arcane Burst",
-"Reality Phrase"
-],
-traits:[
-"versatile magic",
-"requires concentration"
-]
+moves:["Binding Spell","Reverse Force","Arcane Burst","Reality Phrase"],
+traits:["versatile magic","requires concentration"]
 },
 
 {
@@ -2554,16 +2068,8 @@ power:83,
 defense:74,
 speed:80,
 intelligence:98,
-moves:[
-"Hellfire Sigil",
-"Binding Ward",
-"Hex Reversal",
-"Occult Gambit"
-],
-traits:[
-"occult knowledge",
-"deception"
-]
+moves:["Hellfire Sigil","Binding Ward","Hex Reversal","Occult Gambit"],
+traits:["occult knowledge","deception"]
 },
 
 {
@@ -2574,16 +2080,8 @@ power:100,
 defense:100,
 speed:76,
 intelligence:63,
-moves:[
-"Doomsday Smash",
-"Spiked Charge",
-"Shockwave",
-"Evolutionary Rage"
-],
-traits:[
-"adapts to damage",
-"near-unstoppable endurance"
-]
+moves:["Doomsday Smash","Spiked Charge","Shockwave","Evolutionary Rage"],
+traits:["adapts to damage","near-unstoppable endurance"]
 },
 
 {
@@ -2594,16 +2092,8 @@ power:100,
 defense:99,
 speed:87,
 intelligence:97,
-moves:[
-"Omega Beams",
-"Apokoliptian Strike",
-"Omega Cage",
-"Darkseid's Wrath"
-],
-traits:[
-"omega effect",
-"overwhelming presence"
-]
+moves:["Omega Beams","Apokoliptian Strike","Omega Cage","Darkseid's Wrath"],
+traits:["omega effect","overwhelming presence"]
 },
 
 {
@@ -2614,16 +2104,8 @@ power:88,
 defense:84,
 speed:80,
 intelligence:99,
-moves:[
-"Kryptonite Lance",
-"Warsuit Cannon",
-"Energy Barrier",
-"Lex Protocol"
-],
-traits:[
-"strategic genius",
-"counter-technology"
-]
+moves:["Kryptonite Lance","Warsuit Cannon","Energy Barrier","Lex Protocol"],
+traits:["strategic genius","counter-technology"]
 },
 
 {
@@ -2634,16 +2116,8 @@ power:80,
 defense:74,
 speed:92,
 intelligence:87,
-moves:[
-"Canary Cry",
-"Sonic Burst",
-"Counter Kick",
-"Cry Overload"
-],
-traits:[
-"sonic attacks",
-"elite martial artist"
-]
+moves:["Canary Cry","Sonic Burst","Counter Kick","Cry Overload"],
+traits:["sonic attacks","elite martial artist"]
 },
 
 {
@@ -2654,16 +2128,8 @@ power:78,
 defense:74,
 speed:94,
 intelligence:94,
-moves:[
-"Batarang Strike",
-"Grapnel Kick",
-"Shock Gauntlet",
-"Tactical Counter"
-],
-traits:[
-"martial arts",
-"detective skills"
-]
+moves:["Batarang Strike","Grapnel Kick","Shock Gauntlet","Tactical Counter"],
+traits:["martial arts","detective skills"]
 },
 
 {
@@ -2674,16 +2140,8 @@ power:81,
 defense:77,
 speed:91,
 intelligence:87,
-moves:[
-"Dual Pistols",
-"Explosive Round",
-"Crowbar Feint",
-"Gunslinger Rush"
-],
-traits:[
-"tactical fighter",
-"ranged pressure"
-]
+moves:["Dual Pistols","Explosive Round","Crowbar Feint","Gunslinger Rush"],
+traits:["tactical fighter","ranged pressure"]
 },
 
 {
@@ -2694,16 +2152,8 @@ power:97,
 defense:95,
 speed:94,
 intelligence:88,
-moves:[
-"Heat Vision",
-"Kryptonian Rush",
-"Solar Flare",
-"Supergirl Smash"
-],
-traits:[
-"Kryptonian abilities",
-"fast aerial combat"
-]
+moves:["Heat Vision","Kryptonian Rush","Solar Flare","Supergirl Smash"],
+traits:["Kryptonian abilities","fast aerial combat"]
 },
 
 {
@@ -2714,16 +2164,8 @@ power:96,
 defense:94,
 speed:90,
 intelligence:86,
-moves:[
-"Heat Vision",
-"Power Dive",
-"Kryptonian Strike",
-"Solar Burst"
-],
-traits:[
-"durability",
-"heavy hitter"
-]
+moves:["Heat Vision","Power Dive","Kryptonian Strike","Solar Burst"],
+traits:["durability","heavy hitter"]
 },
 
 {
@@ -2734,16 +2176,8 @@ power:86,
 defense:83,
 speed:87,
 intelligence:91,
-moves:[
-"Scarabsword",
-"Plasma Cannon",
-"Armor Shield",
-"Scarab Overdrive"
-],
-traits:[
-"adaptive armor",
-"creates weapons"
-]
+moves:["Scarabsword","Plasma Cannon","Armor Shield","Scarab Overdrive"],
+traits:["adaptive armor","creates weapons"]
 },
 
 {
@@ -2754,16 +2188,8 @@ power:82,
 defense:75,
 speed:90,
 intelligence:89,
-moves:[
-"Static Shock",
-"Electromagnetic Burst",
-"Rail Launch",
-"Voltage Surge"
-],
-traits:[
-"electromagnetism",
-"mobility"
-]
+moves:["Static Shock","Electromagnetic Burst","Rail Launch","Voltage Surge"],
+traits:["electromagnetism","mobility"]
 },
 
 {
@@ -2774,16 +2200,8 @@ power:93,
 defense:92,
 speed:70,
 intelligence:85,
-moves:[
-"Vine Crush",
-"Green Regrowth",
-"Elemental Surge",
-"Swamp Avatar"
-],
-traits:[
-"regeneration",
-"plant connection"
-]
+moves:["Vine Crush","Green Regrowth","Elemental Surge","Swamp Avatar"],
+traits:["regeneration","plant connection"]
 },
 
 {
@@ -2794,16 +2212,8 @@ power:92,
 defense:90,
 speed:83,
 intelligence:84,
-moves:[
-"Demon Flame",
-"Hellblade",
-"Infernal Roar",
-"Demonic Charge"
-],
-traits:[
-"demonic strength",
-"hellfire"
-]
+moves:["Demon Flame","Hellblade","Infernal Roar","Demonic Charge"],
+traits:["demonic strength","hellfire"]
 },
 
 {
@@ -2814,16 +2224,8 @@ power:84,
 defense:91,
 speed:64,
 intelligence:55,
-moves:[
-"Grundy Smash",
-"Graveyard Charge",
-"Undying Blow",
-"Monster Roar"
-],
-traits:[
-"resurrection",
-"brute strength"
-]
+moves:["Grundy Smash","Graveyard Charge","Undying Blow","Monster Roar"],
+traits:["resurrection","brute strength"]
 },
 
 {
@@ -2834,16 +2236,8 @@ power:83,
 defense:76,
 speed:98,
 intelligence:81,
-moves:[
-"Claw Rush",
-"Predator Pounce",
-"Feral Counter",
-"Cheetah Frenzy"
-],
-traits:[
-"extreme agility",
-"predatory instincts"
-]
+moves:["Claw Rush","Predator Pounce","Feral Counter","Cheetah Frenzy"],
+traits:["extreme agility","predatory instincts"]
 },
 
 {
@@ -2854,16 +2248,8 @@ power:94,
 defense:89,
 speed:86,
 intelligence:97,
-moves:[
-"Fear Construct",
-"Yellow Beam",
-"Terror Cage",
-"Sinestro Corps Surge"
-],
-traits:[
-"fear constructs",
-"strategic intellect"
-]
+moves:["Fear Construct","Yellow Beam","Terror Cage","Sinestro Corps Surge"],
+traits:["fear constructs","strategic intellect"]
 },
 
 {
@@ -2874,16 +2260,8 @@ power:87,
 defense:84,
 speed:85,
 intelligence:90,
-moves:[
-"Water Blade",
-"Hydro Spear",
-"Pressure Crush",
-"Tidal Prison"
-],
-traits:[
-"hydrokinesis",
-"excellent control"
-]
+moves:["Water Blade","Hydro Spear","Pressure Crush","Tidal Prison"],
+traits:["hydrokinesis","excellent control"]
 },
 
 {
@@ -2894,16 +2272,8 @@ power:79,
 defense:73,
 speed:91,
 intelligence:96,
-moves:[
-"Micro Strike",
-"Atomic Sabotage",
-"Giant Growth",
-"Quantum Feint"
-],
-traits:[
-"size manipulation",
-"scientific expertise"
-]
+moves:["Micro Strike","Atomic Sabotage","Giant Growth","Quantum Feint"],
+traits:["size manipulation","scientific expertise"]
 },
 
 {
@@ -2914,16 +2284,8 @@ power:81,
 defense:78,
 speed:90,
 intelligence:83,
-moves:[
-"Panther Rush",
-"Eagle Dive",
-"Rhino Charge",
-"Predator Instinct"
-],
-traits:[
-"animal powers",
-"adaptive combat"
-]
+moves:["Panther Rush","Eagle Dive","Rhino Charge","Predator Instinct"],
+traits:["animal powers","adaptive combat"]
 }
 
 ];
@@ -2933,16 +2295,26 @@ traits:[
    GAME STATE
 ========================================================= */
 
-let pool = [];
+let pool=[];
+let team1=[];
+let team2=[];
 
-let team1 = [];
-let team2 = [];
+let draftTurn=1;
 
-let draftTurn = 1;
+let battleRunning=false;
 
-let spinning = false;
+/*
+    IMPORTANT:
 
-let battleRunning = false;
+    This is separate from the 10-character pool.
+
+    It contains every character currently available
+    for ONE-AT-A-TIME mode.
+*/
+
+let singleAvailable=[...characters];
+
+let singleHistory=[];
 
 
 /* =========================================================
@@ -2953,7 +2325,7 @@ function random(array){
 
     return array[
         Math.floor(
-            Math.random() * array.length
+            Math.random()*array.length
         )
     ];
 
@@ -2963,7 +2335,7 @@ function random(array){
 function findCharacter(name){
 
     return characters.find(
-        c => c.name === name
+        c=>c.name===name
     );
 
 }
@@ -2973,7 +2345,7 @@ function initials(name){
 
     return name
         .split(" ")
-        .map(x => x[0])
+        .map(x=>x[0])
         .join("")
         .slice(0,2);
 
@@ -2981,27 +2353,43 @@ function initials(name){
 
 
 /* =========================================================
-   GET ACTIVE UNIVERSE
+   SELECTION MODE
 ========================================================= */
 
-function getAvailableCharacters(){
+document
+.getElementById("selectionMode")
+.addEventListener(
+    "change",
+    function(){
 
-    const universe =
-        document.getElementById(
-            "universe"
-        ).value;
+        if(this.value==="single"){
 
-    if(universe === "Marvel + DC"){
+            document
+            .getElementById("draftPanel")
+            .style.display="none";
 
-        return [...characters];
+            document
+            .getElementById("singlePanel")
+            .style.display="block";
+
+            document
+            .getElementById("draftStatus")
+            .textContent="ONE-AT-A-TIME MODE";
+
+        }else{
+
+            document
+            .getElementById("draftPanel")
+            .style.display="block";
+
+            document
+            .getElementById("singlePanel")
+            .style.display="none";
+
+        }
 
     }
-
-    return characters.filter(
-        c => c.universe === universe
-    );
-
-}
+);
 
 
 /* =========================================================
@@ -3011,42 +2399,89 @@ function getAvailableCharacters(){
 function generatePool(){
 
     /*
-        THIS MODE ONLY CREATES 10.
+        ALWAYS start from the ENTIRE database.
 
-        It does NOT control the wheel.
+        This is the important fix.
+
+        We do NOT keep a previous pool.
+
+        We do NOT use the single-character rotation.
+
+        Every character has an equal chance of being
+        one of the 10 generated characters.
     */
 
-    const available =
-        getAvailableCharacters();
+    const universe=
+        document.getElementById("universe").value;
 
-    pool =
-        [...available]
-        .sort(
-            () => Math.random() - 0.5
-        )
-        .slice(0,10);
+    let available=
+        characters.filter(c=>{
 
+            if(universe==="Marvel + DC"){
+                return true;
+            }
 
-    team1 = [];
-    team2 = [];
+            return c.universe===universe;
 
-    draftTurn = 1;
+        });
 
+    /*
+        Fisher-Yates shuffle.
+
+        This prevents the same database ordering
+        from influencing selection.
+    */
+
+    available=
+        [...available];
+
+    for(
+        let i=available.length-1;
+        i>0;
+        i--
+    ){
+
+        const j=
+            Math.floor(
+                Math.random()*(i+1)
+            );
+
+        [
+            available[i],
+            available[j]
+        ]=[
+            available[j],
+            available[i]
+        ];
+
+    }
+
+    /*
+        EXACTLY 10.
+    */
+
+    pool=
+        available.slice(0,10);
+
+    /*
+        New draft.
+    */
+
+    team1=[];
+    team2=[];
+
+    draftTurn=1;
 
     renderPool();
-
     renderTeams();
 
+    document
+    .getElementById("battleStatus")
+    .textContent="DRAFT PHASE";
 
-    document.getElementById(
-        "battleStatus"
-    ).textContent =
-        "DRAFT PHASE";
-
-
-    document.getElementById(
-        "battleFeed"
-    ).innerHTML = `
+    document
+    .getElementById("battleFeed")
+    .innerHTML=`
 
         <div class="round-card">
 
@@ -3054,18 +2489,23 @@ function generatePool(){
                 10-COMBATANT DRAFT INITIALIZED
             </div>
 
-            Exactly 10 combatants have been
-            randomly selected.
+            The system has randomly selected
+            exactly <strong>10 combatants</strong>
+            from the entire active database.
 
             <br><br>
 
-            Team Alpha has first selection.
+            <strong>TEAM ALPHA PICKS FIRST.</strong>
 
             <br><br>
 
-            <strong>
-                FULL DATABASE WHEEL REMAINS AVAILABLE
-            </strong>
+            Alpha and Omega will alternate selections
+            until all 10 combatants have been drafted.
+
+            <br><br>
+
+            Every character in the database has an
+            opportunity to appear in future generations.
 
         </div>
 
@@ -3075,105 +2515,87 @@ function generatePool(){
 
 
 /* =========================================================
-   RENDER 10 CHARACTER POOL
+   RENDER 10
 ========================================================= */
 
 function renderPool(){
 
-    const element =
-        document.getElementById(
-            "pool"
-        );
+    const element=
+        document.getElementById("pool");
 
+    element.innerHTML=
+        pool.map((c,index)=>{
 
-    element.innerHTML =
-        pool.map(
-            (c,index)=>{
+            const selected=
+                team1.includes(c.name) ||
+                team2.includes(c.name);
 
-                const selected =
-                    team1.includes(c.name) ||
-                    team2.includes(c.name);
+            let owner="";
 
+            if(team1.includes(c.name))
+                owner="ALPHA";
 
-                let owner = "";
+            if(team2.includes(c.name))
+                owner="OMEGA";
 
+            return `
 
-                if(team1.includes(c.name))
-                    owner = "ALPHA";
+                <div
+                    class="character-card ${selected?"selected":""}"
+                    style="--accent:${c.color}"
+                    onclick="draftCharacter(${index})">
 
+                    <div class="character-name">
+                        ${c.name}
+                    </div>
 
-                if(team2.includes(c.name))
-                    owner = "OMEGA";
+                    <div class="character-info">
 
-
-                return `
-
-                    <div
-                        class="character-card ${
-                            selected
-                            ? "selected"
-                            : ""
-                        }"
-                        style="
-                            --accent:${c.color}
-                        "
-                        onclick="
-                            draftCharacter(${index})
-                        ">
-
-                        <div class="character-name">
-
-                            ${c.name}
-
-                        </div>
-
-
-                        <div class="character-info">
-
-                            ${c.universe}
-                            //
-                            POWER ${c.power}
-
-                        </div>
-
-
-                        <div class="pick-label">
-
-                            ${owner}
-
-                        </div>
+                        ${c.universe}
+                        //
+                        POWER ${c.power}
 
                     </div>
 
-                `;
+                    <div class="pick-label">
 
-            }
-        ).join("");
+                        ${owner}
+
+                    </div>
+
+                </div>
+
+            `;
+
+        }).join("");
 
 
-    document.getElementById(
-        "draftStatus"
-    ).textContent =
+    let status;
 
-        pool.length
+    if(pool.length===0){
 
-        ?
+        status="DRAFT COMPLETE";
 
-        `NEXT PICK // TEAM ${
-            draftTurn === 1
-            ? "ALPHA"
-            : "OMEGA"
-        }`
+    }else{
 
-        :
+        status=
+            `NEXT PICK // TEAM ${
+                draftTurn===1?
+                "ALPHA":
+                "OMEGA"
+            }`;
 
-        "BOARD EMPTY";
+    }
+
+    document
+    .getElementById("draftStatus")
+    .textContent=status;
 
 }
 
 
 /* =========================================================
-   DRAFT FROM THE 10
+   DRAFT CHARACTER
 ========================================================= */
 
 function draftCharacter(index){
@@ -3181,81 +2603,169 @@ function draftCharacter(index){
     if(battleRunning)
         return;
 
-
-    const character =
+    const character=
         pool[index];
-
 
     if(!character)
         return;
 
 
-    const size =
-        Number(
-            document.getElementById(
-                "teamSize"
-            ).value
-        );
+    /*
+        The important difference:
+
+        We DO NOT stop just because a team reaches
+        the selected team size.
+
+        The 10-person board is drafted completely.
+
+        With 5v5 this naturally produces 5 and 5.
+
+        If a different format is selected, the system
+        still allows the remaining characters to be
+        drafted so NONE remain.
+    */
 
 
-    const target =
-        draftTurn === 1
-        ? team1
-        : team2;
+    if(draftTurn===1){
 
+        team1.push(character.name);
 
-    if(target.length >= size){
+        addBattleText(`
 
-        alert(
-            `Team ${
-                draftTurn === 1
-                ? "Alpha"
-                : "Omega"
-            } is full.`
-        );
+            <div class="round-card">
 
-        return;
+                <div class="round-heading">
+                    DRAFT PICK // TEAM ALPHA
+                </div>
+
+                Team Alpha selects
+                <strong>${character.name}</strong>.
+
+                <br><br>
+
+                The combatant is removed from the
+                available 10-person board.
+
+            </div>
+
+        `);
+
+    }else{
+
+        team2.push(character.name);
+
+        addBattleText(`
+
+            <div class="round-card">
+
+                <div class="round-heading">
+                    DRAFT PICK // TEAM OMEGA
+                </div>
+
+                Team Omega selects
+                <strong>${character.name}</strong>.
+
+                <br><br>
+
+                The combatant is removed from the
+                available 10-person board.
+
+            </div>
+
+        `);
 
     }
 
 
-    target.push(
-        character.name
-    );
+    pool.splice(index,1);
 
 
-    pool.splice(
-        index,
-        1
-    );
+    /*
+        SWITCH TEAMS AFTER EVERY PICK.
+    */
 
-
-    draftTurn =
-        draftTurn === 1
-        ? 2
-        : 1;
+    draftTurn=
+        draftTurn===1?
+        2:
+        1;
 
 
     renderPool();
-
     renderTeams();
+
+
+    /*
+        When all 10 are gone, drafting is finished.
+    */
+
+    if(pool.length===0){
+
+        document
+        .getElementById("draftStatus")
+        .textContent=
+            "ALL 10 COMBATANTS DRAFTED";
+
+        document
+        .getElementById("battleStatus")
+        .textContent=
+            "ROSTERS LOCKED";
+
+        addBattleText(`
+
+            <div class="round-card">
+
+                <div class="round-heading">
+                    DRAFT COMPLETE
+                </div>
+
+                All 10 combatants have been drafted.
+
+                <br><br>
+
+                <strong>
+                    TEAM ALPHA:
+                </strong>
+
+                ${team1.join(", ")}
+
+                <br><br>
+
+                <strong>
+                    TEAM OMEGA:
+                </strong>
+
+                ${team2.join(", ")}
+
+                <br><br>
+
+                Rosters are now locked.
+
+                The combat simulation can begin.
+
+            </div>
+
+        `);
+
+    }
 
 }
 
 
 /* =========================================================
-   TEAM DISPLAY
+   TEAMS
 ========================================================= */
 
 function renderTeams(){
 
-    const size =
-        Number(
-            document.getElementById(
-                "teamSize"
-            ).value
+    const size=
+        Math.max(
+            5,
+            Number(
+                document
+                .getElementById("teamSize")
+                .value
+            )
         );
-
 
     for(
         let team=1;
@@ -3263,22 +2773,25 @@ function renderTeams(){
         team++
     ){
 
-        const list =
-            team === 1
-            ? team1
-            : team2;
+        const list=
+            team===1?
+            team1:
+            team2;
 
-
-        const element =
+        const element=
             document.getElementById(
-                team === 1
-                ? "team1"
-                : "team2"
+                team===1?
+                "team1":
+                "team2"
             );
 
+        element.innerHTML="";
 
-        element.innerHTML = "";
 
+        /*
+            Always show enough slots for the
+            actual 5v5 draft.
+        */
 
         for(
             let i=0;
@@ -3286,13 +2799,12 @@ function renderTeams(){
             i++
         ){
 
-            const name =
-                list[i];
+            const name=list[i];
 
 
             if(!name){
 
-                element.innerHTML += `
+                element.innerHTML+=`
 
                     <div class="slot">
 
@@ -3316,28 +2828,23 @@ function renderTeams(){
             }
 
 
-            const c =
+            const c=
                 findCharacter(name);
 
 
-            element.innerHTML += `
+            element.innerHTML+=`
 
                 <div
                     class="slot filled"
-                    style="
-                        --accent:${c.color}
-                    ">
+                    style="--accent:${c.color}">
 
                     <div
                         class="avatar"
-                        style="
-                            --accent:${c.color}
-                        ">
+                        style="--accent:${c.color}">
 
                         ${initials(c.name)}
 
                     </div>
-
 
                     <div class="slot-name">
 
@@ -3357,83 +2864,52 @@ function renderTeams(){
 
 
 /* =========================================================
-   FULL DATABASE WHEEL
+   ONE AT A TIME MODE
 ========================================================= */
 
-function openWheel(){
+function nextSingleCharacter(){
 
-    document.getElementById(
-        "wheelModal"
-    ).style.display =
-        "grid";
+    /*
+        If the user has selected the 10-person
+        mode, automatically switch to the
+        one-at-a-time mode.
+    */
 
+    document
+    .getElementById("selectionMode")
+    .value="single";
 
-    document.getElementById(
-        "wheelResult"
-    ).textContent =
-        "";
+    document
+    .getElementById("draftPanel")
+    .style.display="none";
 
-}
-
-
-/* =========================================================
-   CLOSE WHEEL
-========================================================= */
-
-function closeWheel(){
-
-    document.getElementById(
-        "wheelModal"
-    ).style.display =
-        "none";
-
-}
-
-
-/* =========================================================
-   WHEEL SELECTION
-========================================================= */
-
-function spinWheel(){
-
-    if(spinning)
-        return;
-
-
-    const size =
-        Number(
-            document.getElementById(
-                "teamSize"
-            ).value
-        );
+    document
+    .getElementById("singlePanel")
+    .style.display="block";
 
 
     /*
-        Determine whose turn it is.
+        IMPORTANT:
+
+        singleAvailable contains the FULL DATABASE.
+
+        It is NOT the 10 generated characters.
+
+        Therefore Beast Boy, Doomsday, Batman,
+        Rocket, etc. can all appear here.
     */
 
-    const target =
-        draftTurn === 1
-        ? team1
-        : team2;
+    if(singleAvailable.length===0){
 
+        document
+        .getElementById("singleStatus")
+        .textContent=
+            "ROTATION COMPLETE";
 
-    /*
-        If that team is full,
-        do not spin.
-    */
-
-    if(target.length >= size){
-
-        document.getElementById(
-            "wheelResult"
-        ).textContent =
-
-            `TEAM ${
-                draftTurn === 1
-                ? "ALPHA"
-                : "OMEGA"
-            } IS FULL`;
+        document
+        .getElementById("singleCounter")
+        .textContent=
+            "ALL DATABASE COMBATANTS SELECTED";
 
         return;
 
@@ -3441,197 +2917,175 @@ function spinWheel(){
 
 
     /*
-        THIS IS THE IMPORTANT PART.
-
-        The wheel DOES NOT use "pool".
-
-        It uses the entire character database.
-
-        Therefore Beast Boy, Static, Vixen,
-        Superman, Hulk, etc. can all appear.
+        Randomly select ONE from the entire
+        remaining database.
     */
 
-    const availableCharacters =
-        getAvailableCharacters().filter(
-            character => {
-
-                const alreadyDrafted =
-                    team1.includes(
-                        character.name
-                    ) ||
-                    team2.includes(
-                        character.name
-                    );
-
-                return !alreadyDrafted;
-
-            }
+    const index=
+        Math.floor(
+            Math.random()*
+            singleAvailable.length
         );
 
-
-    if(
-        availableCharacters.length === 0
-    ){
-
-        document.getElementById(
-            "wheelResult"
-        ).textContent =
-            "NO COMBATANTS REMAIN";
-
-        return;
-
-    }
+    const character=
+        singleAvailable[index];
 
 
-    spinning = true;
+    /*
+        Remove them immediately.
+
+        This means they cannot appear again
+        during this rotation.
+    */
+
+    singleAvailable.splice(index,1);
+
+    singleHistory.push(character.name);
 
 
-    const wheel =
-        document.getElementById(
-            "wheel"
-        );
+    /*
+        Display the character.
+    */
+
+    const result=
+        document
+        .getElementById("singleResult");
+
+    result.innerHTML=`
+
+        <div
+            class="single-avatar"
+            style="--accent:${character.color};">
+
+            ${initials(character.name)}
+
+        </div>
+
+        <div class="single-name">
+
+            ${character.name}
+
+        </div>
+
+        <div class="single-info">
+
+            ${character.universe}
+            //
+            POWER ${character.power}
+            //
+            SPEED ${character.speed}
+
+        </div>
+
+        <div class="single-counter">
+
+            ${singleAvailable.length}
+            COMBATANTS REMAINING IN ROTATION
+
+        </div>
+
+    `;
 
 
-    wheel.style.transform =
-        `rotate(${
-            1440 +
-            Math.random()*720
-        }deg)`;
+    document
+    .getElementById("singleStatus")
+    .textContent=
+        "COMBATANT SELECTED";
 
 
-    setTimeout(()=>{
-
-        /*
-            SELECT ONE CHARACTER
-            FROM THE FULL DATABASE.
-        */
-
-        const character =
-            random(
-                availableCharacters
-            );
-
-
-        document.getElementById(
-            "wheelResult"
-        ).textContent =
-
-            `SELECTED // ${
-                character.name
-            }`;
-
-
-        /*
-            Add the character directly
-            to the current team.
-        */
-
-        target.push(
-            character.name
-        );
-
-
-        /*
-            Alternate teams.
-        */
-
-        draftTurn =
-            draftTurn === 1
-            ? 2
-            : 1;
-
-
-        /*
-            Refresh the normal
-            10-character board.
-
-            Notice that the wheel character
-            does NOT need to have been inside
-            the 10-character pool.
-        */
-
-        renderPool();
-
-        renderTeams();
-
-
-        document.getElementById(
-            "draftStatus"
-        ).textContent =
-
-            `NEXT PICK // TEAM ${
-                draftTurn === 1
-                ? "ALPHA"
-                : "OMEGA"
-            }`;
-
-
-        /*
-            Keep result visible briefly.
-        */
-
-        setTimeout(()=>{
-
-            spinning = false;
-
-            closeWheel();
-
-        },800);
-
-
-    },2800);
+    document
+    .getElementById("singleCounter")
+    .textContent=
+        `${singleAvailable.length}
+        REMAINING // FULL DATABASE ROTATION`;
 
 }
 
 
 /* =========================================================
-   UNIT CREATION
+   RESET ONE-AT-A-TIME ROTATION
 ========================================================= */
 
-function createUnit(
-    name,
-    team
-){
+function resetSingleRotation(){
 
-    const c =
+    singleAvailable=
+        [...characters];
+
+    singleHistory=[];
+
+    document
+    .getElementById("singleResult")
+    .innerHTML=`
+
+        <div
+            class="single-avatar"
+            style="--accent:#00eaff;">
+
+            ?
+
+        </div>
+
+        <div class="single-name">
+
+            AWAITING SELECTION
+
+        </div>
+
+        <div class="single-info">
+
+            PRESS NEXT COMBATANT
+
+        </div>
+
+        <div
+            class="single-counter">
+
+            FULL DATABASE // READY
+
+        </div>
+
+    `;
+
+}
+
+
+/* =========================================================
+   GENERIC UNIT CREATION
+========================================================= */
+
+function createUnit(name,team){
+
+    const c=
         findCharacter(name);
 
+    const mode=
+        document
+        .getElementById("powerMode")
+        .value;
 
-    const mode =
-        document.getElementById(
-            "powerMode"
-        ).value;
-
-
-    let power =
-        c.power;
+    let power=c.power;
+    let defense=c.defense;
 
 
-    let defense =
-        c.defense;
+    if(mode==="Amped"){
 
-
-    if(mode === "Amped"){
-
-        power *= 1.2;
-
-        defense *= 1.15;
+        power*=1.2;
+        defense*=1.15;
 
     }
 
 
-    if(mode === "Mixed"){
+    if(mode==="Mixed"){
 
-        if(Math.random() < .5)
-            power *= 1.2;
-
+        if(Math.random()<.5)
+            power*=1.2;
         else
-            defense *= 1.15;
+            defense*=1.15;
 
     }
 
 
-    return {
+    return{
 
         name:c.name,
 
@@ -3668,21 +3122,28 @@ function createUnit(
 
 function startBattle(){
 
-    const size =
+    const size=
         Number(
-            document.getElementById(
-                "teamSize"
-            ).value
+            document
+            .getElementById("teamSize")
+            .value
         );
 
 
+    /*
+        Battle requires both teams to have
+        enough fighters for the selected format.
+
+        Default is 5v5.
+    */
+
     if(
-        team1.length !== size ||
-        team2.length !== size
+        team1.length<size ||
+        team2.length<size
     ){
 
         alert(
-            "Both teams must be completely drafted before battle."
+            `Both teams need at least ${size} fighters before battle.`
         );
 
         return;
@@ -3694,29 +3155,29 @@ function startBattle(){
         return;
 
 
-    battleRunning = true;
+    battleRunning=true;
 
 
-    document.getElementById(
-        "battleFeed"
-    ).innerHTML = "";
+    document
+    .getElementById("battleFeed")
+    .innerHTML="";
 
 
-    document.getElementById(
-        "battleStatus"
-    ).textContent =
+    document
+    .getElementById("battleStatus")
+    .textContent=
         "SIMULATION ACTIVE";
 
 
-    const units = [
+    const units=[
 
-        ...team1.map(
-            n => createUnit(n,1)
-        ),
+        ...team1
+        .slice(0,size)
+        .map(n=>createUnit(n,1)),
 
-        ...team2.map(
-            n => createUnit(n,2)
-        )
+        ...team2
+        .slice(0,size)
+        .map(n=>createUnit(n,2))
 
     ];
 
@@ -3724,10 +3185,10 @@ function startBattle(){
     renderHealth(units);
 
 
-    const battlefield =
-        document.getElementById(
-            "battlefield"
-        ).value;
+    const battlefield=
+        document
+        .getElementById("battlefield")
+        .value;
 
 
     addBattleText(`
@@ -3735,23 +3196,30 @@ function startBattle(){
         <div class="round-card">
 
             <div class="round-heading">
-
-                COMBAT SIMULATION //
-                INITIALIZATION
-
+                COMBAT SIMULATION // INITIALIZATION
             </div>
 
-            The battlefield settles into silence
-            as both teams take their positions.
-
-            The environment is the
-            <strong>
-                ${battlefield}
-            </strong>.
+            The battlefield settles into silence as
+            both teams take their positions.
 
             <br><br>
 
-            The tactical system is now active.
+            Environment:
+            <strong>${battlefield}</strong>
+
+            <br><br>
+
+            Team Alpha enters with
+            ${team1.slice(0,size).join(", ")}.
+
+            <br><br>
+
+            Team Omega enters with
+            ${team2.slice(0,size).join(", ")}.
+
+            <br><br>
+
+            The tactical simulation is now active.
 
         </div>
 
@@ -3759,10 +3227,7 @@ function startBattle(){
 
 
     setTimeout(
-        ()=>runRound(
-            units,
-            1
-        ),
+        ()=>runRound(units,1),
         800
     );
 
@@ -3773,36 +3238,29 @@ function startBattle(){
    ROUND ENGINE
 ========================================================= */
 
-function runRound(
-    units,
-    round
-){
+function runRound(units,round){
 
-    const alive1 =
+    const alive1=
         units.filter(
-            u =>
-                u.team === 1 &&
-                !u.eliminated
+            u=>u.team===1&&!u.eliminated
         );
 
 
-    const alive2 =
+    const alive2=
         units.filter(
-            u =>
-                u.team === 2 &&
-                !u.eliminated
+            u=>u.team===2&&!u.eliminated
         );
 
 
     if(
-        alive1.length === 0 ||
-        alive2.length === 0
+        alive1.length===0 ||
+        alive2.length===0
     ){
 
         finishBattle(
-            alive1.length > 0
-            ? 1
-            : 2,
+            alive1.length>0?
+            1:
+            2,
 
             units,
 
@@ -3814,10 +3272,10 @@ function runRound(
     }
 
 
-    const battlefield =
-        document.getElementById(
-            "battlefield"
-        ).value;
+    const battlefield=
+        document
+        .getElementById("battlefield")
+        .value;
 
 
     addBattleText(`
@@ -3831,33 +3289,31 @@ function runRound(
 
             </div>
 
-            The surviving combatants spread
-            across the ${battlefield}, adjusting
-            their positions according to everything
-            learned during the previous exchanges.
+            The surviving combatants spread across
+            the ${battlefield}, adjusting their
+            positions according to everything they
+            have learned during the previous exchanges.
 
         </div>
 
     `);
 
 
-    let actors =
+    let actors=
         [...alive1,...alive2]
         .sort(
-            (a,b)=>
-                b.speed-a.speed
+            (a,b)=>b.speed-a.speed
         );
 
 
-    let index = 0;
+    let index=0;
 
 
     function nextAction(){
 
-        if(index >= actors.length){
+        if(index>=actors.length){
 
             renderHealth(units);
-
 
             setTimeout(
                 ()=>runRound(
@@ -3867,13 +3323,12 @@ function runRound(
                 650
             );
 
-
             return;
 
         }
 
 
-        const attacker =
+        const attacker=
             actors[index++];
 
 
@@ -3886,15 +3341,15 @@ function runRound(
         }
 
 
-        const enemies =
+        const enemies=
             units.filter(
-                u =>
-                    u.team !== attacker.team &&
+                u=>
+                    u.team!==attacker.team &&
                     !u.eliminated
             );
 
 
-        if(enemies.length === 0){
+        if(enemies.length===0){
 
             nextAction();
 
@@ -3903,21 +3358,21 @@ function runRound(
         }
 
 
-        const target =
+        const target=
             chooseTarget(
                 attacker,
                 enemies
             );
 
 
-        const move =
+        const move=
             chooseMove(
                 attacker,
                 target
             );
 
 
-        const result =
+        const result=
             calculateDamage(
                 attacker,
                 target,
@@ -3925,7 +3380,7 @@ function runRound(
             );
 
 
-        const narration =
+        const narration=
             generateNarration(
                 attacker,
                 target,
@@ -3938,7 +3393,7 @@ function runRound(
 
         if(!result.evaded){
 
-            target.hp =
+            target.hp=
                 Math.max(
                     0,
                     target.hp-result.damage
@@ -3947,20 +3402,17 @@ function runRound(
         }
 
 
-        attacker.lastMove =
-            move;
+        attacker.lastMove=move;
 
 
-        addBattleText(
-            narration
-        );
+        addBattleText(narration);
 
 
-        if(target.hp <= 0){
+        if(target.hp<=0){
 
-            target.hp = 0;
+            target.hp=0;
 
-            target.eliminated = true;
+            target.eliminated=true;
 
 
             addBattleText(`
@@ -3977,6 +3429,12 @@ function runRound(
                         // ELIMINATED
 
                     </strong>
+
+                    <br><br>
+
+                    ${target.name}
+                    can no longer participate
+                    in the engagement.
 
                 </div>
 
@@ -4005,51 +3463,33 @@ function runRound(
    TARGETING
 ========================================================= */
 
-function chooseTarget(
-    attacker,
-    enemies
-){
+function chooseTarget(attacker,enemies){
 
-    const scored =
-        enemies.map(
-            enemy => {
+    const scored=
+        enemies.map(enemy=>{
 
-                let score = 0;
+            let score=0;
 
+            score+=enemy.power*.35;
+            score+=enemy.intelligence*.25;
+            score+=enemy.speed*.15;
+            score+=enemy.hp*.20;
 
-                score +=
-                    enemy.power*.35;
+            return{
 
+                enemy,
 
-                score +=
-                    enemy.intelligence*.25;
+                score:
+                    score+
+                    Math.random()*25
 
+            };
 
-                score +=
-                    enemy.speed*.15;
-
-
-                score +=
-                    enemy.hp*.20;
-
-
-                return {
-
-                    enemy,
-
-                    score:
-                        score+
-                        Math.random()*25
-
-                };
-
-            }
-        );
+        });
 
 
     scored.sort(
-        (a,b)=>
-            b.score-a.score
+        (a,b)=>b.score-a.score
     );
 
 
@@ -4062,27 +3502,24 @@ function chooseTarget(
    MOVE SELECTION
 ========================================================= */
 
-function chooseMove(
-    attacker,
-    target
-){
+function chooseMove(attacker,target){
 
     if(
-        target.hp < 30 &&
+        target.hp<30 &&
         attacker.moves.some(
-            m =>
-                m.includes("Execution") ||
-                m.includes("Overdrive") ||
-                m.includes("Smash") ||
+            m=>
+                m.includes("Execution")||
+                m.includes("Overdrive")||
+                m.includes("Smash")||
                 m.includes("Fury")
         )
     ){
 
         return attacker.moves.find(
-            m =>
-                m.includes("Execution") ||
-                m.includes("Overdrive") ||
-                m.includes("Smash") ||
+            m=>
+                m.includes("Execution")||
+                m.includes("Overdrive")||
+                m.includes("Smash")||
                 m.includes("Fury")
         );
 
@@ -4090,19 +3527,19 @@ function chooseMove(
 
 
     if(
-        target.speed > attacker.speed &&
+        target.speed>attacker.speed &&
         attacker.moves.some(
-            m =>
-                m.includes("Counter") ||
-                m.includes("Bind") ||
+            m=>
+                m.includes("Counter")||
+                m.includes("Bind")||
                 m.includes("Cage")
         )
     ){
 
         return attacker.moves.find(
-            m =>
-                m.includes("Counter") ||
-                m.includes("Bind") ||
+            m=>
+                m.includes("Counter")||
+                m.includes("Bind")||
                 m.includes("Cage")
         );
 
@@ -4126,64 +3563,60 @@ function calculateDamage(
     move
 ){
 
-    let base =
-        attacker.power*.46 +
-        attacker.intelligence*.16 +
+    let base=
+        attacker.power*.46+
+        attacker.intelligence*.16+
         attacker.speed*.12;
 
 
-    let defense =
+    let defense=
         target.defense*.34;
 
 
-    let damage =
+    let damage=
         base-defense;
 
 
-    damage *=
-        .78 +
+    damage*=
+        .78+
         Math.random()*.44;
 
 
     if(
-        move.includes("Smash") ||
-        move.includes("Blast") ||
-        move.includes("God") ||
-        move.includes("Beam") ||
+        move.includes("Smash")||
+        move.includes("Blast")||
+        move.includes("God")||
+        move.includes("Beam")||
         move.includes("Strike")
     ){
 
-        damage *= 1.08;
+        damage*=1.08;
 
     }
 
 
-    const critical =
-        Math.random() < .13;
+    const critical=
+        Math.random()<.13;
 
 
     if(critical)
-        damage *= 1.35;
+        damage*=1.35;
 
 
-    const evaded =
-        Math.random() <
+    const evaded=
+        Math.random()<
         Math.max(
             .025,
-            (
-                target.speed-
-                attacker.speed
-            )/500
+            (target.speed-attacker.speed)/500
         );
 
 
-    return {
+    return{
 
-        damage:
-            Math.max(
-                5,
-                Math.round(damage)
-            ),
+        damage:Math.max(
+            5,
+            Math.round(damage)
+        ),
 
         critical,
 
@@ -4207,7 +3640,7 @@ function generateNarration(
     battlefield
 ){
 
-    const openings = [
+    const openings=[
 
         `${attacker.name} is the first to move, immediately recognizing that allowing ${target.name} to dictate the pace would be dangerous.`,
 
@@ -4222,7 +3655,7 @@ function generateNarration(
     ];
 
 
-    const tactics = [
+    const tactics=[
 
         `The maneuver is deliberate rather than reckless; ${attacker.name} is attempting to exploit the opponent's positioning instead of simply trading blows.`,
 
@@ -4237,7 +3670,7 @@ function generateNarration(
     ];
 
 
-    const impacts = [
+    const impacts=[
 
         `${target.name} absorbs the impact and is driven backward across the battlefield.`,
 
@@ -4252,7 +3685,7 @@ function generateNarration(
     ];
 
 
-    const evasions = [
+    const evasions=[
 
         `${target.name} reads the movement at the last possible moment and slips outside the center of the attack.`,
 
@@ -4263,7 +3696,7 @@ function generateNarration(
     ];
 
 
-    let text = `
+    let text=`
 
         <div class="round-card">
 
@@ -4290,8 +3723,8 @@ function generateNarration(
             <br>
 
             ${attacker.name}
-            executes the technique with deliberate
-            precision, directing it toward
+            executes the technique with
+            deliberate precision, directing it toward
             ${target.name}.
 
     `;
@@ -4299,7 +3732,7 @@ function generateNarration(
 
     if(result.evaded){
 
-        text += `
+        text+=`
 
             ${random(evasions)}
 
@@ -4310,11 +3743,9 @@ function generateNarration(
 
         `;
 
-    }
+    }else{
 
-    else{
-
-        text += `
+        text+=`
 
             ${random(impacts)}
 
@@ -4323,7 +3754,7 @@ function generateNarration(
 
         if(result.critical){
 
-            text += `
+            text+=`
 
                 The timing is exceptional.
 
@@ -4339,7 +3770,7 @@ function generateNarration(
         }
 
 
-        text += `
+        text+=`
 
             <br><br>
 
@@ -4357,7 +3788,7 @@ function generateNarration(
     }
 
 
-    text += `</div>`;
+    text+=`</div>`;
 
 
     return text;
@@ -4371,13 +3802,12 @@ function generateNarration(
 
 function renderHealth(units){
 
-    const panel =
-        document.getElementById(
-            "healthPanel"
-        );
+    const panel=
+        document
+        .getElementById("healthPanel");
 
 
-    let html = "";
+    let html="";
 
 
     for(
@@ -4386,110 +3816,100 @@ function renderHealth(units){
         team++
     ){
 
-        const teamUnits =
+        const teamUnits=
             units.filter(
-                u =>
-                    u.team === team
+                u=>u.team===team
             );
 
 
-        html += `
+        html+=`
 
             <div class="health-team">
 
                 <div class="health-title">
 
                     TEAM
-                    ${team === 1
-                        ? "ALPHA"
-                        : "OMEGA"}
+                    ${team===1?"ALPHA":"OMEGA"}
 
                 </div>
 
         `;
 
 
-        teamUnits.forEach(
-            u => {
+        teamUnits.forEach(u=>{
 
-                const percent =
-                    Math.max(
-                        0,
-                        Math.min(
-                            100,
-                            u.hp
-                        )
-                    );
-
-
-                const cls =
-                    u.eliminated
-                    ? "dead"
-                    : percent < 30
-                    ? "low"
-                    : "";
+            const percent=
+                Math.max(
+                    0,
+                    Math.min(
+                        100,
+                        u.hp
+                    )
+                );
 
 
-                html += `
-
-                    <div class="health-row">
-
-                        <div class="health-label">
-
-                            <span>
-                                ${u.name}
-                            </span>
-
-                            <span>
-                                ${percent}%
-                            </span>
-
-                        </div>
+            const cls=
+                u.eliminated?
+                "dead":
+                percent<30?
+                "low":
+                "";
 
 
-                        <div class="health-bar">
+            html+=`
 
-                            <div
-                                class="
-                                    health-fill
-                                    ${cls}
-                                "
-                                style="
-                                    width:${percent}%
-                                ">
-                            </div>
+                <div class="health-row">
 
+                    <div class="health-label">
+
+                        <span>
+                            ${u.name}
+                        </span>
+
+                        <span>
+                            ${percent}%
+                        </span>
+
+                    </div>
+
+
+                    <div class="health-bar">
+
+                        <div
+                            class="health-fill ${cls}"
+                            style="
+                                width:${percent}%
+                            ">
                         </div>
 
                     </div>
 
-                `;
+                </div>
 
-            }
-        );
+            `;
+
+        });
 
 
-        html += `</div>`;
+        html+=`</div>`;
 
     }
 
 
-    panel.innerHTML =
-        html;
+    panel.innerHTML=html;
 
 }
 
 
 /* =========================================================
-   BATTLE FEED
+   FEED
 ========================================================= */
 
 function addBattleText(html){
 
-    const feed =
-        document.getElementById(
-            "battleFeed"
-        );
+    const feed=
+        document
+        .getElementById("battleFeed");
 
 
     feed.insertAdjacentHTML(
@@ -4498,14 +3918,14 @@ function addBattleText(html){
     );
 
 
-    feed.scrollTop =
+    feed.scrollTop=
         feed.scrollHeight;
 
 }
 
 
 /* =========================================================
-   FINISH BATTLE
+   FINISH
 ========================================================= */
 
 function finishBattle(
@@ -4514,28 +3934,26 @@ function finishBattle(
     round
 ){
 
-    battleRunning = false;
+    battleRunning=false;
 
 
-    const survivors =
+    const survivors=
         units.filter(
-            u =>
-                u.team === winningTeam &&
+            u=>
+                u.team===winningTeam &&
                 !u.eliminated
         );
 
 
-    const defeatedTeam =
-        winningTeam === 1
-        ? 2
-        : 1;
+    const defeatedTeam=
+        winningTeam===1?
+        2:
+        1;
 
 
-    const survivorNames =
+    const survivorNames=
         survivors
-        .map(
-            u => u.name
-        )
+        .map(u=>u.name)
         .join(", ");
 
 
@@ -4546,12 +3964,9 @@ function finishBattle(
             <div class="winner-title">
 
                 TEAM
-                ${
-                    winningTeam === 1
-                    ? "ALPHA"
-                    : "OMEGA"
-                }
-
+                ${winningTeam===1?
+                    "ALPHA":
+                    "OMEGA"}
                 // VICTORY
 
             </div>
@@ -4563,11 +3978,9 @@ function finishBattle(
                 Round ${round}.
 
                 Team
-                ${
-                    defeatedTeam === 1
-                    ? "Alpha"
-                    : "Omega"
-                }
+                ${defeatedTeam===1?
+                    "Alpha":
+                    "Omega"}
                 has been completely eliminated.
 
             </p>
@@ -4576,11 +3989,25 @@ function finishBattle(
             <p>
 
                 The remaining combatants—
+
                 <strong>
                     ${survivorNames}
-                </strong>—
-                are the only fighters left standing
+                </strong>
+
+                —are the only fighters left standing
                 on the battlefield.
+
+            </p>
+
+
+            <p>
+
+                Team
+                ${winningTeam===1?
+                    "Alpha":
+                    "Omega"}
+
+                is the definitive victor.
 
             </p>
 
@@ -4589,71 +4016,72 @@ function finishBattle(
     `);
 
 
-    document.getElementById(
-        "battleStatus"
-    ).textContent =
-
+    document
+    .getElementById("battleStatus")
+    .textContent=
         `TEAM ${
-            winningTeam === 1
-            ? "ALPHA"
-            : "OMEGA"
+            winningTeam===1?
+            "ALPHA":
+            "OMEGA"
         } // VICTORIOUS`;
 
 
-    renderHealth(
-        units
-    );
+    renderHealth(units);
 
 }
 
 
 /* =========================================================
-   RESET
+   RESET EVERYTHING
 ========================================================= */
 
 function resetSystem(){
 
-    pool = [];
+    pool=[];
 
-    team1 = [];
+    team1=[];
+    team2=[];
 
-    team2 = [];
+    draftTurn=1;
 
-    draftTurn = 1;
-
-    battleRunning = false;
-
-    spinning = false;
+    battleRunning=false;
 
 
-    document.getElementById(
-        "pool"
-    ).innerHTML = "";
+    /*
+        RESET THE ENTIRE ONE-AT-A-TIME DATABASE
+    */
+
+    resetSingleRotation();
+
+
+    document
+    .getElementById("pool")
+    .innerHTML="";
 
 
     renderTeams();
 
 
-    document.getElementById(
-        "draftStatus"
-    ).textContent =
+    document
+    .getElementById("draftStatus")
+    .textContent=
         "SYSTEM STANDBY";
 
 
-    document.getElementById(
-        "battleStatus"
-    ).textContent =
+    document
+    .getElementById("battleStatus")
+    .textContent=
         "SYSTEM STANDBY";
 
 
-    document.getElementById(
-        "healthPanel"
-    ).innerHTML = "";
+    document
+    .getElementById("healthPanel")
+    .innerHTML="";
 
 
-    document.getElementById(
-        "battleFeed"
-    ).innerHTML = `
+    document
+    .getElementById("battleFeed")
+    .innerHTML=`
 
         <div class="round-card">
 
@@ -4663,8 +4091,10 @@ function resetSystem(){
 
             All tactical data has been cleared.
 
-            Generate 10 combatants or use the
-            full database wheel to begin.
+            <br><br>
+
+            Generate a new set of 10 combatants,
+            or use the One-at-a-Time selector.
 
         </div>
 
@@ -4678,69 +4108,31 @@ function resetSystem(){
 ========================================================= */
 
 document
-    .getElementById("teamSize")
-    .addEventListener(
-        "change",
-        ()=>{
+.getElementById("teamSize")
+.addEventListener(
+    "change",
+    ()=>{
 
-            team1 = [];
+        /*
+            Changing team size starts a new draft.
+        */
 
-            team2 = [];
+        team1=[];
+        team2=[];
+        pool=[];
 
-            pool = [];
+        draftTurn=1;
 
-            draftTurn = 1;
+        renderTeams();
+        renderPool();
 
-            renderTeams();
+        document
+        .getElementById("draftStatus")
+        .textContent=
+            "SYSTEM STANDBY";
 
-            renderPool();
-
-
-            document.getElementById(
-                "draftStatus"
-            ).textContent =
-                "SYSTEM STANDBY";
-
-        }
-    );
-
-
-/* =========================================================
-   UNIVERSE CHANGE
-========================================================= */
-
-document
-    .getElementById("universe")
-    .addEventListener(
-        "change",
-        ()=>{
-
-            /*
-                Changing universe resets the current
-                selection so characters from the old
-                universe cannot remain drafted.
-            */
-
-            pool = [];
-
-            team1 = [];
-
-            team2 = [];
-
-            draftTurn = 1;
-
-            renderPool();
-
-            renderTeams();
-
-
-            document.getElementById(
-                "draftStatus"
-            ).textContent =
-                "SYSTEM STANDBY";
-
-        }
-    );
+    }
+);
 
 
 /* =========================================================
