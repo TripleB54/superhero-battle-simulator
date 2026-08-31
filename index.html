@@ -1,3 +1,4 @@
+```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,6 +8,11 @@
 <title>STARK // BATTLE COMMAND</title>
 
 <style>
+
+/* =========================================================
+   STARK HUD CORE
+========================================================= */
+
 :root{
     --cyan:#00eaff;
     --cyan2:#00a9c9;
@@ -45,9 +51,14 @@ body{
             transparent 30%
         ),
         #020609;
-    font-family:"Arial Narrow",Arial,sans-serif;
+    font-family:
+        "Arial Narrow",
+        Arial,
+        sans-serif;
     overflow-x:hidden;
 }
+
+/* HUD GRID */
 
 body::before{
     content:"";
@@ -77,7 +88,9 @@ body::after{
     z-index:101;
 }
 
-/* TOP BAR */
+/* =========================================================
+   TOP COMMAND BAR
+========================================================= */
 
 .topbar{
     height:76px;
@@ -85,16 +98,20 @@ body::after{
     align-items:center;
     justify-content:space-between;
     padding:0 35px;
+
     background:
         linear-gradient(
             180deg,
             rgba(8,25,35,.98),
             rgba(2,9,13,.98)
         );
+
     border-bottom:1px solid var(--cyan2);
+
     box-shadow:
         0 0 30px rgba(0,220,255,.1),
         inset 0 -1px 0 rgba(0,234,255,.15);
+
     position:relative;
     z-index:5;
 }
@@ -109,6 +126,7 @@ body::after{
     width:34px;
     height:34px;
     border-radius:50%;
+
     background:
         radial-gradient(
             circle,
@@ -117,6 +135,7 @@ body::after{
             #006d83 31% 48%,
             transparent 49%
         );
+
     box-shadow:
         0 0 12px var(--cyan),
         0 0 28px rgba(0,234,255,.45);
@@ -156,7 +175,9 @@ body::after{
     }
 }
 
-/* MAIN */
+/* =========================================================
+   MAIN
+========================================================= */
 
 .command-center{
     width:min(1500px,94%);
@@ -164,7 +185,9 @@ body::after{
     padding:25px 0 60px;
 }
 
-/* HEADER */
+/* =========================================================
+   COMMAND HEADER
+========================================================= */
 
 .command-header{
     display:grid;
@@ -203,7 +226,9 @@ body::after{
     text-shadow:0 0 20px rgba(0,234,255,.35);
 }
 
-/* REACTOR */
+/* =========================================================
+   REACTOR
+========================================================= */
 
 .reactor-section{
     display:flex;
@@ -250,6 +275,7 @@ body::after{
     width:70px;
     height:70px;
     border-radius:50%;
+
     background:
         radial-gradient(
             circle,
@@ -259,6 +285,7 @@ body::after{
             #00728d 46% 65%,
             #03242e 66%
         );
+
     box-shadow:
         0 0 15px var(--cyan),
         0 0 40px var(--cyan),
@@ -285,15 +312,20 @@ body::after{
     color:var(--cyan);
 }
 
-/* CONTROLS */
+/* =========================================================
+   CONTROL DECK
+========================================================= */
 
 .control-deck{
     display:grid;
     grid-template-columns:repeat(5,1fr);
     gap:1px;
+
     background:var(--line);
     border:1px solid var(--line);
-    box-shadow:0 0 35px rgba(0,0,0,.8);
+
+    box-shadow:
+        0 0 35px rgba(0,0,0,.8);
 }
 
 .control{
@@ -304,6 +336,7 @@ body::after{
             #081821,
             #03090d
         );
+
     position:relative;
 }
 
@@ -341,7 +374,9 @@ select:focus{
     box-shadow:0 0 12px rgba(0,234,255,.15);
 }
 
-/* BUTTONS */
+/* =========================================================
+   COMMAND BUTTONS
+========================================================= */
 
 .command-buttons{
     display:grid;
@@ -406,7 +441,9 @@ button:hover{
     background:var(--red);
 }
 
-/* PANELS */
+/* =========================================================
+   GENERIC HUD PANEL
+========================================================= */
 
 .hud-panel{
     position:relative;
@@ -416,10 +453,13 @@ button:hover{
             rgba(7,22,31,.98),
             rgba(2,8,12,.98)
         );
+
     border:1px solid var(--line);
+
     box-shadow:
         0 15px 40px rgba(0,0,0,.55),
         inset 0 0 30px rgba(0,234,255,.025);
+
     padding:18px;
 }
 
@@ -467,7 +507,9 @@ button:hover{
     letter-spacing:2px;
 }
 
-/* CHARACTER BOARD */
+/* =========================================================
+   CHARACTER BOARD
+========================================================= */
 
 .pool-panel{
     margin-top:12px;
@@ -480,21 +522,26 @@ button:hover{
 }
 
 .character-card{
-    min-height:100px;
+    min-height:78px;
     position:relative;
     padding:12px;
+
     background:
         linear-gradient(
             135deg,
             rgba(12,29,39,.95),
             rgba(3,10,14,.98)
         );
+
     border:1px solid #183d4a;
+
     cursor:pointer;
+
     transition:
         transform .15s,
         border .15s,
         box-shadow .15s;
+
     overflow:hidden;
 }
 
@@ -515,8 +562,7 @@ button:hover{
     transform:translateY(-3px);
     border-color:var(--accent);
     box-shadow:
-        0 0 20px
-        color-mix(
+        0 0 20px color-mix(
             in srgb,
             var(--accent),
             transparent 75%
@@ -529,7 +575,7 @@ button:hover{
 }
 
 .character-name{
-    font-size:13px;
+    font-size:12px;
     font-weight:bold;
     color:white;
 }
@@ -549,35 +595,9 @@ button:hover{
     color:var(--gold);
 }
 
-/* DRAFT INDICATOR */
-
-.draft-indicator{
-    margin-bottom:12px;
-    padding:14px;
-    text-align:center;
-    border:1px solid #1a596c;
-    background:#030c11;
-    font-size:12px;
-    letter-spacing:3px;
-}
-
-.draft-indicator.alpha-turn{
-    color:var(--cyan);
-    box-shadow:0 0 18px rgba(0,234,255,.08);
-}
-
-.draft-indicator.omega-turn{
-    color:var(--red);
-    border-color:#6d2932;
-    box-shadow:0 0 18px rgba(255,64,85,.08);
-}
-
-.draft-indicator.complete{
-    color:var(--gold);
-    border-color:#796024;
-}
-
-/* TEAMS */
+/* =========================================================
+   TEAMS
+========================================================= */
 
 .team-grid{
     display:grid;
@@ -639,13 +659,11 @@ button:hover{
 .slot.filled{
     border-style:solid;
     border-color:var(--accent);
-    box-shadow:
-        inset 0 0 20px
-        color-mix(
-            in srgb,
-            var(--accent),
-            transparent 90%
-        );
+    box-shadow:inset 0 0 20px color-mix(
+        in srgb,
+        var(--accent),
+        transparent 90%
+    );
 }
 
 .avatar{
@@ -655,6 +673,7 @@ button:hover{
     display:grid;
     place-items:center;
     margin-bottom:8px;
+
     background:
         radial-gradient(
             circle,
@@ -662,6 +681,7 @@ button:hover{
             var(--accent) 6% 60%,
             #071018 61%
         );
+
     box-shadow:0 0 15px var(--accent);
     font-size:9px;
     font-weight:bold;
@@ -672,7 +692,9 @@ button:hover{
     font-weight:bold;
 }
 
-/* BATTLE */
+/* =========================================================
+   BATTLE COMMAND CENTER
+========================================================= */
 
 .battle-panel{
     margin-top:12px;
@@ -719,7 +741,9 @@ button:hover{
     border-radius:50%;
     display:grid;
     place-items:center;
+
     border:1px solid var(--cyan);
+
     background:
         radial-gradient(
             circle,
@@ -728,9 +752,11 @@ button:hover{
             #005a70 21% 40%,
             transparent 41%
         );
+
     box-shadow:
         0 0 20px var(--cyan),
         0 0 50px rgba(0,234,255,.25);
+
     animation:battlePulse 2s infinite;
 }
 
@@ -742,7 +768,9 @@ button:hover{
     }
 }
 
-/* HEALTH */
+/* =========================================================
+   HEALTH
+========================================================= */
 
 .health-panel{
     display:grid;
@@ -798,7 +826,9 @@ button:hover{
     box-shadow:0 0 8px var(--red);
 }
 
-/* FEED */
+/* =========================================================
+   BATTLE FEED
+========================================================= */
 
 .battle-feed{
     height:620px;
@@ -821,19 +851,25 @@ button:hover{
 .round-card{
     margin:12px 0;
     padding:17px 18px;
+
     background:
         linear-gradient(
             90deg,
             rgba(8,27,36,.98),
             rgba(3,10,14,.98)
         );
+
     border-left:2px solid var(--cyan);
+
     color:#bdd1d8;
+
     line-height:1.75;
+
     font-family:
         Georgia,
         "Times New Roman",
         serif;
+
     font-size:14px;
 }
 
@@ -873,7 +909,9 @@ button:hover{
     margin:20px 0;
     padding:30px;
     text-align:center;
+
     border:1px solid var(--gold);
+
     background:
         radial-gradient(
             circle at center,
@@ -881,6 +919,7 @@ button:hover{
             transparent 60%
         ),
         #100e06;
+
     box-shadow:
         0 0 35px rgba(255,200,61,.12);
 }
@@ -893,7 +932,9 @@ button:hover{
     letter-spacing:5px;
 }
 
-/* WHEEL */
+/* =========================================================
+   WHEEL
+========================================================= */
 
 #wheelModal{
     position:fixed;
@@ -908,13 +949,16 @@ button:hover{
     width:min(550px,92vw);
     padding:28px;
     text-align:center;
+
     background:
         linear-gradient(
             145deg,
             #0a1b25,
             #02080c
         );
+
     border:1px solid var(--cyan);
+
     box-shadow:
         0 0 50px rgba(0,234,255,.12);
 }
@@ -923,8 +967,11 @@ button:hover{
     width:300px;
     height:300px;
     margin:20px auto;
+
     border-radius:50%;
+
     border:8px solid #16333f;
+
     background:
         conic-gradient(
             #0b7187 0deg 45deg,
@@ -936,8 +983,10 @@ button:hover{
             #9b6c38 270deg 315deg,
             #315b91 315deg 360deg
         );
+
     box-shadow:
         0 0 40px rgba(0,234,255,.18);
+
     transition:
         transform 2.8s
         cubic-bezier(.1,.8,.15,1);
@@ -956,7 +1005,9 @@ button:hover{
     letter-spacing:2px;
 }
 
-/* MOBILE */
+/* =========================================================
+   RESPONSIVE
+========================================================= */
 
 @media(max-width:1000px){
 
@@ -1016,10 +1067,15 @@ button:hover{
         grid-template-columns:1fr;
     }
 }
+
 </style>
 </head>
 
 <body>
+
+<!-- =======================================================
+     TOP BAR
+======================================================== -->
 
 <header class="topbar">
 
@@ -1046,6 +1102,11 @@ button:hover{
 
 <main class="command-center">
 
+
+<!-- =======================================================
+     COMMAND TITLE
+======================================================== -->
+
 <div class="command-header">
 
     <div class="command-side"></div>
@@ -1064,6 +1125,10 @@ button:hover{
 
 </div>
 
+
+<!-- =======================================================
+     ARC REACTOR
+======================================================== -->
 
 <div class="reactor-section">
 
@@ -1084,6 +1149,10 @@ button:hover{
 </div>
 
 
+<!-- =======================================================
+     CONTROL DECK
+======================================================== -->
+
 <section class="control-deck">
 
     <div class="control">
@@ -1096,7 +1165,7 @@ button:hover{
             <option value="2">2v2</option>
             <option value="3">3v3</option>
             <option value="4">4v4</option>
-            <option value="5" selected>5v5</option>
+            <option value="5">5v5</option>
 
         </select>
 
@@ -1167,15 +1236,17 @@ button:hover{
 </section>
 
 
-<!-- ONLY THREE COMMAND BUTTONS -->
+<!-- =======================================================
+     COMMAND BUTTONS
+======================================================== -->
 
 <div class="command-buttons">
 
     <button
         class="primary"
-        onclick="generate10()">
+        onclick="generatePool()">
 
-        ⚡ GENERATE 10
+        ⚡ GENERATE 10 // OPEN DRAFT
 
     </button>
 
@@ -1184,7 +1255,7 @@ button:hover{
         class="gold"
         onclick="openWheel()">
 
-        ◉ ONE AT A TIME
+        ◉ SPINNING WHEEL
 
     </button>
 
@@ -1200,33 +1271,27 @@ button:hover{
 </div>
 
 
+<!-- =======================================================
+     CHARACTER BOARD
+======================================================== -->
+
 <section class="hud-panel pool-panel">
 
     <div class="panel-heading">
 
         <h2>
-            COMBATANT SELECTION
+            COMBATANT ACQUISITION BOARD
         </h2>
 
         <div
             class="panel-code"
             id="draftStatus">
 
-            PRESS GENERATE 10
+            SYSTEM STANDBY
 
         </div>
 
     </div>
-
-
-    <div
-        id="draftIndicator"
-        class="draft-indicator">
-
-        GENERATE 10 COMBATANTS TO BEGIN
-
-    </div>
-
 
     <div
         id="pool"
@@ -1236,6 +1301,10 @@ button:hover{
 
 </section>
 
+
+<!-- =======================================================
+     TEAM PANELS
+======================================================== -->
 
 <section class="team-grid">
 
@@ -1285,8 +1354,13 @@ button:hover{
 
     </div>
 
+
 </section>
 
+
+<!-- =======================================================
+     BATTLE COMMAND
+======================================================== -->
 
 <section class="hud-panel battle-panel">
 
@@ -1308,6 +1382,7 @@ button:hover{
 
 
     <div class="battle-top">
+
 
         <div class="side-readout">
 
@@ -1343,6 +1418,7 @@ button:hover{
 
         </div>
 
+
     </div>
 
 
@@ -1363,11 +1439,9 @@ button:hover{
                 SYSTEM MESSAGE
             </div>
 
-            Generate 10 combatants to begin the draft.
-
-            Team Alpha and Team Omega will alternate
-            selecting one combatant at a time until
-            all generated combatants have been selected.
+            Tactical command center awaiting combatants.
+            Generate a combat pool and draft both teams
+            before initiating the battle simulation.
 
         </div>
 
@@ -1394,7 +1468,9 @@ button:hover{
 </main>
 
 
-<!-- WHEEL -->
+<!-- =======================================================
+     WHEEL
+======================================================== -->
 
 <div id="wheelModal">
 
@@ -1414,7 +1490,7 @@ button:hover{
             class="primary"
             onclick="spinWheel()">
 
-            SELECT ONE COMBATANT
+            SPIN // SELECT COMBATANT
 
         </button>
 
@@ -1438,15 +1514,10 @@ button:hover{
 <script>
 
 /* =========================================================
-   FULL DATABASE
-   IMPORTANT:
-   THESE CHARACTERS ARE NOT DISPLAYED.
-   THEY ONLY EXIST AS THE RANDOM SOURCE.
+   CHARACTER DATABASE
 ========================================================= */
 
 const characters = [
-
-/* MARVEL */
 
 {
 name:"Spider-Man",
@@ -1456,8 +1527,16 @@ power:86,
 defense:82,
 speed:91,
 intelligence:91,
-moves:["Web Strike","Web Barrage","Spider-Sense Counter","Impact Web"],
-traits:["protects weaker allies","uses the environment intelligently"]
+moves:[
+"Web Strike",
+"Web Barrage",
+"Spider-Sense Counter",
+"Impact Web"
+],
+traits:[
+"protects weaker allies",
+"uses the environment intelligently"
+]
 },
 
 {
@@ -1468,8 +1547,16 @@ power:91,
 defense:88,
 speed:95,
 intelligence:98,
-moves:["Repulsor Burst","Unibeam","Micro-Missile Salvo","Bleeding Edge Overdrive"],
-traits:["analyzes opponents","uses technology to adapt"]
+moves:[
+"Repulsor Burst",
+"Unibeam",
+"Micro-Missile Salvo",
+"Bleeding Edge Overdrive"
+],
+traits:[
+"analyzes opponents",
+"uses technology to adapt"
+]
 },
 
 {
@@ -1480,8 +1567,16 @@ power:99,
 defense:96,
 speed:88,
 intelligence:86,
-moves:["Mjolnir Strike","Lightning Call","God Blast","Stormbreaker"],
-traits:["warrior instinct","becomes more aggressive under pressure"]
+moves:[
+"Mjolnir Strike",
+"Lightning Call",
+"God Blast",
+"Stormbreaker"
+],
+traits:[
+"warrior instinct",
+"becomes more aggressive under pressure"
+]
 },
 
 {
@@ -1492,8 +1587,16 @@ power:100,
 defense:97,
 speed:70,
 intelligence:65,
-moves:["Thunderclap","Gamma Smash","Ground Quake","Unstoppable Charge"],
-traits:["rage escalation","overwhelming physical strength"]
+moves:[
+"Thunderclap",
+"Gamma Smash",
+"Ground Quake",
+"Unstoppable Charge"
+],
+traits:[
+"rage escalation",
+"overwhelming physical strength"
+]
 },
 
 {
@@ -1504,8 +1607,16 @@ power:88,
 defense:90,
 speed:84,
 intelligence:82,
-moves:["Adamantium Slash","Berserker Rush","Claw Counter","Regeneration"],
-traits:["relentless endurance","close-range specialist"]
+moves:[
+"Adamantium Slash",
+"Berserker Rush",
+"Claw Counter",
+"Regeneration"
+],
+traits:[
+"relentless endurance",
+"close-range specialist"
+]
 },
 
 {
@@ -1516,8 +1627,16 @@ power:96,
 defense:93,
 speed:92,
 intelligence:87,
-moves:["Photon Blast","Binary Burst","Aerial Ram","Energy Nova"],
-traits:["absorbs energy","high aerial mobility"]
+moves:[
+"Photon Blast",
+"Binary Burst",
+"Aerial Ram",
+"Energy Nova"
+],
+traits:[
+"absorbs energy",
+"high aerial mobility"
+]
 },
 
 {
@@ -1528,8 +1647,16 @@ power:96,
 defense:94,
 speed:82,
 intelligence:99,
-moves:["Doom Bolt","Force Field","Mystic Bind","Armor Overdrive"],
-traits:["master strategist","combines magic and technology"]
+moves:[
+"Doom Bolt",
+"Force Field",
+"Mystic Bind",
+"Armor Overdrive"
+],
+traits:[
+"master strategist",
+"combines magic and technology"
+]
 },
 
 {
@@ -1540,8 +1667,16 @@ power:94,
 defense:88,
 speed:82,
 intelligence:96,
-moves:["Metal Lance","Magnetic Crush","EMP Wave","Magnetic Storm"],
-traits:["controls metal","turns the battlefield into a weapon"]
+moves:[
+"Metal Lance",
+"Magnetic Crush",
+"EMP Wave",
+"Magnetic Storm"
+],
+traits:[
+"controls metal",
+"turns the battlefield into a weapon"
+]
 },
 
 {
@@ -1552,8 +1687,16 @@ power:92,
 defense:84,
 speed:88,
 intelligence:91,
-moves:["Lightning Spear","Wind Shear","Ice Cyclone","Tempest"],
-traits:["controls terrain","aerial superiority"]
+moves:[
+"Lightning Spear",
+"Wind Shear",
+"Ice Cyclone",
+"Tempest"
+],
+traits:[
+"controls terrain",
+"aerial superiority"
+]
 },
 
 {
@@ -1564,8 +1707,16 @@ power:82,
 defense:78,
 speed:87,
 intelligence:73,
-moves:["Twin-Blade Rush","Pistol Volley","Grenade Toss","Regenerative Counter"],
-traits:["unpredictable","rapid healing"]
+moves:[
+"Twin-Blade Rush",
+"Pistol Volley",
+"Grenade Toss",
+"Regenerative Counter"
+],
+traits:[
+"unpredictable",
+"rapid healing"
+]
 },
 
 {
@@ -1576,8 +1727,16 @@ power:87,
 defense:85,
 speed:94,
 intelligence:92,
-moves:["Vibranium Claw","Kinetic Burst","Shadow Pounce","Royal Counter"],
-traits:["elite fighter","stores kinetic energy"]
+moves:[
+"Vibranium Claw",
+"Kinetic Burst",
+"Shadow Pounce",
+"Royal Counter"
+],
+traits:[
+"elite fighter",
+"stores kinetic energy"
+]
 },
 
 {
@@ -1588,8 +1747,16 @@ power:82,
 defense:84,
 speed:86,
 intelligence:91,
-moves:["Shield Throw","Shield Bash","Ricochet Strike","Last Stand"],
-traits:["team leader","reads opponents"]
+moves:[
+"Shield Throw",
+"Shield Bash",
+"Ricochet Strike",
+"Last Stand"
+],
+traits:[
+"team leader",
+"reads opponents"
+]
 },
 
 {
@@ -1600,8 +1767,16 @@ power:98,
 defense:82,
 speed:80,
 intelligence:97,
-moves:["Hex Bolt","Chaos Wave","Probability Twist","Crimson Surge"],
-traits:["reality manipulation","danger increases under pressure"]
+moves:[
+"Hex Bolt",
+"Chaos Wave",
+"Probability Twist",
+"Crimson Surge"
+],
+traits:[
+"reality manipulation",
+"danger increases under pressure"
+]
 },
 
 {
@@ -1612,8 +1787,16 @@ power:94,
 defense:91,
 speed:90,
 intelligence:95,
-moves:["Mind Stone Beam","Density Shift","Solar Burst","Phasing Strike"],
-traits:["can phase","highly analytical"]
+moves:[
+"Mind Stone Beam",
+"Density Shift",
+"Solar Burst",
+"Phasing Strike"
+],
+traits:[
+"can phase",
+"highly analytical"
+]
 },
 
 {
@@ -1624,8 +1807,16 @@ power:77,
 defense:75,
 speed:89,
 intelligence:89,
-moves:["Size Shift","Giant Punch","Micro Ambush","Giant Stomp"],
-traits:["size manipulation","difficult to target"]
+moves:[
+"Size Shift",
+"Giant Punch",
+"Micro Ambush",
+"Giant Stomp"
+],
+traits:[
+"size manipulation",
+"difficult to target"
+]
 },
 
 {
@@ -1636,8 +1827,16 @@ power:85,
 defense:90,
 speed:67,
 intelligence:72,
-moves:["Branch Snare","Root Crush","Regrowth","Timber Slam"],
-traits:["regeneration","protective instincts"]
+moves:[
+"Branch Snare",
+"Root Crush",
+"Regrowth",
+"Timber Slam"
+],
+traits:[
+"regeneration",
+"protective instincts"
+]
 },
 
 {
@@ -1648,8 +1847,16 @@ power:84,
 defense:82,
 speed:95,
 intelligence:84,
-moves:["Godslayer Slash","Acrobatic Strike","Blade Feint","Execution Rush"],
-traits:["elite assassin","fast reactions"]
+moves:[
+"Godslayer Slash",
+"Acrobatic Strike",
+"Blade Feint",
+"Execution Rush"
+],
+traits:[
+"elite assassin",
+"fast reactions"
+]
 },
 
 {
@@ -1660,8 +1867,16 @@ power:98,
 defense:94,
 speed:86,
 intelligence:90,
-moves:["Necrosword Barrage","Blade Rain","Soul Pierce","Asgardian Surge"],
-traits:["weapon generation","exceptional endurance"]
+moves:[
+"Necrosword Barrage",
+"Blade Rain",
+"Soul Pierce",
+"Asgardian Surge"
+],
+traits:[
+"weapon generation",
+"exceptional endurance"
+]
 },
 
 {
@@ -1672,8 +1887,16 @@ power:96,
 defense:95,
 speed:83,
 intelligence:82,
-moves:["Hellfire Chain","Penance Stare","Hellfire Blast","Chain Drag"],
-traits:["hellfire","punishes aggression"]
+moves:[
+"Hellfire Chain",
+"Penance Stare",
+"Hellfire Blast",
+"Chain Drag"
+],
+traits:[
+"hellfire",
+"punishes aggression"
+]
 },
 
 {
@@ -1684,8 +1907,16 @@ power:75,
 defense:68,
 speed:91,
 intelligence:94,
-moves:["Heavy Blaster","Trap Mine","Explosive Volley","Jetpack Dash"],
-traits:["engineering genius","creative gadget use"]
+moves:[
+"Heavy Blaster",
+"Trap Mine",
+"Explosive Volley",
+"Jetpack Dash"
+],
+traits:[
+"engineering genius",
+"creative gadget use"
+]
 },
 
 /* DC */
@@ -1698,8 +1929,16 @@ power:100,
 defense:99,
 speed:96,
 intelligence:90,
-moves:["Heat Vision","Super Breath","Kryptonian Charge","Solar Overdrive"],
-traits:["extreme speed","solar-powered strength"]
+moves:[
+"Heat Vision",
+"Super Breath",
+"Kryptonian Charge",
+"Solar Overdrive"
+],
+traits:[
+"extreme speed",
+"solar-powered strength"
+]
 },
 
 {
@@ -1710,8 +1949,16 @@ power:82,
 defense:78,
 speed:88,
 intelligence:99,
-moves:["Batarang Burst","Grapnel Strike","Smoke Screen","Counter Protocol"],
-traits:["preparation","reads combat patterns"]
+moves:[
+"Batarang Burst",
+"Grapnel Strike",
+"Smoke Screen",
+"Counter Protocol"
+],
+traits:[
+"preparation",
+"reads combat patterns"
+]
 },
 
 {
@@ -1722,8 +1969,16 @@ power:98,
 defense:96,
 speed:94,
 intelligence:91,
-moves:["Lasso Bind","Bracelet Deflection","Amazon Rush","Godkiller Strike"],
-traits:["elite warrior","exceptional durability"]
+moves:[
+"Lasso Bind",
+"Bracelet Deflection",
+"Amazon Rush",
+"Godkiller Strike"
+],
+traits:[
+"elite warrior",
+"exceptional durability"
+]
 },
 
 {
@@ -1734,8 +1989,16 @@ power:95,
 defense:82,
 speed:100,
 intelligence:94,
-moves:["Speed Blitz","Infinite Mass Punch","Rapid Disarm","Time-Step"],
-traits:["extreme speed","overwhelms slower opponents"]
+moves:[
+"Speed Blitz",
+"Infinite Mass Punch",
+"Rapid Disarm",
+"Time-Step"
+],
+traits:[
+"extreme speed",
+"overwhelms slower opponents"
+]
 },
 
 {
@@ -1746,8 +2009,16 @@ power:93,
 defense:89,
 speed:88,
 intelligence:94,
-moves:["Construct Hammer","Energy Cage","Lantern Beam","Emerald Fortress"],
-traits:["versatile constructs","strong willpower"]
+moves:[
+"Construct Hammer",
+"Energy Cage",
+"Lantern Beam",
+"Emerald Fortress"
+],
+traits:[
+"versatile constructs",
+"strong willpower"
+]
 },
 
 {
@@ -1758,8 +2029,16 @@ power:87,
 defense:88,
 speed:82,
 intelligence:80,
-moves:["Trident Strike","Tidal Crash","Atlantean Charge","Sea Command"],
-traits:["elite strength","benefits from water"]
+moves:[
+"Trident Strike",
+"Tidal Crash",
+"Atlantean Charge",
+"Sea Command"
+],
+traits:[
+"elite strength",
+"benefits from water"
+]
 },
 
 {
@@ -1770,8 +2049,16 @@ power:89,
 defense:86,
 speed:82,
 intelligence:96,
-moves:["Sonic Cannon","Plasma Burst","Tech Override","Mother Box Surge"],
-traits:["hacks technology","adaptive systems"]
+moves:[
+"Sonic Cannon",
+"Plasma Burst",
+"Tech Override",
+"Mother Box Surge"
+],
+traits:[
+"hacks technology",
+"adaptive systems"
+]
 },
 
 {
@@ -1782,8 +2069,16 @@ power:97,
 defense:92,
 speed:91,
 intelligence:95,
-moves:["Telepathic Assault","Phase Strike","Martian Strength","Shapeshift Feint"],
-traits:["telepathy","intangibility"]
+moves:[
+"Telepathic Assault",
+"Phase Strike",
+"Martian Strength",
+"Shapeshift Feint"
+],
+traits:[
+"telepathy",
+"intangibility"
+]
 },
 
 {
@@ -1794,8 +2089,16 @@ power:96,
 defense:94,
 speed:91,
 intelligence:80,
-moves:["Living Lightning","Thunderclap","Magic Punch","Shazam Surge"],
-traits:["magic power","high durability"]
+moves:[
+"Living Lightning",
+"Thunderclap",
+"Magic Punch",
+"Shazam Surge"
+],
+traits:[
+"magic power",
+"high durability"
+]
 },
 
 {
@@ -1806,8 +2109,16 @@ power:98,
 defense:95,
 speed:94,
 intelligence:84,
-moves:["Electro Bolt","Adamantine Strike","Lightning Rush","Black Adam Fury"],
-traits:["ancient magic","extremely aggressive"]
+moves:[
+"Electro Bolt",
+"Adamantine Strike",
+"Lightning Rush",
+"Black Adam Fury"
+],
+traits:[
+"ancient magic",
+"extremely aggressive"
+]
 },
 
 {
@@ -1818,8 +2129,16 @@ power:77,
 defense:72,
 speed:91,
 intelligence:90,
-moves:["Trick Arrow","Explosive Arrow","Grapnel Shot","Precision Volley"],
-traits:["perfect accuracy","specialized arrows"]
+moves:[
+"Trick Arrow",
+"Explosive Arrow",
+"Grapnel Shot",
+"Precision Volley"
+],
+traits:[
+"perfect accuracy",
+"specialized arrows"
+]
 },
 
 {
@@ -1830,8 +2149,16 @@ power:87,
 defense:84,
 speed:96,
 intelligence:93,
-moves:["Promethium Strike","Tactical Volley","Sword Counter","Adrenal Overdrive"],
-traits:["combat mastery","enhanced reflexes"]
+moves:[
+"Promethium Strike",
+"Tactical Volley",
+"Sword Counter",
+"Adrenal Overdrive"
+],
+traits:[
+"combat mastery",
+"enhanced reflexes"
+]
 },
 
 {
@@ -1842,8 +2169,16 @@ power:94,
 defense:87,
 speed:82,
 intelligence:96,
-moves:["Soul-Self Strike","Shadow Bind","Dark Energy Wave","Soul Drain"],
-traits:["soul-self","emotional power spikes"]
+moves:[
+"Soul-Self Strike",
+"Shadow Bind",
+"Dark Energy Wave",
+"Soul Drain"
+],
+traits:[
+"soul-self",
+"emotional power spikes"
+]
 },
 
 {
@@ -1854,8 +2189,16 @@ power:91,
 defense:89,
 speed:89,
 intelligence:80,
-moves:["Starbolt","Solar Burst","Energy Rush","Starfire Barrage"],
-traits:["energy projection","flight"]
+moves:[
+"Starbolt",
+"Solar Burst",
+"Energy Rush",
+"Starfire Barrage"
+],
+traits:[
+"energy projection",
+"flight"
+]
 },
 
 {
@@ -1866,8 +2209,16 @@ power:83,
 defense:80,
 speed:86,
 intelligence:78,
-moves:["Tiger Pounce","Rhino Charge","Falcon Dive","T-Rex Smash"],
-traits:["animal versatility","unpredictable forms"]
+moves:[
+"Tiger Pounce",
+"Rhino Charge",
+"Falcon Dive",
+"T-Rex Smash"
+],
+traits:[
+"animal versatility",
+"unpredictable forms"
+]
 },
 
 {
@@ -1878,8 +2229,16 @@ power:81,
 defense:79,
 speed:97,
 intelligence:92,
-moves:["Escrima Flurry","Wingdings","Acrobat Counter","Electric Strike"],
-traits:["elite acrobat","team coordination"]
+moves:[
+"Escrima Flurry",
+"Wingdings",
+"Acrobat Counter",
+"Electric Strike"
+],
+traits:[
+"elite acrobat",
+"team coordination"
+]
 },
 
 {
@@ -1890,8 +2249,16 @@ power:72,
 defense:67,
 speed:88,
 intelligence:76,
-moves:["Hammer Swing","Acrobat Feint","Jack-in-the-Box","Wildcard Assault"],
-traits:["unpredictable","improvises constantly"]
+moves:[
+"Hammer Swing",
+"Acrobat Feint",
+"Jack-in-the-Box",
+"Wildcard Assault"
+],
+traits:[
+"unpredictable",
+"improvises constantly"
+]
 },
 
 {
@@ -1902,8 +2269,16 @@ power:87,
 defense:89,
 speed:75,
 intelligence:80,
-moves:["Venom Smash","Ground Slam","Bone Breaker","Venom Overdrive"],
-traits:["strength amplification","close combat"]
+moves:[
+"Venom Smash",
+"Ground Slam",
+"Bone Breaker",
+"Venom Overdrive"
+],
+traits:[
+"strength amplification",
+"close combat"
+]
 },
 
 {
@@ -1914,8 +2289,16 @@ power:87,
 defense:80,
 speed:72,
 intelligence:91,
-moves:["Vine Snare","Thorn Barrage","Toxic Pollen","Greenhouse Surge"],
-traits:["plant control","terrain manipulation"]
+moves:[
+"Vine Snare",
+"Thorn Barrage",
+"Toxic Pollen",
+"Greenhouse Surge"
+],
+traits:[
+"plant control",
+"terrain manipulation"
+]
 },
 
 {
@@ -1926,8 +2309,16 @@ power:82,
 defense:81,
 speed:68,
 intelligence:92,
-moves:["Freeze Ray","Cryo Grenade","Ice Wall","Absolute Zero"],
-traits:["freezing technology","controls movement"]
+moves:[
+"Freeze Ray",
+"Cryo Grenade",
+"Ice Wall",
+"Absolute Zero"
+],
+traits:[
+"freezing technology",
+"controls movement"
+]
 },
 
 {
@@ -1938,8 +2329,16 @@ power:94,
 defense:81,
 speed:84,
 intelligence:97,
-moves:["Binding Spell","Reverse Force","Arcane Burst","Reality Phrase"],
-traits:["versatile magic","requires concentration"]
+moves:[
+"Binding Spell",
+"Reverse Force",
+"Arcane Burst",
+"Reality Phrase"
+],
+traits:[
+"versatile magic",
+"requires concentration"
+]
 },
 
 {
@@ -1950,8 +2349,16 @@ power:83,
 defense:74,
 speed:80,
 intelligence:98,
-moves:["Hellfire Sigil","Binding Ward","Hex Reversal","Occult Gambit"],
-traits:["occult knowledge","deception"]
+moves:[
+"Hellfire Sigil",
+"Binding Ward",
+"Hex Reversal",
+"Occult Gambit"
+],
+traits:[
+"occult knowledge",
+"deception"
+]
 },
 
 {
@@ -1962,8 +2369,16 @@ power:100,
 defense:100,
 speed:76,
 intelligence:63,
-moves:["Doomsday Smash","Spiked Charge","Shockwave","Evolutionary Rage"],
-traits:["adapts to damage","near-unstoppable endurance"]
+moves:[
+"Doomsday Smash",
+"Spiked Charge",
+"Shockwave",
+"Evolutionary Rage"
+],
+traits:[
+"adapts to damage",
+"near-unstoppable endurance"
+]
 },
 
 {
@@ -1974,8 +2389,16 @@ power:100,
 defense:99,
 speed:87,
 intelligence:97,
-moves:["Omega Beams","Apokoliptian Strike","Omega Cage","Darkseid's Wrath"],
-traits:["omega effect","overwhelming presence"]
+moves:[
+"Omega Beams",
+"Apokoliptian Strike",
+"Omega Cage",
+"Darkseid's Wrath"
+],
+traits:[
+"omega effect",
+"overwhelming presence"
+]
 },
 
 {
@@ -1986,8 +2409,16 @@ power:88,
 defense:84,
 speed:80,
 intelligence:99,
-moves:["Kryptonite Lance","Warsuit Cannon","Energy Barrier","Lex Protocol"],
-traits:["strategic genius","counter-technology"]
+moves:[
+"Kryptonite Lance",
+"Warsuit Cannon",
+"Energy Barrier",
+"Lex Protocol"
+],
+traits:[
+"strategic genius",
+"counter-technology"
+]
 },
 
 {
@@ -1998,8 +2429,16 @@ power:80,
 defense:74,
 speed:92,
 intelligence:87,
-moves:["Canary Cry","Sonic Burst","Counter Kick","Cry Overload"],
-traits:["sonic attacks","elite martial artist"]
+moves:[
+"Canary Cry",
+"Sonic Burst",
+"Counter Kick",
+"Cry Overload"
+],
+traits:[
+"sonic attacks",
+"elite martial artist"
+]
 },
 
 {
@@ -2010,8 +2449,16 @@ power:78,
 defense:74,
 speed:94,
 intelligence:94,
-moves:["Batarang Strike","Grapnel Kick","Shock Gauntlet","Tactical Counter"],
-traits:["martial arts","detective skills"]
+moves:[
+"Batarang Strike",
+"Grapnel Kick",
+"Shock Gauntlet",
+"Tactical Counter"
+],
+traits:[
+"martial arts",
+"detective skills"
+]
 },
 
 {
@@ -2022,8 +2469,16 @@ power:81,
 defense:77,
 speed:91,
 intelligence:87,
-moves:["Dual Pistols","Explosive Round","Crowbar Feint","Gunslinger Rush"],
-traits:["tactical fighter","ranged pressure"]
+moves:[
+"Dual Pistols",
+"Explosive Round",
+"Crowbar Feint",
+"Gunslinger Rush"
+],
+traits:[
+"tactical fighter",
+"ranged pressure"
+]
 },
 
 {
@@ -2034,8 +2489,16 @@ power:97,
 defense:95,
 speed:94,
 intelligence:88,
-moves:["Heat Vision","Kryptonian Rush","Solar Flare","Supergirl Smash"],
-traits:["Kryptonian abilities","fast aerial combat"]
+moves:[
+"Heat Vision",
+"Kryptonian Rush",
+"Solar Flare",
+"Supergirl Smash"
+],
+traits:[
+"Kryptonian abilities",
+"fast aerial combat"
+]
 },
 
 {
@@ -2046,8 +2509,16 @@ power:96,
 defense:94,
 speed:90,
 intelligence:86,
-moves:["Heat Vision","Power Dive","Kryptonian Strike","Solar Burst"],
-traits:["durability","heavy hitter"]
+moves:[
+"Heat Vision",
+"Power Dive",
+"Kryptonian Strike",
+"Solar Burst"
+],
+traits:[
+"durability",
+"heavy hitter"
+]
 },
 
 {
@@ -2058,8 +2529,16 @@ power:86,
 defense:83,
 speed:87,
 intelligence:91,
-moves:["Scarabsword","Plasma Cannon","Armor Shield","Scarab Overdrive"],
-traits:["adaptive armor","creates weapons"]
+moves:[
+"Scarabsword",
+"Plasma Cannon",
+"Armor Shield",
+"Scarab Overdrive"
+],
+traits:[
+"adaptive armor",
+"creates weapons"
+]
 },
 
 {
@@ -2070,8 +2549,16 @@ power:82,
 defense:75,
 speed:90,
 intelligence:89,
-moves:["Static Shock","Electromagnetic Burst","Rail Launch","Voltage Surge"],
-traits:["electromagnetism","mobility"]
+moves:[
+"Static Shock",
+"Electromagnetic Burst",
+"Rail Launch",
+"Voltage Surge"
+],
+traits:[
+"electromagnetism",
+"mobility"
+]
 },
 
 {
@@ -2082,8 +2569,16 @@ power:93,
 defense:92,
 speed:70,
 intelligence:85,
-moves:["Vine Crush","Green Regrowth","Elemental Surge","Swamp Avatar"],
-traits:["regeneration","plant connection"]
+moves:[
+"Vine Crush",
+"Green Regrowth",
+"Elemental Surge",
+"Swamp Avatar"
+],
+traits:[
+"regeneration",
+"plant connection"
+]
 },
 
 {
@@ -2094,8 +2589,16 @@ power:92,
 defense:90,
 speed:83,
 intelligence:84,
-moves:["Demon Flame","Hellblade","Infernal Roar","Demonic Charge"],
-traits:["demonic strength","hellfire"]
+moves:[
+"Demon Flame",
+"Hellblade",
+"Infernal Roar",
+"Demonic Charge"
+],
+traits:[
+"demonic strength",
+"hellfire"
+]
 },
 
 {
@@ -2106,8 +2609,16 @@ power:84,
 defense:91,
 speed:64,
 intelligence:55,
-moves:["Grundy Smash","Graveyard Charge","Undying Blow","Monster Roar"],
-traits:["resurrection","brute strength"]
+moves:[
+"Grundy Smash",
+"Graveyard Charge",
+"Undying Blow",
+"Monster Roar"
+],
+traits:[
+"resurrection",
+"brute strength"
+]
 },
 
 {
@@ -2118,8 +2629,16 @@ power:83,
 defense:76,
 speed:98,
 intelligence:81,
-moves:["Claw Rush","Predator Pounce","Feral Counter","Cheetah Frenzy"],
-traits:["extreme agility","predatory instincts"]
+moves:[
+"Claw Rush",
+"Predator Pounce",
+"Feral Counter",
+"Cheetah Frenzy"
+],
+traits:[
+"extreme agility",
+"predatory instincts"
+]
 },
 
 {
@@ -2130,8 +2649,16 @@ power:94,
 defense:89,
 speed:86,
 intelligence:97,
-moves:["Fear Construct","Yellow Beam","Terror Cage","Sinestro Corps Surge"],
-traits:["fear constructs","strategic intellect"]
+moves:[
+"Fear Construct",
+"Yellow Beam",
+"Terror Cage",
+"Sinestro Corps Surge"
+],
+traits:[
+"fear constructs",
+"strategic intellect"
+]
 },
 
 {
@@ -2142,8 +2669,16 @@ power:87,
 defense:84,
 speed:85,
 intelligence:90,
-moves:["Water Blade","Hydro Spear","Pressure Crush","Tidal Prison"],
-traits:["hydrokinesis","excellent control"]
+moves:[
+"Water Blade",
+"Hydro Spear",
+"Pressure Crush",
+"Tidal Prison"
+],
+traits:[
+"hydrokinesis",
+"excellent control"
+]
 },
 
 {
@@ -2154,8 +2689,16 @@ power:79,
 defense:73,
 speed:91,
 intelligence:96,
-moves:["Micro Strike","Atomic Sabotage","Giant Growth","Quantum Feint"],
-traits:["size manipulation","scientific expertise"]
+moves:[
+"Micro Strike",
+"Atomic Sabotage",
+"Giant Growth",
+"Quantum Feint"
+],
+traits:[
+"size manipulation",
+"scientific expertise"
+]
 },
 
 {
@@ -2166,8 +2709,16 @@ power:81,
 defense:78,
 speed:90,
 intelligence:83,
-moves:["Panther Rush","Eagle Dive","Rhino Charge","Predator Instinct"],
-traits:["animal powers","adaptive combat"]
+moves:[
+"Panther Rush",
+"Eagle Dive",
+"Rhino Charge",
+"Predator Instinct"
+],
+traits:[
+"animal powers",
+"adaptive combat"
+]
 }
 
 ];
@@ -2177,16 +2728,12 @@ traits:["animal powers","adaptive combat"]
    GAME STATE
 ========================================================= */
 
-let generatedPool = [];
-
-let team1 = [];
-let team2 = [];
-
-let draftTurn = 1;
-
-let spinning = false;
-
-let battleRunning = false;
+let pool=[];
+let team1=[];
+let team2=[];
+let draftTurn=1;
+let spinning=false;
+let battleRunning=false;
 
 
 /* =========================================================
@@ -2203,7 +2750,6 @@ function random(array){
 
 }
 
-
 function findCharacter(name){
 
     return characters.find(
@@ -2211,7 +2757,6 @@ function findCharacter(name){
     );
 
 }
-
 
 function initials(name){
 
@@ -2225,53 +2770,35 @@ function initials(name){
 
 
 /* =========================================================
-   GENERATE EXACTLY 10
+   GENERATE 10
 ========================================================= */
 
-function generate10(){
+function generatePool(){
 
-    if(battleRunning){
-        return;
-    }
-
-    const universe =
+    const universe=
         document.getElementById("universe").value;
 
-    let available =
+    let available=
         characters.filter(c=>{
 
-            if(universe==="Marvel + DC"){
+            if(universe==="Marvel + DC")
                 return true;
-            }
 
             return c.universe===universe;
 
         });
 
-    /*
-        IMPORTANT:
-
-        ONLY 10 are copied into generatedPool.
-
-        The rest of the database remains hidden.
-    */
-
-    generatedPool =
-        [...available]
-        .sort(
-            ()=>Math.random()-.5
-        )
+    pool=
+        available
+        .sort(()=>Math.random()-.5)
         .slice(0,10);
 
     team1=[];
     team2=[];
-
     draftTurn=1;
 
     renderPool();
     renderTeams();
-
-    updateDraftIndicator();
 
     document.getElementById(
         "battleStatus"
@@ -2284,22 +2811,18 @@ function generate10(){
         <div class="round-card">
 
             <div class="round-heading">
-                GENERATE 10 // COMPLETE
+                DRAFT PROTOCOL INITIALIZED
             </div>
 
-            Ten combatants have been randomly
-            selected from the active database.
+            Ten combatants have been selected
+            from the active database.
 
-            The complete database is hidden.
+            Team Alpha has first selection.
 
-            Only these ten combatants are available
-            for this draft.
-
-            <br><br>
-
-            <strong>
-                TEAM ALPHA HAS FIRST PICK.
-            </strong>
+            The two teams will alternate picks
+            until the available board has been exhausted
+            or both teams have reached their selected
+            combat size.
 
         </div>
 
@@ -2309,43 +2832,28 @@ function generate10(){
 
 
 /* =========================================================
-   SHOW ONLY THE 10
+   RENDER POOL
 ========================================================= */
 
 function renderPool(){
 
-    const element =
+    const element=
         document.getElementById("pool");
 
-    if(generatedPool.length===0){
+    element.innerHTML=
+        pool.map((c,index)=>{
 
-        element.innerHTML="";
-
-        document.getElementById(
-            "draftStatus"
-        ).textContent=
-            "PRESS GENERATE 10";
-
-        return;
-    }
-
-    element.innerHTML =
-        generatedPool
-        .map((c,index)=>{
-
-            const selected =
+            const selected=
                 team1.includes(c.name) ||
                 team2.includes(c.name);
 
             let owner="";
 
-            if(team1.includes(c.name)){
+            if(team1.includes(c.name))
                 owner="ALPHA";
-            }
 
-            if(team2.includes(c.name)){
+            if(team2.includes(c.name))
                 owner="OMEGA";
-            }
 
             return `
 
@@ -2355,84 +2863,60 @@ function renderPool(){
                     onclick="draftCharacter(${index})">
 
                     <div class="character-name">
-
                         ${c.name}
-
                     </div>
 
                     <div class="character-info">
-
                         ${c.universe}
                         //
                         POWER ${c.power}
-
                     </div>
 
                     <div class="pick-label">
-
                         ${owner}
-
                     </div>
 
                 </div>
 
             `;
 
-        })
-        .join("");
+        }).join("");
 
     document.getElementById(
         "draftStatus"
-    ).textContent =
-        generatedPool.length>0
-        ?
-        `AVAILABLE // ${generatedPool.length}`
-        :
-        "DRAFT COMPLETE";
+    ).textContent=
+        pool.length?
+        `NEXT PICK // TEAM ${draftTurn===1?"ALPHA":"OMEGA"}`:
+        "BOARD EMPTY";
 
 }
 
 
 /* =========================================================
-   ALTERNATING DRAFT
+   DRAFT
 ========================================================= */
 
 function draftCharacter(index){
 
-    if(battleRunning){
-        return;
-    }
+    if(battleRunning)return;
 
-    if(generatedPool.length===0){
-        return;
-    }
+    const character=pool[index];
 
-    const character =
-        generatedPool[index];
+    if(!character)return;
 
-    if(!character){
-        return;
-    }
-
-    const teamSize =
+    const size=
         Number(
             document.getElementById(
                 "teamSize"
             ).value
         );
 
-    const targetTeam =
-        draftTurn===1
-        ?
-        team1
-        :
+    const target=
+        draftTurn===1?
+        team1:
         team2;
 
-    /*
-        Team cannot exceed selected team size.
-    */
-
-    if(targetTeam.length >= teamSize){
+    if(target.length>=size){
 
         alert(
             `Team ${draftTurn===1?"Alpha":"Omega"} is full.`
@@ -2441,126 +2925,17 @@ function draftCharacter(index){
         return;
     }
 
-    /*
-        MOVE CHARACTER FROM THE 10
-        INTO THE TEAM.
-    */
+    target.push(character.name);
 
-    targetTeam.push(
-        character.name
-    );
+    pool.splice(index,1);
 
-    generatedPool.splice(
-        index,
-        1
-    );
-
-    /*
-        IMPORTANT:
-
-        THE TURN ALWAYS ALTERNATES
-        AFTER EVERY PICK.
-    */
-
-    draftTurn =
-        draftTurn===1
-        ?
-        2
-        :
+    draftTurn=
+        draftTurn===1?
+        2:
         1;
 
     renderPool();
     renderTeams();
-    updateDraftIndicator();
-
-}
-
-
-/* =========================================================
-   DRAFT STATUS
-========================================================= */
-
-function updateDraftIndicator(){
-
-    const indicator =
-        document.getElementById(
-            "draftIndicator"
-        );
-
-    if(generatedPool.length===0){
-
-        if(team1.length===0 &&
-           team2.length===0){
-
-            indicator.className=
-                "draft-indicator";
-
-            indicator.textContent=
-                "GENERATE 10 COMBATANTS TO BEGIN";
-
-        }else{
-
-            indicator.className=
-                "draft-indicator complete";
-
-            indicator.textContent=
-                "DRAFT COMPLETE // NO COMBATANTS REMAIN";
-
-        }
-
-        return;
-    }
-
-    const teamSize =
-        Number(
-            document.getElementById(
-                "teamSize"
-            ).value
-        );
-
-    if(
-        team1.length>=teamSize &&
-        team2.length>=teamSize
-    ){
-
-        indicator.className=
-            "draft-indicator complete";
-
-        indicator.textContent=
-            "TEAMS COMPLETE";
-
-        return;
-    }
-
-    if(team1.length>=teamSize){
-
-        draftTurn=2;
-
-    }
-
-    if(team2.length>=teamSize){
-
-        draftTurn=1;
-
-    }
-
-    if(draftTurn===1){
-
-        indicator.className=
-            "draft-indicator alpha-turn";
-
-        indicator.textContent=
-            "⚡ TEAM ALPHA // SELECT ONE";
-
-    }else{
-
-        indicator.className=
-            "draft-indicator omega-turn";
-
-        indicator.textContent=
-            "🔴 TEAM OMEGA // SELECT ONE";
-
-    }
 
 }
 
@@ -2571,42 +2946,30 @@ function updateDraftIndicator(){
 
 function renderTeams(){
 
-    const size =
+    const size=
         Number(
             document.getElementById(
                 "teamSize"
             ).value
         );
 
-    for(
-        let team=1;
-        team<=2;
-        team++
-    ){
+    for(let team=1;team<=2;team++){
 
-        const list =
-            team===1
-            ?
-            team1
-            :
+        const list=
+            team===1?
+            team1:
             team2;
 
-        const element =
+        const element=
             document.getElementById(
-                team===1
-                ?
-                "team1"
-                :
+                team===1?
+                "team1":
                 "team2"
             );
 
         element.innerHTML="";
 
-        for(
-            let i=0;
-            i<size;
-            i++
-        ){
+        for(let i=0;i<size;i++){
 
             const name=list[i];
 
@@ -2634,7 +2997,7 @@ function renderTeams(){
                 continue;
             }
 
-            const c =
+            const c=
                 findCharacter(name);
 
             element.innerHTML+=`
@@ -2652,9 +3015,7 @@ function renderTeams(){
                     </div>
 
                     <div class="slot-name">
-
                         ${c.name}
-
                     </div>
 
                 </div>
@@ -2669,7 +3030,7 @@ function renderTeams(){
 
 
 /* =========================================================
-   WHEEL MODE
+   WHEEL
 ========================================================= */
 
 function openWheel(){
@@ -2684,7 +3045,6 @@ function openWheel(){
 
 }
 
-
 function closeWheel(){
 
     document.getElementById(
@@ -2693,55 +3053,42 @@ function closeWheel(){
 
 }
 
-
 function spinWheel(){
 
-    if(spinning){
-        return;
-    }
+    if(spinning)return;
 
-    /*
-        ONE AT A TIME MODE USES THE
-        CURRENT GENERATED 10.
-
-        It does NOT show the whole database.
-    */
-
-    if(generatedPool.length===0){
+    if(pool.length===0){
 
         document.getElementById(
             "wheelResult"
         ).textContent=
-            "PRESS GENERATE 10 FIRST.";
+            "GENERATE A COMBAT POOL FIRST.";
 
         return;
     }
 
     spinning=true;
 
-    const wheel =
+    const wheel=
         document.getElementById(
             "wheel"
         );
 
-    wheel.style.transform =
-        `rotate(${
-            1440+
-            Math.random()*720
-        }deg)`;
+    wheel.style.transform=
+        `rotate(${1440+
+        Math.random()*720}deg)`;
 
     setTimeout(()=>{
 
-        const character =
-            random(generatedPool);
+        const character=random(pool);
 
         document.getElementById(
             "wheelResult"
-        ).textContent =
+        ).textContent=
             `SELECTED // ${character.name}`;
 
-        const index =
-            generatedPool.findIndex(
+        const index=
+            pool.findIndex(
                 c=>c.name===character.name
             );
 
@@ -2766,64 +3113,49 @@ function spinWheel(){
 
 function createUnit(name,team){
 
-    const c =
-        findCharacter(name);
+    const c=findCharacter(name);
 
-    const mode =
+    const mode=
         document.getElementById(
             "powerMode"
         ).value;
 
     let power=c.power;
-
     let defense=c.defense;
 
     if(mode==="Amped"){
 
         power*=1.2;
-
         defense*=1.15;
 
     }
 
     if(mode==="Mixed"){
 
-        if(Math.random()<.5){
-
+        if(Math.random()<.5)
             power*=1.2;
-
-        }else{
-
+        else
             defense*=1.15;
-
-        }
 
     }
 
     return{
 
         name:c.name,
-
         team,
-
         hp:100,
-
         maxHp:100,
 
         power,
-
         defense,
 
         speed:c.speed,
-
         intelligence:c.intelligence,
 
         moves:c.moves,
-
         traits:c.traits,
 
         eliminated:false,
-
         lastMove:null
 
     };
@@ -2837,7 +3169,7 @@ function createUnit(name,team){
 
 function startBattle(){
 
-    const size =
+    const size=
         Number(
             document.getElementById(
                 "teamSize"
@@ -2857,9 +3189,7 @@ function startBattle(){
 
     }
 
-    if(battleRunning){
-        return;
-    }
+    if(battleRunning)return;
 
     battleRunning=true;
 
@@ -2886,7 +3216,7 @@ function startBattle(){
 
     renderHealth(units);
 
-    const battlefield =
+    const battlefield=
         document.getElementById(
             "battlefield"
         ).value;
@@ -2899,13 +3229,21 @@ function startBattle(){
                 COMBAT SIMULATION // INITIALIZATION
             </div>
 
-            The battlefield settles into silence
-            as both teams take their positions.
+            The battlefield settles into silence as
+            both teams take their positions.
 
-            The environment surrounding them is
-            the <strong>${battlefield}</strong>.
+            The environment surrounding them is the
+            <strong>${battlefield}</strong>.
 
-            The simulation is now active.
+            Every combatant understands the central rule
+            of the engagement:
+
+            this battle does not end with a lucky exchange
+            or a temporary advantage.
+
+            One entire team must be eliminated.
+
+            The tactical system is now active.
 
         </div>
 
@@ -2925,12 +3263,12 @@ function startBattle(){
 
 function runRound(units,round){
 
-    const alive1 =
+    const alive1=
         units.filter(
             u=>u.team===1&&!u.eliminated
         );
 
-    const alive2 =
+    const alive2=
         units.filter(
             u=>u.team===2&&!u.eliminated
         );
@@ -2941,11 +3279,10 @@ function runRound(units,round){
     ){
 
         finishBattle(
-            alive1.length>0
-            ?
-            1
-            :
+            alive1.length>0?
+            1:
             2,
+
             units,
             round
         );
@@ -2954,7 +3291,7 @@ function runRound(units,round){
 
     }
 
-    const battlefield =
+    const battlefield=
         document.getElementById(
             "battlefield"
         ).value;
@@ -2964,10 +3301,7 @@ function runRound(units,round){
         <div class="round-card">
 
             <div class="round-heading">
-
-                ROUND ${round}
-                // ENGAGEMENT PHASE
-
+                ROUND ${round} // ENGAGEMENT PHASE
             </div>
 
             The surviving combatants spread across
@@ -2975,11 +3309,16 @@ function runRound(units,round){
             according to everything they have learned
             during the previous exchanges.
 
+            The battle has moved beyond simple attacks.
+
+            Positioning, timing, durability and target
+            selection now determine who remains standing.
+
         </div>
 
     `);
 
-    let actors =
+    let actors=
         [...alive1,...alive2]
         .sort(
             (a,b)=>b.speed-a.speed
@@ -3004,7 +3343,7 @@ function runRound(units,round){
             return;
         }
 
-        const attacker =
+        const attacker=
             actors[index++];
 
         if(attacker.eliminated){
@@ -3014,7 +3353,7 @@ function runRound(units,round){
             return;
         }
 
-        const enemies =
+        const enemies=
             units.filter(
                 u=>
                     u.team!==attacker.team &&
@@ -3028,26 +3367,26 @@ function runRound(units,round){
             return;
         }
 
-        const target =
+        const target=
             chooseTarget(
                 attacker,
                 enemies
             );
 
-        const move =
+        const move=
             chooseMove(
                 attacker,
                 target
             );
 
-        const result =
+        const result=
             calculateDamage(
                 attacker,
                 target,
                 move
             );
 
-        const narration =
+        const narration=
             generateNarration(
                 attacker,
                 target,
@@ -3059,7 +3398,7 @@ function runRound(units,round){
 
         if(!result.evaded){
 
-            target.hp =
+            target.hp=
                 Math.max(
                     0,
                     target.hp-result.damage
@@ -3074,7 +3413,6 @@ function runRound(units,round){
         if(target.hp<=0){
 
             target.hp=0;
-
             target.eliminated=true;
 
             addBattleText(`
@@ -3091,6 +3429,15 @@ function runRound(units,round){
                         // ELIMINATED
 
                     </strong>
+
+                    <br><br>
+
+                    ${target.name} can no longer
+                    participate in the engagement.
+
+                    The remaining members of
+                    Team ${target.team===1?"Alpha":"Omega"}
+                    must continue the battle without them.
 
                 </div>
 
@@ -3116,23 +3463,24 @@ function runRound(units,round){
    TARGETING
 ========================================================= */
 
-function chooseTarget(
-    attacker,
-    enemies
-){
+function chooseTarget(attacker,enemies){
 
-    const scored =
+    const scored=
         enemies.map(enemy=>{
 
             let score=0;
 
-            score+=enemy.power*.35;
+            score+=
+                enemy.power*.35;
 
-            score+=enemy.intelligence*.25;
+            score+=
+                enemy.intelligence*.25;
 
-            score+=enemy.speed*.15;
+            score+=
+                enemy.speed*.15;
 
-            score+=enemy.hp*.20;
+            score+=
+                enemy.hp*.20;
 
             return{
 
@@ -3159,10 +3507,7 @@ function chooseTarget(
    MOVE SELECTION
 ========================================================= */
 
-function chooseMove(
-    attacker,
-    target
-){
+function chooseMove(attacker,target){
 
     if(
         target.hp<30 &&
@@ -3221,18 +3566,18 @@ function calculateDamage(
     move
 ){
 
-    let base =
+    let base=
         attacker.power*.46+
         attacker.intelligence*.16+
         attacker.speed*.12;
 
-    let defense =
+    let defense=
         target.defense*.34;
 
-    let damage =
+    let damage=
         base-defense;
 
-    damage *=
+    damage*=
         .78+
         Math.random()*.44;
 
@@ -3248,16 +3593,13 @@ function calculateDamage(
 
     }
 
-    const critical =
+    const critical=
         Math.random()<.13;
 
-    if(critical){
-
+    if(critical)
         damage*=1.35;
 
-    }
-
-    const evaded =
+    const evaded=
         Math.random()<
         Math.max(
             .025,
@@ -3272,7 +3614,6 @@ function calculateDamage(
         ),
 
         critical,
-
         evaded
 
     };
@@ -3281,7 +3622,7 @@ function calculateDamage(
 
 
 /* =========================================================
-   NARRATION
+   STORY NARRATION
 ========================================================= */
 
 function generateNarration(
@@ -3301,8 +3642,9 @@ function generateNarration(
 
         `The battlefield suddenly comes alive as ${attacker.name} breaks formation and closes the distance with ${target.name}.`,
 
-        `With the surrounding combat beginning to collapse into chaos, ${attacker.name} isolates ${target.name} as the immediate priority.`
+        `With the surrounding combat beginning to collapse into chaos, ${attacker.name} isolates ${target.name} as the immediate priority.`,
 
+        `${attacker.name} changes position through the ${battlefield}, deliberately searching for an angle that will force ${target.name} to react.`
     ];
 
     const tactics=[
@@ -3313,8 +3655,31 @@ function generateNarration(
 
         `${attacker.name} uses the terrain to limit the routes available to ${target.name}, turning the battlefield itself into part of the attack.`,
 
-        `The timing is precise. ${attacker.name} waits until ${target.name} commits to the movement before launching the attack.`
+        `The timing is precise. ${attacker.name} waits until ${target.name} commits to the movement before launching the attack.`,
 
+        `Rather than repeating the previous pattern, ${attacker.name} changes the approach entirely, forcing ${target.name} to respond to something unfamiliar.`
+    ];
+
+    const impacts=[
+
+        `${target.name} absorbs the impact and is driven backward across the battlefield.`,
+
+        `The attack connects with enough force to send ${target.name} skidding across the ground before they regain their footing.`,
+
+        `${target.name} remains standing, but the exchange clearly shifts the momentum of the fight.`,
+
+        `The collision tears through the surrounding environment as ${target.name} struggles to stabilize.`,
+
+        `${target.name} manages to survive the initial impact, although their defensive posture has been badly compromised.`
+    ];
+
+    const evasions=[
+
+        `${target.name} reads the movement at the last possible moment and slips outside the center of the attack.`,
+
+        `${target.name}'s superior reaction speed allows them to avoid the worst of the attack.`,
+
+        `${target.name} recognizes the trap and changes direction before the attack can fully connect.`
     ];
 
     let text=`
@@ -3331,8 +3696,6 @@ function generateNarration(
 
             ${random(openings)}
 
-            <br><br>
-
             ${random(tactics)}
 
             <br><br>
@@ -3346,7 +3709,8 @@ function generateNarration(
             <br>
 
             ${attacker.name}
-            executes the technique toward
+            executes the technique with
+            deliberate precision, directing it toward
             ${target.name}.
 
     `;
@@ -3355,8 +3719,12 @@ function generateNarration(
 
         text+=`
 
-            ${target.name} reads the movement
-            and avoids the worst of the attack.
+            ${random(evasions)}
+
+            The attack fails to produce meaningful
+            damage, but the movement forces
+            ${target.name} away from their preferred
+            position.
 
         `;
 
@@ -3364,8 +3732,7 @@ function generateNarration(
 
         text+=`
 
-            The attack connects with force,
-            shifting the momentum of the exchange.
+            ${random(impacts)}
 
         `;
 
@@ -3375,7 +3742,12 @@ function generateNarration(
 
                 The timing is exceptional.
 
-                The attack lands at a critical moment.
+                The attack lands at precisely the
+                moment ${target.name}'s defense is
+                compromised, producing a
+                <span class="impact">
+                    critical impact
+                </span>.
 
             `;
 
@@ -3386,23 +3758,17 @@ function generateNarration(
             <br><br>
 
             <strong>
-
                 ${target.name}
                 loses
                 ${result.damage}%
                 health.
-
             </strong>
 
         `;
 
     }
 
-    text+=`
-
-        </div>
-
-    `;
+    text+=`</div>`;
 
     return text;
 
@@ -3410,25 +3776,21 @@ function generateNarration(
 
 
 /* =========================================================
-   HEALTH
+   HEALTH DISPLAY
 ========================================================= */
 
 function renderHealth(units){
 
-    const panel =
+    const panel=
         document.getElementById(
             "healthPanel"
         );
 
     let html="";
 
-    for(
-        let team=1;
-        team<=2;
-        team++
-    ){
+    for(let team=1;team<=2;team++){
 
-        const teamUnits =
+        const teamUnits=
             units.filter(
                 u=>u.team===team
             );
@@ -3448,7 +3810,7 @@ function renderHealth(units){
 
         teamUnits.forEach(u=>{
 
-            const percent =
+            const percent=
                 Math.max(
                     0,
                     Math.min(
@@ -3457,15 +3819,11 @@ function renderHealth(units){
                     )
                 );
 
-            const cls =
-                u.eliminated
-                ?
-                "dead"
-                :
-                percent<30
-                ?
-                "low"
-                :
+            const cls=
+                u.eliminated?
+                "dead":
+                percent<30?
+                "low":
                 "";
 
             html+=`
@@ -3488,8 +3846,9 @@ function renderHealth(units){
 
                         <div
                             class="health-fill ${cls}"
-                            style="width:${percent}%">
-
+                            style="
+                                width:${percent}%
+                            ">
                         </div>
 
                     </div>
@@ -3515,7 +3874,7 @@ function renderHealth(units){
 
 function addBattleText(html){
 
-    const feed =
+    const feed=
         document.getElementById(
             "battleFeed"
         );
@@ -3525,14 +3884,14 @@ function addBattleText(html){
         html
     );
 
-    feed.scrollTop =
+    feed.scrollTop=
         feed.scrollHeight;
 
 }
 
 
 /* =========================================================
-   FINISH BATTLE
+   BATTLE FINISH
 ========================================================= */
 
 function finishBattle(
@@ -3543,21 +3902,19 @@ function finishBattle(
 
     battleRunning=false;
 
-    const survivors =
+    const survivors=
         units.filter(
             u=>
                 u.team===winningTeam &&
                 !u.eliminated
         );
 
-    const defeatedTeam =
-        winningTeam===1
-        ?
-        2
-        :
+    const defeatedTeam=
+        winningTeam===1?
+        2:
         1;
 
-    const survivorNames =
+    const survivorNames=
         survivors
         .map(u=>u.name)
         .join(", ");
@@ -3591,11 +3948,31 @@ function finishBattle(
 
             <p>
 
-                Remaining combatants:
-
+                The remaining combatants—
                 <strong>
                     ${survivorNames}
+                </strong>—
+                are the only fighters left standing
+                on the battlefield.
+
+            </p>
+
+            <p>
+
+                There is no draw.
+
+                There is no unresolved outcome.
+
+                The opposing roster has been removed
+                from the engagement, making
+                <strong>
+                    Team
+                    ${winningTeam===1?
+                        "Alpha":
+                        "Omega"}
                 </strong>
+
+                the definitive victor.
 
             </p>
 
@@ -3605,7 +3982,7 @@ function finishBattle(
 
     document.getElementById(
         "battleStatus"
-    ).textContent =
+    ).textContent=
         `TEAM ${
             winningTeam===1?
             "ALPHA":
@@ -3623,14 +4000,11 @@ function finishBattle(
 
 function resetSystem(){
 
-    generatedPool=[];
-
+    pool=[];
     team1=[];
-
     team2=[];
 
     draftTurn=1;
-
     battleRunning=false;
 
     document.getElementById(
@@ -3642,17 +4016,7 @@ function resetSystem(){
     document.getElementById(
         "draftStatus"
     ).textContent=
-        "PRESS GENERATE 10";
-
-    document.getElementById(
-        "draftIndicator"
-    ).className=
-        "draft-indicator";
-
-    document.getElementById(
-        "draftIndicator"
-    ).textContent=
-        "GENERATE 10 COMBATANTS TO BEGIN";
+        "SYSTEM STANDBY";
 
     document.getElementById(
         "battleStatus"
@@ -3675,9 +4039,8 @@ function resetSystem(){
 
             All tactical data has been cleared.
 
-            Press
-            <strong>GENERATE 10</strong>
-            to create a new selection.
+            Generate a new combatant pool
+            to begin another simulation.
 
         </div>
 
@@ -3696,58 +4059,19 @@ document
     "change",
     ()=>{
 
-        generatedPool=[];
-
         team1=[];
-
         team2=[];
+        pool=[];
 
         draftTurn=1;
 
         renderTeams();
-
         renderPool();
-
-        updateDraftIndicator();
 
         document.getElementById(
             "draftStatus"
         ).textContent=
-            "PRESS GENERATE 10";
-
-    }
-);
-
-
-/* =========================================================
-   UNIVERSE CHANGE
-========================================================= */
-
-document
-.getElementById("universe")
-.addEventListener(
-    "change",
-    ()=>{
-
-        /*
-            Changing Marvel/DC clears the
-            current 10 so a fresh Generate 10
-            is required.
-        */
-
-        generatedPool=[];
-
-        team1=[];
-
-        team2=[];
-
-        draftTurn=1;
-
-        renderTeams();
-
-        renderPool();
-
-        updateDraftIndicator();
+            "SYSTEM STANDBY";
 
     }
 );
@@ -3759,11 +4083,8 @@ document
 
 renderTeams();
 
-renderPool();
-
-updateDraftIndicator();
-
 </script>
 
 </body>
 </html>
+```
