@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Ultimate Combat Simulator</title>
+<title>ARC BATTLE SIMULATOR</title>
 
 <style>
 * {
@@ -12,263 +12,290 @@
 
 body {
     margin: 0;
-    font-family: Arial, Helvetica, sans-serif;
     background:
-        radial-gradient(circle at top, #20283a 0%, #0b0d13 45%, #050609 100%);
-    color: white;
+        radial-gradient(circle at center, #10252a 0%, #061114 35%, #020607 75%);
+    color: #dffcff;
+    font-family: Arial, Helvetica, sans-serif;
     min-height: 100vh;
+    overflow-x: hidden;
 }
 
-header {
-    padding: 25px;
-    text-align: center;
-    border-bottom: 1px solid #303542;
-    background: rgba(0,0,0,.35);
-}
+/* ARC REACTOR BACKGROUND */
 
-header h1 {
-    margin: 0;
-    font-size: 34px;
-}
-
-header p {
-    margin: 8px 0 0;
-    color: #aeb6c8;
+body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    background:
+        linear-gradient(rgba(0,255,255,.035) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(0,255,255,.035) 1px, transparent 1px);
+    background-size: 40px 40px;
+    z-index: -1;
 }
 
 .container {
-    max-width: 1250px;
+    width: min(1400px, 94%);
     margin: auto;
-    padding: 25px;
+    padding: 25px 0 60px;
 }
 
-.modeButtons {
-    display: flex;
-    gap: 12px;
-    justify-content: center;
+/* HEADER */
+
+.header {
+    text-align: center;
     margin-bottom: 25px;
-    flex-wrap: wrap;
 }
 
-button {
-    border: none;
-    border-radius: 10px;
-    padding: 13px 20px;
-    font-size: 15px;
-    font-weight: bold;
-    cursor: pointer;
-    color: white;
-    background: #283247;
-    transition: .2s;
-}
-
-button:hover {
-    transform: translateY(-2px);
-    filter: brightness(1.15);
-}
-
-button.primary {
-    background: #2563eb;
-}
-
-button.success {
-    background: #16803c;
-}
-
-button.danger {
-    background: #9b2636;
-}
-
-button.gold {
-    background: #a66b08;
-}
-
-.hidden {
-    display: none !important;
-}
-
-.panel {
-    background: rgba(16,19,27,.94);
-    border: 1px solid #303542;
-    border-radius: 15px;
-    padding: 20px;
-    margin-bottom: 20px;
-    box-shadow: 0 10px 35px rgba(0,0,0,.25);
-}
-
-.panel h2 {
-    margin-top: 0;
-}
-
-.info {
-    color: #aeb6c8;
-}
-
-.pickHeader {
+.arc-logo {
+    width: 110px;
+    height: 110px;
+    margin: 0 auto 15px;
+    border-radius: 50%;
+    border: 3px solid #63f7ff;
+    box-shadow:
+        0 0 10px #00eaff,
+        0 0 30px #00eaff,
+        inset 0 0 20px #00eaff;
     display: flex;
-    justify-content: space-between;
     align-items: center;
-    gap: 15px;
-    flex-wrap: wrap;
+    justify-content: center;
+    position: relative;
 }
 
-.currentTeam {
-    font-size: 22px;
-    font-weight: bold;
+.arc-logo::before,
+.arc-logo::after {
+    content: "";
+    position: absolute;
+    border-radius: 50%;
 }
 
-.team1Color {
-    color: #55a7ff;
+.arc-logo::before {
+    width: 72px;
+    height: 72px;
+    border: 3px solid #8fffff;
+    box-shadow: 0 0 15px #00eaff;
 }
 
-.team2Color {
-    color: #ff6666;
+.arc-logo::after {
+    width: 35px;
+    height: 35px;
+    background: #dfffff;
+    box-shadow:
+        0 0 15px #00eaff,
+        0 0 40px #00eaff;
 }
 
-.generatedGrid {
+h1 {
+    margin: 0;
+    font-size: clamp(28px, 5vw, 55px);
+    letter-spacing: 8px;
+    text-shadow: 0 0 15px #00eaff;
+}
+
+.subtitle {
+    color: #71d9df;
+    letter-spacing: 3px;
+    font-size: 13px;
+}
+
+/* CONTROL PANEL */
+
+.hud-panel {
+    border: 1px solid #21cbd5;
+    background: rgba(2, 18, 21, .88);
+    box-shadow:
+        0 0 20px rgba(0,234,255,.15),
+        inset 0 0 25px rgba(0,234,255,.04);
+    padding: 20px;
+    position: relative;
+}
+
+.hud-panel::before {
+    content: "";
+    position: absolute;
+    top: -1px;
+    left: 20px;
+    width: 120px;
+    height: 2px;
+    background: #8fffff;
+    box-shadow: 0 0 10px #00eaff;
+}
+
+.controls {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
-    gap: 14px;
-    margin-top: 18px;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
 }
 
-.combatantCard {
-    background: #151a24;
-    border: 1px solid #343b4a;
-    border-radius: 12px;
+.control-group label {
+    display: block;
+    color: #61e8ef;
+    font-size: 12px;
+    letter-spacing: 2px;
+    margin-bottom: 7px;
+}
+
+select {
+    width: 100%;
+    background: #061316;
+    border: 1px solid #168e98;
+    color: #dffcff;
+    padding: 12px;
+    outline: none;
+}
+
+.generate {
+    margin-top: 18px;
+    width: 100%;
     padding: 16px;
+    border: 1px solid #71faff;
+    background: rgba(0, 205, 220, .12);
+    color: #dfffff;
+    font-size: 16px;
+    font-weight: bold;
+    letter-spacing: 4px;
     cursor: pointer;
+    text-shadow: 0 0 8px #00eaff;
+    box-shadow:
+        0 0 12px rgba(0,234,255,.3),
+        inset 0 0 12px rgba(0,234,255,.08);
     transition: .2s;
 }
 
-.combatantCard:hover {
-    border-color: #5e8cff;
-    transform: translateY(-3px);
-    background: #1b2230;
+.generate:hover {
+    background: rgba(0, 234, 255, .25);
+    box-shadow:
+        0 0 25px rgba(0,234,255,.5),
+        inset 0 0 20px rgba(0,234,255,.15);
 }
 
-.combatantCard h3 {
-    margin: 0 0 7px;
+/* STATUS */
+
+.status {
+    margin: 18px 0;
+    padding: 12px;
+    text-align: center;
+    border-left: 2px solid #00eaff;
+    border-right: 2px solid #00eaff;
+    color: #8deef4;
+    letter-spacing: 2px;
+    font-size: 13px;
 }
 
-.combatantCard small {
-    color: #9ca6b9;
-}
+/* TEAMS */
 
-.teamLists {
+.teams {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 20px;
 }
 
-.teamBox {
-    min-height: 130px;
-    background: #11151d;
-    border-radius: 12px;
-    padding: 16px;
-    border: 1px solid #303542;
+.team {
+    min-height: 260px;
 }
 
-.teamBox h3 {
-    margin-top: 0;
+.team-title {
+    font-size: 20px;
+    letter-spacing: 4px;
+    margin-bottom: 15px;
+    color: #9ffcff;
+    border-bottom: 1px solid #147c84;
+    padding-bottom: 10px;
 }
 
-.teamBox.team1 {
-    border-color: #2867a8;
-}
-
-.teamBox.team2 {
-    border-color: #a52f3f;
-}
-
-.teamCharacter {
-    padding: 7px 0;
-    border-bottom: 1px solid #272c37;
-}
-
-.modeCard {
-    text-align: center;
-    padding: 30px;
-}
-
-.oneCharacter {
-    text-align: center;
-    font-size: 30px;
-    margin: 30px 0;
-}
-
-.storyControls {
-    display: flex;
+.character-list {
+    display: grid;
     gap: 10px;
-    flex-wrap: wrap;
-    align-items: center;
 }
 
-select {
-    background: #151a24;
-    color: white;
-    border: 1px solid #3a4251;
-    padding: 11px;
-    border-radius: 9px;
+.character {
+    border: 1px solid #156e75;
+    background: rgba(0, 10, 12, .8);
+    padding: 13px;
+    position: relative;
+    overflow: hidden;
+}
+
+.character::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    height: 2px;
+    width: 35%;
+    background: #00eaff;
+    box-shadow: 0 0 10px #00eaff;
+}
+
+.character-name {
+    font-size: 17px;
+    font-weight: bold;
+}
+
+.character-universe {
+    font-size: 10px;
+    color: #53bfc7;
+    letter-spacing: 2px;
+    margin-top: 3px;
+}
+
+/* SIMULATION */
+
+.simulation {
+    margin-top: 20px;
+}
+
+.match-header {
+    text-align: center;
+    margin-bottom: 15px;
+}
+
+.match-header h2 {
+    letter-spacing: 4px;
+    margin-bottom: 5px;
+}
+
+.matchup {
+    color: #72dfe7;
 }
 
 .story {
-    margin-top: 20px;
-    background: #0d1017;
-    border: 1px solid #303542;
-    border-radius: 13px;
-    padding: 22px;
-    line-height: 1.75;
-    font-size: 16px;
+    border: 1px solid #156e75;
+    background: rgba(0, 9, 11, .86);
+    padding: 25px;
+    line-height: 1.8;
+    font-size: 15px;
+    box-shadow: inset 0 0 25px rgba(0,234,255,.03);
 }
 
 .story p {
     margin-top: 0;
-}
-
-.matchupInfo {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 15px;
-}
-
-.statBox {
-    background: #11151d;
-    border: 1px solid #303542;
-    padding: 15px;
-    border-radius: 11px;
-}
-
-.statBox h4 {
-    margin-top: 0;
-}
-
-.statBox ul {
-    padding-left: 20px;
+    margin-bottom: 18px;
 }
 
 .winner {
-    text-align: center;
-    font-size: 26px;
-    font-weight: bold;
+    margin-top: 20px;
+    border: 1px solid #6efaff;
     padding: 15px;
-}
-
-.footer {
     text-align: center;
-    color: #687286;
-    padding: 30px;
-    font-size: 13px;
+    letter-spacing: 3px;
+    font-weight: bold;
+    box-shadow: 0 0 20px rgba(0,234,255,.15);
 }
 
-@media(max-width: 700px) {
-    .teamLists,
-    .matchupInfo {
+.hidden {
+    display: none;
+}
+
+@media (max-width: 800px) {
+    .controls,
+    .teams {
         grid-template-columns: 1fr;
     }
 
-    header h1 {
-        font-size: 26px;
+    h1 {
+        letter-spacing: 4px;
     }
 }
 </style>
@@ -276,1313 +303,1277 @@ select {
 
 <body>
 
-<header>
-    <h1>⚔️ Ultimate Combat Simulator</h1>
-    <p>Generate. Draft. Fight. Adapt.</p>
-</header>
-
 <div class="container">
 
-    <div class="modeButtons">
-        <button class="primary" onclick="showDraftMode()">🎲 Generate 10</button>
-        <button onclick="showOneAtATime()">⚡ One-at-a-Time</button>
-        <button onclick="resetEverything()">↻ Reset</button>
+<header class="header">
+
+    <div class="arc-logo"></div>
+
+    <h1>ARC BATTLE</h1>
+    <div class="subtitle">TACTICAL CHARACTER SIMULATION SYSTEM</div>
+
+</header>
+
+<section class="hud-panel">
+
+    <div class="controls">
+
+        <div class="control-group">
+            <label>SIMULATION MODE</label>
+
+            <select id="mode">
+                <option value="team">TEAM BATTLE</option>
+                <option value="single">ONE AT A TIME</option>
+            </select>
+        </div>
+
+        <div class="control-group">
+            <label>STORY DETAIL</label>
+
+            <select id="detail">
+                <option value="quick">QUICK — 50–100 WORDS</option>
+                <option value="detailed" selected>DETAILED — 150–300 WORDS</option>
+                <option value="cinematic">CINEMATIC — 300–450 WORDS</option>
+            </select>
+        </div>
+
     </div>
 
-    <!-- ========================= -->
-    <!-- DRAFT MODE -->
-    <!-- ========================= -->
+    <button class="generate" id="generate">
+        GENERATE 10
+    </button>
 
-    <section id="draftMode">
+</section>
 
-        <div class="panel modeCard" id="generatePanel">
-            <h2>Generate 10 Combatants</h2>
-            <p class="info">
-                Generate exactly 10 characters. Teams alternate picking until all 10 are gone.
-            </p>
-
-            <button class="primary" onclick="generateTen()">
-                🎲 Generate 10
-            </button>
-        </div>
-
-        <div id="draftArea" class="hidden">
-
-            <div class="panel">
-                <div class="pickHeader">
-                    <div>
-                        <div class="info">Current Pick</div>
-                        <div id="currentTeam" class="currentTeam team1Color">
-                            Team 1
-                        </div>
-                    </div>
-
-                    <div>
-                        <button class="danger" onclick="resetDraft()">
-                            Reset Draft
-                        </button>
-                    </div>
-                </div>
-
-                <div id="remainingText" class="info"></div>
-
-                <div id="generatedGrid" class="generatedGrid"></div>
-            </div>
-
-            <div class="teamLists">
-
-                <div class="teamBox team1">
-                    <h3 class="team1Color">Team 1</h3>
-                    <div id="team1List"></div>
-                </div>
-
-                <div class="teamBox team2">
-                    <h3 class="team2Color">Team 2</h3>
-                    <div id="team2List"></div>
-                </div>
-
-            </div>
-
-            <div id="fightPanel" class="panel hidden">
-
-                <h2>⚔️ Final Matchup</h2>
-
-                <div id="finalMatchup"></div>
-
-                <div class="storyControls">
-
-                    <select id="storyLength">
-                        <option value="quick">Quick — 50–100 words</option>
-                        <option value="detailed" selected>
-                            Detailed — 150–300 words
-                        </option>
-                        <option value="cinematic">
-                            Cinematic — 300–450 words
-                        </option>
-                    </select>
-
-                    <button class="primary" onclick="generateTeamFight()">
-                        🎬 Generate Team Battle
-                    </button>
-
-                </div>
-
-                <div id="teamStory" class="story hidden"></div>
-
-            </div>
-
-        </div>
-
-    </section>
-
-    <!-- ========================= -->
-    <!-- ONE AT A TIME MODE -->
-    <!-- ========================= -->
-
-    <section id="oneMode" class="hidden">
-
-        <div class="panel modeCard">
-
-            <h2>⚡ One-at-a-Time Mode</h2>
-
-            <p class="info">
-                Generate one random combatant at a time.
-            </p>
-
-            <div id="oneCharacter" class="oneCharacter">
-                Ready.
-            </div>
-
-            <button class="primary" onclick="generateOneCharacter()">
-                Generate Person
-            </button>
-
-            <button onclick="clearOneCharacter()">
-                Clear
-            </button>
-
-        </div>
-
-    </section>
-
+<div class="status" id="status">
+    SYSTEM READY — 10 CHARACTER SELECTIONS AVAILABLE
 </div>
 
-<div class="footer">
-    Combat Simulator — character information is used as gameplay reference data.
+<section class="teams">
+
+    <div class="team hud-panel">
+        <div class="team-title">TEAM 01</div>
+        <div class="character-list" id="team1"></div>
+    </div>
+
+    <div class="team hud-panel">
+        <div class="team-title">TEAM 02</div>
+        <div class="character-list" id="team2"></div>
+    </div>
+
+</section>
+
+<section class="simulation hud-panel hidden" id="simulation">
+
+    <div class="match-header">
+        <h2>COMBAT SIMULATION</h2>
+        <div class="matchup" id="matchup"></div>
+    </div>
+
+    <div class="story" id="story"></div>
+
+    <div class="winner" id="winner"></div>
+
+</section>
+
 </div>
 
 <script>
 
-/* =========================================================
+/* ============================================================
    CHARACTER DATABASE
-   =========================================================
+   ============================================================
 
-   Each character has combat logic instead of only a name.
+   Every character is an actual selectable database entry.
 
-   This is the important part of the new system.
-*/
+   You can keep adding characters here.
+   Beast Boy is intentionally included.
+============================================================ */
 
 const characters = [
 
-/* ================= MARVEL ================= */
-
-{
-    name:"Spider-Man",
-    universe:"Marvel",
-    powers:["Spider-Sense","Superhuman Strength","Superhuman Agility","Wall-Crawling","Web-Shooters"],
-    style:"mobile acrobatic fighter",
-    range:"close / mid",
-    strengths:["mobility","reflexes","web restraint","environmental movement"],
-    counters:["webbing","Spider-Sense","evasion","disarming"],
-    behavior:"stay mobile, attack from unexpected angles, avoid unnecessary direct exchanges",
-    weakness:"overwhelming area attacks and opponents vastly above his physical tier",
-    advantageBias:["street","mid"],
-},
+/* MARVEL */
 
 {
     name:"Iron Man",
-    universe:"Marvel",
-    powers:["Powered Armor","Repulsors","Flight","Unibeam","Sensors","Missiles"],
-    style:"technology-based ranged fighter",
-    range:"mid / long",
-    strengths:["firepower","flight","sensors","adaptability"],
-    counters:["flight","area attacks","tracking","armor systems"],
-    behavior:"maintain range, analyze the opponent and attack vulnerabilities",
-    weakness:"magic, psychic attacks, technological interference and vastly stronger opponents"
+    universe:"MARVEL",
+    power:92,
+    durability:88,
+    speed:82,
+    range:98,
+    skill:86,
+    special:96,
+    style:"high-tech aerial combat, repulsors, missiles, energy weapons, tactical analysis"
 },
 
 {
     name:"Captain America",
-    universe:"Marvel",
-    powers:["Super-Soldier Physiology","Vibranium Shield","Enhanced Reflexes","Elite Combat Skill"],
-    style:"disciplined tactical fighter",
-    range:"close / mid",
-    strengths:["shield defense","combat skill","stamina","tactics"],
-    counters:["shield blocks","shield throws","closing distance","battlefield positioning"],
-    behavior:"avoid strength contests, use defense and tactics to create openings",
-    weakness:"extreme ranged power and opponents vastly beyond his physical level"
+    universe:"MARVEL",
+    power:70,
+    durability:72,
+    speed:78,
+    range:55,
+    skill:98,
+    special:68,
+    style:"shield combat, close-range martial arts, tactical positioning, enhanced reflexes"
 },
 
 {
     name:"Thor",
-    universe:"Marvel",
-    powers:["Godly Strength","Mjolnir","Lightning","Flight","Weather Manipulation","Energy Manipulation"],
-    style:"versatile godly warrior",
-    range:"all ranges",
-    strengths:["strength","durability","lightning","flight","weapon mastery"],
-    counters:["Mjolnir","lightning","flight","area attacks"],
-    behavior:"use ranged lightning and battlefield control before committing to close combat",
-    weakness:"certain magic, psychic abilities and opponents on a higher cosmic tier"
+    universe:"MARVEL",
+    power:99,
+    durability:98,
+    speed:86,
+    range:96,
+    skill:94,
+    special:98,
+    style:"Mjolnir combat, lightning, flight, weather manipulation, godly strength"
 },
 
 {
     name:"Hulk",
-    universe:"Marvel",
-    powers:["Extreme Strength","Extreme Durability","Regeneration","Shockwaves"],
-    style:"overwhelming brawler",
-    range:"close",
-    strengths:["raw power","durability","rage escalation","area destruction"],
-    counters:["ground pounds","debris","leaping attacks","environment destruction"],
-    behavior:"close distance and destroy the opponent's escape routes",
-    weakness:"range, battlefield control and opponents who can exploit his limited mobility"
+    universe:"MARVEL",
+    power:100,
+    durability:100,
+    speed:75,
+    range:65,
+    skill:72,
+    special:94,
+    style:"overwhelming physical strength, leaps, shockwaves, escalating rage"
 },
 
 {
     name:"Wolverine",
-    universe:"Marvel",
-    powers:["Healing Factor","Adamantium Skeleton","Adamantium Claws","Enhanced Senses"],
-    style:"aggressive close-range hunter",
-    range:"close",
-    strengths:["healing","claws","durability","tracking"],
-    counters:["close pressure","healing","feral senses","claws"],
-    behavior:"pursue relentlessly and force close combat",
-    weakness:"extreme ranged attacks and opponents able to keep him permanently restrained"
+    universe:"MARVEL",
+    power:82,
+    durability:96,
+    speed:76,
+    range:40,
+    skill:94,
+    special:95,
+    style:"feral close combat, adamantium claws, healing factor, heightened senses"
 },
 
 {
     name:"Deadpool",
-    universe:"Marvel",
-    powers:["Regeneration","Enhanced Agility","Combat Skill","Unpredictability"],
-    style:"chaotic unpredictable fighter",
-    range:"close / mid",
-    strengths:["regeneration","unpredictability","acrobatics","combat experience"],
-    counters:["healing","unusual attack angles","mobility","improvised tactics"],
-    behavior:"change tactics constantly and deliberately behave unpredictably",
-    weakness:"containment and battlefield removal"
-},
-
-{
-    name:"Venom",
-    universe:"Marvel",
-    powers:["Symbiote","Superhuman Strength","Camouflage","Tendrils","Regeneration"],
-    style:"ambush grappler",
-    range:"close / mid",
-    strengths:["strength","stealth","tendrils","regeneration"],
-    counters:["camouflage","tendril attacks","grappling","surprise attacks"],
-    behavior:"use stealth and sudden close-range attacks",
-    weakness:"specific symbiote vulnerabilities and overwhelming ranged attacks"
-},
-
-{
-    name:"Carnage",
-    universe:"Marvel",
-    powers:["Symbiote","Tendrils","Blades","Regeneration","Camouflage"],
-    style:"chaotic offensive symbiote",
-    range:"close / mid",
-    strengths:["unpredictability","regeneration","weapon creation","mobility"],
-    counters:["tendrils","blades","area attacks","ambushes"],
-    behavior:"attack from multiple angles and overwhelm defenses",
-    weakness:"symbiote vulnerabilities and strong battlefield control"
-},
-
-{
-    name:"Doctor Strange",
-    universe:"Marvel",
-    powers:["Magic","Portals","Mystical Shields","Teleportation","Dimensional Manipulation"],
-    style:"battlefield-control mage",
-    range:"mid / long",
-    strengths:["versatility","positioning","magic","defense"],
-    counters:["portals","binding spells","teleportation","shields"],
-    behavior:"maintain distance and control positioning instead of trading physically",
-    weakness:"being pressured before complex magical abilities are established"
-},
-
-{
-    name:"Scarlet Witch",
-    universe:"Marvel",
-    powers:["Chaos Magic","Telekinesis","Reality Manipulation","Probability Manipulation"],
-    style:"reality-manipulating caster",
-    range:"mid / long",
-    strengths:["reality alteration","telekinesis","battlefield control"],
-    counters:["chaos magic","telekinesis","probability manipulation"],
-    behavior:"control the battlefield and disable opponents before they can reach her",
-    weakness:"surprise attacks and disruption before powers are established"
-},
-
-{
-    name:"Vision",
-    universe:"Marvel",
-    powers:["Phasing","Density Manipulation","Flight","Energy Projection","Superhuman Strength"],
-    style:"adaptive aerial fighter",
-    range:"all ranges",
-    strengths:["phasing","energy attacks","flight","density manipulation"],
-    counters:["phasing","density shifts","energy projection"],
-    behavior:"phase through attacks and strike during moments when becoming tangible is advantageous",
-    weakness:"specialized energy or attacks that interfere with phasing"
-},
-
-{
-    name:"Ant-Man",
-    universe:"Marvel",
-    powers:["Size Manipulation","Giant Growth","Shrinking","Infiltration"],
-    style:"infiltration fighter",
-    range:"variable",
-    strengths:["stealth","size manipulation","surprise"],
-    counters:["shrinking","giant growth","infiltration","ambush"],
-    behavior:"change size to create attacks the opponent cannot anticipate",
-    weakness:"wide-area attacks and highly sensitive tracking systems"
-},
-
-{
-    name:"Wasp",
-    universe:"Marvel",
-    powers:["Flight","Shrinking","Bioelectric Stingers","Agility"],
-    style:"aerial skirmisher",
-    range:"mid / long",
-    strengths:["flight","size manipulation","speed","aerial mobility"],
-    counters:["shrinking","flight","stinger blasts","evasion"],
-    behavior:"stay airborne and attack from constantly changing angles",
-    weakness:"area attacks and opponents capable of tracking tiny targets"
+    universe:"MARVEL",
+    power:75,
+    durability:91,
+    speed:78,
+    range:72,
+    skill:89,
+    special:97,
+    style:"unpredictable swordplay, firearms, acrobatics, regeneration"
 },
 
 {
     name:"Storm",
-    universe:"Marvel",
-    powers:["Weather Manipulation","Lightning","Wind","Flight","Atmospheric Control"],
-    style:"long-range battlefield controller",
-    range:"long",
-    strengths:["area control","flight","weather","lightning"],
-    counters:["lightning","wind","tornadoes","atmospheric pressure"],
-    behavior:"control the entire battlefield and keep opponents at range",
-    weakness:"being rushed before she can establish battlefield control"
+    universe:"MARVEL",
+    power:91,
+    durability:76,
+    speed:82,
+    range:99,
+    skill:88,
+    special:100,
+    style:"weather manipulation, lightning, wind, atmospheric pressure, flight"
 },
 
 {
     name:"Cyclops",
-    universe:"Marvel",
-    powers:["Optic Blasts","Precision","Tactical Leadership"],
-    style:"precision ranged fighter",
-    range:"long",
-    strengths:["range","power","precision","area sweeps"],
-    counters:["optic blasts","wide sweeps","area denial"],
-    behavior:"maintain distance and constantly reposition",
-    weakness:"fast close-range opponents"
+    universe:"MARVEL",
+    power:80,
+    durability:68,
+    speed:72,
+    range:97,
+    skill:91,
+    special:89,
+    style:"precision optic blasts, area sweeps, tactical ranged combat"
 },
 
 {
     name:"Jean Grey",
-    universe:"Marvel",
-    powers:["Telepathy","Telekinesis","Force Fields","Psychic Attacks"],
-    style:"psychic battlefield controller",
-    range:"all",
-    strengths:["telepathy","telekinesis","mental attacks"],
-    counters:["psychic attacks","telekinesis","force fields"],
-    behavior:"disable opponents mentally or restrain them before they can reach her",
-    weakness:"surprise attacks and interruption"
+    universe:"MARVEL",
+    power:98,
+    durability:82,
+    speed:79,
+    range:98,
+    skill:84,
+    special:100,
+    style:"telepathy, telekinesis, psychic attacks, force fields"
 },
 
 {
     name:"Magneto",
-    universe:"Marvel",
-    powers:["Magnetism","Electromagnetic Manipulation","Force Fields","Metal Control"],
-    style:"environmental controller",
-    range:"mid / long",
-    strengths:["battlefield control","metal manipulation","defense"],
-    counters:["metal projectiles","force fields","electromagnetic attacks"],
-    behavior:"weaponize the environment and control the battlefield",
-    weakness:"nonmetallic environments and opponents who can close distance rapidly"
+    universe:"MARVEL",
+    power:96,
+    durability:82,
+    speed:74,
+    range:99,
+    skill:90,
+    special:100,
+    style:"magnetic manipulation, electromagnetic attacks, metal control, force fields"
 },
 
 {
     name:"Professor X",
-    universe:"Marvel",
-    powers:["Telepathy","Mental Manipulation","Psychic Attacks"],
-    style:"psychic controller",
-    range:"long",
-    strengths:["telepathy","mental control","information advantage"],
-    counters:["mind attacks","psychic restraint","mental disruption"],
-    behavior:"disable the opponent mentally before they can engage physically",
-    weakness:"surprise attacks before psychic control is established"
+    universe:"MARVEL",
+    power:55,
+    durability:50,
+    speed:45,
+    range:99,
+    skill:82,
+    special:100,
+    style:"telepathy, mental attacks, psychic manipulation"
 },
 
 {
-    name:"Silver Surfer",
-    universe:"Marvel",
-    powers:["Power Cosmic","Flight","Extreme Speed","Energy Manipulation","Matter Manipulation"],
-    style:"cosmic versatile fighter",
-    range:"all",
-    strengths:["speed","energy","matter manipulation","flight"],
-    counters:["cosmic energy","matter manipulation","extreme speed"],
-    behavior:"use overwhelming speed and cosmic abilities rather than trading physical blows",
-    weakness:"extremely powerful cosmic opponents or unusual circumstances"
+    name:"Venom",
+    universe:"MARVEL",
+    power:88,
+    durability:91,
+    speed:78,
+    range:67,
+    skill:82,
+    special:94,
+    style:"symbiote strength, tendrils, camouflage, regeneration, close combat"
 },
 
 {
-    name:"Ghost Rider",
-    universe:"Marvel",
-    powers:["Hellfire","Supernatural Durability","Regeneration","Mystical Chain"],
-    style:"supernatural close-range fighter",
-    range:"close / mid",
-    strengths:["hellfire","durability","regeneration","supernatural attacks"],
-    counters:["hellfire","chain attacks","supernatural durability"],
-    behavior:"advance relentlessly and use supernatural abilities to bypass conventional defenses",
-    weakness:"specialized supernatural containment"
-},
-
-{
-    name:"Blade",
-    universe:"Marvel",
-    powers:["Enhanced Physiology","Superhuman Senses","Combat Skill"],
-    style:"weapon-based hunter",
-    range:"close / mid",
-    strengths:["combat skill","tracking","enhanced senses"],
-    counters:["specialized equipment","mobility","close combat"],
-    behavior:"study the opponent and exploit vulnerabilities",
-    weakness:"extreme superhuman opponents"
-},
-
-{
-    name:"Daredevil",
-    universe:"Marvel",
-    powers:["Radar Sense","Enhanced Senses","Martial Arts","Acrobatics"],
-    style:"agile martial artist",
-    range:"close",
-    strengths:["sensory awareness","mobility","martial arts"],
-    counters:["radar sense","acrobatics","close combat"],
-    behavior:"use angles, movement and sensory awareness to avoid direct attacks",
-    weakness:"massive area attacks and overwhelming durability gaps"
-},
-
-{
-    name:"Punisher",
-    universe:"Marvel",
-    powers:["Tactical Skill","Stealth","Combat Training","Improvised Tactics"],
-    style:"prepared tactical fighter",
-    range:"mid / long",
-    strengths:["planning","ambushes","battlefield tactics"],
-    counters:["traps","positioning","surprise","environment"],
-    behavior:"prepare the battlefield and avoid fair close combat",
-    weakness:"fast opponents who eliminate his setup time"
-},
-
-{
-    name:"Ultron",
-    universe:"Marvel",
-    powers:["Artificial Intelligence","Robotic Strength","Energy Weapons","Drones","Adaptation"],
-    style:"adaptive technological combatant",
-    range:"all",
-    strengths:["adaptation","drones","durability","technology"],
-    counters:["drones","energy weapons","tracking","technological adaptation"],
-    behavior:"analyze enemy patterns and deploy multiple layers of attack",
-    weakness:"isolated systems and specialized technological counters"
-},
-
-{
-    name:"Quake",
-    universe:"Marvel",
-    powers:["Vibration Manipulation","Seismic Attacks","Structural Disruption"],
-    style:"battlefield disruptor",
-    range:"mid / long",
-    strengths:["area control","terrain manipulation","seismic attacks"],
-    counters:["ground disruption","structural attacks","seismic waves"],
-    behavior:"destroy the opponent's footing and manipulate the environment",
-    weakness:"aerial opponents and extremely fast close-range attackers"
+    name:"Carnage",
+    universe:"MARVEL",
+    power:90,
+    durability:89,
+    speed:83,
+    range:85,
+    skill:84,
+    special:98,
+    style:"symbiote blades, tendrils, regeneration, unpredictable attacks"
 },
 
 {
     name:"Loki",
-    universe:"Marvel",
-    powers:["Illusions","Magic","Teleportation","Shapeshifting"],
-    style:"deception-based mage",
-    range:"all",
-    strengths:["deception","magic","teleportation","misdirection"],
-    counters:["illusions","shapeshifting","teleportation"],
-    behavior:"confuse the opponent before committing to a real attack",
-    weakness:"opponents with powerful detection abilities"
+    universe:"MARVEL",
+    power:82,
+    durability:80,
+    speed:73,
+    range:91,
+    skill:90,
+    special:100,
+    style:"illusions, shapeshifting, teleportation, magic, deception"
 },
 
 {
     name:"Thanos",
-    universe:"Marvel",
-    powers:["Extreme Strength","Extreme Durability","Energy Projection","Cosmic Power"],
-    style:"overwhelming cosmic warrior",
-    range:"all",
-    strengths:["strength","durability","intelligence","cosmic power"],
-    counters:["energy projection","physical power","cosmic abilities"],
-    behavior:"analyze the opponent before overwhelming them with superior power",
-    weakness:"extremely powerful cosmic artifacts or opponents"
+    universe:"MARVEL",
+    power:100,
+    durability:100,
+    speed:82,
+    range:94,
+    skill:98,
+    special:99,
+    style:"cosmic strength, durability, energy projection, tactical intelligence"
 },
 
-/* ================= DC ================= */
+{
+    name:"Ultron",
+    universe:"MARVEL",
+    power:92,
+    durability:94,
+    speed:80,
+    range:95,
+    skill:89,
+    special:100,
+    style:"advanced AI, drones, energy weapons, hacking, technological adaptation"
+},
+
+{
+    name:"Quake",
+    universe:"MARVEL",
+    power:86,
+    durability:68,
+    speed:76,
+    range:93,
+    skill:83,
+    special:97,
+    style:"vibration manipulation, seismic attacks, structural disruption"
+},
+
+{
+    name:"Silver Surfer",
+    universe:"MARVEL",
+    power:100,
+    durability:100,
+    speed:100,
+    range:100,
+    skill:93,
+    special:100,
+    style:"Power Cosmic, matter manipulation, energy projection, extreme speed"
+},
+
+{
+    name:"Ghost Rider",
+    universe:"MARVEL",
+    power:94,
+    durability:99,
+    speed:76,
+    range:81,
+    skill:88,
+    special:100,
+    style:"hellfire, supernatural durability, chains, regeneration"
+},
+
+{
+    name:"Blade",
+    universe:"MARVEL",
+    power:76,
+    durability:80,
+    speed:84,
+    range:70,
+    skill:94,
+    special:86,
+    style:"vampire hunting, swordsmanship, firearms, enhanced senses"
+},
+
+{
+    name:"Daredevil",
+    universe:"MARVEL",
+    power:62,
+    durability:64,
+    speed:86,
+    range:48,
+    skill:98,
+    special:87,
+    style:"martial arts, acrobatics, Radar Sense, billy clubs"
+},
+
+{
+    name:"Punisher",
+    universe:"MARVEL",
+    power:55,
+    durability:58,
+    speed:60,
+    range:93,
+    skill:91,
+    special:76,
+    style:"firearms, traps, tactical planning, precision attacks"
+},
+
+{
+    name:"Scarlet Witch",
+    universe:"MARVEL",
+    power:98,
+    durability:76,
+    speed:71,
+    range:99,
+    skill:78,
+    special:100,
+    style:"chaos magic, probability manipulation, telekinesis, reality alteration"
+},
+
+{
+    name:"Vision",
+    universe:"MARVEL",
+    power:90,
+    durability:94,
+    speed:88,
+    range:92,
+    skill:87,
+    special:98,
+    style:"phasing, density manipulation, flight, energy projection"
+},
+
+{
+    name:"Ant-Man",
+    universe:"MARVEL",
+    power:67,
+    durability:65,
+    speed:79,
+    range:60,
+    skill:75,
+    special:95,
+    style:"size manipulation, infiltration, giant growth, surprise attacks"
+},
+
+{
+    name:"Wasp",
+    universe:"MARVEL",
+    power:61,
+    durability:63,
+    speed:91,
+    range:78,
+    skill:82,
+    special:94,
+    style:"flight, shrinking, stinger blasts, aerial maneuvering"
+},
+
+/* DC */
 
 {
     name:"Superman",
     universe:"DC",
-    powers:["Super Strength","Super Speed","Flight","Heat Vision","Invulnerability","Super Hearing"],
-    style:"overwhelming aerial powerhouse",
-    range:"all",
-    strengths:["speed","strength","durability","flight"],
-    counters:["speed","heat vision","strength","aerial mobility"],
-    behavior:"use speed and mobility to overwhelm opponents before they can establish a strategy",
-    weakness:"kryptonite, certain magic and specialized circumstances"
+    power:100,
+    durability:100,
+    speed:99,
+    range:94,
+    skill:90,
+    special:99,
+    style:"super-strength, super-speed, flight, heat vision, invulnerability"
 },
 
 {
     name:"Batman",
     universe:"DC",
-    powers:["Martial Arts","Genius Intelligence","Stealth","Gadgets","Strategy"],
-    style:"prepared tactical fighter",
-    range:"close / mid",
-    strengths:["strategy","preparation","stealth","gadgets"],
-    counters:["stealth","gadgets","environment","analysis"],
-    behavior:"study the opponent, manipulate the environment and exploit weaknesses",
-    weakness:"overwhelming raw power in an unprepared encounter"
+    power:55,
+    durability:58,
+    speed:72,
+    range:76,
+    skill:100,
+    special:84,
+    style:"martial arts, gadgets, stealth, tactical analysis, preparation"
 },
 
 {
     name:"Wonder Woman",
     universe:"DC",
-    powers:["Super Strength","Speed","Durability","Flight","Lasso","Magical Weapons"],
-    style:"elite divine warrior",
-    range:"all",
-    strengths:["combat skill","strength","speed","magical equipment"],
-    counters:["Lasso","divine weapons","strength","speed"],
-    behavior:"combine superior physical ability with precise warrior technique",
-    weakness:"certain magical or cosmic-level opponents"
+    power:98,
+    durability:97,
+    speed:94,
+    range:82,
+    skill:100,
+    special:95,
+    style:"divine strength, speed, Lasso of Truth, magical weapons, elite combat"
 },
 
 {
     name:"Flash",
     universe:"DC",
-    powers:["Speed Force","Extreme Speed","Phasing","Time Manipulation","Lightning"],
-    style:"speed-based fighter",
-    range:"close / all",
-    strengths:["speed","phasing","reaction time","mobility"],
-    counters:["speed","phasing","rapid strikes","Speed Force"],
-    behavior:"never remain stationary and overwhelm the opponent before they can react",
-    weakness:"specialized speed manipulation and certain cosmic circumstances"
+    power:91,
+    durability:72,
+    speed:100,
+    range:78,
+    skill:96,
+    special:100,
+    style:"Speed Force, phasing, extreme speed, lightning, temporal manipulation"
 },
 
 {
     name:"Green Lantern",
     universe:"DC",
-    powers:["Power Ring","Energy Constructs","Flight","Force Fields","Energy Projection"],
-    style:"versatile ranged controller",
-    range:"all",
-    strengths:["constructs","defense","flight","versatility"],
-    counters:["constructs","force fields","energy attacks"],
-    behavior:"create layered defenses while testing the opponent's weaknesses",
-    weakness:"concentration disruption and ring-specific limitations"
+    power:92,
+    durability:87,
+    speed:88,
+    range:98,
+    skill:89,
+    special:99,
+    style:"power ring constructs, force fields, flight, energy projection"
 },
 
 {
     name:"Aquaman",
     universe:"DC",
-    powers:["Super Strength","Durability","Atlantean Physiology","Trident","Aquatic Abilities"],
-    style:"powerful warrior",
-    range:"close / mid",
-    strengths:["strength","durability","weapon skill"],
-    counters:["trident","strength","durability"],
-    behavior:"force close combat and use superior physical power",
-    weakness:"certain ranged and aerial opponents"
+    power:89,
+    durability:91,
+    speed:78,
+    range:65,
+    skill:91,
+    special:84,
+    style:"Atlantean strength, trident combat, durability, aquatic abilities"
 },
 
 {
     name:"Cyborg",
     universe:"DC",
-    powers:["Cybernetics","Energy Weapons","Hacking","Flight","Boom Tubes"],
-    style:"technological ranged fighter",
-    range:"all",
-    strengths:["technology","firepower","hacking","mobility"],
-    counters:["energy weapons","armor","system access"],
-    behavior:"analyze enemy technology and exploit systems",
-    weakness:"specialized technological defenses"
+    power:88,
+    durability:91,
+    speed:79,
+    range:96,
+    skill:84,
+    special:98,
+    style:"energy weapons, cybernetics, hacking, armor, Boom Tube technology"
 },
 
 {
     name:"Martian Manhunter",
     universe:"DC",
-    powers:["Telepathy","Super Strength","Phasing","Shapeshifting","Flight","Invisibility"],
-    style:"versatile psychic powerhouse",
-    range:"all",
-    strengths:["telepathy","phasing","strength","stealth"],
-    counters:["telepathy","phasing","shapeshifting"],
-    behavior:"combine psychic attacks with phasing and physical pressure",
-    weakness:"specific vulnerabilities such as fire in many portrayals"
+    power:98,
+    durability:96,
+    speed:94,
+    range:92,
+    skill:91,
+    special:100,
+    style:"telepathy, phasing, shapeshifting, super-strength, flight"
 },
 
 {
     name:"Shazam",
     universe:"DC",
-    powers:["Super Strength","Super Speed","Flight","Magic Lightning","Durability"],
-    style:"magical powerhouse",
-    range:"all",
-    strengths:["strength","speed","magic","durability"],
-    counters:["magic","lightning","flight","strength"],
-    behavior:"close distance rapidly and overwhelm the opponent",
-    weakness:"certain magical counters and tactical exploitation"
+    power:98,
+    durability:96,
+    speed:95,
+    range:85,
+    skill:86,
+    special:97,
+    style:"magical strength, speed, flight, lightning, durability"
 },
 
 {
     name:"Green Arrow",
     universe:"DC",
-    powers:["Archery","Trick Arrows","Acrobatics","Tactical Skill"],
-    style:"precision ranged fighter",
-    range:"mid / long",
-    strengths:["precision","specialized arrows","stealth"],
-    counters:["trick arrows","range","traps"],
-    behavior:"maintain distance and use specialized arrows to create openings",
-    weakness:"fast close-range opponents"
+    power:52,
+    durability:54,
+    speed:69,
+    range:96,
+    skill:94,
+    special:82,
+    style:"precision archery, trick arrows, traps, tactical positioning"
 },
 
 {
     name:"Black Canary",
     universe:"DC",
-    powers:["Canary Cry","Martial Arts","Agility","Enhanced Combat Skill"],
-    style:"martial artist with ranged sonic attack",
-    range:"close / long",
-    strengths:["sonic attack","martial arts","agility"],
-    counters:["Canary Cry","close combat","mobility"],
-    behavior:"use the Canary Cry to prevent opponents from safely closing distance",
-    weakness:"opponents who can resist or avoid sonic attacks"
+    power:65,
+    durability:61,
+    speed:81,
+    range:92,
+    skill:97,
+    special:98,
+    style:"martial arts, agility, Canary Cry, close-range combat"
 },
 
 {
     name:"Nightwing",
     universe:"DC",
-    powers:["Acrobatics","Martial Arts","Escrima Sticks","Tactical Intelligence"],
-    style:"mobile martial artist",
-    range:"close",
-    strengths:["mobility","technique","gadgets","tactics"],
-    counters:["acrobatics","gadgets","evasion"],
-    behavior:"avoid strength contests and constantly attack from new angles",
-    weakness:"massive physical power gaps"
+    power:57,
+    durability:60,
+    speed:88,
+    range:63,
+    skill:99,
+    special:82,
+    style:"acrobatics, escrima combat, gadgets, evasive martial arts"
 },
 
 {
     name:"Robin",
     universe:"DC",
-    powers:["Martial Arts","Acrobatics","Stealth","Gadgets"],
-    style:"agile tactical fighter",
-    range:"close / mid",
-    strengths:["mobility","stealth","gadgets"],
-    counters:["gadgets","terrain","martial arts"],
-    behavior:"use terrain and stealth rather than fighting openly",
-    weakness:"overwhelming physical opponents"
+    power:48,
+    durability:52,
+    speed:78,
+    range:59,
+    skill:92,
+    special:76,
+    style:"martial arts, stealth, gadgets, acrobatics"
 },
 
 {
     name:"Red Hood",
     universe:"DC",
-    powers:["Combat Training","Acrobatics","Tactics","Advanced Equipment"],
-    style:"aggressive tactical fighter",
-    range:"mid",
-    strengths:["tactics","precision","mobility"],
-    counters:["specialized equipment","positioning","surprise"],
-    behavior:"use positioning and ranged pressure before engaging directly",
-    weakness:"superhuman durability gaps"
+    power:59,
+    durability:62,
+    speed:72,
+    range:91,
+    skill:93,
+    special:78,
+    style:"firearms, explosives, tactical combat, precision attacks"
 },
 
 {
     name:"Deathstroke",
     universe:"DC",
-    powers:["Enhanced Physiology","Healing","Combat Skill","Tactical Intelligence"],
-    style:"elite mercenary fighter",
-    range:"all",
-    strengths:["combat skill","reflexes","healing","planning"],
-    counters:["enhanced reflexes","weapons","regeneration","analysis"],
-    behavior:"study patterns and exploit predictable attacks",
-    weakness:"extreme powerhouses"
+    power:75,
+    durability:78,
+    speed:87,
+    range:84,
+    skill:99,
+    special:90,
+    style:"enhanced reflexes, weapons mastery, healing, tactical analysis"
 },
 
 {
     name:"Joker",
     universe:"DC",
-    powers:["Genius Cunning","Deception","Traps","Psychological Warfare"],
-    style:"chaotic tactical antagonist",
-    range:"variable",
-    strengths:["deception","planning","unpredictability"],
-    counters:["traps","environment","psychological tactics"],
-    behavior:"turn the battlefield into a trap rather than fight directly",
-    weakness:"disciplined opponents who refuse to be manipulated"
+    power:38,
+    durability:42,
+    speed:50,
+    range:72,
+    skill:70,
+    special:91,
+    style:"deception, traps, toxins, explosives, psychological warfare"
 },
 
 {
     name:"Lex Luthor",
     universe:"DC",
-    powers:["Genius Intelligence","Power Armor","Advanced Technology","Strategy"],
-    style:"technology-based strategist",
-    range:"all",
-    strengths:["intelligence","technology","preparation"],
-    counters:["power armor","energy weapons","analysis"],
-    behavior:"identify weaknesses and exploit technology rather than fighting fairly",
-    weakness:"being caught without preparation"
+    power:58,
+    durability:62,
+    speed:55,
+    range:91,
+    skill:98,
+    special:97,
+    style:"power armor, advanced technology, scientific analysis, preparation"
 },
 
 {
     name:"Darkseid",
     universe:"DC",
-    powers:["Extreme Strength","Durability","Omega Effect","Cosmic Power"],
-    style:"cosmic powerhouse",
-    range:"all",
-    strengths:["cosmic power","strength","durability","Omega Effect"],
-    counters:["Omega Beams","strength","cosmic abilities"],
-    behavior:"overwhelm the opponent with superior power and battlefield control",
-    weakness:"extreme cosmic opposition"
+    power:100,
+    durability:100,
+    speed:87,
+    range:100,
+    skill:97,
+    special:100,
+    style:"Omega Effect, cosmic power, extreme strength, durability"
 },
 
 {
     name:"Doomsday",
     universe:"DC",
-    powers:["Extreme Strength","Durability","Adaptation","Regeneration"],
-    style:"unstoppable brawler",
-    range:"close",
-    strengths:["adaptation","strength","durability","regeneration"],
-    counters:["adaptation","raw power","regeneration"],
-    behavior:"advance relentlessly and adapt to attacks",
-    weakness:"containment and specialized battlefield solutions"
+    power:100,
+    durability:100,
+    speed:89,
+    range:61,
+    skill:79,
+    special:100,
+    style:"overwhelming strength, regeneration, adaptation, relentless aggression"
 },
 
 {
     name:"Sinestro",
     universe:"DC",
-    powers:["Yellow Power Ring","Constructs","Flight","Energy Projection","Force Fields"],
-    style:"energy construct controller",
-    range:"all",
-    strengths:["constructs","flight","defense","energy"],
-    counters:["constructs","force fields","energy projection"],
-    behavior:"create layered constructs and attack from multiple ranges",
-    weakness:"concentration disruption"
+    power:94,
+    durability:89,
+    speed:88,
+    range:99,
+    skill:94,
+    special:98,
+    style:"yellow power ring constructs, energy projection, force fields, fear tactics"
 },
 
 {
     name:"Reverse-Flash",
     universe:"DC",
-    powers:["Speed Force","Extreme Speed","Phasing","Temporal Manipulation"],
-    style:"speedster assassin",
-    range:"close / all",
-    strengths:["speed","phasing","time manipulation"],
-    counters:["speed","phasing","temporal attacks"],
-    behavior:"attack before the opponent can meaningfully react",
-    weakness:"specialized speed manipulation"
+    power:92,
+    durability:74,
+    speed:100,
+    range:76,
+    skill:97,
+    special:100,
+    style:"Speed Force manipulation, phasing, temporal attacks, extreme speed"
 },
 
 {
     name:"Zatanna",
     universe:"DC",
-    powers:["Magic","Teleportation","Transformation","Energy Manipulation"],
-    style:"versatile spellcaster",
-    range:"all",
-    strengths:["magic","versatility","battlefield manipulation"],
-    counters:["magical restraints","teleportation","transformation"],
-    behavior:"use magic to change the battlefield rather than engage physically",
-    weakness:"being interrupted before spells are established"
+    power:92,
+    durability:63,
+    speed:65,
+    range:97,
+    skill:89,
+    special:100,
+    style:"backward spellcasting, teleportation, transformation, magical restraints"
 },
 
 {
     name:"Constantine",
     universe:"DC",
-    powers:["Occult Knowledge","Magic","Deception","Preparation"],
-    style:"strategic occultist",
-    range:"variable",
-    strengths:["preparation","deception","supernatural knowledge"],
-    counters:["magic","trickery","preparation"],
-    behavior:"avoid fair fights and exploit supernatural rules",
-    weakness:"direct surprise encounters"
+    power:42,
+    durability:45,
+    speed:52,
+    range:82,
+    skill:93,
+    special:100,
+    style:"magic, deception, supernatural knowledge, preparation"
 },
 
 {
     name:"Supergirl",
     universe:"DC",
-    powers:["Kryptonian Strength","Speed","Flight","Heat Vision","Durability"],
-    style:"aerial powerhouse",
-    range:"all",
-    strengths:["speed","strength","flight","durability"],
-    counters:["heat vision","speed","strength"],
-    behavior:"use overwhelming speed and aerial mobility",
-    weakness:"kryptonite and certain magical attacks"
+    power:99,
+    durability:99,
+    speed:98,
+    range:94,
+    skill:86,
+    special:98,
+    style:"Kryptonian strength, speed, flight, heat vision"
 },
 
 {
     name:"Black Adam",
     universe:"DC",
-    powers:["Magic","Super Strength","Super Speed","Flight","Lightning"],
-    style:"magical powerhouse",
-    range:"all",
-    strengths:["magic","speed","strength","lightning"],
-    counters:["magic","lightning","flight"],
-    behavior:"combine speed with overwhelming magical physical attacks",
-    weakness:"certain magical counters"
+    power:99,
+    durability:98,
+    speed:96,
+    range:91,
+    skill:91,
+    special:98,
+    style:"magic, lightning, flight, extreme strength and speed"
 },
 
 {
     name:"Harley Quinn",
     universe:"DC",
-    powers:["Acrobatics","Combat Skill","Unpredictability","Gadgets"],
-    style:"chaotic acrobatic fighter",
-    range:"close / mid",
-    strengths:["unpredictability","mobility","deception"],
-    counters:["gadgets","agility","unusual attacks"],
-    behavior:"fight unpredictably and use the environment creatively",
-    weakness:"high-tier superhuman opponents"
+    power:50,
+    durability:55,
+    speed:75,
+    range:61,
+    skill:78,
+    special:78,
+    style:"acrobatics, deception, gadgets, unusual weapons"
 },
 
 {
     name:"Raven",
     universe:"DC",
-    powers:["Soul-Self","Magic","Teleportation","Telekinesis","Psychic Abilities"],
-    style:"supernatural controller",
-    range:"all",
-    strengths:["magic","teleportation","psychic powers","Soul-Self"],
-    counters:["Soul-Self","magic","teleportation"],
-    behavior:"use supernatural abilities to control positioning and disable opponents",
-    weakness:"surprise attacks and disruption"
+    power:94,
+    durability:73,
+    speed:75,
+    range:95,
+    skill:84,
+    special:100,
+    style:"Soul-Self, magic, teleportation, psychic and emotional abilities"
 },
 
 {
     name:"Starfire",
     universe:"DC",
-    powers:["Flight","Energy Blasts","Super Strength","Durability"],
-    style:"aerial powerhouse",
-    range:"all",
-    strengths:["flight","energy","strength","durability"],
-    counters:["energy blasts","flight","physical power"],
-    behavior:"use aerial mobility and sustained energy attacks",
-    weakness:"specialized energy counters"
+    power:93,
+    durability:92,
+    speed:91,
+    range:95,
+    skill:83,
+    special:94,
+    style:"flight, energy blasts, strength, durability, aerial combat"
 },
+
+/* IMPORTANT: BEAST BOY IS FULLY ELIGIBLE */
 
 {
     name:"Beast Boy",
     universe:"DC",
-    powers:["Animal Shapeshifting","Animal Adaptation","Flight Forms","Giant Forms"],
-    style:"adaptive shapeshifting fighter",
-    range:"variable",
-    strengths:["versatility","surprise","infiltration","mobility"],
-    counters:["shapeshifting","giant forms","flight","infiltration"],
-    behavior:"switch animal forms based on the opponent's current strategy",
-    weakness:"opponents who can quickly adapt to multiple forms"
+    power:78,
+    durability:78,
+    speed:84,
+    range:73,
+    skill:80,
+    special:97,
+    style:"shapeshifting, giant forms, flight, aquatic forms, animal abilities, infiltration"
 },
 
 {
     name:"Doctor Fate",
     universe:"DC",
-    powers:["High-Level Magic","Mystical Barriers","Teleportation","Dimensional Manipulation"],
-    style:"high-level mystic controller",
-    range:"all",
-    strengths:["magic","barriers","dimensional manipulation"],
-    counters:["magic","barriers","teleportation"],
-    behavior:"control the battlefield through layered magical defenses",
-    weakness:"extreme magical or cosmic opposition"
+    power:96,
+    durability:91,
+    speed:79,
+    range:99,
+    skill:92,
+    special:100,
+    style:"high-level magic, barriers, teleportation, dimensional manipulation"
 }
 
 ];
 
 
-/* =========================================================
-   STATE
-========================================================= */
+/* ============================================================
+   GAME STATE
+============================================================ */
 
-let generated = [];
+let availableCharacters = [];
 let team1 = [];
 let team2 = [];
-let currentTeam = 1;
-
-let oneModeUsed = new Set();
+let selectionNumber = 0;
 
 
-/* =========================================================
-   UI MODES
-========================================================= */
+/* ============================================================
+   RESET GAME
+============================================================ */
 
-function showDraftMode() {
-    document.getElementById("draftMode").classList.remove("hidden");
-    document.getElementById("oneMode").classList.add("hidden");
-}
+function resetGame() {
 
-function showOneAtATime() {
-    document.getElementById("draftMode").classList.add("hidden");
-    document.getElementById("oneMode").classList.remove("hidden");
-}
-
-function resetEverything() {
-    resetDraft();
-
-    oneModeUsed.clear();
-
-    document.getElementById("oneCharacter").textContent = "Ready.";
-}
-
-
-/* =========================================================
-   RANDOM SELECTION
-========================================================= */
-
-function randomFrom(array) {
-    return array[Math.floor(Math.random() * array.length)];
-}
-
-function shuffle(array) {
-    return [...array].sort(() => Math.random() - 0.5);
-}
-
-
-/* =========================================================
-   GENERATE EXACTLY 10
-========================================================= */
-
-function generateTen() {
-
-    generated = shuffle(characters).slice(0,10);
+    availableCharacters = [...characters];
 
     team1 = [];
     team2 = [];
 
-    currentTeam = 1;
+    selectionNumber = 0;
 
-    document.getElementById("generatePanel").classList.add("hidden");
-    document.getElementById("draftArea").classList.remove("hidden");
+    document.getElementById("team1").innerHTML = "";
+    document.getElementById("team2").innerHTML = "";
 
-    document.getElementById("fightPanel").classList.add("hidden");
+    document.getElementById("simulation")
+        .classList.add("hidden");
 
-    renderDraft();
+    updateStatus("SYSTEM READY — 10 CHARACTER SELECTIONS AVAILABLE");
 }
 
 
-/* =========================================================
-   DRAFT
-========================================================= */
+/* ============================================================
+   RANDOM CHARACTER
+============================================================ */
 
-function renderDraft() {
+function getRandomCharacter() {
 
-    const grid = document.getElementById("generatedGrid");
-
-    grid.innerHTML = "";
-
-    generated.forEach((character,index) => {
-
-        const card = document.createElement("div");
-
-        card.className = "combatantCard";
-
-        card.innerHTML = `
-            <h3>${character.name}</h3>
-            <small>${character.universe}</small>
-            <br><br>
-            <small>${character.style}</small>
-        `;
-
-        card.onclick = () => pickCharacter(index);
-
-        grid.appendChild(card);
-    });
-
-    document.getElementById("remainingText").textContent =
-        `${generated.length} combatants remaining`;
-
-    document.getElementById("currentTeam").textContent =
-        generated.length
-        ? `Team ${currentTeam}'s Pick`
-        : "Draft Complete";
-
-    document.getElementById("currentTeam").className =
-        "currentTeam " +
-        (currentTeam === 1 ? "team1Color" : "team2Color");
-
-    renderTeams();
-}
-
-
-function pickCharacter(index) {
-
-    if (!generated[index]) return;
-
-    const selected = generated[index];
-
-    if (currentTeam === 1) {
-        team1.push(selected);
-        currentTeam = 2;
-    } else {
-        team2.push(selected);
-        currentTeam = 1;
+    if (availableCharacters.length === 0) {
+        return null;
     }
 
-    generated.splice(index,1);
-
-    renderDraft();
-
-    if (generated.length === 0) {
-        showFinalMatchup();
-    }
-}
-
-
-function renderTeams() {
-
-    document.getElementById("team1List").innerHTML =
-        team1.length
-        ? team1.map(c =>
-            `<div class="teamCharacter">${c.name}</div>`
-          ).join("")
-        : `<div class="info">No picks yet.</div>`;
-
-    document.getElementById("team2List").innerHTML =
-        team2.length
-        ? team2.map(c =>
-            `<div class="teamCharacter">${c.name}</div>`
-          ).join("")
-        : `<div class="info">No picks yet.</div>`;
-}
-
-
-/* =========================================================
-   FINAL MATCHUP
-========================================================= */
-
-function showFinalMatchup() {
-
-    document.getElementById("fightPanel").classList.remove("hidden");
-
-    document.getElementById("finalMatchup").innerHTML = `
-
-        <div class="matchupInfo">
-
-            <div class="statBox">
-                <h4 class="team1Color">Team 1</h4>
-                <p>${team1.map(c => c.name).join(", ")}</p>
-            </div>
-
-            <div class="statBox">
-                <h4 class="team2Color">Team 2</h4>
-                <p>${team2.map(c => c.name).join(", ")}</p>
-            </div>
-
-        </div>
-
-    `;
-}
-
-
-/* =========================================================
-   ONE AT A TIME
-========================================================= */
-
-function generateOneCharacter() {
-
-    if (oneModeUsed.size >= characters.length) {
-        oneModeUsed.clear();
-    }
-
-    let available = characters.filter(
-        (_,index) => !oneModeUsed.has(index)
+    const index = Math.floor(
+        Math.random() * availableCharacters.length
     );
 
-    const selected = randomFrom(available);
+    const selected = availableCharacters[index];
 
-    const index = characters.indexOf(selected);
+    /*
+       IMPORTANT:
+       Once selected, character is removed from the available
+       pool. Therefore duplicates cannot occur.
+    */
 
-    oneModeUsed.add(index);
+    availableCharacters.splice(index, 1);
 
-    document.getElementById("oneCharacter").innerHTML = `
-        <strong>${selected.name}</strong>
-        <br>
-        <span class="info">${selected.universe} • ${selected.style}</span>
+    return selected;
+}
+
+
+/* ============================================================
+   CHARACTER DISPLAY
+============================================================ */
+
+function displayCharacter(character, team) {
+
+    const div = document.createElement("div");
+
+    div.className = "character";
+
+    div.innerHTML = `
+        <div class="character-name">
+            ${character.name}
+        </div>
+
+        <div class="character-universe">
+            ${character.universe}
+        </div>
     `;
+
+    document.getElementById(team).appendChild(div);
 }
 
-function clearOneCharacter() {
-    document.getElementById("oneCharacter").textContent = "Ready.";
+
+/* ============================================================
+   GENERATE EXACTLY 10
+============================================================ */
+
+function generateTen() {
+
+    resetGame();
+
+    /*
+       EXACTLY 10 selections.
+
+       Team 1
+       Team 2
+       Team 1
+       Team 2
+       ...
+    */
+
+    for (let i = 0; i < 10; i++) {
+
+        const character = getRandomCharacter();
+
+        if (!character) break;
+
+        selectionNumber++;
+
+        if (selectionNumber % 2 === 1) {
+
+            team1.push(character);
+
+            displayCharacter(
+                character,
+                "team1"
+            );
+
+        } else {
+
+            team2.push(character);
+
+            displayCharacter(
+                character,
+                "team2"
+            );
+        }
+    }
+
+    updateStatus(
+        "SELECTION COMPLETE — 10 UNIQUE CHARACTERS ASSIGNED"
+    );
+
+    simulateBattle();
 }
 
 
-/* =========================================================
-   MATCHUP ANALYSIS
-========================================================= */
+/* ============================================================
+   ONE AT A TIME
+============================================================ */
 
-function getMatchup(a,b) {
+function generateOne() {
 
-    let scoreA = 0;
-    let scoreB = 0;
+    if (selectionNumber >= 10) {
 
-    const highPower = [
-        "Superman",
-        "Thor",
-        "Hulk",
-        "Thanos",
-        "Darkseid",
-        "Doomsday",
-        "Silver Surfer",
-        "Doctor Fate",
-        "Scarlet Witch",
-        "Jean Grey",
-        "Martian Manhunter"
-    ];
+        updateStatus(
+            "ALL 10 CHARACTER SELECTIONS COMPLETE"
+        );
 
-    if (highPower.includes(a.name)) scoreA += 3;
-    if (highPower.includes(b.name)) scoreB += 3;
+        return;
+    }
 
-    if (a.powers.length > b.powers.length) scoreA += 1;
-    if (b.powers.length > a.powers.length) scoreB += 1;
+    if (selectionNumber === 0) {
 
-    if (a.strengths.length > b.strengths.length) scoreA += .5;
-    if (b.strengths.length > a.strengths.length) scoreB += .5;
+        availableCharacters = [...characters];
 
-    let advantage;
+        team1 = [];
+        team2 = [];
 
-    if (scoreA > scoreB + 1)
-        advantage = a.name;
+        document.getElementById("team1").innerHTML = "";
+        document.getElementById("team2").innerHTML = "";
 
-    else if (scoreB > scoreA + 1)
-        advantage = b.name;
+        document.getElementById("simulation")
+            .classList.add("hidden");
+    }
 
-    else
-        advantage = `${a.name} / Situational`;
+    const character = getRandomCharacter();
+
+    if (!character) return;
+
+    selectionNumber++;
+
+    if (selectionNumber % 2 === 1) {
+
+        team1.push(character);
+
+        displayCharacter(
+            character,
+            "team1"
+        );
+
+        updateStatus(
+            `SELECTION ${selectionNumber}/10 — TEAM 1`
+        );
+
+    } else {
+
+        team2.push(character);
+
+        displayCharacter(
+            character,
+            "team2"
+        );
+
+        updateStatus(
+            `SELECTION ${selectionNumber}/10 — TEAM 2`
+        );
+    }
+
+    if (selectionNumber === 10) {
+
+        updateStatus(
+            "SELECTION COMPLETE — 10 UNIQUE CHARACTERS ASSIGNED"
+        );
+
+        simulateBattle();
+    }
+}
+
+
+/* ============================================================
+   POWER SCORE
+============================================================ */
+
+function totalPower(character) {
+
+    return (
+        character.power +
+        character.durability +
+        character.speed +
+        character.range +
+        character.skill +
+        character.special
+    );
+}
+
+
+/* ============================================================
+   TEAM SCORE
+============================================================ */
+
+function teamPower(team) {
+
+    return team.reduce(
+        (total, character) =>
+            total + totalPower(character),
+        0
+    );
+}
+
+
+/* ============================================================
+   DETERMINE WINNER
+============================================================ */
+
+function determineWinner(teamA, teamB) {
+
+    const scoreA = teamPower(teamA);
+    const scoreB = teamPower(teamB);
+
+    /*
+       Small tactical variance prevents every matchup from
+       being a completely deterministic spreadsheet result.
+    */
+
+    const tacticalA =
+        Math.random() * 70;
+
+    const tacticalB =
+        Math.random() * 70;
+
+    if (scoreA + tacticalA >= scoreB + tacticalB) {
+
+        return {
+            winner:"TEAM 1",
+            team:teamA,
+            scoreA,
+            scoreB
+        };
+
+    }
 
     return {
-        advantage,
+        winner:"TEAM 2",
+        team:teamB,
         scoreA,
         scoreB
     };
 }
 
 
-/* =========================================================
-   TEAM FIGHT GENERATOR
-========================================================= */
+/* ============================================================
+   GET BEST CHARACTER
+============================================================ */
 
-function generateTeamFight() {
+function strongest(team) {
 
-    if (!team1.length || !team2.length) return;
-
-    const length =
-        document.getElementById("storyLength").value;
-
-    const storyBox =
-        document.getElementById("teamStory");
-
-    const story =
-        createTeamStory(team1,team2,length);
-
-    storyBox.innerHTML =
-        `<p>${story}</p>`;
-
-    storyBox.classList.remove("hidden");
+    return [...team].sort(
+        (a,b) =>
+            totalPower(b) -
+            totalPower(a)
+    )[0];
 }
 
 
-/* =========================================================
-   STORY ENGINE
-========================================================= */
+/* ============================================================
+   GET STORY LENGTH
+============================================================ */
 
-function createTeamStory(teamA,teamB,length) {
+function storyLimits() {
 
-    const allA = teamA.map(c => c.name);
-    const allB = teamB.map(c => c.name);
+    const detail =
+        document.getElementById("detail").value;
 
-    const leaderA = teamA[0];
-    const leaderB = teamB[0];
+    if (detail === "quick") {
 
-    const matchup = getMatchup(leaderA,leaderB);
+        return {
+            min:50,
+            max:100
+        };
 
-    const location =
-        randomFrom([
-            "a ruined city center",
-            "an abandoned industrial complex",
-            "a sprawling forest surrounding a damaged facility",
-            "a massive underground chamber",
-            "a shattered metropolitan street",
-            "a deserted coastal battlefield",
-            "the remains of an advanced laboratory"
-        ]);
+    }
 
-    const openingA =
-        randomFrom([
-            `${leaderA.name} immediately took control of the opening exchange`,
-            `${leaderA.name} moved first, forcing the opposing side to react`,
-            `${leaderA.name} attacked from an unexpected angle`,
-            `${leaderA.name} advanced carefully, testing the opposition`
-        ]);
+    if (detail === "cinematic") {
 
-    const openingB =
-        randomFrom([
-            `${leaderB.name} answered by exploiting the opening`,
-            `${leaderB.name} immediately changed position`,
-            `${leaderB.name} countered before the attack could fully develop`,
-            `${leaderB.name} turned the battlefield into a defensive advantage`
-        ]);
+        return {
+            min:300,
+            max:450
+        };
 
-    const actionA =
-        randomFrom(leaderA.counters);
+    }
 
-    const actionB =
-        randomFrom(leaderB.counters);
+    return {
+        min:150,
+        max:300
+    };
+}
 
-    const powerA =
-        randomFrom(leaderA.powers);
 
-    const powerB =
-        randomFrom(leaderB.powers);
+/* ============================================================
+   BUILD COMBAT STORY
+============================================================ */
 
-    const behaviorA =
-        leaderA.behavior;
+function buildBattleStory(teamA, teamB) {
 
-    const behaviorB =
-        leaderB.behavior;
+    const strongestA = strongest(teamA);
+    const strongestB = strongest(teamB);
+
+    const result =
+        determineWinner(teamA, teamB);
+
+    const winnerTeam =
+        result.winner === "TEAM 1"
+            ? teamA
+            : teamB;
+
+    const loserTeam =
+        result.winner === "TEAM 1"
+            ? teamB
+            : teamA;
+
+    const winnerLead =
+        strongest(winnerTeam);
+
+    const loserLead =
+        strongest(loserTeam);
+
+    const limits = storyLimits();
+
+    /*
+       Team battle structure:
+
+       1. Setup
+       2. First exchanges
+       3. Powers appear
+       4. Cooperation
+       5. Momentum shift
+       6. Damage affects later actions
+       7. Final exchange
+    */
 
     let paragraphs = [];
 
     paragraphs.push(
-        `The battlefield had already been torn apart by the time ${allA.join(", ")} faced ${allB.join(", ")} in ${location}. ${openingA}. ${leaderA.name} relied on ${powerA} and ${actionA}, while ${leaderB.name} refused to give them the fight they wanted. ${openingB}, using ${powerB} and ${actionB} to disrupt the first assault.`
+        `The battlefield erupts as ${teamA.map(c => c.name).join(", ")} confront ${teamB.map(c => c.name).join(", ")}. Neither side immediately commits its strongest fighter. ${strongestA.name} begins probing the opposition while ${strongestB.name} answers by forcing the first exchange. The opening minutes become a contest of positioning, with faster fighters drawing attention while the heavier members search for a decisive opening.`
     );
 
     paragraphs.push(
-        `The battle quickly became a contest of tactics rather than simple strength. ${leaderA.name} ${behaviorA}, forcing ${leaderB.name} to adapt. The rest of Team 1 surged into the fight, each member exploiting a different opening. Team 2 answered immediately, turning isolated attacks into coordinated counters. Buildings cracked, debris filled the air, and the battlefield itself became another weapon as both sides attempted to force the opposition into unfavorable positions.`
+        `${teamA[0].name} and ${teamB[0].name} collide first, but the battle quickly expands beyond a simple duel. ${teamA.map(c => c.name).join(" and ")} begin exploiting one another's strengths, creating openings instead of attacking independently. Across the field, ${teamB.map(c => c.name).join(", ")} respond by dividing their attention between defense and coordinated counterattacks.`
     );
 
     paragraphs.push(
-        `${leaderA.name} eventually recognized that repeating the opening strategy would fail. The attack changed. Instead of committing to the same approach, Team 1 created a distraction and attacked from another direction. Team 2 adapted just as quickly. ${leaderB.name} began ${behaviorB}, forcing Team 1 to abandon its original formation. For several seconds the advantage swung back and forth, with neither side able to maintain control.`
+        `${strongestA.name} finally unleashes ${strongestA.style}. The attack forces ${loserLead.name} to change tactics rather than absorb the full assault. Damaged fighters begin moving differently, slower members taking cover while more mobile characters attempt to draw attacks away from their weakened allies.`
     );
 
     paragraphs.push(
-        `Then came the turning point. A coordinated attack from Team 1 created a narrow opening, but Team 2 survived it and immediately counterattacked. The battlefield collapsed around them as powers collided, forcing both teams into the center of the conflict. ${leaderA.name} pushed forward while ${leaderB.name} answered with everything available. Every fighter committed to the final exchange, using their defining abilities rather than simply trading ordinary blows.`
+        `The momentum shifts when ${winnerLead.name} identifies the most dangerous remaining threat. Instead of pursuing an isolated target, the winning side concentrates its attacks, combining pressure from multiple directions. Defensive options disappear one by one as damaged characters lose mobility and their earlier strategies become harder to repeat.`
     );
 
     paragraphs.push(
-        `In the final moments, the difference came down to the matchup itself. ${matchup.advantage} had the clearest overall advantage, but the opposing team had pushed the fight far beyond what the opening exchange suggested. One final coordinated attack broke the stalemate. The surviving fighters stood among the wreckage as the battle finally ended, the battlefield silent except for the fading energy and debris settling around them.`
+        `The final exchange is no longer a chaotic clash. It becomes a calculated sequence built around the surviving fighters' abilities. ${winnerLead.name} creates the opening, allowing the rest of the team to capitalize immediately. ${loserLead.name} attempts one final counterattack, but the accumulated damage and loss of support leave the response incomplete.`
     );
 
-    let story = paragraphs.join(" ");
+    let story = paragraphs.join("\n\n");
 
-    if (length === "quick") {
+    /*
+       Adjust story length according to requested mode.
+    */
 
-        story = [
-            paragraphs[0],
-            paragraphs[3]
-        ].join(" ");
+    const words = story.split(/\s+/);
 
-        story = limitWords(story,100);
+    if (words.length > limits.max) {
 
-        return story;
+        story =
+            words.slice(0, limits.max).join(" ") +
+            ".";
+
     }
 
-    if (length === "detailed") {
+    return {
+        story,
+        winner:result.winner,
+        winnerTeam
+    };
+}
 
-        story = [
-            paragraphs[0],
-            paragraphs[1],
-            paragraphs[2],
-            paragraphs[3]
-        ].join(" ");
 
-        story = fitRange(story,150,300);
+/* ============================================================
+   SIMULATE
+============================================================ */
 
-        return story;
+function simulateBattle() {
+
+    if (
+        team1.length !== 5 ||
+        team2.length !== 5
+    ) {
+        return;
     }
 
-    story = fitRange(story,300,450);
+    const battle =
+        buildBattleStory(
+            team1,
+            team2
+        );
 
-    return story;
+    document.getElementById("simulation")
+        .classList.remove("hidden");
+
+    document.getElementById("matchup").textContent =
+        `${team1.map(c => c.name).join(" • ")}
+        VS
+        ${team2.map(c => c.name).join(" • ")}`;
+
+    /*
+       Convert paragraphs into actual HTML paragraphs.
+    */
+
+    const paragraphs =
+        battle.story
+            .split("\n\n")
+            .map(p => `<p>${p}</p>`)
+            .join("");
+
+    document.getElementById("story")
+        .innerHTML = paragraphs;
+
+    document.getElementById("winner")
+        .textContent =
+            `VICTOR: ${battle.winner}`;
 }
 
 
-/* =========================================================
-   WORD CONTROL
-========================================================= */
+/* ============================================================
+   STATUS
+============================================================ */
 
-function limitWords(text,max) {
+function updateStatus(text) {
 
-    const words = text.split(/\s+/);
-
-    if (words.length <= max)
-        return text;
-
-    return words.slice(0,max).join(" ") + ".";
+    document.getElementById("status")
+        .textContent = text;
 }
 
 
-function fitRange(text,min,max) {
+/* ============================================================
+   BUTTON
+============================================================ */
 
-    let words = text.split(/\s+/);
+document.getElementById("generate")
+    .addEventListener("click", () => {
 
-    if (words.length > max)
-        return words.slice(0,max).join(" ") + ".";
+        const mode =
+            document.getElementById("mode").value;
 
-    return text;
-}
+        if (mode === "single") {
+
+            generateOne();
+
+        } else {
+
+            generateTen();
+        }
+
+    });
 
 
-/* =========================================================
-   RESET
-========================================================= */
+/* INITIAL STATE */
 
-function resetDraft() {
-
-    generated = [];
-    team1 = [];
-    team2 = [];
-    currentTeam = 1;
-
-    document.getElementById("draftArea").classList.add("hidden");
-
-    document.getElementById("generatePanel").classList.remove("hidden");
-
-    document.getElementById("fightPanel").classList.add("hidden");
-
-    document.getElementById("generatedGrid").innerHTML = "";
-
-    document.getElementById("team1List").innerHTML = "";
-
-    document.getElementById("team2List").innerHTML = "";
-}
+resetGame();
 
 </script>
 
