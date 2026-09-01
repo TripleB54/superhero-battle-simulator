@@ -857,6 +857,8 @@ body{min-width:0;background:radial-gradient(circle at 50% 10%,rgba(0,234,255,.1)
 .card::after,.pool-panel .card::after{display:none}.card .name,.pool-panel .card .name{font-size:11px}.card .meta,.pool-panel .card .meta{font-size:8px}.card .badge,.pool-panel .card .badge{font-size:7px}
 .advanced-pool-panel{height:auto;min-height:48px;margin:0 0 10px;padding:8px;flex-wrap:wrap;white-space:normal;background:#02090d;border:1px solid #174a5c}
 .advanced-pool-panel button{padding:8px 10px;font-size:7px}.advanced-pool-panel b{font-size:8px;color:var(--gold);letter-spacing:1px}
+.advanced-pool-panel .option-group{display:flex;align-items:center;gap:6px;flex-wrap:wrap;width:100%}.advanced-pool-panel .option-group+.option-group{padding-top:7px;margin-top:2px;border-top:1px solid #153b49}.advanced-pool-panel button.selected-tier{color:#e7fbff;border-color:var(--purple);background:linear-gradient(90deg,rgba(116,61,157,.42),#03111a);box-shadow:0 0 9px rgba(181,108,255,.22)}
+.prep-badge{display:inline-block;margin-top:6px;padding:3px 6px;border:1px solid var(--gold);color:var(--gold);font-size:7px;letter-spacing:1px}.prep-elite{border-color:var(--cyan);color:var(--cyan);box-shadow:0 0 8px rgba(0,234,255,.22)}
 #battleOutput{position:static;inset:auto;width:auto;max-height:none;overflow:visible;background:linear-gradient(135deg,#07161f,#02080c);box-shadow:none}
 #battlePage:has(#battleOutput[style*="block"]){margin-bottom:0}
 #databasePage{padding:0;min-height:0;background:none}
@@ -1166,6 +1168,7 @@ GENERATE 10
 <option value="UniverseClash">UNIVERSE CLASH</option>
 <option value="TierDraft">TIER DRAFT</option>
 <option value="CaptainDraft">CAPTAIN DRAFT</option>
+<option value="PrepTime">PREP TIME</option>
 
 <option value="FreeSelect">
 FULL ROSTER / FREE SELECT
@@ -3659,7 +3662,7 @@ ${fighter.version}
 
 <div class="slotdata">
 ${fighter.universe} // ${fighter.tier} // ${fighter.role}<br>
-STR ${fighter.strength} • SPD ${fighter.speed} • PWR ${fighter.power}
+STR ${fighter.strength} • SPD ${fighter.speed} • PWR ${fighter.power}${currentMode()==="PrepTime"?`<br>PREP ${fighter.prepScore||0}`:""}
 </div>
 
 <button
@@ -6513,7 +6516,7 @@ renderSelection=function(){
     qs("characterPool").innerHTML=visible.map(({character,index})=>{
         if(mode==="BlindDraft") return `<div class="card blind-card" onclick="draftCharacter(${index})"><div class="emblem">?</div><div class="name">CLASSIFIED FIGHTER</div><div class="meta">SELECT TO REVEAL</div><div class="badge">UNKNOWN VERSION</div></div>`;
         const captain=mode==="CaptainDraft"&&team&&!captainTeams.has(team);
-        return `<div class="card" style="--accent:${character.universe==="Marvel"?"#ff4055":"#00eaff"}" onclick="draftCharacter(${index})"><div class="emblem">${ICONS[character.icon]||"◆"}</div><div class="name">${character.name}</div><div class="meta">${character.universe} // ${character.tier} // ${character.role}</div><div class="badge">${character.version.toUpperCase()}</div>${captain?"<div class='captain-mark'>CAPTAIN SELECTION</div>":""}</div>`;
+        return `<div class="card" style="--accent:${character.universe==="Marvel"?"#ff4055":"#00eaff"}" onclick="draftCharacter(${index})"><div class="emblem">${ICONS[character.icon]||"◆"}</div><div class="name">${character.name}</div><div class="meta">${character.universe} // ${character.tier} // ${character.role}</div><div class="badge">${character.version.toUpperCase()}</div>${mode==="PrepTime"?`<div class="prep-badge ${character.prepScore>=90?"prep-elite":""}">PREP ${character.prepScore}</div>`:""}${captain?"<div class='captain-mark'>CAPTAIN SELECTION</div>":""}</div>`;
     }).join("");
     if(required) qs("selectionStatus").textContent=`${teamName(team)} MUST PICK ${required.toUpperCase()} TIER`;
     if(mode==="UniverseClash"&&team) qs("selectionStatus").textContent=`${teamName(team)} DRAFTS ${universe.toUpperCase()}`;
@@ -6822,6 +6825,181 @@ removeCharacter=function(team,index){
         setPoolMessage("CAPTAIN DRAFT // CAPTAIN PHASE",`${teamName(team)} MUST CHOOSE A NEW CAPTAIN`);syncAdvancedPoolPanel();
     }else if(!selection.some(x=>x.name===removed.name))selection.push(removed);
     renderSelection();renderTeams();updateDraftStatus();
+};
+
+/* =========================================================
+   MULTI-TIER, FIRST-PICK UNIVERSE, AND PREP TIME
+========================================================= */
+let tierDraftChoices=new Set();
+let tierDraftPoolChoice=null;
+
+advancedPoolMode=function(mode=currentMode()){
+    return ["BanDraft","UniverseClash","TierDraft","CaptainDraft","PrepTime"].includes(mode);
+};
+
+generatedMode=function(mode=currentMode()){
+    return ["Generate10","Generate20","Generate30","BlindDraft","BanDraft","UniverseClash","TierDraft","CaptainDraft","PrepTime"].includes(mode);
+};
+
+function calculatePrepScore(character){
+    const named={
+        "Batman":100,"Mister Fantastic":99,"Doctor Doom":98,"Lex Luthor":97,"Iron Man":96,
+        "Black Panther":95,"Deathstroke":94,"Brainiac":94,"Captain America":92,"Cyborg":91,
+        "Doctor Strange":91,"Spider-Man":89,"Joker":88,"Green Arrow":87,"Nightwing":87,
+        "Batgirl":86,"Barbara Gordon":94,"Red Hood":82,"Punisher":84,"Nick Fury":93,
+        "Harley Quinn":34,"Lobo":22,"Solomon Grundy":16,"Hulk":28,"Doomsday":14,
+        "Carnage":25,"Juggernaut":24,"Cheetah":39
+    };
+    if(named[character.name]!=null)return named[character.name];
+    const roleBonus={Tactician:14,Controller:9,Assassin:6,Skirmisher:5,Ranged:5,Support:6,Tank:1,Brawler:0,Powerhouse:-2}[character.role]||2;
+    const text=[character.fightingStyle,character.personality,character.range,...(character.specialMechanics||[]),...(character.richData?.powers||[]),...(character.teamBehavior||[]),...(character.battlefieldBehavior||[])].join(" ").toLowerCase();
+    let score=character.iq*.72+roleBonus;
+    if(/strateg|tactic|plan|prep|invent|engineer|scient|detect|analysis|analyz|counter|adapt|tool|gadget|trap|leadership/.test(text))score+=9;
+    if(/magic|telepath|precog|surveillance|intelligence network|battlefield control/.test(text))score+=5;
+    if(/reckless|berserk|rage|impulsive|chaotic|brutal|direct assault|overconfident/.test(text))score-=9;
+    if(character.tier==="Cosmic"&&character.iq<82)score-=4;
+    return clamp(Math.round(score),12,96);
+}
+
+CHARACTERS.forEach(character=>character.prepScore=calculatePrepScore(character));
+
+function selectedTierDraftList(){
+    return ["Street","Enhanced","Heavy","Mystic","Cosmic"].filter(tier=>tierDraftChoices.has(tier));
+}
+
+function syncTierCheckboxes(){
+    document.querySelectorAll(".tierCheck").forEach(box=>box.checked=tierDraftChoices.has(box.value));
+}
+
+function balancedTierSelection(candidates,count,tiers){
+    const groups=tiers.map(tier=>shuffle(candidates.filter(character=>character.tier===tier)));
+    const result=[];
+    while(result.length<count&&groups.some(group=>group.length))groups.forEach(group=>{if(group.length&&result.length<count)result.push(group.shift());});
+    return shuffle(result);
+}
+
+function buildTierDraftPool(){
+    const tiers=selectedTierDraftList();
+    if(!tiers.length){selection=[];setPoolMessage("TIER DRAFT","SELECT AT LEAST ONE TIER");renderSelection();syncAdvancedPoolPanel();return;}
+    const candidates=baseAdvancedCandidates().filter(character=>tiers.includes(character.tier));
+    if(tierDraftPoolChoice==="FreeSelect")selection=versionedPool(shuffle(candidates));
+    else selection=versionedPool(balancedTierSelection(candidates,Number(tierDraftPoolChoice),tiers));
+    const distribution=tiers.length===5?"5V5 RULE: ONE FIGHTER FROM EACH TIER PER TEAM":`DRAFT ROTATES THROUGH ${tiers.join(" → ").toUpperCase()}`;
+    setPoolMessage(`TIER DRAFT // ${tiers.join(" + ").toUpperCase()}`,`${tierDraftPoolChoice==="FreeSelect"?"FREE SELECT":`GENERATED ${selection.length}`} // ${distribution}`);
+    renderSelection();updateDraftStatus();syncAdvancedPoolPanel();updateHUDTelemetry();
+}
+
+function toggleTierDraftChoice(tier){
+    if(tier==="All")tierDraftChoices=new Set(["Street","Enhanced","Heavy","Mystic","Cosmic"]);
+    else if(tierDraftChoices.has(tier))tierDraftChoices.delete(tier);else tierDraftChoices.add(tier);
+    syncTierCheckboxes();
+    if(tierDraftPoolChoice)buildTierDraftPool();
+    else{selection=[];setPoolMessage("TIER DRAFT // TIERS SELECTED",selectedTierDraftList().length?"NOW CHOOSE GENERATE 10, 20, 30, OR FREE SELECT":"SELECT AT LEAST ONE TIER");renderSelection();syncAdvancedPoolPanel();}
+}
+
+function chooseTierDraftSize(size){tierDraftPoolChoice=size;buildTierDraftPool();}
+function chooseTierDraftFreeSelect(){tierDraftPoolChoice="FreeSelect";buildTierDraftPool();}
+
+const modeFlowV1ChooseSize=chooseModePoolSize;
+chooseModePoolSize=function(size){
+    if(currentMode()!=="PrepTime"){modeFlowV1ChooseSize(size);return;}
+    advancedPoolChoice=size;
+    selection=versionedPool(shuffle(baseAdvancedCandidates()).slice(0,size));
+    setPoolMessage(`PREP TIME // GENERATED ${selection.length}`,"PREPARATION RATINGS ACTIVE // HIGH-PREP FIGHTERS GAIN TACTICAL ADVANTAGES");
+    renderSelection();updateDraftStatus();syncAdvancedPoolPanel();
+};
+
+const modeFlowV1FreeSelect=chooseModeFreeSelect;
+chooseModeFreeSelect=function(){
+    if(currentMode()!=="PrepTime"){modeFlowV1FreeSelect();return;}
+    advancedPoolChoice="FreeSelect";
+    selection=versionedPool(baseAdvancedCandidates());
+    setPoolMessage("PREP TIME // FREE SELECT","FULL ROSTER // PREPARATION RATINGS ACTIVE");
+    renderSelection();updateDraftStatus();syncAdvancedPoolPanel();
+};
+
+modeOptionsHTML=function(){
+    const mode=currentMode();
+    if(mode==="TierDraft"){
+        const tiers=["Street","Enhanced","Heavy","Mystic","Cosmic"];
+        return `<div class="option-group"><span class="pool-option-label">SELECT TIERS</span><button type="button" data-tier-choice="All" onclick="toggleTierDraftChoice('All')">ALL TIERS</button>${tiers.map(tier=>`<button type="button" data-tier-choice="${tier}" onclick="toggleTierDraftChoice('${tier}')">${tier.toUpperCase()}</button>`).join("")}</div><div class="option-group"><span class="pool-option-label">POOL TYPE</span>${[10,20,30].map(size=>`<button type="button" data-tier-pool="${size}" onclick="chooseTierDraftSize(${size})">GENERATE ${size}</button>`).join("")}<button type="button" data-tier-pool="FreeSelect" onclick="chooseTierDraftFreeSelect()">FREE SELECT</button></div>`;
+    }
+    if(mode==="UniverseClash")return `<span class="pool-option-label">FIGHTERS PER UNIVERSE</span>${[10,20,30].map(size=>`<button type="button" data-mode-choice="${size}" onclick="chooseModePoolSize(${size})">${size} MARVEL + ${size} DC</button>`).join("")}`;
+    if(mode==="BanDraft")return `<span class="pool-option-label">BAN & DRAFT POOL</span>${[10,20,30].map(size=>`<button type="button" data-mode-choice="${size}" onclick="chooseModePoolSize(${size})">GENERATE ${size}</button>`).join("")}<button type="button" data-mode-choice="FreeSelect" onclick="chooseModeFreeSelect()">FREE SELECT</button>`;
+    if(mode==="CaptainDraft"){
+        if(!captainSetupComplete)return `<span class="pool-option-label">CAPTAIN PHASE</span><b>CHOOSE ONE CAPTAIN FOR EACH TEAM FIRST</b>`;
+        return `<span class="pool-option-label">CAPTAINS LOCKED // TEAM POOL</span>${[10,20,30].map(size=>`<button type="button" data-mode-choice="${size}" onclick="chooseModePoolSize(${size})">GENERATE ${size}</button>`).join("")}<button type="button" data-mode-choice="FreeSelect" onclick="chooseModeFreeSelect()">FREE SELECT</button>`;
+    }
+    if(mode==="PrepTime")return `<span class="pool-option-label">PREP TIME POOL</span>${[10,20,30].map(size=>`<button type="button" data-mode-choice="${size}" onclick="chooseModePoolSize(${size})">GENERATE ${size}</button>`).join("")}<button type="button" data-mode-choice="FreeSelect" onclick="chooseModeFreeSelect()">FREE SELECT</button>`;
+    return "";
+};
+
+syncAdvancedPoolPanel=function(){
+    const panel=qs("advancedPoolPanel");if(!panel)return;
+    const visible=advancedPoolMode();panel.classList.toggle("visible",visible);panel.innerHTML=visible?modeOptionsHTML():"";
+    panel.querySelectorAll("[data-mode-choice]").forEach(button=>button.classList.toggle("active",String(button.dataset.modeChoice)===String(advancedPoolChoice)));
+    panel.querySelectorAll("[data-tier-choice]").forEach(button=>{
+        const tier=button.dataset.tierChoice;button.classList.toggle("selected-tier",tier==="All"?tierDraftChoices.size===5:tierDraftChoices.has(tier));
+    });
+    panel.querySelectorAll("[data-tier-pool]").forEach(button=>button.classList.toggle("active",String(button.dataset.tierPool)===String(tierDraftPoolChoice)));
+};
+
+selectionModeChanged=function(){
+    selection=[];bannedFighters=[];banPhase=false;banIndex=0;captainTeams=new Set();captainSetupComplete=false;advancedPoolChoice=null;tierDraftChoices=new Set();tierDraftPoolChoice=null;
+    clearTeams();firstPickDetermined=false;currentDraftIndex=0;draftOrder=activeTeams();qs("characterPool").innerHTML="";
+    const mode=currentMode(),button=qs("generateButton");button.style.display=["Generate10","Generate20","Generate30","BlindDraft"].includes(mode)?"block":"none";button.textContent=modeLabel(mode);
+    if(mode==="FreeSelect")loadFreeSelect();
+    else if(mode==="CaptainDraft"){
+        selection=versionedPool(baseAdvancedCandidates());setPoolMessage("CAPTAIN DRAFT // CAPTAIN PHASE","DETERMINE FIRST PICK, THEN CHOOSE ONE CAPTAIN FOR EACH TEAM");renderSelection();
+    }else if(mode==="TierDraft")setPoolMessage("TIER DRAFT","SELECT ONE OR MORE TIERS, THEN CHOOSE GENERATE 10, 20, 30, OR FREE SELECT");
+    else if(mode==="UniverseClash")setPoolMessage("UNIVERSE CLASH","CHOOSE A POOL SIZE // FIRST PICK RECEIVES MARVEL, THE OTHER TEAM RECEIVES DC");
+    else if(mode==="BanDraft")setPoolMessage("BAN & DRAFT","CHOOSE GENERATE 10, 20, 30, OR FREE SELECT");
+    else if(mode==="PrepTime")setPoolMessage("PREP TIME","CHOOSE GENERATE 10, 20, 30, OR FREE SELECT // PREP RATINGS WILL AFFECT COMBAT");
+    else setPoolMessage(mode.replace(/([A-Z])/g," $1").trim().toUpperCase(),`DETERMINE FIRST PICK, THEN PRESS ${modeLabel(mode)}`);
+    syncAdvancedPoolPanel();renderTeams();updateDraftStatus();
+};
+
+const modeFlowV1Filters=filtersChanged;
+filtersChanged=function(){
+    if(currentMode()==="TierDraft"){
+        tierDraftChoices=new Set(selectedTiers());if(tierDraftPoolChoice)buildTierDraftPool();else syncAdvancedPoolPanel();return;
+    }
+    if(currentMode()==="PrepTime"&&advancedPoolChoice){advancedPoolChoice==="FreeSelect"?chooseModeFreeSelect():chooseModePoolSize(Number(advancedPoolChoice));return;}
+    modeFlowV1Filters();
+};
+
+universeForTeam=function(team){
+    if(currentMode()!=="UniverseClash"||!firstPickDetermined)return "Both";
+    if(team===draftOrder[0])return "Marvel";
+    if(team===draftOrder[1])return "DC";
+    return "Both";
+};
+
+const modeFlowV1LockFirstPick=lockFirstPick;
+lockFirstPick=function(team){
+    modeFlowV1LockFirstPick(team);
+    if(currentMode()==="UniverseClash"&&firstPickDetermined){
+        qs("selectionStatus").textContent=`${teamName(draftOrder[0])} PICKS FIRST AND DRAFTS MARVEL // ${teamName(draftOrder[1])} DRAFTS DC`;
+        renderSelection();
+    }
+};
+
+const standardUnitFrom=unitFrom;
+unitFrom=function(fighter,team){
+    const unit=standardUnitFrom(fighter,team);unit.prepScore=fighter.prepScore||calculatePrepScore(fighter);
+    if(currentMode()==="PrepTime"){
+        const prep=unit.prepScore;
+        unit.iq*=1+(prep*.0022);unit.speed*=1+(prep*.0011);unit.durability*=1+(prep*.0008);unit.power*=1+(prep*.0006);
+        unit.maxHp=100+Math.round(prep/12);unit.hp=unit.maxHp;unit.prepared=true;
+    }
+    return unit;
+};
+
+const standardCalculateDamage=calculateDamage;
+calculateDamage=function(attacker,target,move,reactionType){
+    let damage=standardCalculateDamage(attacker,target,move,reactionType);
+    if(currentMode()==="PrepTime")damage*=clamp(1+(((attacker.prepScore||50)-(target.prepScore||50))*.004),.72,1.34);
+    return damage;
 };
 
 function initBattleHUD(){
