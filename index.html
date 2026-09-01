@@ -769,7 +769,7 @@ body{background:#00070b}
 .tabs{position:absolute;z-index:80;left:28.5%;top:.7%;width:35%;height:4.7%;margin:0;padding:0;border:0;background:transparent;clip-path:none;gap:0}
 .tab{flex:1;padding:0 12px;background:rgba(2,12,19,.88);border:0;border-left:1px solid #113849;border-bottom:1px solid #164c60;color:#7797a4;font-size:8px;letter-spacing:1.5px}
 .tab.active{background:linear-gradient(180deg,rgba(0,155,210,.28),rgba(2,18,27,.84));border-bottom:2px solid #19d6ff;color:#e6fbff;box-shadow:inset 0 -12px 24px rgba(0,196,255,.11),0 0 15px rgba(0,196,255,.09)}
-#battlePage{position:relative;width:100%;aspect-ratio:3/2;background-image:url("assets/stark_hud_clean_chassis.png");background-size:100% 100%;background-repeat:no-repeat;isolation:isolate}
+#battlePage{position:relative;width:100%;aspect-ratio:3/2;background-image:none;background-size:100% 100%;background-repeat:no-repeat;isolation:isolate}
 #battlePage::before{content:"STARK  //  MULTIVERSE BATTLE COMMAND";position:absolute;z-index:70;left:1.8%;top:1.45%;color:#c4e7f4;font-size:clamp(9px,1.25vw,20px);font-weight:900;font-style:italic;letter-spacing:clamp(1px,.24vw,4px);text-shadow:0 0 14px #008fbe}
 #battlePage::after{content:"JARVIS BATTLE ENGINE  ● ONLINE  //  175 FIGHTERS LOADED";position:absolute;z-index:70;right:1.8%;top:1.65%;color:#74b4c7;font-size:clamp(5px,.5vw,8px);letter-spacing:1px}
 .hud-command-grid{display:contents}
@@ -824,6 +824,45 @@ body{background:#00070b}
 .advanced-pool-panel{display:none;align-items:center;gap:.7%;height:18%;margin:.35% 0;padding:.35% .55%;background:rgba(1,12,19,.94);border:1px solid #18536a;overflow-x:auto;white-space:nowrap}
 .advanced-pool-panel.visible{display:flex}.advanced-pool-panel .pool-option-label{color:#7195a2;font-size:clamp(4px,.42vw,7px);letter-spacing:1.2px;margin-right:.15%}.advanced-pool-panel button{min-width:42px;padding:4px 7px;font-size:clamp(4px,.42vw,7px);font-weight:400;color:#83a7b3;background:#03111a;border-color:#174658}.advanced-pool-panel button.active{color:#e7fbff;border-color:#18c8f4;background:linear-gradient(90deg,rgba(0,135,184,.38),rgba(2,16,24,.92));box-shadow:0 0 9px rgba(0,211,255,.2)}.advanced-pool-panel .pool-divider{width:1px;align-self:stretch;background:#174354;margin:0 .35%}.advanced-pool-panel .regenerate-pool{margin-left:auto;color:var(--gold);border-color:#756127}
 .pool-panel.advanced-open .status{height:10%}.pool-panel.advanced-open #characterPool{height:51%}
+
+/* =========================================================
+   CLASSIC STARK HUD RESTORE
+   Keeps the new simulator logic while returning to the earlier cyan panel UI.
+========================================================= */
+header{display:flex!important;position:relative;min-height:72px;padding:15px 28px;background:#02090d}
+main{position:static;width:min(1550px,95%);margin:auto;padding:26px 0 60px}
+body{min-width:0;background:radial-gradient(circle at 50% 10%,rgba(0,234,255,.1),transparent 32%),#020609;overflow-x:hidden}
+.title{display:block}
+.tabs{position:static;width:auto;height:auto;margin:0 0 12px;padding:0;display:flex;gap:8px;border:0;background:transparent;clip-path:none}
+.tab{flex:1;padding:12px 16px;background:#06131b;border:1px solid #1a596c;color:white;font-size:initial;letter-spacing:1.5px}
+.tab.active{background:linear-gradient(90deg,#063949,#061821);border-color:var(--cyan);border-bottom-color:var(--cyan);color:var(--cyan);box-shadow:none;text-shadow:none}
+#battlePage{position:static;width:auto;aspect-ratio:auto;background:none;isolation:auto}
+#battlePage::before,#battlePage::after{display:none}
+.hud-command-grid{display:block}
+.panel,.hud-command-grid>.panel,.teams,.pool-panel,.launch-panel,.hud-bottom-panel{position:relative;inset:auto;width:auto;height:auto;margin-bottom:12px;padding:16px;background:linear-gradient(135deg,#07161f,#02080c)!important;border:1px solid var(--line)!important;box-shadow:none!important;clip-path:none!important;overflow:visible}
+.teams{display:grid!important;grid-template-columns:repeat(3,1fr);gap:12px;padding:0;background:transparent!important;border:0!important;margin-top:0}
+.teams.two{grid-template-columns:repeat(2,1fr)}
+.teams::before{display:none}
+.teams>.panel{position:relative;height:auto;padding:16px;background:linear-gradient(135deg,#07161f,#02080c)!important;border:1px solid var(--line)!important;clip-path:none!important}
+.teams>.alpha{border-color:#17647b!important}.teams>.omega{border-color:#6b2a35!important}.teams>.sigma{border-color:#613980!important}
+.teams .heading{height:auto;margin-bottom:12px;padding-bottom:10px;background:transparent}
+.slots{height:auto;display:grid;grid-template-columns:repeat(5,1fr);gap:8px}
+.slot,.slot.filled{min-height:125px;height:auto;padding:8px;background:#02080c!important;border:1px dashed #1b3a46!important;box-shadow:none!important;font-size:initial}
+.slot.filled{border-style:solid!important;border-color:var(--accent,var(--cyan))!important}
+.slot:not(.filled)::after{content:"EMPTY";white-space:normal;color:#547681;font-size:8px;opacity:1}
+.slot .emblem,.card .emblem,.pool-panel .card .emblem{width:34px;height:34px;margin:0 auto 7px;border:1px solid var(--accent,var(--cyan))!important;border-radius:50%!important;clip-path:none!important;background:#041018!important;box-shadow:none!important;filter:none;animation:none;text-shadow:none;font-size:16px}
+.slotname{font-size:9px}.slotver{font-size:7px}.slotdata{font-size:6px}
+.grid,.pool-panel #characterPool{display:grid;height:auto;max-height:none;grid-template-columns:repeat(5,1fr);grid-auto-rows:auto;gap:8px;overflow:visible;padding:0}
+.card,.pool-panel .card{min-width:0;min-height:100px;height:auto;padding:10px;text-align:left;background:linear-gradient(135deg,#0a1b24,#03090d);border:1px solid #183d4a}
+.card::after,.pool-panel .card::after{display:none}.card .name,.pool-panel .card .name{font-size:11px}.card .meta,.pool-panel .card .meta{font-size:8px}.card .badge,.pool-panel .card .badge{font-size:7px}
+.advanced-pool-panel{height:auto;min-height:48px;margin:0 0 10px;padding:8px;flex-wrap:wrap;white-space:normal;background:#02090d;border:1px solid #174a5c}
+.advanced-pool-panel button{padding:8px 10px;font-size:7px}.advanced-pool-panel b{font-size:8px;color:var(--gold);letter-spacing:1px}
+#battleOutput{position:static;inset:auto;width:auto;max-height:none;overflow:visible;background:linear-gradient(135deg,#07161f,#02080c);box-shadow:none}
+#battlePage:has(#battleOutput[style*="block"]){margin-bottom:0}
+#databasePage{padding:0;min-height:0;background:none}
+.hud-mode-rack,.hud-map-panel,.hud-intel,.hud-bottom-panel{display:none!important}
+@media(max-width:1100px){.teams{grid-template-columns:1fr!important}.grid,.pool-panel #characterPool{grid-template-columns:repeat(3,1fr)}}
+@media(max-width:700px){main{min-width:0}.grid,.pool-panel #characterPool{grid-template-columns:1fr}.slots{grid-template-columns:repeat(2,1fr)}}
 .hud-bottom-panel{padding:.8%}.hud-bottom-panel .bottom-cell{background:rgba(0,8,14,.72);border-color:rgba(21,76,96,.5)}.launch-panel{padding:.9%!important}.launch-panel #startBattleButton{background:rgba(0,25,37,.9)}
 
 .manual-first-pick{
@@ -6898,6 +6937,20 @@ function updateHUDTelemetry(){
     qs("hudPreviewAlpha").textContent=`ALPHA // ${teams.alpha.length?teams.alpha.map(c=>c.name).join(" • "):"AWAITING"}`;
     qs("hudPreviewOmega").textContent=`OMEGA // ${teams.omega.length?teams.omega.map(c=>c.name).join(" • "):"AWAITING"}`;
 }
+
+/* Classic HUD initialization: keep the original document flow and add only
+   the mode-specific options panel required by the new draft workflows. */
+initBattleHUD=function(){
+    const page=qs("battlePage");
+    const directPanels=[...page.children].filter(node=>node.classList?.contains("panel"));
+    const poolPanel=directPanels[1];
+    const advancedPanel=document.createElement("div");
+    advancedPanel.id="advancedPoolPanel";
+    advancedPanel.className="advanced-pool-panel";
+    poolPanel.insertBefore(advancedPanel,qs("characterPool"));
+    page.addEventListener("change",()=>{syncAdvancedPoolPanel();updateHUDTelemetry();});
+    syncAdvancedPoolPanel();
+};
 
 const hudRenderTeams=renderTeams;
 renderTeams=function(){hudRenderTeams();updateHUDTelemetry();};

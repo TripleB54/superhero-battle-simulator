@@ -1,6 +1,6 @@
 # Stark Multiverse Battle Simulator
 
-Open `index.html` in a modern desktop browser or publish this folder with GitHub Pages. Keep the `assets` folder beside `index.html`.
+Open `index.html` in a modern desktop browser or publish it with GitHub Pages. The restored classic Stark HUD is built entirely into the HTML and does not require a separate image asset.
 
 ## Advanced draft modes
 
