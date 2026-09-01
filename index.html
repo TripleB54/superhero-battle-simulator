@@ -714,6 +714,139 @@ button:disabled{
 
 }
 
+.manual-first-pick{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:7px;
+    margin:10px 0;
+}
+
+#wheelModal .modal-box{width:min(720px,98vw)}
+
+#wheel{
+    width:min(560px,82vw);
+    height:min(560px,82vw);
+    position:relative;
+    overflow:hidden;
+    box-shadow:0 0 35px rgba(0,234,255,.22),inset 0 0 35px #020609;
+    background:repeating-conic-gradient(from 0deg,#082936 0 2deg,#163f4b 2deg 4deg,#451e28 4deg 6deg,#082936 6deg 8deg);
+}
+
+#wheel::after{
+    content:"STARK\\A RANDOMIZER";
+    white-space:pre;
+    position:absolute;
+    left:50%;top:50%;transform:translate(-50%,-50%);
+    width:112px;height:112px;border-radius:50%;
+    display:grid;place-items:center;
+    background:#02090d;border:2px solid var(--cyan);
+    box-shadow:0 0 25px rgba(0,234,255,.35);
+    color:var(--gold);font-size:9px;letter-spacing:2px;line-height:1.5;
+}
+
+.wheel-name{
+    position:absolute;
+    left:50%;top:50%;
+    width:92px;
+    margin-left:-46px;
+    text-align:center;
+    transform-origin:46px 0;
+    color:#dffaff;
+    font-size:5px;
+    line-height:1;
+    text-shadow:0 0 3px #000;
+    pointer-events:none;
+}
+
+.blind-card .name{letter-spacing:2px;color:var(--gold)}
+.blind-card .emblem{filter:blur(2px)}
+.banned-card{opacity:.25;filter:grayscale(1)}
+.captain-mark{color:var(--gold);font-size:7px;letter-spacing:2px;margin-top:5px}
+
+.tactical-map{
+    position:relative;
+    min-height:360px;
+    overflow:hidden;
+    margin:10px 0 12px;
+    border:1px solid #1b6579;
+    background:
+      radial-gradient(circle at center,rgba(255,200,61,.08),transparent 35%),
+      linear-gradient(rgba(0,234,255,.08) 1px,transparent 1px),
+      linear-gradient(90deg,rgba(0,234,255,.08) 1px,transparent 1px),
+      #02090d;
+    background-size:auto,40px 40px,40px 40px,auto;
+}
+
+.tactical-map::before{
+    content:"BIRD'S-EYE TACTICAL FEED";
+    position:absolute;left:10px;top:8px;
+    color:var(--gold);font-size:8px;letter-spacing:2px;
+}
+
+.map-unit{
+    position:absolute;
+    width:118px;
+    transform:translate(-50%,-50%);
+    transition:left .4s,top .4s;
+}
+
+.map-dot{
+    width:24px;height:24px;margin:auto;border-radius:50%;
+    display:grid;place-items:center;
+    background:#04141c;border:2px solid var(--unit-color);
+    color:white;font-size:9px;box-shadow:0 0 14px var(--unit-color);
+}
+
+.map-name{text-align:center;font-size:7px;margin:4px 0;color:#dffaff;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.map-hp{height:4px;background:#12252d}.map-hp span{display:block;height:100%;background:var(--unit-color)}
+.map-hp-label{text-align:center;font-size:6px;color:#8fb0ba;margin-top:2px}
+.tactical-shell{margin:12px 0 20px;border:1px solid #1b6579;background:#01070a;padding:10px}
+.tactical-toolbar{display:grid;grid-template-columns:auto auto 1fr auto auto;gap:7px;align-items:center;margin-bottom:8px}
+.tactical-toolbar button{padding:7px 10px;font-size:7px}
+.tactical-action{color:#dffaff;font-size:9px;line-height:1.4;text-align:center}
+.tactical-map svg{position:absolute;inset:0;width:100%;height:100%;pointer-events:none}
+.attack-line{stroke:#ffd34d;stroke-width:1.2;filter:drop-shadow(0 0 4px #ffd34d)}
+.attack-line.ranged{stroke:#00eaff;stroke-dasharray:3 2}
+.move-line{stroke:#8a9ca3;stroke-width:.7;stroke-dasharray:2 2}
+.map-unit.active .map-dot{transform:scale(1.25);box-shadow:0 0 24px #ffd34d;border-color:#ffd34d}
+.map-unit.target .map-dot{animation:targetPulse .7s infinite alternate}
+.terrain{position:absolute;border:1px solid #17404d;background:rgba(7,33,42,.72);color:#47717e;font-size:6px;letter-spacing:1px;display:grid;place-items:center}
+.terrain.cover-a{left:28%;top:20%;width:13%;height:18%}.terrain.cover-b{right:25%;bottom:18%;width:16%;height:16%}
+.terrain.center-zone{left:44%;top:39%;width:15%;height:22%;border-color:#675d2e;background:rgba(90,73,18,.14)}
+@keyframes targetPulse{from{box-shadow:0 0 8px var(--unit-color)}to{box-shadow:0 0 24px #ff4055}}
+
+.profile.focus-card{
+    cursor:pointer;
+    position:relative;
+    overflow:hidden;
+    min-height:210px;
+    border-color:var(--dossier-accent);
+    background:linear-gradient(145deg,color-mix(in srgb,var(--dossier-accent) 13%,#02080c),#02080c 55%);
+}
+.profile.focus-card::after{content:"OPEN DOSSIER";position:absolute;right:8px;bottom:6px;color:var(--dossier-accent);font-size:7px;letter-spacing:2px}
+.profile.focus-card:nth-child(3n+2){border-radius:0 22px 0 0}
+.profile.focus-card:nth-child(3n){clip-path:polygon(0 0,95% 0,100% 12%,100% 100%,0 100%)}
+.profile-icon{font-size:30px;color:var(--dossier-accent);margin-bottom:8px}
+.profile-tag{display:inline-block;border:1px solid var(--dossier-accent);color:var(--dossier-accent);padding:3px 6px;font-size:7px;margin:3px 3px 3px 0}
+
+.dossier-modal{width:min(1100px,96vw);max-height:92vh;overflow:auto;text-align:left;border-color:var(--dossier-accent,var(--cyan))}
+.dossier-close{float:right}
+.dossier-hero{padding:25px;border-left:5px solid var(--dossier-accent);background:linear-gradient(90deg,color-mix(in srgb,var(--dossier-accent) 18%,#02080c),#02080c)}
+.dossier-hero h2{font-size:30px;margin:5px 0;color:var(--dossier-accent)}
+.dossier-grid{display:grid;grid-template-columns:1.1fr 1fr 1fr;gap:10px;margin-top:12px}
+.dossier-section{background:#02080c;border:1px solid #193e4a;padding:13px}
+.dossier-section h3{color:var(--dossier-accent);font-size:9px;letter-spacing:2px;margin-top:0}
+.dossier-section p,.dossier-section li{font-size:11px;line-height:1.55;color:#bdd0d6}
+.stat-row{display:grid;grid-template-columns:90px 1fr 28px;gap:7px;align-items:center;font-size:8px;margin:7px 0}
+.stat-meter{height:5px;background:#10222b}.stat-meter span{height:100%;display:block;background:var(--dossier-accent)}
+
+@media(max-width:700px){
+  .manual-first-pick,.dossier-grid{grid-template-columns:1fr}
+  .tactical-toolbar{grid-template-columns:1fr 1fr}.tactical-action{grid-column:1/-1;grid-row:1}
+  #wheel{width:88vw;height:88vw}
+  .wheel-name{font-size:4px}
+}
+
 </style>
 </head>
 
@@ -875,6 +1008,14 @@ onchange="selectionModeChanged()">
 GENERATE 10
 </option>
 
+<option value="Generate20">GENERATE 20</option>
+<option value="Generate30">GENERATE 30</option>
+<option value="BlindDraft">BLIND DRAFT</option>
+<option value="BanDraft">BAN &amp; DRAFT</option>
+<option value="UniverseClash">UNIVERSE CLASH</option>
+<option value="TierDraft">TIER DRAFT</option>
+<option value="CaptainDraft">CAPTAIN DRAFT</option>
+
 <option value="FreeSelect">
 FREE SELECT
 </option>
@@ -988,6 +1129,8 @@ DETAILED
 <option value="cinematic">
 CINEMATIC
 </option>
+
+<option value="tactical">TACTICAL MAP</option>
 
 </select>
 
@@ -1485,12 +1628,25 @@ onclick="determineFirstPick()">
 SELECT
 </button>
 
+<div class="manual-first-pick">
+<button onclick="chooseFirstPick('alpha')">ALPHA FIRST</button>
+<button onclick="chooseFirstPick('omega')">OMEGA FIRST</button>
+<button id="manualSigmaFirst" onclick="chooseFirstPick('sigma')">SIGMA FIRST</button>
+</div>
+
 <button onclick="closeFirstPickSelector()">
 CLOSE
 </button>
 
 </div>
 
+</div>
+
+<div id="characterModal" class="modal">
+  <div class="modal-box dossier-modal">
+    <button class="dossier-close" onclick="closeCharacterDossier()">CLOSE</button>
+    <div id="characterDossier"></div>
+  </div>
 </div>
 
 <script>
@@ -3837,6 +3993,10 @@ function unitFrom(
 
         adaptation:0,
 
+        adaptations:{},
+
+        focusTarget:null,
+
         recentMoves:[],
 
         lastAttacker:null,
@@ -4041,6 +4201,54 @@ function threat(
 
 }
 
+const TIER_RANK={Street:1,Enhanced:2,Heavy:3,Mystic:4,Cosmic:5};
+
+function combatScale(fighter){
+    const rank=TIER_RANK[fighter.tier]||2;
+    return rank*20+(fighter.power*.30)+(fighter.strength*.22)+(fighter.durability*.24)+(fighter.speed*.12)+(fighter.iq*.12);
+}
+
+function powerText(fighter){return [fighter.role,...(fighter.richData?.powers||[]),...(fighter.specialMechanics||[])].join(" ").toLowerCase();}
+
+function attackType(move){
+    const text=move.toLowerCase();
+    if(/emp|sensor jam|circuit|hack/.test(text))return "emp";
+    if(/magic|mystic|hex|spell|sorcer|arcane|hellfire|omega sanction/.test(text))return "magic";
+    if(/psychic|telepath|mind|fear|illusion|corrupt/.test(text))return "mental";
+    if(/sonic|sound|vibr|resonance|cry/.test(text))return "sonic";
+    if(/lightning|electric|venom blast/.test(text))return "electric";
+    if(/freeze|ice|cold|zero/.test(text))return "cold";
+    if(/fire|flame|heat|solar|nova/.test(text))return "heat";
+    if(/claw|blade|sword|arrow|dart|spike|slash|spear/.test(text))return "piercing";
+    if(/beam|bolt|blast|repulsor|optic|energy|omega/.test(text))return "energy";
+    return "physical";
+}
+
+function attackEffectiveness(attacker,target,move){
+    const type=attackType(move),aRank=TIER_RANK[attacker.tier]||2,tRank=TIER_RANK[target.tier]||2;
+    const targetText=powerText(target),weak=(target.weaknesses||[]).join(" ").toLowerCase(),resist=(target.resistances||[]).join(" ").toLowerCase();
+    const techTarget=/armor|armored suit|cyber|android|robot|technology|mechanical|power ring|harness/.test(targetText);
+    let modifier=1,reason="Effective attack";
+    if(type==="emp"&&!techTarget)return{modifier:0,label:"NO EFFECT",reason:"No compatible technology to disable",type};
+    if(type==="mental"&&/android|robot|artificial intelligence|little complex mind/.test(targetText))return{modifier:0,label:"NO EFFECT",reason:"No accessible biological mind",type};
+    const weaknessMatch=(type==="magic"&&/magic|mystic|sorcer/.test(weak))||(type==="emp"&&/emp|technology|suit/.test(weak))||(type==="electric"&&/electric|lightning/.test(weak))||(type==="sonic"&&/sonic|sound/.test(weak))||(type==="heat"&&/heat|fire/.test(weak))||(type==="cold"&&/cold|ice/.test(weak));
+    if(weaknessMatch){modifier*=1.35;reason="Weakness exploited";}
+    if((type==="physical"&&/physical force|blunt force|bullets/.test(resist))||(type==="piercing"&&/cutting|bullets|ordinary weapons|physical force/.test(resist))||(type==="energy"&&/energy/.test(resist))||(type==="electric"&&/electric|lightning/.test(resist))||(type==="heat"&&/heat|fire/.test(resist))||(type==="cold"&&/cold/.test(resist))){modifier*=.24;reason="Strong resistance";}
+    const rankGap=tRank-aRank,output=Math.max(attacker.power,attacker.strength+(type==="physical"?5:0)),durabilityGap=target.durability-output;
+    if(!weaknessMatch&&rankGap>=3){modifier=0;reason="Attack lacks the required power";}
+    else if(!weaknessMatch&&rankGap===2){modifier*=.035;reason="Vast power gap";}
+    else if(!weaknessMatch&&rankGap===1&&durabilityGap>12){modifier*=.22;reason="Durability advantage";}
+    if(!weaknessMatch&&durabilityGap>25)modifier*=.05;
+    else if(!weaknessMatch&&durabilityGap>15)modifier*=.22;
+    if(target.name==="Doomsday"){
+        const count=target.adaptations?.[type]||0;
+        modifier*=Math.max(.08,1-(count*.24));
+        if(count>1)reason=`Doomsday is adapting to ${type} attacks`;
+    }
+    const label=modifier===0?"NO EFFECT":modifier<.08?"NEGLIGIBLE":modifier<.35?"MINOR":modifier>1.15?"WEAKNESS EXPLOIT":"EFFECTIVE";
+    return{modifier,label,reason,type};
+}
+
 /* =========================================================
    TARGET SELECTION
 ========================================================= */
@@ -4076,10 +4284,18 @@ function chooseTarget(
         enemies
     ){
 
-        let score=
-            threat(
-                enemy
-            );
+        const allies=livingTeam(units,attacker.team).filter(ally=>ally!==attacker);
+        const scaleGap=Math.abs(combatScale(attacker)-combatScale(enemy));
+        const rankGap=(TIER_RANK[enemy.tier]||2)-(TIER_RANK[attacker.tier]||2);
+        const distance=(Number.isFinite(attacker.x)&&Number.isFinite(enemy.x))?Math.hypot(enemy.x-attacker.x,enemy.y-attacker.y):30;
+        const supporting=allies.some(ally=>ally.focusTarget===enemy.name&&combatScale(ally)>=combatScale(enemy)-12);
+
+        /* Prefer the closest credible matchup. A weaker fighter challenges
+           a major threat mainly when helping an ally who can affect it. */
+        let score=55-scaleGap*.42-distance*.20+threat(enemy)*.12;
+        if(rankGap>=2)score-=34;
+        if(rankGap<=-2)score-=12;
+        if(supporting){score+=30;if(rankGap>=2)score+=22;}
 
         if(
             enemy.hp<35
@@ -4164,7 +4380,7 @@ function moveTags(
     return{
 
         ranged:
-        /beam|bolt|arrow|shot|vision|cannon|blast|volley|barrage|missile|cry|breath|rifle|pistol/.test(
+        /beam|bolt|arrow|shot|vision|cannon|blast|volley|barrage|missile|cry|breath|rifle|pistol|throw|lightning|repulsor|laser|telepathy|hex|projectile|web/.test(
             text
         ),
 
@@ -4242,6 +4458,12 @@ function chooseMove(
             .find(([,moves])=>Array.isArray(moves)&&moves.includes(move))?.[0]||"normal";
         const roleText=(attacker.role||"").toLowerCase();
         const personalityText=(attacker.personality||"").toLowerCase();
+        const effectiveness=attackEffectiveness(attacker,target,move);
+
+        if(effectiveness.modifier===0) score-=120;
+        else if(effectiveness.modifier<.08) score-=45;
+        else if(effectiveness.modifier<.35) score-=18;
+        else if(effectiveness.modifier>1.1) score+=18;
 
         if(category==="signature") score+=6;
         if(category==="counter"&&target.recentMoves.length) score+=8;
@@ -4631,6 +4853,10 @@ function calculateDamage(
             move
         );
 
+    const effectiveness=attackEffectiveness(attacker,target,move);
+
+    if(effectiveness.modifier===0)return 0;
+
     let damage=
         8
         +
@@ -4664,6 +4890,8 @@ function calculateDamage(
             target,
             move
         );
+
+    damage*=effectiveness.modifier;
 
     if(
         reactionType===
@@ -4706,7 +4934,7 @@ function calculateDamage(
 
     return clamp(
         damage,
-        1,
+        0,
         32
     );
 
@@ -4801,6 +5029,20 @@ function simulateBattle(){
 
     ];
 
+    /* Tactical coordinates are part of the simulation, not decoration. */
+    const teamRows={1:units.filter(u=>u.team===1),2:units.filter(u=>u.team===2),3:units.filter(u=>u.team===3)};
+    for(const unit of units){
+        const row=teamRows[unit.team];
+        const index=row.indexOf(unit);
+        unit.x=unit.team===1?12:unit.team===2?88:50;
+        unit.y=18+((index+1)*(64/(row.length+1)));
+    }
+
+    const tacticalSnapshot=()=>units.map(fighter=>({
+        name:fighter.name,team:fighter.team,icon:fighter.icon,
+        hp:fighter.hp,maxHp:fighter.maxHp,x:fighter.x,y:fighter.y
+    }));
+
     const context=
         getMatchContext(
             units
@@ -4862,6 +5104,8 @@ function simulateBattle(){
                     units
                 );
 
+            attacker.focusTarget=target.name;
+
             const move=
                 chooseMove(
                     attacker,
@@ -4871,11 +5115,25 @@ function simulateBattle(){
                     context
                 );
 
+            const effect=attackEffectiveness(attacker,target,move);
+
             const react=
                 reaction(
                     attacker,
                     target
                 );
+
+            const tags=moveTags(move);
+            const start={x:attacker.x,y:attacker.y};
+            const targetStart={x:target.x,y:target.y};
+            const dx=target.x-attacker.x,dy=target.y-attacker.y;
+            const distance=Math.max(1,Math.hypot(dx,dy));
+            const desired=tags.ranged?Math.min(32,distance):6;
+            if(distance>desired){
+                const travel=Math.min(distance-desired,10+(attacker.speed*.11));
+                attacker.x=clamp(attacker.x+(dx/distance)*travel,5,95);
+                attacker.y=clamp(attacker.y+(dy/distance)*travel,8,92);
+            }
 
             const damage=
                 calculateDamage(
@@ -4892,6 +5150,19 @@ function simulateBattle(){
                     0,
                     target.maxHp
                 );
+
+            /* Reactions and forceful moves alter the real next position. */
+            const impactDx=target.x-attacker.x,impactDy=target.y-attacker.y;
+            const impactDistance=Math.max(1,Math.hypot(impactDx,impactDy));
+            if(/dodge|teleport|phase/.test(react.toLowerCase())){
+                const side=(nameHash(target.name+round)%2?1:-1);
+                target.x=clamp(target.x-(impactDy/impactDistance)*7*side,5,95);
+                target.y=clamp(target.y+(impactDx/impactDistance)*7*side,8,92);
+            }else if(/blast|bolt|strike|slam|smash|throw|charge|rush|kick|punch|clap|hammer/.test(move.toLowerCase())){
+                const push=clamp(damage*.18,2,9);
+                target.x=clamp(target.x+(impactDx/impactDistance)*push,5,95);
+                target.y=clamp(target.y+(impactDy/impactDistance)*push,8,92);
+            }
 
             target.lastAttacker=
                 attacker.name;
@@ -4925,14 +5196,9 @@ function simulateBattle(){
 
             }
 
-            if(
-                attacker.name===
-                "Doomsday"
-            ){
-
-                attacker.adaptation+=
-                    .18;
-
+            if(target.name==="Doomsday"&&damage>0){
+                target.adaptations[effect.type]=(target.adaptations[effect.type]||0)+1;
+                target.adaptation+=.18;
             }
 
             attacker
@@ -4974,6 +5240,8 @@ function simulateBattle(){
 
                 damage,
 
+                effectiveness:effect,
+
                 targetHp:
                 target.hp,
 
@@ -4984,7 +5252,16 @@ function simulateBattle(){
                 battlefieldLocation(),
 
                 elimination:
-                target.hp<=0
+                target.hp<=0,
+
+                tactical:{
+                    range:tags.ranged?"RANGED":"CLOSE",
+                    start,
+                    attacker:{x:attacker.x,y:attacker.y},
+                    targetStart,
+                    target:{x:target.x,y:target.y},
+                    snapshot:tacticalSnapshot()
+                }
 
             });
 
@@ -5006,8 +5283,20 @@ function simulateBattle(){
                     team:
                     fighter.team,
 
+                    icon:
+                    fighter.icon,
+
                     hp:
-                    fighter.hp
+                    fighter.hp,
+
+                    maxHp:
+                    fighter.maxHp,
+
+                    x:
+                    fighter.x,
+
+                    y:
+                    fighter.y
 
                 })
             )
@@ -5325,6 +5614,14 @@ function describeReaction(
         condition(
             event.targetHp
         );
+
+    if(event.effectiveness?.label==="NO EFFECT"){
+        return`${event.move} cannot meaningfully affect ${target}; ${event.effectiveness.reason.toLowerCase()}.`;
+    }
+
+    if(event.effectiveness?.label==="NEGLIGIBLE"){
+        return`${target} absorbs the attempt with no meaningful loss of fighting capability; the power gap is immediately apparent.`;
+    }
 
     if(
         event.reaction===
@@ -5846,6 +6143,11 @@ ${round.text}
                 round.round
             );
 
+        if(qs("storyDepth").value==="tactical"){
+            const tacticalRound=simulation.rounds.find(item=>item.round===round.round);
+            html+=tacticalRoundHTML(tacticalRound);
+        }
+
     }
 
     if(
@@ -5884,6 +6186,10 @@ The remaining exchanges bring the battle to its conclusion.
                 finalRound.round
             );
 
+        if(qs("storyDepth").value==="tactical"){
+            html+=tacticalRoundHTML(finalRound);
+        }
+
     }
 
     html+=`
@@ -5899,6 +6205,8 @@ ${simulation.winner} WINS
     ).innerHTML=
         html;
 
+    if(qs("storyDepth").value==="tactical") initializeTacticalPlayers(simulation);
+
     qs(
         "battleOutput"
     ).scrollIntoView({
@@ -5912,6 +6220,254 @@ ${simulation.winner} WINS
 /* =========================================================
    INITIALIZE
 ========================================================= */
+
+/* =========================================================
+   EXPANDED GAME MODES + HUD UPGRADES
+========================================================= */
+
+let banPhase=false;
+let banIndex=0;
+let bannedFighters=[];
+let captainTeams=new Set();
+
+function currentMode(){return qs("selectionMode").value;}
+function generatedMode(mode=currentMode()){
+    return ["Generate10","Generate20","Generate30","BlindDraft","BanDraft"].includes(mode);
+}
+function generatedCount(mode=currentMode()){
+    return mode==="Generate30"?30:mode==="Generate20"?20:(mode==="BlindDraft"||mode==="BanDraft")?20:10;
+}
+function modeLabel(mode=currentMode()){
+    return ({Generate10:"GENERATE 10",Generate20:"GENERATE 20",Generate30:"GENERATE 30",BlindDraft:"GENERATE BLIND POOL",BanDraft:"GENERATE BAN POOL"})[mode]||"LOAD ROSTER";
+}
+
+selectionModeChanged=function(){
+    selection=[]; bannedFighters=[]; banPhase=false; banIndex=0; captainTeams=new Set();
+    clearTeams(); firstPickDetermined=false; currentDraftIndex=0; draftOrder=activeTeams();
+    qs("characterPool").innerHTML="";
+    const mode=currentMode();
+    const button=qs("generateButton");
+    button.style.display=generatedMode(mode)?"block":"none";
+    button.textContent=modeLabel(mode);
+    if(["FreeSelect","UniverseClash","TierDraft","CaptainDraft"].includes(mode)) loadFreeSelect();
+    else{
+        qs("availableTitle").textContent=mode.replace(/([A-Z])/g," $1").trim().toUpperCase();
+        qs("selectionStatus").textContent=`Determine first pick, then press ${modeLabel(mode)}.`;
+    }
+
+    if(
+        depth==="tactical"
+    ){
+
+        return{
+            rounds:20,
+            actions:8
+        };
+
+    }
+    renderTeams(); updateDraftStatus();
+};
+
+filtersChanged=function(){
+    if(["FreeSelect","UniverseClash","TierDraft","CaptainDraft"].includes(currentMode())) loadFreeSelect();
+    else if(selection.length) generateSelection();
+    if(qs("wheelModal").style.display==="grid") renderWheelNames();
+};
+
+generateSelection=function(){
+    if(!selectedTiers().length){qs("selectionStatus").textContent="SELECT AT LEAST ONE POWER TIER";return;}
+    const count=generatedCount();
+    selection=shuffle(eligible()).slice(0,count).map(character=>({...character,version:assignedVersion()}));
+    if(!selection.length){qs("selectionStatus").textContent="NO ELIGIBLE CHARACTERS";return;}
+    bannedFighters=[]; banPhase=currentMode()==="BanDraft"&&firstPickDetermined; banIndex=0;
+    qs("availableTitle").textContent=currentMode()==="BlindDraft"?"CLASSIFIED BLIND POOL":`${selection.length} GENERATED COMBATANTS`;
+    qs("selectionStatus").textContent=currentMode()==="BlindDraft"?`${selection.length} CLASSIFIED PICKS READY`:currentMode()==="BanDraft"?`${selection.length} READY // EACH TEAM BANS ONE`:`${selection.length} COMBATANTS READY // ${selectedTiers().join(" + ")}`;
+    renderSelection(); updateDraftStatus();
+};
+
+loadFreeSelect=function(){
+    if(!selectedTiers().length){selection=[];qs("characterPool").innerHTML="";qs("selectionStatus").textContent="SELECT AT LEAST ONE POWER TIER";return;}
+    selection=eligible().map(character=>({...character,version:assignedVersion()}));
+    const labels={FreeSelect:"FREE SELECT // FULL ELIGIBLE ROSTER",UniverseClash:"UNIVERSE CLASH // ALPHA MARVEL • OMEGA DC",TierDraft:"TIER DRAFT // MATCHED POWER TIERS",CaptainDraft:"CAPTAIN DRAFT // CHOOSE LEADERS FIRST"};
+    qs("availableTitle").textContent=labels[currentMode()]||labels.FreeSelect;
+    qs("selectionStatus").textContent=`${selection.length} ELIGIBLE CHARACTERS`;
+    renderSelection();
+};
+
+function requiredTier(team){
+    const tiers=selectedTiers();
+    return tiers.length?tiers[teams[team].length%tiers.length]:null;
+}
+
+function universeForTeam(team){return team==="alpha"?"Marvel":team==="omega"?"DC":"Both";}
+
+renderSelection=function(){
+    const mode=currentMode();
+    const team=currentDraftTeam();
+    const required=mode==="TierDraft"&&team?requiredTier(team):null;
+    const universe=mode==="UniverseClash"&&team?universeForTeam(team):"Both";
+    const visible=selection.map((character,index)=>({character,index})).filter(({character})=>(!required||character.tier===required)&&(universe==="Both"||character.universe===universe));
+    qs("characterPool").innerHTML=visible.map(({character,index})=>{
+        if(mode==="BlindDraft") return `<div class="card blind-card" onclick="draftCharacter(${index})"><div class="emblem">?</div><div class="name">CLASSIFIED FIGHTER</div><div class="meta">SELECT TO REVEAL</div><div class="badge">UNKNOWN VERSION</div></div>`;
+        const captain=mode==="CaptainDraft"&&team&&!captainTeams.has(team);
+        return `<div class="card" style="--accent:${character.universe==="Marvel"?"#ff4055":"#00eaff"}" onclick="draftCharacter(${index})"><div class="emblem">${ICONS[character.icon]||"◆"}</div><div class="name">${character.name}</div><div class="meta">${character.universe} // ${character.tier} // ${character.role}</div><div class="badge">${character.version.toUpperCase()}</div>${captain?"<div class='captain-mark'>CAPTAIN SELECTION</div>":""}</div>`;
+    }).join("");
+    if(required) qs("selectionStatus").textContent=`${teamName(team)} MUST PICK ${required.toUpperCase()} TIER`;
+    if(mode==="UniverseClash"&&team) qs("selectionStatus").textContent=`${teamName(team)} DRAFTS ${universe.toUpperCase()}`;
+};
+
+function lockFirstPick(team){
+    if(!activeTeams().includes(team)) return;
+    const options=activeTeams(),start=options.indexOf(team);
+    draftOrder=[...options.slice(start),...options.slice(0,start)]; currentDraftIndex=0; firstPickDetermined=true;
+    clearSelectorHighlights();
+    const node=qs("selector"+team.charAt(0).toUpperCase()+team.slice(1)); if(node) node.classList.add("active");
+    qs("selectorCenter").textContent="LOCKED"; qs("firstPickResult").textContent=`${teamName(team)} PICKS FIRST`;
+    selectorRunning=false; qs("firstPickButton").disabled=false;
+    if(currentMode()==="BanDraft"&&selection.length){banPhase=true;banIndex=0;}
+    updateDraftStatus(); renderSelection();
+}
+
+finishFirstPick=function(){lockFirstPick(random(activeTeams()));};
+function chooseFirstPick(team){if(selectorRunning)return;lockFirstPick(team);}
+
+const originalOpenFirstPickSelector=openFirstPickSelector;
+openFirstPickSelector=function(){
+    originalOpenFirstPickSelector();
+    qs("manualSigmaFirst").style.display=playerCount()===3?"block":"none";
+};
+
+function currentBanTeam(){return banPhase?draftOrder[banIndex]||null:null;}
+
+draftCharacter=function(index){
+    if(!firstPickDetermined){qs("selectionStatus").textContent="DETERMINE OR CHOOSE FIRST PICK BEFORE DRAFTING";return;}
+    const character=selection[index]; if(!character)return;
+    if(banPhase){
+        const banning=currentBanTeam();
+        bannedFighters.push({...character,bannedBy:banning}); selection.splice(index,1); banIndex++;
+        if(banIndex>=draftOrder.length){banPhase=false;qs("selectionStatus").textContent=`BANS COMPLETE // ${bannedFighters.map(x=>x.name).join(" • ")}`;}
+        renderSelection();updateDraftStatus();return;
+    }
+    const team=currentDraftTeam(); if(!team||teamFull(team))return;
+    if(currentMode()==="UniverseClash"){
+        const allowed=universeForTeam(team); if(allowed!=="Both"&&character.universe!==allowed){qs("selectionStatus").textContent=`${teamName(team)} MUST PICK ${allowed.toUpperCase()}`;return;}
+    }
+    if(currentMode()==="TierDraft"&&character.tier!==requiredTier(team)){qs("selectionStatus").textContent=`${teamName(team)} MUST PICK ${requiredTier(team).toUpperCase()} TIER`;return;}
+    const picked={...character};
+    if(currentMode()==="CaptainDraft"&&!captainTeams.has(team)){picked.isCaptain=true;captainTeams.add(team);}
+    teams[team].push(picked);
+    if(generatedMode()) selection.splice(index,1);
+    advanceDraft();
+    if(["FreeSelect","UniverseClash","TierDraft","CaptainDraft"].includes(currentMode())) loadFreeSelect(); else renderSelection();
+    renderTeams();updateDraftStatus();
+};
+
+removeCharacter=function(team,index){
+    const removed=teams[team][index];if(!removed)return;
+    teams[team].splice(index,1);if(removed.isCaptain)captainTeams.delete(team);
+    if(generatedMode()&&!selection.some(x=>x.name===removed.name))selection.push(removed);
+    currentDraftIndex=Math.max(0,draftOrder.indexOf(team));
+    if(["FreeSelect","UniverseClash","TierDraft","CaptainDraft"].includes(currentMode()))loadFreeSelect();else renderSelection();
+    renderTeams();updateDraftStatus();
+};
+
+const baseUpdateDraftStatus=updateDraftStatus;
+updateDraftStatus=function(){
+    baseUpdateDraftStatus();
+    if(banPhase){const team=currentBanTeam();qs("draftStatus").textContent=`${teamName(team)} BAN`;qs("selectionStatus").textContent=`${teamName(team)} SELECTS ONE FIGHTER TO BAN`;}
+    else if(currentMode()==="CaptainDraft"&&firstPickDetermined&&!allTeamsFull()){
+        const team=currentDraftTeam();if(team&&!captainTeams.has(team))qs("draftStatus").textContent=`${teamName(team)} CAPTAIN PICK`;
+    }
+};
+
+function renderWheelNames(){
+    const list=eligible(),wheel=qs("wheel");
+    wheel.innerHTML=list.map((fighter,index)=>{
+        const angle=360*index/list.length;const radius=index%2?245:205;
+        return `<span class="wheel-name" style="transform:translate(-50%,-50%) rotate(${angle}deg) translateY(-${radius}px) rotate(${-angle}deg)">${fighter.name}</span>`;
+    }).join("");
+    qs("wheelResult").textContent=`${list.length} ELIGIBLE NAMES LOADED`;
+}
+
+const baseOpenWheel=openWheel;
+openWheel=function(){baseOpenWheel();if(qs("wheelModal").style.display==="grid")renderWheelNames();};
+
+function nameHash(name){return [...name].reduce((total,char)=>((total*31)+char.charCodeAt(0))>>>0,7);}
+function dossierColor(character){
+    const colors=character.universe==="Marvel"?["#ff4055","#ffc83d","#ff7b3d","#d96cff"]:["#00eaff","#4dff9a","#6c9cff","#b56cff"];
+    return colors[nameHash(character.name)%colors.length];
+}
+function statBars(character){
+    return [["STRENGTH",character.strength],["SPEED",character.speed],["DURABILITY",character.durability],["INTELLIGENCE",character.iq],["POWER",character.power]].map(([name,value])=>`<div class="stat-row"><span>${name}</span><div class="stat-meter"><span style="width:${value}%"></span></div><b>${value}</b></div>`).join("");
+}
+
+renderDatabase=function(){
+    const search=(qs("dbSearch").value||"").toLowerCase(),universe=qs("dbUniverse").value;
+    qs("databaseGrid").innerHTML=CHARACTERS.filter(c=>(universe==="Both"||c.universe===universe)&&c.name.toLowerCase().includes(search)).map(character=>{
+        const color=dossierColor(character);const powers=character.richData?.powers||[];
+        return `<div class="profile focus-card" style="--dossier-accent:${color}" data-character="${encodeURIComponent(character.name)}" onclick="openCharacterDossier(decodeURIComponent(this.dataset.character))"><div class="profile-icon">${ICONS[character.icon]||"◆"}</div><h3>${character.name}</h3><span class="profile-tag">${character.universe}</span><span class="profile-tag">${character.tier}</span><span class="profile-tag">${character.role}</span><p><strong>STYLE</strong><br>${character.range}</p><p><strong>FIGHTING STYLE</strong><br>${character.fightingStyle}</p><p><strong>COMBAT PERSONALITY</strong><br>${character.personality}</p><p><strong>CORE POWERS</strong><br>${powers.slice(0,5).join(" • ")}</p></div>`;
+    }).join("");
+};
+
+function listHTML(items){
+    const list=Array.isArray(items)?items:(items?[items]:[]);
+    return `<ul>${list.map(item=>`<li>${item}</li>`).join("")}</ul>`;
+}
+function openCharacterDossier(name){
+    const character=CHARACTERS.find(c=>c.name===name);if(!character)return;
+    const color=dossierColor(character),data=character.richData||{};
+    const moveGroups=character.moveCategories||{};
+    qs("characterModal").style.display="grid";qs("characterDossier").style.setProperty("--dossier-accent",color);
+    const allMoves=[...new Set(Object.values(moveGroups).flat())];
+    qs("characterDossier").innerHTML=`<div class="dossier-hero"><div class="profile-icon">${ICONS[character.icon]||"◆"}</div><small>${character.universe} // ${character.tier} // ${character.role}</small><h2>${character.name}</h2><span class="profile-tag">${character.range}</span>${(data.identity?.affiliations||[]).map(a=>`<span class="profile-tag">${a}</span>`).join("")}</div><div class="dossier-grid"><section class="dossier-section"><h3>STYLE</h3><p>${character.range}</p><h3>STATS</h3>${statBars(character)}<p>STR ${character.strength} • SPD ${character.speed} • DUR ${character.durability} • IQ ${character.iq} • PWR ${character.power}</p></section><section class="dossier-section"><h3>FIGHTING STYLE</h3><p>${character.fightingStyle}</p><h3>COMBAT PERSONALITY</h3><p>${character.personality}</p><h3>POWERS</h3>${listHTML(data.powers||[])}</section><section class="dossier-section"><h3>MOVES</h3><p>${allMoves.join(" • ")}</p>${Object.entries(moveGroups).map(([group,moves])=>`<p><strong>${group.toUpperCase()}</strong><br>${moves.join(" • ")}</p>`).join("")}</section><section class="dossier-section"><h3>WEAKNESSES / LIMITATIONS</h3>${listHTML(character.weaknesses)}<h3>RESISTANCES</h3>${listHTML(character.resistances)}<h3>SPECIAL MECHANICS</h3>${listHTML(character.specialMechanics)}</section><section class="dossier-section"><h3>STANDARD</h3><p>${character.standardDescription||"Mainstream version with established equipment, skills, and powers."}</p><h3>AMPED</h3><p>${character.ampedDescription||"Controlled enhanced version without reality-scale or unbeatable abilities."}</p></section><section class="dossier-section"><h3>AI PRIORITIES</h3>${listHTML(Object.values(character.aiBehavior||{}))}<h3>TEAM BEHAVIOR</h3>${listHTML(character.teamBehavior)}<h3>COUNTERS & INTERACTIONS</h3>${listHTML(character.powerInteractions)}<h3>BATTLEFIELD USE</h3>${listHTML(character.battlefieldBehavior)}</section></div>`;
+}
+function closeCharacterDossier(){qs("characterModal").style.display="none";}
+
+let tacticalSimulation=null;
+const tacticalFrames={};
+const tacticalTimers={};
+
+function tacticalFrameHTML(event,round,actionIndex){
+    const colors={1:"#00eaff",2:"#ff4055",3:"#b56cff"};
+    const snapshot=event?.tactical?.snapshot||[];
+    const positions=snapshot.map(fighter=>{
+        const x=fighter.x??50,y=fighter.y??50;
+        const hp=Math.max(0,Math.round(fighter.hp));
+        const hpPercent=clamp(Math.round((fighter.hp/(fighter.maxHp||100))*100),0,100);
+        const state=fighter.name===event.attacker?" active":fighter.name===event.target?" target":"";
+        return `<div class="map-unit${state}" style="left:${x}%;top:${y}%;--unit-color:${colors[fighter.team]}"><div class="map-dot">${ICONS[fighter.icon]||"◆"}</div><div class="map-name">${fighter.name}</div><div class="map-hp"><span style="width:${hpPercent}%"></span></div><div class="map-hp-label">${hp} HP</div></div>`;
+    }).join("");
+    const t=event?.tactical;
+    const lines=t?`<svg viewBox="0 0 100 100" preserveAspectRatio="none"><line class="move-line" x1="${t.start.x}" y1="${t.start.y}" x2="${t.attacker.x}" y2="${t.attacker.y}"/><line class="attack-line ${t.range==='RANGED'?'ranged':''}" x1="${t.attacker.x}" y1="${t.attacker.y}" x2="${t.targetStart.x}" y2="${t.targetStart.y}"/></svg>`:"";
+    return `<div class="tactical-map" aria-label="Round ${round}, action ${actionIndex+1}"><div class="terrain cover-a">COVER</div><div class="terrain cover-b">COVER</div><div class="terrain center-zone">CONTESTED ZONE</div>${lines}${positions}</div>`;
+}
+
+function tacticalRoundHTML(round){
+    if(!round||!round.actions.length)return "";
+    const event=round.actions[0];
+    return `<div class="tactical-shell" id="tactical-${round.round}"><div class="tactical-toolbar"><button onclick="stepTactical(${round.round},-1)">◀ PREVIOUS</button><button onclick="toggleTacticalPlay(${round.round})">▶ PLAY</button><div class="tactical-action" id="tactical-label-${round.round}">ACTION 1/${round.actions.length} // ${event.attacker} — ${event.move} → ${event.target} // ${event.effectiveness?.label||"EFFECTIVE"} // ${Math.round(event.damage)} DAMAGE</div><button onclick="stepTactical(${round.round},1)">NEXT ▶</button><button onclick="jumpTacticalEnd(${round.round})">END ROUND</button></div><div id="tactical-stage-${round.round}">${tacticalFrameHTML(event,round.round,0)}</div></div>`;
+}
+
+function initializeTacticalPlayers(simulation){
+    tacticalSimulation=simulation;
+    simulation.rounds.forEach(round=>tacticalFrames[round.round]=0);
+}
+
+function renderTacticalAction(roundNumber){
+    const round=tacticalSimulation?.rounds.find(item=>item.round===roundNumber);if(!round||!round.actions.length)return;
+    const index=clamp(tacticalFrames[roundNumber]||0,0,round.actions.length-1),event=round.actions[index];
+    tacticalFrames[roundNumber]=index;
+    const stage=qs(`tactical-stage-${roundNumber}`),label=qs(`tactical-label-${roundNumber}`);
+    if(stage)stage.innerHTML=tacticalFrameHTML(event,roundNumber,index);
+    if(label)label.textContent=`ACTION ${index+1}/${round.actions.length} // ${event.attacker} — ${event.move} → ${event.target} // ${event.effectiveness?.label||"EFFECTIVE"} // ${Math.round(event.damage)} DAMAGE // ${event.tactical.range}`;
+}
+function stepTactical(roundNumber,direction){tacticalFrames[roundNumber]=(tacticalFrames[roundNumber]||0)+direction;renderTacticalAction(roundNumber);}
+function jumpTacticalEnd(roundNumber){const round=tacticalSimulation?.rounds.find(item=>item.round===roundNumber);if(round){tacticalFrames[roundNumber]=round.actions.length-1;renderTacticalAction(roundNumber);}}
+function toggleTacticalPlay(roundNumber){
+    if(tacticalTimers[roundNumber]){clearInterval(tacticalTimers[roundNumber]);delete tacticalTimers[roundNumber];return;}
+    const round=tacticalSimulation?.rounds.find(item=>item.round===roundNumber);if(!round)return;
+    tacticalTimers[roundNumber]=setInterval(()=>{if((tacticalFrames[roundNumber]||0)>=round.actions.length-1){clearInterval(tacticalTimers[roundNumber]);delete tacticalTimers[roundNumber];return;}stepTactical(roundNumber,1);},1100);
+}
 
 playerCountChanged();
 
