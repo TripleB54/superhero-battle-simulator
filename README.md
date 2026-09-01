@@ -1,17 +1,13 @@
 # Stark Multiverse Battle Simulator
 
-A Marvel and DC team battle simulator with 175 fighters, multiple drafting modes, character dossiers, tactical battle playback, and a holographic command-center HUD.
+Open `index.html` in a modern desktop browser or publish this folder with GitHub Pages. Keep the `assets` folder beside `index.html`.
 
-## Publish with GitHub Pages
+## Advanced draft modes
 
-1. Create a new GitHub repository.
-2. Upload `index.html`, `README.md`, and the complete `assets` folder to the repository root.
-3. Open the repository's **Settings** → **Pages**.
-4. Under **Build and deployment**, select **Deploy from a branch**.
-5. Select the `main` branch and `/ (root)`, then save.
+- **Ban & Draft:** Generate 10, 20, or 30 fighters, or use Free Select. Each team bans one fighter before drafting.
+- **Universe Clash:** Generate separate pools of 10, 20, or 30 Marvel fighters for Team Alpha and DC fighters for Team Omega.
+- **Tier Draft:** Choose All Tiers or an individual Street, Enhanced, Heavy, Mystic, or Cosmic pool. In a 5v5 All-Tiers match, every team drafts exactly one fighter from each tier.
+- **Captain Draft:** Each team chooses a captain first. The remaining pool options—Generate 10, 20, 30, or Free Select—appear only after all captains are locked.
+- **Full Roster / Free Select:** Shows every fighter allowed by the main universe and tier filters.
 
-GitHub will provide the public website address after deployment finishes.
-
-## Local use
-
-Open `index.html` in a modern desktop browser. Keep the `assets` folder beside it so the HUD artwork loads correctly.
+The simulator contains 175 fighters, two- and three-player support, team sizes from 1–5, Standard/Amped/Mixed versions, character dossiers, battle narration, health tracking, and tactical-map playback.
