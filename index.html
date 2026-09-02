@@ -994,8 +994,57 @@ body{min-width:0;background:radial-gradient(circle at 50% 10%,rgba(0,234,255,.1)
 .stat-row{display:grid;grid-template-columns:90px 1fr 28px;gap:7px;align-items:center;font-size:8px;margin:7px 0}
 .stat-meter{height:5px;background:#10222b}.stat-meter span{height:100%;display:block;background:var(--dossier-accent)}
 
+/* CLASSIFIED TARGET ARCHIVE */
+#databasePage{
+  position:relative;padding:18px;min-height:75vh;
+  background:
+    linear-gradient(rgba(0,234,255,.035) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(0,234,255,.035) 1px,transparent 1px),
+    radial-gradient(circle at 85% 12%,rgba(255,64,85,.09),transparent 25%),
+    #02080c;
+  background-size:30px 30px,30px 30px,auto,auto;
+  border:1px solid #174b5d;
+}
+#databasePage::before{content:"STARK INTELLIGENCE // TARGET ACQUISITION NETWORK";display:block;margin:0 0 10px;color:#668b97;font-size:7px;letter-spacing:2.5px}
+#databasePage>.panel{border-color:#1c6175!important;background:rgba(2,10,15,.94)!important;box-shadow:inset 0 0 45px rgba(0,234,255,.035)!important}
+#databasePage>.panel>.heading{border-bottom:1px solid #195163;padding-bottom:12px}
+#databasePage>.panel>.heading h2{color:#dffaff;letter-spacing:3px}
+#databasePage .dbtools{display:grid;grid-template-columns:minmax(220px,1fr) 180px;gap:10px;padding:10px;background:#030b10;border:1px solid #153d4b}
+#databasePage .dbtools input,#databasePage .dbtools select{border-color:#23566a;background:#02080c;color:#d7f7ff}
+#databasePage #databaseGrid{margin-top:12px}
+.profile.focus-card{min-height:255px;padding:15px 14px 34px;border:1px solid #24566a;background:linear-gradient(155deg,rgba(7,27,36,.96),rgba(1,7,11,.98) 60%)!important;clip-path:polygon(0 0,94% 0,100% 7%,100% 100%,0 100%)!important;border-radius:0!important}
+.profile.focus-card::before{content:"TARGET FILE // " attr(data-file);position:absolute;left:12px;top:8px;color:#688b96;font-size:6px;letter-spacing:1.8px}
+.profile.focus-card::after{content:"OPEN TARGET DOSSIER  ›";left:14px;right:14px;bottom:9px;padding-top:7px;border-top:1px solid #194452;color:var(--dossier-accent);font-size:7px;letter-spacing:1.6px}
+.profile.focus-card .profile-icon{width:48px;height:48px;display:grid;place-items:center;margin:13px 0 8px;border:1px solid var(--dossier-accent);border-radius:50%;background:radial-gradient(circle,color-mix(in srgb,var(--dossier-accent) 18%,transparent),transparent 65%);text-shadow:0 0 12px var(--dossier-accent)}
+.profile.focus-card h3{margin:0 0 7px;color:#effcff;font-size:15px;letter-spacing:1px}
+.profile.focus-card .case-identity{color:#8eb1bc;font-size:8px;letter-spacing:1px;margin-bottom:7px}
+.profile.focus-card .case-summary{display:grid;grid-template-columns:1fr 1fr;gap:5px;margin-top:10px}
+.profile.focus-card .case-data{padding:6px;border-left:2px solid #244b58;background:#02090d;color:#8fb0ba;font-size:7px;line-height:1.35}
+.profile.focus-card .case-data b{display:block;margin-bottom:3px;color:#d8f6ff;font-size:8px}
+.profile.focus-card .case-alert{color:#ff7485;border-left-color:#a52e3d}
+
+.dossier-modal{position:relative;width:min(1380px,97vw);max-height:94vh;padding:12px;overflow:auto;background:#010609;border:1px solid #27697c;box-shadow:0 0 70px rgba(0,0,0,.9),inset 0 0 60px rgba(0,234,255,.025)}
+.dossier-modal::before{content:"";position:absolute;inset:0;pointer-events:none;background:repeating-linear-gradient(0deg,transparent 0 3px,rgba(0,234,255,.018) 4px)}
+.dossier-close{position:sticky;z-index:10;top:0;float:right;padding:9px 14px;border-color:#a93a49;color:#ff8493;background:#18070b}
+.target-dossier{--paper:#071117;position:relative;color:#b8cdd3}
+.dossier-topline{display:flex;justify-content:space-between;gap:12px;padding:8px 12px;border:1px solid #245266;border-bottom:0;background:#041018;color:#6f96a3;font-size:7px;letter-spacing:2px}
+.dossier-topline strong{color:#ff6476}
+.target-header{position:relative;display:grid;grid-template-columns:150px 1fr 210px;gap:18px;padding:20px;border:1px solid #285f72;background:linear-gradient(90deg,color-mix(in srgb,var(--dossier-accent) 13%,#030b10),#030b10 62%,#14070a)}
+.target-header::after{content:"CLASSIFIED";position:absolute;right:18px;bottom:13px;transform:rotate(-6deg);padding:6px 12px;border:2px solid rgba(255,64,85,.42);color:rgba(255,79,99,.58);font-size:18px;font-weight:900;letter-spacing:4px}
+.target-portrait{min-height:155px;display:grid;place-items:center;position:relative;border:1px solid var(--dossier-accent);background:radial-gradient(circle,color-mix(in srgb,var(--dossier-accent) 23%,transparent),transparent 63%),linear-gradient(rgba(0,234,255,.05) 1px,transparent 1px),linear-gradient(90deg,rgba(0,234,255,.05) 1px,transparent 1px);background-size:auto,18px 18px,18px 18px;color:var(--dossier-accent);font-size:62px;text-shadow:0 0 18px var(--dossier-accent)}
+.target-portrait::before,.target-portrait::after{content:"";position:absolute;left:50%;top:50%;border:1px solid color-mix(in srgb,var(--dossier-accent) 55%,transparent);border-radius:50%;transform:translate(-50%,-50%)}
+.target-portrait::before{width:86px;height:86px}.target-portrait::after{width:116px;height:116px}
+.target-identity small{color:#718f99;font-size:7px;letter-spacing:2px}.target-identity h2{margin:7px 0 2px;color:#effcff;font-size:34px;line-height:1;letter-spacing:1px}.target-identity .true-name{margin-bottom:12px;color:var(--dossier-accent);font-size:12px;letter-spacing:1.5px}
+.identity-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:6px}.identity-field{padding:7px 9px;border-left:2px solid #2a5663;background:rgba(0,0,0,.23);font-size:8px;line-height:1.45}.identity-field b{display:block;color:#71929c;font-size:6px;letter-spacing:1.5px}
+.threat-panel{position:relative;z-index:1;padding:12px;border:1px solid #6e2934;background:rgba(38,6,12,.55)}.threat-panel h3{margin:0 0 10px;color:#ff6476;font-size:9px;letter-spacing:2px}.threat-score{font-size:32px;color:#fff}.threat-score small{font-size:9px;color:#ff7786}.threat-line{display:flex;justify-content:space-between;padding:7px 0;border-bottom:1px solid #4f1d26;font-size:8px}.threat-line b{color:#ff7a89}
+.dossier-body{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,1fr);gap:10px;margin-top:10px}.dossier-column{display:grid;align-content:start;gap:10px}.dossier-card{padding:14px;border:1px solid #1b4655;background:rgba(2,10,14,.96)}.dossier-card.wide{grid-column:1/-1}.dossier-card h3{margin:0 0 10px;padding-bottom:7px;border-bottom:1px solid #244c59;color:var(--dossier-accent);font-size:9px;letter-spacing:2px}.dossier-card h4{margin:12px 0 5px;color:#e6faff;font-size:9px;letter-spacing:.7px}.dossier-card p,.dossier-card li{font-size:10px;line-height:1.58;color:#bbced4}.dossier-card ul{margin:6px 0 0;padding-left:17px}.dossier-card li::marker{color:var(--dossier-accent)}
+.full-stat-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:6px}.full-stat{display:grid;grid-template-columns:58px 1fr 24px;gap:6px;align-items:center;padding:5px 6px;background:#02080c;border-left:2px solid var(--dossier-accent);font-size:7px}.full-stat i{height:4px;background:#132832}.full-stat i span{display:block;height:100%;background:var(--dossier-accent);box-shadow:0 0 6px var(--dossier-accent)}.full-stat b{text-align:right;color:#eefcff;font-size:8px}
+.version-file{padding:9px 10px;border-left:3px solid #347188;background:#02090d}.version-file+.version-file{margin-top:7px;border-left-color:#d2922b}.version-file b{display:block;margin-bottom:4px;color:#eafaff;font-size:8px;letter-spacing:1px}.move-group{padding:7px 0;border-bottom:1px solid #173441}.move-group:last-child{border-bottom:0}.move-group b{display:block;margin-bottom:4px;color:#eafaff;font-size:8px;letter-spacing:1px}.move-group span{font-size:10px;line-height:1.45;color:#b8ccd2}.ai-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:7px}.ai-order{padding:8px;border-left:2px solid #2d687a;background:#02090d;font-size:9px;line-height:1.45}.ai-order b{display:block;margin-bottom:4px;color:#7ca9b6;font-size:7px;letter-spacing:1px}.dossier-footer{display:flex;justify-content:space-between;gap:12px;margin-top:10px;padding:9px 12px;border:1px solid #274b58;color:#587985;font-size:6px;letter-spacing:1.5px}
+
 @media(max-width:700px){
-  .manual-first-pick,.dossier-grid{grid-template-columns:1fr}
+  .manual-first-pick,.dossier-grid,.target-header,.dossier-body{grid-template-columns:1fr}
+  .full-stat-grid,.ai-grid{grid-template-columns:1fr 1fr}
+  #databasePage .dbtools{grid-template-columns:1fr}
   .tactical-toolbar{grid-template-columns:1fr 1fr}.tactical-action{grid-column:1/-1;grid-row:1}
   #wheel{width:88vw;height:88vw}
   .wheel-name{font-size:4px}
@@ -1098,7 +1147,7 @@ PLAYERS
 TEAM ALPHA SIZE
 </label>
 
-<select id="alphaTeamSize" onchange="sizeChanged()">
+<select id="alphaTeamSize" onchange="sizeChanged('alpha')">
 
 <option value="1">1 FIGHTER</option>
 <option value="2">2 FIGHTERS</option>
@@ -1116,7 +1165,7 @@ TEAM ALPHA SIZE
 TEAM OMEGA SIZE
 </label>
 
-<select id="omegaTeamSize" onchange="sizeChanged()">
+<select id="omegaTeamSize" onchange="sizeChanged('omega')">
 
 <option value="1">1 FIGHTER</option>
 <option value="2">2 FIGHTERS</option>
@@ -1136,7 +1185,7 @@ class="control hidden">
 TEAM SIGMA SIZE
 </label>
 
-<select id="sigmaTeamSize" onchange="sizeChanged()">
+<select id="sigmaTeamSize" onchange="sizeChanged('sigma')">
 
 <option value="1">1 FIGHTER</option>
 <option value="2">2 FIGHTERS</option>
@@ -1647,11 +1696,11 @@ class="hidden">
 <div class="heading">
 
 <h2>
-CHARACTER DATABASE
+TARGET DOSSIER ARCHIVE
 </h2>
 
 <span class="code">
-175 COMBATANTS
+175 CLASSIFIED TARGET FILES
 </span>
 
 </div>
@@ -1660,7 +1709,7 @@ CHARACTER DATABASE
 
 <input
 id="dbSearch"
-placeholder="SEARCH CHARACTER..."
+placeholder="SEARCH TARGET / CODENAME..."
 oninput="renderDatabase()">
 
 <select
@@ -2630,7 +2679,7 @@ function allTeamsFull(){
    PLAYER COUNT
 ========================================================= */
 
-function playerCountChanged(){
+function playerCountChanged(initializing=false){
 
     const three=
         playerCount()===3;
@@ -2670,7 +2719,41 @@ function playerCountChanged(){
         !three
     );
 
-    resetBattle();
+    const returned=[];
+
+    if(!three&&teams.sigma.length){
+
+        returned.push(...teams.sigma.splice(0));
+
+        if(typeof captainTeams!=="undefined")captainTeams.delete("sigma");
+
+    }
+
+    draftOrder=draftOrder.filter(team=>activeTeams().includes(team));
+
+    activeTeams().forEach(team=>{
+
+        if(!draftOrder.includes(team))draftOrder.push(team);
+
+    });
+
+    if(!draftOrder.length)draftOrder=activeTeams();
+
+    currentDraftIndex=Math.min(currentDraftIndex,Math.max(0,draftOrder.length-1));
+
+    returnRosterOverflow(returned);
+
+    invalidateCompletedBattle();
+
+    renderTeams();
+
+    updateDraftStatus();
+
+    qs("selectionStatus").textContent=initializing
+        ?"DETERMINE FIRST PICK, THEN GENERATE A POOL OR USE FREE SELECT"
+        :(three
+            ?"THREE-TEAM COMMAND ENABLED // EXISTING ALPHA AND OMEGA PICKS PRESERVED"
+            :"TWO-TEAM COMMAND ENABLED // EXISTING ALPHA AND OMEGA PICKS PRESERVED");
 
 }
 
@@ -3905,9 +3988,64 @@ function resetBattle(){
 
 }
 
-function sizeChanged(){
+function invalidateCompletedBattle(){
 
-    resetBattle();
+    qs("battleOutput").style.display="none";
+
+    qs("battleFeed").innerHTML="";
+
+}
+
+function returnRosterOverflow(fighters=[]){
+
+    fighters.forEach(fighter=>{
+
+        const stillDrafted=Object.values(teams)
+            .flat()
+            .some(member=>member.name===fighter.name);
+
+        if(!stillDrafted&&!selection.some(member=>member.name===fighter.name))selection.push(fighter);
+
+    });
+
+    if(currentMode()==="FreeSelect")loadFreeSelect();
+    else renderSelection();
+
+}
+
+function sizeChanged(team){
+
+    if(!teams[team])return;
+
+    const limit=teamSize(team);
+
+    const returned=teams[team].length>limit
+        ?teams[team].splice(limit)
+        :[];
+
+    returned.forEach(fighter=>{
+
+        if(fighter.isCaptain&&typeof captainTeams!=="undefined")captainTeams.delete(team);
+
+    });
+
+    returnRosterOverflow(returned);
+
+    if(firstPickDetermined&&!teamFull(team)){
+
+        const orderIndex=draftOrder.indexOf(team);
+
+        if(orderIndex!==-1)currentDraftIndex=orderIndex;
+
+    }
+
+    invalidateCompletedBattle();
+
+    renderTeams();
+
+    updateDraftStatus();
+
+    qs("selectionStatus").textContent=`${teamName(team)} SIZE UPDATED // EXISTING PICKS PRESERVED${returned.length?` // ${returned.length} FIGHTER${returned.length===1?"":"S"} RETURNED TO POOL`:""}`;
 
 }
 
@@ -6627,25 +6765,85 @@ function statBars(character){
     return [["STRENGTH",character.strength],["SPEED",character.speed],["DURABILITY",character.durability],["INTELLIGENCE",character.iq],["POWER",character.power]].map(([name,value])=>`<div class="stat-row"><span>${name}</span><div class="stat-meter"><span style="width:${value}%"></span></div><b>${value}</b></div>`).join("");
 }
 
+const CIVILIAN_IDENTITIES={
+    "Cyclops":"Scott Summers","Jean Grey":"Jean Elaine Grey","Professor X":"Charles Xavier",
+    "Spider-Man":"Peter Parker","Iron Man":"Tony Stark","Thor":"Thor Odinson","Hulk":"Bruce Banner",
+    "Wolverine":"James Howlett / Logan","Captain America":"Steve Rogers","Black Panther":"T'Challa",
+    "Daredevil":"Matt Murdock","Doctor Strange":"Stephen Strange","Scarlet Witch":"Wanda Maximoff",
+    "Ant-Man":"Scott Lang","Star-Lord":"Peter Quill","Mr. Fantastic":"Reed Richards",
+    "Invisible Woman":"Susan Storm Richards","Human Torch":"Johnny Storm","The Thing":"Ben Grimm",
+    "Batman":"Bruce Wayne","Superman":"Clark Kent / Kal-El","Wonder Woman":"Diana of Themyscira",
+    "The Flash":"Barry Allen","Green Lantern":"Hal Jordan","Aquaman":"Arthur Curry",
+    "Nightwing":"Dick Grayson","Batgirl":"Barbara Gordon","Red Hood":"Jason Todd",
+    "Robin":"Damian Wayne","Green Arrow":"Oliver Queen","Black Canary":"Dinah Lance",
+    "Shazam":"Billy Batson","Cyborg":"Victor Stone","Martian Manhunter":"J'onn J'onzz",
+    "Harley Quinn":"Harleen Quinzel","Joker":"Identity Unknown","Lex Luthor":"Alexander Luthor"
+};
+
+const DOSSIER_AFFILIATION_EXTRAS={Cyclops:["Champions","Phoenix Five"]};
+
+function targetIdentity(character){return CIVILIAN_IDENTITIES[character.name]||"IDENTITY SEALED";}
+
+function threatScore(character){
+    const stats=character.richData?.stats||{};
+    const values=[stats.strength||character.strength,stats.speed||character.speed,stats.durability||character.durability,stats.combatIQ||character.iq,stats.battlefieldControl||character.power];
+    return Math.round(values.reduce((sum,value)=>sum+Number(value||0),0)/values.length);
+}
+
+function threatLabel(score){return score>=94?"OMEGA":score>=87?"CRITICAL":score>=78?"SEVERE":score>=66?"HIGH":"ELEVATED";}
+
 renderDatabase=function(){
     const search=(qs("dbSearch").value||"").toLowerCase(),universe=qs("dbUniverse").value;
-    qs("databaseGrid").innerHTML=CHARACTERS.filter(c=>(universe==="Both"||c.universe===universe)&&c.name.toLowerCase().includes(search)).map(character=>{
-        const color=dossierColor(character);const powers=character.richData?.powers||[];
-        return `<div class="profile focus-card" style="--dossier-accent:${color}" data-character="${encodeURIComponent(character.name)}" onclick="openCharacterDossier(decodeURIComponent(this.dataset.character))"><div class="profile-icon">${ICONS[character.icon]||"◆"}</div><h3>${character.name}</h3><span class="profile-tag">${character.universe}</span><span class="profile-tag">${character.tier}</span><span class="profile-tag">${character.role}</span><p><strong>STYLE</strong><br>${character.range}</p><p><strong>FIGHTING STYLE</strong><br>${character.fightingStyle}</p><p><strong>COMBAT PERSONALITY</strong><br>${character.personality}</p><p><strong>CORE POWERS</strong><br>${powers.slice(0,5).join(" • ")}</p></div>`;
-    }).join("");
+    const filtered=CHARACTERS.filter(c=>(universe==="Both"||c.universe===universe)&&(`${c.name} ${targetIdentity(c)} ${c.tier} ${c.role}`).toLowerCase().includes(search));
+    qs("databaseGrid").innerHTML=filtered.map(character=>{
+        const color=dossierColor(character),score=threatScore(character),file=String(CHARACTERS.indexOf(character)+1).padStart(3,"0");
+        return `<article class="profile focus-card" style="--dossier-accent:${color}" data-file="${file}" data-character="${encodeURIComponent(character.name)}" onclick="openCharacterDossier(decodeURIComponent(this.dataset.character))"><div class="profile-icon">${ICONS[character.icon]||"◆"}</div><h3>${character.name}</h3><div class="case-identity">IDENTITY // ${targetIdentity(character)}</div><span class="profile-tag">${character.universe}</span><span class="profile-tag">${character.tier}</span><span class="profile-tag">${character.role}</span><div class="case-summary"><div class="case-data"><b>COMBAT ROLE</b>${character.range} // ${character.role}</div><div class="case-data case-alert"><b>THREAT CLASS</b>${threatLabel(score)} // ${score}</div><div class="case-data"><b>PREP RATING</b>${character.prepScore||"N/A"} / 100</div><div class="case-data"><b>FILE STATUS</b>ACTIVE // VERIFIED</div></div></article>`;
+    }).join("")||`<div class="status">NO TARGET FILES MATCH THE CURRENT SEARCH PARAMETERS</div>`;
 };
 
 function listHTML(items){
     const list=Array.isArray(items)?items:(items?[items]:[]);
     return `<ul>${list.map(item=>`<li>${item}</li>`).join("")}</ul>`;
 }
+
+const DOSSIER_STATS=[
+    ["STR","strength"],["SPD","speed"],["DUR","durability"],["STM","stamina"],["AGL/REF","agilityReflexes"],["INT","intelligence"],
+    ["COMBAT IQ","combatIQ"],["EXP","experience"],["WILL","willpower"],["ADAPT","adaptability"],["MELEE","melee"],["RANGED","ranged"],
+    ["ACC","accuracy"],["DEF","defense"],["EVA","evasion"],["CONTROL","battlefieldControl"],["STEALTH","stealth"],["HEAL","healing"]
+];
+
+function dossierStatsHTML(character){
+    const rich=character.richData?.stats||{};
+    const fallback={strength:character.strength,speed:character.speed,durability:character.durability,intelligence:character.iq,combatIQ:character.iq,ranged:character.power,melee:character.power,battlefieldControl:character.power};
+    return DOSSIER_STATS.map(([label,key])=>{
+        const value=Math.round(Number(rich[key]??fallback[key]??50));
+        return `<div class="full-stat"><span>${label}</span><i><span style="width:${value}%"></span></i><b>${value}</b></div>`;
+    }).join("");
+}
+
+function dossierParagraph(value,fallback="INTELLIGENCE NOT AVAILABLE"){
+    if(Array.isArray(value))return value.join(" ");
+    return value||fallback;
+}
+
+function dossierMoveGroups(groups){
+    const labels={normal:"NORMAL ATTACKS",signature:"SIGNATURE MOVES",movement:"MOVEMENT",defensive:"DEFENSE",counter:"COUNTERS",control:"CONTROL",support:"SUPPORT",finisher:"FINISHER"};
+    return Object.entries(groups||{}).map(([group,moves])=>`<div class="move-group"><b>${labels[group]||group.replace(/([A-Z])/g," $1").toUpperCase()}</b><span>${(Array.isArray(moves)?moves:[moves]).filter(Boolean).join(" • ")}</span></div>`).join("");
+}
+
+function dossierAI(ai={}){
+    const labels={longRange:"LONG RANGE",closeRange:"CLOSE RANGE",injured:"WHILE INJURED",outnumbered:"WHILE OUTNUMBERED",strongerOpponent:"AGAINST STRONGER TARGETS",team:"IN A TEAM"};
+    return Object.entries(ai).map(([key,value])=>`<div class="ai-order"><b>${labels[key]||key.toUpperCase()}</b>${value}</div>`).join("");
+}
+
 function openCharacterDossier(name){
     const character=CHARACTERS.find(c=>c.name===name);if(!character)return;
-    const color=dossierColor(character),data=character.richData||{};
-    const moveGroups=character.moveCategories||{};
+    const color=dossierColor(character),data=character.richData||{},score=threatScore(character);
+    const moveGroups=character.moveCategories||data.moves||{};
+    const affiliations=[...(data.identity?.affiliations||[]),...(DOSSIER_AFFILIATION_EXTRAS[character.name]||[])].filter((value,index,array)=>array.indexOf(value)===index);
+    const file=String(CHARACTERS.indexOf(character)+1).padStart(3,"0");
     qs("characterModal").style.display="grid";qs("characterDossier").style.setProperty("--dossier-accent",color);
-    const allMoves=[...new Set(Object.values(moveGroups).flat())];
-    qs("characterDossier").innerHTML=`<div class="dossier-hero"><div class="profile-icon">${ICONS[character.icon]||"◆"}</div><small>${character.universe} // ${character.tier} // ${character.role}</small><h2>${character.name}</h2><span class="profile-tag">${character.range}</span>${(data.identity?.affiliations||[]).map(a=>`<span class="profile-tag">${a}</span>`).join("")}</div><div class="dossier-grid"><section class="dossier-section"><h3>STYLE</h3><p>${character.range}</p><h3>STATS</h3>${statBars(character)}<p>STR ${character.strength} • SPD ${character.speed} • DUR ${character.durability} • IQ ${character.iq} • PWR ${character.power}</p></section><section class="dossier-section"><h3>FIGHTING STYLE</h3><p>${character.fightingStyle}</p><h3>COMBAT PERSONALITY</h3><p>${character.personality}</p><h3>POWERS</h3>${listHTML(data.powers||[])}</section><section class="dossier-section"><h3>MOVES</h3><p>${allMoves.join(" • ")}</p>${Object.entries(moveGroups).map(([group,moves])=>`<p><strong>${group.toUpperCase()}</strong><br>${moves.join(" • ")}</p>`).join("")}</section><section class="dossier-section"><h3>WEAKNESSES / LIMITATIONS</h3>${listHTML(character.weaknesses)}<h3>RESISTANCES</h3>${listHTML(character.resistances)}<h3>SPECIAL MECHANICS</h3>${listHTML(character.specialMechanics)}</section><section class="dossier-section"><h3>STANDARD</h3><p>${character.standardDescription||"Mainstream version with established equipment, skills, and powers."}</p><h3>AMPED</h3><p>${character.ampedDescription||"Controlled enhanced version without reality-scale or unbeatable abilities."}</p></section><section class="dossier-section"><h3>AI PRIORITIES</h3>${listHTML(Object.values(character.aiBehavior||{}))}<h3>TEAM BEHAVIOR</h3>${listHTML(character.teamBehavior)}<h3>COUNTERS & INTERACTIONS</h3>${listHTML(character.powerInteractions)}<h3>BATTLEFIELD USE</h3>${listHTML(character.battlefieldBehavior)}</section></div>`;
+    qs("characterDossier").innerHTML=`<article class="target-dossier"><div class="dossier-topline"><span>STARK INTELLIGENCE DIVISION // PERSON-OF-INTEREST FILE ${file}</span><strong>SECURITY LEVEL 7 // EYES ONLY</strong></div><header class="target-header"><div class="target-portrait" aria-label="Target identification hologram">${ICONS[character.icon]||"◆"}</div><div class="target-identity"><small>TARGET CODENAME</small><h2>${character.name}</h2><div class="true-name">IDENTITY // ${targetIdentity(character)}</div><div class="identity-grid"><div class="identity-field"><b>UNIVERSE</b>${character.universe}</div><div class="identity-field"><b>POWER TIER</b>${character.tier}</div><div class="identity-field"><b>ROLE</b>${character.role}</div><div class="identity-field"><b>COMBAT RANGE</b>${character.range}</div><div class="identity-field" style="grid-column:1/-1"><b>KNOWN AFFILIATIONS</b>${affiliations.length?affiliations.join(" // "):"NONE CONFIRMED"}</div></div></div><aside class="threat-panel"><h3>THREAT ASSESSMENT</h3><div class="threat-score">${score}<small> / 100</small></div><div class="threat-line"><span>CLASSIFICATION</span><b>${threatLabel(score)}</b></div><div class="threat-line"><span>PREP-TIME IQ</span><b>${character.prepScore||"N/A"}</b></div><div class="threat-line"><span>STATUS</span><b>ACTIVE</b></div></aside></header><div class="dossier-body"><div class="dossier-column"><section class="dossier-card"><h3>VERSIONS / AUTHORIZED LOADOUTS</h3><div class="version-file"><b>STANDARD</b>${data.version?.standard||character.standardDescription||"Mainstream combat version with established equipment, training, and powers."}</div><div class="version-file"><b>ALLOWED AMPED</b>${data.version?.amped||character.ampedDescription||"Controlled enhanced version without omnipotent, reality-ending, or automatic-win abilities."}</div></section><section class="dossier-card"><h3>COMPLETE COMBAT STAT MATRIX</h3><div class="full-stat-grid">${dossierStatsHTML(character)}</div></section><section class="dossier-card"><h3>POWERS / CAPABILITIES</h3>${listHTML(data.powers||[])}</section><section class="dossier-card"><h3>MOVE CATALOG</h3>${dossierMoveGroups(moveGroups)}</section><section class="dossier-card"><h3>FIGHTING STYLE</h3><p>${dossierParagraph(data.fightingStyle||character.fightingStyle)}</p><h3>COMBAT PERSONALITY</h3><p>${dossierParagraph(data.combatPersonality||character.personality)}</p></section></div><div class="dossier-column"><section class="dossier-card"><h3>WEAKNESSES / LIMITATIONS</h3>${listHTML(data.weaknessesLimitations||character.weaknesses)}<h3>RESISTANCES</h3>${listHTML(data.resistances||character.resistances)}</section><section class="dossier-card"><h3>SPECIAL MECHANICS</h3>${listHTML(data.specialMechanics||character.specialMechanics)}</section><section class="dossier-card"><h3>AI BEHAVIOR DIRECTIVES</h3><div class="ai-grid">${dossierAI(data.aiBehavior||character.aiBehavior)}</div></section><section class="dossier-card"><h3>POWER INTERACTIONS / COUNTERS</h3>${listHTML(data.powerInteractionsCounters||character.powerInteractions)}</section><section class="dossier-card"><h3>MATCHUP KNOWLEDGE</h3><p>${dossierParagraph(data.matchupKnowledge||character.matchupKnowledge)}</p></section><section class="dossier-card"><h3>TEAM BEHAVIOR</h3><p>${dossierParagraph(data.teamBehavior||character.teamBehavior)}</p></section><section class="dossier-card"><h3>BATTLEFIELD BEHAVIOR</h3><p>${dossierParagraph(data.battlefieldBehavior||character.battlefieldBehavior)}</p></section></div></div><footer class="dossier-footer"><span>FILE ${file} // VERIFIED AGAINST MULTIVERSE COMBAT DATABASE</span><span>DO NOT DISTRIBUTE // STARK EYES ONLY</span></footer></article>`;
 }
 function closeCharacterDossier(){qs("characterModal").style.display="none";}
 
@@ -7184,7 +7382,7 @@ const hudRenderSelection=renderSelection;
 renderSelection=function(){hudRenderSelection();updateHUDTelemetry();};
 
 initBattleHUD();
-playerCountChanged();
+playerCountChanged(true);
 
 renderDatabase();
 

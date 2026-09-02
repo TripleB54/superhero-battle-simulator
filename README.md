@@ -13,6 +13,17 @@ Open `index.html` in a modern desktop browser or publish it with GitHub Pages. T
 
 The simulator contains 175 fighters, two- and three-player support, team sizes from 1–5, Standard/Amped/Mixed versions, character dossiers, battle narration, health tracking, and tactical-map playback.
 
+## Persistent roster editing
+
+- Changing Alpha, Omega, or Sigma's team size preserves every pick that still fits.
+- Reducing a team returns only that team's excess fighters to the selectable pool.
+- Switching between two and three players preserves Alpha and Omega. Removing the third player returns Sigma's fighters to the pool.
+- The full roster is cleared only by the **Reset** button or by intentionally changing to a different game mode.
+
+## Target dossier archive
+
+The Character Database is presented as a classified Stark target archive. Every fighter opens into a full dossier containing identity and affiliations, versions, all 18 combat stats, powers, categorized moves, fighting style, combat personality, weaknesses, resistances, special mechanics, AI behavior, counters, matchup knowledge, team behavior, battlefield behavior, threat class, and prep-time rating.
+
 ## Draft controls
 
 - **Alternating Turns:** Teams take one pick at a time in first-pick order.
