@@ -12,3 +12,9 @@ Open `index.html` in a modern desktop browser or publish it with GitHub Pages. T
 - **Prep Time:** Uses Generate 10, 20, 30, or Free Select. Every fighter receives a preparation rating based on intelligence, battle strategy, tactical role, planning/tool use, adaptability, and combat behavior. Preparation ratings affect the battle simulation; Batman is calibrated as the top preparation specialist.
 
 The simulator contains 175 fighters, two- and three-player support, team sizes from 1–5, Standard/Amped/Mixed versions, character dossiers, battle narration, health tracking, and tactical-map playback.
+
+## Draft controls
+
+- **Alternating Turns:** Teams take one pick at a time in first-pick order.
+- **Complete One Team First:** The first-pick team fills its entire roster before the next team begins. Captain Draft still distributes one captain to every team before this order takes effect.
+- **Fighter Search:** The selectable pool can be filtered live by character name without removing fighters or bypassing the current mode's universe and tier restrictions.

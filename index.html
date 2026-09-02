@@ -859,6 +859,7 @@ body{min-width:0;background:radial-gradient(circle at 50% 10%,rgba(0,234,255,.1)
 .advanced-pool-panel button{padding:8px 10px;font-size:7px}.advanced-pool-panel b{font-size:8px;color:var(--gold);letter-spacing:1px}
 .advanced-pool-panel .option-group{display:flex;align-items:center;gap:6px;flex-wrap:wrap;width:100%}.advanced-pool-panel .option-group+.option-group{padding-top:7px;margin-top:2px;border-top:1px solid #153b49}.advanced-pool-panel button.selected-tier{color:#e7fbff;border-color:var(--purple);background:linear-gradient(90deg,rgba(116,61,157,.42),#03111a);box-shadow:0 0 9px rgba(181,108,255,.22)}
 .prep-badge{display:inline-block;margin-top:6px;padding:3px 6px;border:1px solid var(--gold);color:var(--gold);font-size:7px;letter-spacing:1px}.prep-elite{border-color:var(--cyan);color:var(--cyan);box-shadow:0 0 8px rgba(0,234,255,.22)}
+.fighter-search-wrap{display:grid;grid-template-columns:1fr auto;gap:8px;align-items:center;margin:0 0 10px}.fighter-search-wrap input{width:100%;padding:10px 12px;background:#02080c;border:1px solid #1a5365;color:var(--cyan);font:inherit;font-size:10px;letter-spacing:1.5px;outline:none}.fighter-search-wrap input:focus{border-color:var(--cyan);box-shadow:0 0 12px rgba(0,234,255,.16)}.fighter-search-wrap span{min-width:72px;padding:10px;background:#02080c;border:1px solid #153743;color:var(--muted);font-size:7px;letter-spacing:1px;text-align:center}
 #battleOutput{position:static;inset:auto;width:auto;max-height:none;overflow:visible;background:linear-gradient(135deg,#07161f,#02080c);box-shadow:none}
 #battlePage:has(#battleOutput[style*="block"]){margin-bottom:0}
 #databasePage{padding:0;min-height:0;background:none}
@@ -1181,6 +1182,19 @@ FULL ROSTER / FREE SELECT
 <div class="control">
 
 <label>
+DRAFT ORDER
+</label>
+
+<select id="draftOrderMode" onchange="draftOrderModeChanged()">
+<option value="Alternating">ALTERNATING TURNS</option>
+<option value="TeamFirst">COMPLETE ONE TEAM FIRST</option>
+</select>
+
+</div>
+
+<div class="control">
+
+<label>
 UNIVERSE
 </label>
 
@@ -1448,6 +1462,11 @@ DETERMINE FIRST PICK
 id="selectionStatus"
 class="status">
 Determine first pick, then Generate 10 or use Free Select.
+</div>
+
+<div class="fighter-search-wrap">
+<input id="fighterSearch" type="search" placeholder="SEARCH SELECTABLE FIGHTERS..." autocomplete="off" oninput="poolSearchChanged(this.value)">
+<span id="fighterSearchCount">0 SHOWN</span>
 </div>
 
 <div
@@ -6512,12 +6531,13 @@ renderSelection=function(){
     const team=currentDraftTeam();
     const required=mode==="TierDraft"&&team?requiredTier(team):null;
     const universe=mode==="UniverseClash"&&team?universeForTeam(team):"Both";
-    const visible=selection.map((character,index)=>({character,index})).filter(({character})=>(!required||character.tier===required)&&(universe==="Both"||character.universe===universe));
+    const visible=selection.map((character,index)=>({character,index})).filter(({character})=>(!required||character.tier===required)&&(universe==="Both"||character.universe===universe)&&character.name.toLowerCase().includes((poolSearchQuery||"").toLowerCase()));
     qs("characterPool").innerHTML=visible.map(({character,index})=>{
         if(mode==="BlindDraft") return `<div class="card blind-card" onclick="draftCharacter(${index})"><div class="emblem">?</div><div class="name">CLASSIFIED FIGHTER</div><div class="meta">SELECT TO REVEAL</div><div class="badge">UNKNOWN VERSION</div></div>`;
         const captain=mode==="CaptainDraft"&&team&&!captainTeams.has(team);
         return `<div class="card" style="--accent:${character.universe==="Marvel"?"#ff4055":"#00eaff"}" onclick="draftCharacter(${index})"><div class="emblem">${ICONS[character.icon]||"◆"}</div><div class="name">${character.name}</div><div class="meta">${character.universe} // ${character.tier} // ${character.role}</div><div class="badge">${character.version.toUpperCase()}</div>${mode==="PrepTime"?`<div class="prep-badge ${character.prepScore>=90?"prep-elite":""}">PREP ${character.prepScore}</div>`:""}${captain?"<div class='captain-mark'>CAPTAIN SELECTION</div>":""}</div>`;
     }).join("");
+    if(qs("fighterSearchCount"))qs("fighterSearchCount").textContent=`${visible.length} SHOWN`;
     if(required) qs("selectionStatus").textContent=`${teamName(team)} MUST PICK ${required.toUpperCase()} TIER`;
     if(mode==="UniverseClash"&&team) qs("selectionStatus").textContent=`${teamName(team)} DRAFTS ${universe.toUpperCase()}`;
 };
@@ -6832,6 +6852,34 @@ removeCharacter=function(team,index){
 ========================================================= */
 let tierDraftChoices=new Set();
 let tierDraftPoolChoice=null;
+let poolSearchQuery="";
+
+function draftOrderStyle(){return qs("draftOrderMode")?.value||"Alternating";}
+
+function draftOrderModeChanged(){
+    const team=currentDraftTeam();
+    qs("selectionStatus").textContent=draftOrderStyle()==="TeamFirst"?`${team?teamName(team):"FIRST-PICK TEAM"} COMPLETES ITS FULL ROSTER BEFORE THE NEXT TEAM`:`TEAMS WILL ALTERNATE PICKS`;
+    renderSelection();updateDraftStatus();
+}
+
+function poolSearchChanged(value){
+    poolSearchQuery=(value||"").trim();
+    renderSelection();
+}
+
+const alternatingAdvanceDraft=advanceDraft;
+advanceDraft=function(){
+    if(draftOrderStyle()==="Alternating"||(currentMode()==="CaptainDraft"&&!captainSetupComplete)){
+        alternatingAdvanceDraft();return;
+    }
+    if(allTeamsFull()){updateDraftStatus();return;}
+    const current=draftOrder[currentDraftIndex];
+    if(!teamFull(current))return;
+    let attempts=0;
+    do{
+        currentDraftIndex=(currentDraftIndex+1)%draftOrder.length;attempts++;
+    }while(attempts<draftOrder.length&&teamFull(draftOrder[currentDraftIndex]));
+};
 
 advancedPoolMode=function(mode=currentMode()){
     return ["BanDraft","UniverseClash","TierDraft","CaptainDraft","PrepTime"].includes(mode);
