@@ -1005,7 +1005,7 @@ body{min-width:0;background:radial-gradient(circle at 50% 10%,rgba(0,234,255,.1)
   background-size:30px 30px,30px 30px,auto,auto;
   border:1px solid #174b5d;
 }
-#databasePage::before{content:"STARK INTELLIGENCE // TARGET ACQUISITION NETWORK";display:block;margin:0 0 10px;color:#668b97;font-size:7px;letter-spacing:2.5px}
+#databasePage::before{content:"STARK INTELLIGENCE // MULTIVERSE CHARACTER RECORD NETWORK";display:block;margin:0 0 10px;color:#668b97;font-size:7px;letter-spacing:2.5px}
 #databasePage>.panel{border-color:#1c6175!important;background:rgba(2,10,15,.94)!important;box-shadow:inset 0 0 45px rgba(0,234,255,.035)!important}
 #databasePage>.panel>.heading{border-bottom:1px solid #195163;padding-bottom:12px}
 #databasePage>.panel>.heading h2{color:#dffaff;letter-spacing:3px}
@@ -1049,6 +1049,38 @@ body{min-width:0;background:radial-gradient(circle at 50% 10%,rgba(0,234,255,.1)
   #wheel{width:88vw;height:88vw}
   .wheel-name{font-size:4px}
 }
+
+/* POWER PASSPORT DATABASE — CONCEPT A: MARVEL / CONCEPT B: DC */
+#databaseGrid.profiles{grid-template-columns:repeat(4,minmax(0,1fr));gap:14px;align-items:stretch}
+.passport-tile{position:relative;min-height:390px;padding:14px 14px 46px;text-align:left;cursor:pointer;font:inherit;overflow:hidden;transition:transform .18s,border-color .18s;clip-path:polygon(0 0,92% 0,100% 7%,100% 100%,8% 100%,0 93%)}
+.passport-tile:hover{transform:translateY(-3px)}
+.passport-tile-a{color:#20272b;background:linear-gradient(90deg,#202932 0 7px,#e8e0cf 7px 100%);border:1px solid #877e6b}
+.passport-tile-b{color:#dcecf2;background:linear-gradient(90deg,#4ab7dc 0 5px,#16232d 5px 100%);border:1px solid #2d718b}
+.passport-tile-file{min-height:42px;padding:4px 0 9px;border-bottom:2px solid currentColor;font-size:12px;font-weight:900;letter-spacing:1.2px;line-height:1.35}
+.passport-tile-agency{margin:7px 0;color:inherit;opacity:.62;font-size:11px;letter-spacing:1.3px}
+.passport-tile-portrait{height:105px;display:grid;place-items:center;margin:9px 0;border:1px solid currentColor;background:rgba(0,0,0,.07);font-size:38px}
+.passport-tile-b .passport-tile-portrait{background:rgba(0,0,0,.18);color:#72d8f2}
+.passport-tile h3{margin:8px 0 3px;color:inherit;font-size:17px;letter-spacing:1px}.passport-tile-identity{font-size:12px;opacity:.72;line-height:1.45}
+.passport-tile-meta{display:grid;grid-template-columns:1fr 1fr;gap:5px;margin-top:10px}.passport-tile-meta span{padding:5px;border-left:2px solid currentColor;background:rgba(0,0,0,.045);font-size:11px;line-height:1.3}
+.passport-tile-stamp{position:absolute;right:12px;bottom:52px;transform:rotate(-6deg);padding:5px 7px;border:2px double #a43b43;color:#a43b43;font-size:10px;font-weight:900;letter-spacing:.7px;opacity:.76}.passport-tile-b .passport-tile-stamp{border-color:#e05a68;color:#e05a68}
+.passport-tile-versions{position:absolute;left:14px;right:14px;bottom:12px;display:grid;grid-template-columns:1fr 1fr;gap:4px}.passport-tile-versions span{padding:7px;text-align:center;border:1px solid currentColor;font-size:10px;letter-spacing:1px}.passport-tile-versions span:first-child{color:white;background:#9c343d;border-color:#9c343d}.passport-tile-b .passport-tile-versions span:first-child{background:#187493;border-color:#187493}
+.dossier-modal{width:min(1120px,97vw);max-height:96vh;padding:10px;overflow:hidden}.dossier-close{position:absolute;z-index:30;right:20px;top:18px;float:none}
+.passport-scene{height:min(860px,88vh);perspective:1600px;margin:0 auto}.passport-flipper{position:relative;width:100%;height:100%;transform-style:preserve-3d;transition:transform .62s cubic-bezier(.2,.75,.25,1)}.passport-scene.flipped .passport-flipper{transform:rotateY(180deg)}
+.passport-face{position:absolute;inset:0;padding:24px;overflow-y:auto;backface-visibility:hidden;-webkit-backface-visibility:hidden}.passport-back{transform:rotateY(180deg)}
+.passport-a .passport-face{color:#20272b;background:linear-gradient(90deg,#1c2630 0 10px,transparent 10px),repeating-linear-gradient(0deg,rgba(32,39,43,.025) 0 1px,transparent 1px 25px),#e8e0cf;border:1px solid #8b816d}
+.passport-b .passport-face{color:#dcecf2;background:linear-gradient(90deg,#45b6d9 0 7px,transparent 7px),repeating-linear-gradient(0deg,rgba(115,202,230,.035) 0 1px,transparent 1px 25px),#16232d;border:1px solid #2d718b}
+.passport-filebar{display:flex;justify-content:space-between;gap:100px;padding:4px 110px 12px 0;border-bottom:2px solid currentColor;font-size:15px;font-weight:900;letter-spacing:1.5px}.passport-agency{opacity:.65;white-space:nowrap}
+.passport-front-grid{display:grid;grid-template-columns:minmax(250px,.9fr) minmax(0,1.1fr);gap:22px;margin-top:18px}.passport-main-portrait{min-height:285px;display:grid;place-items:center;text-align:center;border:1px solid currentColor;background:rgba(0,0,0,.07);font-size:86px}.passport-b .passport-main-portrait{background:rgba(0,0,0,.18);color:#73d6ef}.passport-main-portrait small{display:block;margin-top:16px;font-size:12px;letter-spacing:2px}
+.passport-summary h2{margin:0 0 5px;color:inherit;font-size:38px;letter-spacing:2px}.passport-true-name{margin-bottom:16px;color:var(--passport-accent);font-size:15px;font-weight:900;letter-spacing:1.3px}.passport-fields{display:grid;grid-template-columns:1fr 1fr;gap:7px}.passport-field{padding:8px;border-left:3px solid var(--passport-accent);background:rgba(0,0,0,.045);font-size:13px;line-height:1.4}.passport-field b{display:block;margin-bottom:3px;font-size:11px;letter-spacing:1.2px;opacity:.65}.passport-field-wide{grid-column:1/-1}
+.passport-priority-stats{display:grid;grid-template-columns:repeat(5,1fr);gap:7px;margin:17px 0}.passport-priority-stat{padding:8px;background:rgba(0,0,0,.045);font-size:11px}.passport-priority-stat>span{display:block;margin-bottom:6px;letter-spacing:.7px}.passport-priority-stat i{display:block;height:6px;background:rgba(0,0,0,.13)}.passport-b .passport-priority-stat i{background:rgba(255,255,255,.12)}.passport-priority-stat i span{display:block;height:100%;background:var(--passport-accent)}.passport-priority-stat b{display:block;margin-top:5px;text-align:right;font-size:12px}
+.passport-power-strip{display:flex;flex-wrap:wrap;gap:6px;margin:12px 0}.passport-power-strip span{padding:6px 8px;border:1px solid currentColor;font-size:11px;letter-spacing:.7px}
+.passport-stamp{position:absolute;right:42px;bottom:110px;transform:rotate(-7deg);padding:10px 14px;border:3px double var(--passport-accent);color:var(--passport-accent);font-size:16px;font-weight:900;letter-spacing:1.3px;opacity:.78}
+.passport-version-tabs{display:grid;grid-template-columns:1fr 1fr;gap:5px;margin:17px 0 8px}.passport-version-tabs button,.passport-flip-button{padding:11px;border:1px solid currentColor;background:transparent;color:inherit;font:inherit;font-size:12px;letter-spacing:1.4px}.passport-version-tabs button.active{color:white;background:var(--passport-accent);border-color:var(--passport-accent)}.passport-version-copy{min-height:55px;padding:11px;border-left:4px solid var(--passport-accent);background:rgba(0,0,0,.05);font-size:13px;line-height:1.5}.passport-flip-button{display:block;width:100%;margin-top:12px;color:white;background:#07151c;border-color:#3d7181}.passport-a .passport-flip-button{background:#202a31}
+.passport-back-head{display:flex;justify-content:space-between;align-items:start;gap:20px;margin:15px 0}.passport-back-head h2{margin:0;color:inherit;font-size:31px;letter-spacing:1.8px}.passport-back-head p{margin:5px 0 0;font-size:13px;opacity:.7}.passport-back-stamp{padding:8px 11px;border:3px double var(--passport-accent);color:var(--passport-accent);font-weight:900;letter-spacing:1px;transform:rotate(-4deg)}
+.passport-dossier-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}.passport-section{padding:13px;border:1px solid color-mix(in srgb,currentColor 24%,transparent);background:rgba(0,0,0,.04)}.passport-section h3{margin:0 0 9px;padding-bottom:7px;border-bottom:1px solid color-mix(in srgb,currentColor 24%,transparent);color:var(--passport-accent);font-size:13px;letter-spacing:1.5px}.passport-section p,.passport-section li{font-size:13px;line-height:1.55;color:inherit}.passport-section ul{margin:5px 0;padding-left:19px}.passport-section-wide{grid-column:1/-1}.passport-section .full-stat-grid{grid-template-columns:repeat(3,1fr)}.passport-section .full-stat{background:rgba(0,0,0,.06);border-left-color:var(--passport-accent);font-size:10px}.passport-section .full-stat i{background:rgba(0,0,0,.13)}.passport-b .passport-section .full-stat i{background:rgba(255,255,255,.12)}.passport-section .full-stat i span{background:var(--passport-accent)}.passport-section .full-stat b{color:inherit}.passport-section .move-group b,.passport-section .ai-order b{color:var(--passport-accent)}.passport-section .move-group span,.passport-section .ai-order{color:inherit;font-size:12px}.passport-section .ai-order{background:rgba(0,0,0,.05);border-left-color:var(--passport-accent)}
+@media(max-width:1100px){#databaseGrid.profiles{grid-template-columns:repeat(3,minmax(0,1fr))}}
+@media(max-width:780px){#databaseGrid.profiles{grid-template-columns:repeat(2,minmax(0,1fr))}.passport-front-grid,.passport-dossier-grid{grid-template-columns:1fr}.passport-priority-stats{grid-template-columns:repeat(2,1fr)}.passport-section-wide{grid-column:auto}.passport-filebar{gap:20px;padding-right:100px}.passport-fields{grid-template-columns:1fr}.passport-field-wide{grid-column:auto}}
+@media(max-width:480px){#databaseGrid.profiles{grid-template-columns:1fr}.passport-face{padding:16px}.passport-filebar{font-size:12px}.passport-main-portrait{min-height:190px}.passport-summary h2{font-size:28px}.passport-priority-stats{grid-template-columns:1fr}.passport-stamp{position:static;display:inline-block;margin:8px 0;transform:none}}
 
 </style>
 </head>
@@ -1696,11 +1728,11 @@ class="hidden">
 <div class="heading">
 
 <h2>
-TARGET DOSSIER ARCHIVE
+POWER PASSPORT ARCHIVE
 </h2>
 
 <span class="code">
-175 CLASSIFIED TARGET FILES
+175 SECURE CHARACTER FILES
 </span>
 
 </div>
@@ -6782,7 +6814,36 @@ const CIVILIAN_IDENTITIES={
 
 const DOSSIER_AFFILIATION_EXTRAS={Cyclops:["Champions","Phoenix Five"]};
 
+const PASSPORT_ALIASES={
+    "Cyclops":"SLIM","Jean Grey":"MARVEL GIRL","Gambit":"RAGIN' CAJUN","Nightcrawler":"FUZZY ELF","Emma Frost":"WHITE QUEEN",
+    "Jubilee":"JUBES","Archangel":"DEATH","Mystique":"RAVEN","Juggernaut":"THE UNSTOPPABLE","Doctor Octopus":"DOC OCK",
+    "Mysterio":"MASTER OF ILLUSION","Morbius":"THE LIVING VAMPIRE","The Thing":"EVER-LOVIN' BLUE-EYED THING","Thanos":"THE MAD TITAN",
+    "Silver Surfer":"SENTINEL OF THE SPACEWAYS","Loki":"GOD OF MISCHIEF","Daredevil":"THE MAN WITHOUT FEAR","Blade":"DAYWALKER",
+    "Luke Cage":"HERO FOR HIRE","Iron Fist":"THE LIVING WEAPON","She-Hulk":"JADE GIANTESS","Moon Knight":"FIST OF KHONSHU",
+    "Shang-Chi":"MASTER OF KUNG FU","Namor":"THE SUB-MARINER","Adam Warlock":"HIM","Nova":"THE HUMAN ROCKET",
+    "Hercules":"PRINCE OF POWER","Red Hulk":"RULK","Knull":"THE KING IN BLACK","Spider-Man":"WEB-HEAD",
+    "Iron Man":"MERCHANT OF DEATH","Thor":"GOD OF THUNDER","Hulk":"THE JADE GIANT","Wolverine":"OL' CANUCKLEHEAD",
+    "Doctor Doom":"MASTER OF LATVERIA","Magneto":"MASTER OF MAGNETISM","Storm":"WINDRIDER","Deadpool":"MERC WITH A MOUTH",
+    "Black Panther":"KING OF WAKANDA","Captain America":"SENTINEL OF LIBERTY","Gamora":"DEADLIEST WOMAN IN THE GALAXY",
+    "Hela":"GODDESS OF DEATH","Ghost Rider":"SPIRIT OF VENGEANCE","Rocket Raccoon":"TRASH PANDA",
+    "Booster Gold":"THE GREATEST HERO YOU'VE NEVER HEARD OF","Firestorm":"THE NUCLEAR MAN","Red Tornado":"REDDY",
+    "Metamorpho":"THE ELEMENT MAN","Ra's al Ghul":"THE DEMON'S HEAD","Brainiac":"COLLECTOR OF WORLDS","Lobo":"THE MAIN MAN",
+    "Larfleeze":"AGENT ORANGE","Superman":"MAN OF STEEL","Batman":"THE DARK KNIGHT","Wonder Woman":"THE AMAZING AMAZON",
+    "The Flash":"THE SCARLET SPEEDSTER","Green Lantern":"THE EMERALD KNIGHT","Aquaman":"KING OF ATLANTIS",
+    "Martian Manhunter":"THE LAST MARTIAN","Shazam":"WORLD'S MIGHTIEST MORTAL","Green Arrow":"THE EMERALD ARCHER",
+    "Deathstroke":"THE TERMINATOR","Beast Boy":"CHANGELING","Harley Quinn":"CUPID OF CRIME","Bane":"THE MAN WHO BROKE THE BAT",
+    "Poison Ivy":"QUEEN OF THE GREEN","Zatanna":"MISTRESS OF MAGIC","Constantine":"HELLBLAZER","Darkseid":"GOD OF EVIL",
+    "Black Canary":"PRETTY BIRD","Supergirl":"GIRL OF STEEL","Swamp Thing":"AVATAR OF THE GREEN","Etrigan":"THE DEMON",
+    "Solomon Grundy":"BORN ON A MONDAY","Atom":"THE MIGHTY MITE"
+};
+
 function targetIdentity(character){return CIVILIAN_IDENTITIES[character.name]||"IDENTITY SEALED";}
+
+function passportAlias(character){return PASSPORT_ALIASES[character.name]||character.name.toUpperCase();}
+function passportFileNumber(character){return String(CHARACTERS.indexOf(character)+1).padStart(3,"0");}
+function passportFileTitle(character){return `FILE-${passportFileNumber(character)} // ${passportAlias(character)}`;}
+function passportAgency(character){return character.universe==="Marvel"?"S.H.I.E.L.D.":"A.R.G.U.S.";}
+function passportStyle(character){return character.universe==="Marvel"?"a":"b";}
 
 function threatScore(character){
     const stats=character.richData?.stats||{};
@@ -6794,10 +6855,10 @@ function threatLabel(score){return score>=94?"OMEGA":score>=87?"CRITICAL":score>
 
 renderDatabase=function(){
     const search=(qs("dbSearch").value||"").toLowerCase(),universe=qs("dbUniverse").value;
-    const filtered=CHARACTERS.filter(c=>(universe==="Both"||c.universe===universe)&&(`${c.name} ${targetIdentity(c)} ${c.tier} ${c.role}`).toLowerCase().includes(search));
+    const filtered=CHARACTERS.filter(c=>(universe==="Both"||c.universe===universe)&&(`${c.name} ${targetIdentity(c)} ${passportAlias(c)} ${c.tier} ${c.role}`).toLowerCase().includes(search));
     qs("databaseGrid").innerHTML=filtered.map(character=>{
-        const color=dossierColor(character),score=threatScore(character),file=String(CHARACTERS.indexOf(character)+1).padStart(3,"0");
-        return `<article class="profile focus-card" style="--dossier-accent:${color}" data-file="${file}" data-character="${encodeURIComponent(character.name)}" onclick="openCharacterDossier(decodeURIComponent(this.dataset.character))"><div class="profile-icon">${ICONS[character.icon]||"◆"}</div><h3>${character.name}</h3><div class="case-identity">IDENTITY // ${targetIdentity(character)}</div><span class="profile-tag">${character.universe}</span><span class="profile-tag">${character.tier}</span><span class="profile-tag">${character.role}</span><div class="case-summary"><div class="case-data"><b>COMBAT ROLE</b>${character.range} // ${character.role}</div><div class="case-data case-alert"><b>THREAT CLASS</b>${threatLabel(score)} // ${score}</div><div class="case-data"><b>PREP RATING</b>${character.prepScore||"N/A"} / 100</div><div class="case-data"><b>FILE STATUS</b>ACTIVE // VERIFIED</div></div></article>`;
+        const agency=passportAgency(character),style=passportStyle(character);
+        return `<button type="button" class="passport-tile passport-tile-${style}" data-character="${encodeURIComponent(character.name)}" onclick="openCharacterDossier(decodeURIComponent(this.dataset.character))"><div class="passport-tile-file">${passportFileTitle(character)}</div><div class="passport-tile-agency">${agency} SECURE CHARACTER RECORD</div><div class="passport-tile-portrait">${ICONS[character.icon]||"◆"}</div><h3>${character.name}</h3><div class="passport-tile-identity">IDENTITY // ${targetIdentity(character)}</div><div class="passport-tile-meta"><span>${character.universe}</span><span>${character.tier}</span><span>${character.role}</span><span>PREP ${character.prepScore||"N/A"}</span></div><div class="passport-tile-stamp">${agency} VERIFIED</div><div class="passport-tile-versions"><span>STANDARD</span><span>AMPED</span></div></button>`;
     }).join("")||`<div class="status">NO TARGET FILES MATCH THE CURRENT SEARCH PARAMETERS</div>`;
 };
 
@@ -6836,16 +6897,51 @@ function dossierAI(ai={}){
     return Object.entries(ai).map(([key,value])=>`<div class="ai-order"><b>${labels[key]||key.toUpperCase()}</b>${value}</div>`).join("");
 }
 
-function openCharacterDossier(name){
-    const character=CHARACTERS.find(c=>c.name===name);if(!character)return;
-    const color=dossierColor(character),data=character.richData||{},score=threatScore(character);
+let activePassportCharacter=null;
+let activePassportVersion="Standard";
+let activePassportSide="front";
+
+function passportPriorityStatsHTML(character){
+    const rich=character.richData?.stats||{};
+    const stats=[
+        ["STRENGTH",rich.strength??character.strength],
+        ["SPEED",rich.speed??character.speed],
+        ["DURABILITY",rich.durability??character.durability],
+        ["COMBAT IQ",rich.combatIQ??character.iq],
+        ["CONTROL",rich.battlefieldControl??character.power]
+    ];
+    return stats.map(([label,value])=>`<div class="passport-priority-stat"><span>${label}</span><i><span style="width:${Math.round(value)}%"></span></i><b>${Math.round(value)}</b></div>`).join("");
+}
+
+function passportVersionDescription(character){
+    const data=character.richData||{};
+    return activePassportVersion==="Amped"
+        ?data.version?.amped||character.ampedDescription||"Controlled enhanced version without omnipotent, reality-ending, or automatic-win abilities."
+        :data.version?.standard||character.standardDescription||"Mainstream version with established equipment, training, and powers.";
+}
+
+function renderPassportDossier(){
+    const character=activePassportCharacter;if(!character)return;
+    const data=character.richData||{},style=passportStyle(character),agency=passportAgency(character);
+    const accent=character.universe==="Marvel"?"#a43b43":"#39add2";
     const moveGroups=character.moveCategories||data.moves||{};
     const affiliations=[...(data.identity?.affiliations||[]),...(DOSSIER_AFFILIATION_EXTRAS[character.name]||[])].filter((value,index,array)=>array.indexOf(value)===index);
-    const file=String(CHARACTERS.indexOf(character)+1).padStart(3,"0");
-    qs("characterModal").style.display="grid";qs("characterDossier").style.setProperty("--dossier-accent",color);
-    qs("characterDossier").innerHTML=`<article class="target-dossier"><div class="dossier-topline"><span>STARK INTELLIGENCE DIVISION // PERSON-OF-INTEREST FILE ${file}</span><strong>SECURITY LEVEL 7 // EYES ONLY</strong></div><header class="target-header"><div class="target-portrait" aria-label="Target identification hologram">${ICONS[character.icon]||"◆"}</div><div class="target-identity"><small>TARGET CODENAME</small><h2>${character.name}</h2><div class="true-name">IDENTITY // ${targetIdentity(character)}</div><div class="identity-grid"><div class="identity-field"><b>UNIVERSE</b>${character.universe}</div><div class="identity-field"><b>POWER TIER</b>${character.tier}</div><div class="identity-field"><b>ROLE</b>${character.role}</div><div class="identity-field"><b>COMBAT RANGE</b>${character.range}</div><div class="identity-field" style="grid-column:1/-1"><b>KNOWN AFFILIATIONS</b>${affiliations.length?affiliations.join(" // "):"NONE CONFIRMED"}</div></div></div><aside class="threat-panel"><h3>THREAT ASSESSMENT</h3><div class="threat-score">${score}<small> / 100</small></div><div class="threat-line"><span>CLASSIFICATION</span><b>${threatLabel(score)}</b></div><div class="threat-line"><span>PREP-TIME IQ</span><b>${character.prepScore||"N/A"}</b></div><div class="threat-line"><span>STATUS</span><b>ACTIVE</b></div></aside></header><div class="dossier-body"><div class="dossier-column"><section class="dossier-card"><h3>VERSIONS / AUTHORIZED LOADOUTS</h3><div class="version-file"><b>STANDARD</b>${data.version?.standard||character.standardDescription||"Mainstream combat version with established equipment, training, and powers."}</div><div class="version-file"><b>ALLOWED AMPED</b>${data.version?.amped||character.ampedDescription||"Controlled enhanced version without omnipotent, reality-ending, or automatic-win abilities."}</div></section><section class="dossier-card"><h3>COMPLETE COMBAT STAT MATRIX</h3><div class="full-stat-grid">${dossierStatsHTML(character)}</div></section><section class="dossier-card"><h3>POWERS / CAPABILITIES</h3>${listHTML(data.powers||[])}</section><section class="dossier-card"><h3>MOVE CATALOG</h3>${dossierMoveGroups(moveGroups)}</section><section class="dossier-card"><h3>FIGHTING STYLE</h3><p>${dossierParagraph(data.fightingStyle||character.fightingStyle)}</p><h3>COMBAT PERSONALITY</h3><p>${dossierParagraph(data.combatPersonality||character.personality)}</p></section></div><div class="dossier-column"><section class="dossier-card"><h3>WEAKNESSES / LIMITATIONS</h3>${listHTML(data.weaknessesLimitations||character.weaknesses)}<h3>RESISTANCES</h3>${listHTML(data.resistances||character.resistances)}</section><section class="dossier-card"><h3>SPECIAL MECHANICS</h3>${listHTML(data.specialMechanics||character.specialMechanics)}</section><section class="dossier-card"><h3>AI BEHAVIOR DIRECTIVES</h3><div class="ai-grid">${dossierAI(data.aiBehavior||character.aiBehavior)}</div></section><section class="dossier-card"><h3>POWER INTERACTIONS / COUNTERS</h3>${listHTML(data.powerInteractionsCounters||character.powerInteractions)}</section><section class="dossier-card"><h3>MATCHUP KNOWLEDGE</h3><p>${dossierParagraph(data.matchupKnowledge||character.matchupKnowledge)}</p></section><section class="dossier-card"><h3>TEAM BEHAVIOR</h3><p>${dossierParagraph(data.teamBehavior||character.teamBehavior)}</p></section><section class="dossier-card"><h3>BATTLEFIELD BEHAVIOR</h3><p>${dossierParagraph(data.battlefieldBehavior||character.battlefieldBehavior)}</p></section></div></div><footer class="dossier-footer"><span>FILE ${file} // VERIFIED AGAINST MULTIVERSE COMBAT DATABASE</span><span>DO NOT DISTRIBUTE // STARK EYES ONLY</span></footer></article>`;
+    const flipped=activePassportSide==="back"?" flipped":"";
+    qs("characterDossier").innerHTML=`<div class="passport-scene passport-${style}${flipped}" style="--passport-accent:${accent}"><div class="passport-flipper"><section class="passport-face passport-front"><div class="passport-filebar"><span>${passportFileTitle(character)}</span><span class="passport-agency">${agency} ISSUE</span></div><div class="passport-front-grid"><div class="passport-main-portrait"><div>${ICONS[character.icon]||"◆"}<small>${character.name.toUpperCase()} // PORTRAIT</small></div></div><div class="passport-summary"><h2>${character.name}</h2><div class="passport-true-name">IDENTITY // ${targetIdentity(character)}</div><div class="passport-fields"><div class="passport-field"><b>UNIVERSE</b>${character.universe}</div><div class="passport-field"><b>POWER TIER</b>${character.tier}</div><div class="passport-field"><b>ROLE</b>${character.role}</div><div class="passport-field"><b>COMBAT RANGE</b>${character.range}</div><div class="passport-field passport-field-wide"><b>KNOWN AFFILIATIONS</b>${affiliations.length?affiliations.join(" // "):"NONE CONFIRMED"}</div></div></div></div><div class="passport-priority-stats">${passportPriorityStatsHTML(character)}</div><div class="passport-power-strip">${(data.powers||[]).slice(0,6).map(power=>`<span>${power}</span>`).join("")}</div><div class="passport-stamp">${agency} VERIFIED</div><div class="passport-version-tabs"><button type="button" class="${activePassportVersion==="Standard"?"active":""}" onclick="setPassportVersion('Standard')">STANDARD</button><button type="button" class="${activePassportVersion==="Amped"?"active":""}" onclick="setPassportVersion('Amped')">AMPED</button></div><div class="passport-version-copy"><b>${activePassportVersion.toUpperCase()} VERSION</b><br>${passportVersionDescription(character)}</div><button type="button" class="passport-flip-button" onclick="flipPassportCard()">FLIP TO FULL DOSSIER ↻</button></section><section class="passport-face passport-back"><div class="passport-filebar"><span>${passportFileTitle(character)}</span><span class="passport-agency">FULL DOSSIER</span></div><div class="passport-back-head"><div><h2>${character.name} // COMPLETE RECORD</h2><p>${agency} VERIFIED MULTIVERSE COMBAT INTELLIGENCE</p></div><div class="passport-back-stamp">${agency} VERIFIED</div></div><div class="passport-dossier-grid"><section class="passport-section"><h3>IDENTITY / AFFILIATIONS</h3><p><b>Identity:</b> ${targetIdentity(character)}</p><p><b>Universe:</b> ${character.universe}</p><p><b>Power tier:</b> ${character.tier}</p><p><b>Role:</b> ${character.role}</p><p><b>Affiliations:</b> ${affiliations.length?affiliations.join(", "):"None confirmed"}</p></section><section class="passport-section"><h3>VERSIONS</h3><p><b>Standard:</b> ${data.version?.standard||character.standardDescription}</p><p><b>Allowed Amped:</b> ${data.version?.amped||character.ampedDescription}</p></section><section class="passport-section passport-section-wide"><h3>COMPLETE COMBAT STAT MATRIX</h3><div class="full-stat-grid">${dossierStatsHTML(character)}</div></section><section class="passport-section"><h3>POWERS</h3>${listHTML(data.powers||[])}</section><section class="passport-section"><h3>MOVES</h3>${dossierMoveGroups(moveGroups)}</section><section class="passport-section"><h3>FIGHTING STYLE</h3><p>${dossierParagraph(data.fightingStyle||character.fightingStyle)}</p><h3>COMBAT PERSONALITY</h3><p>${dossierParagraph(data.combatPersonality||character.personality)}</p></section><section class="passport-section"><h3>WEAKNESSES / LIMITATIONS</h3>${listHTML(data.weaknessesLimitations||character.weaknesses)}<h3>RESISTANCES</h3>${listHTML(data.resistances||character.resistances)}</section><section class="passport-section"><h3>SPECIAL MECHANICS</h3>${listHTML(data.specialMechanics||character.specialMechanics)}</section><section class="passport-section"><h3>AI BEHAVIOR</h3><div class="ai-grid">${dossierAI(data.aiBehavior||character.aiBehavior)}</div></section><section class="passport-section"><h3>POWER INTERACTIONS / COUNTERS</h3>${listHTML(data.powerInteractionsCounters||character.powerInteractions)}</section><section class="passport-section"><h3>MATCHUP KNOWLEDGE</h3><p>${dossierParagraph(data.matchupKnowledge||character.matchupKnowledge)}</p></section><section class="passport-section"><h3>TEAM BEHAVIOR</h3><p>${dossierParagraph(data.teamBehavior||character.teamBehavior)}</p></section><section class="passport-section passport-section-wide"><h3>BATTLEFIELD BEHAVIOR</h3><p>${dossierParagraph(data.battlefieldBehavior||character.battlefieldBehavior)}</p></section></div><button type="button" class="passport-flip-button" onclick="flipPassportCard()">↻ FLIP TO FRONT PROFILE</button></section></div></div>`;
 }
-function closeCharacterDossier(){qs("characterModal").style.display="none";}
+
+function openCharacterDossier(name){
+    activePassportCharacter=CHARACTERS.find(character=>character.name===name);if(!activePassportCharacter)return;
+    activePassportVersion="Standard";activePassportSide="front";
+    qs("characterModal").style.display="grid";renderPassportDossier();
+}
+function setPassportVersion(version){activePassportVersion=version;renderPassportDossier();}
+function flipPassportCard(){
+    activePassportSide=activePassportSide==="front"?"back":"front";
+    const scene=qs("characterDossier").querySelector(".passport-scene");
+    if(scene)scene.classList.toggle("flipped",activePassportSide==="back");
+}
+function closeCharacterDossier(){qs("characterModal").style.display="none";activePassportCharacter=null;}
 
 let tacticalSimulation=null;
 const tacticalFrames={};

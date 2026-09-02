@@ -20,9 +20,13 @@ The simulator contains 175 fighters, two- and three-player support, team sizes f
 - Switching between two and three players preserves Alpha and Omega. Removing the third player returns Sigma's fighters to the pool.
 - The full roster is cleared only by the **Reset** button or by intentionally changing to a different game mode.
 
-## Target dossier archive
+## Power Passport database
 
-The Character Database is presented as a classified Stark target archive. Every fighter opens into a full dossier containing identity and affiliations, versions, all 18 combat stats, powers, categorized moves, fighting style, combat personality, weaknesses, resistances, special mechanics, AI behavior, counters, matchup knowledge, team behavior, battlefield behavior, threat class, and prep-time rating.
+- Marvel fighters use the cream-paper **Concept A / Agency Issue** layout with a **S.H.I.E.L.D. VERIFIED** stamp.
+- DC fighters use the midnight-blue **Concept B / Meta Registry** layout with an **A.R.G.U.S. VERIFIED** stamp.
+- Every card receives a permanent file number and a documented nickname or title when one is well established. Characters without a recognized secondary title use their established codename instead of an invented nickname.
+- The front contains identity, affiliations, five priority stats, powers, and selectable Standard/Amped versions.
+- The card flips to a complete reverse-side dossier containing all 18 stats, powers, moves, fighting style, combat personality, weaknesses, resistances, special mechanics, AI behavior, counters, matchup knowledge, team behavior, and battlefield behavior.
 
 ## Draft controls
 
