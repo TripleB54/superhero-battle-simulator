@@ -858,6 +858,7 @@ body{min-width:0;background:radial-gradient(circle at 50% 10%,rgba(0,234,255,.1)
 .advanced-pool-panel{height:auto;min-height:48px;margin:0 0 10px;padding:8px;flex-wrap:wrap;white-space:normal;background:#02090d;border:1px solid #174a5c}
 .advanced-pool-panel button{padding:8px 10px;font-size:7px}.advanced-pool-panel b{font-size:8px;color:var(--gold);letter-spacing:1px}
 .advanced-pool-panel .option-group{display:flex;align-items:center;gap:6px;flex-wrap:wrap;width:100%}.advanced-pool-panel .option-group+.option-group{padding-top:7px;margin-top:2px;border-top:1px solid #153b49}.advanced-pool-panel button.selected-tier{color:#e7fbff;border-color:var(--purple);background:linear-gradient(90deg,rgba(116,61,157,.42),#03111a);box-shadow:0 0 9px rgba(181,108,255,.22)}
+.preset-team-controls{display:grid!important;grid-template-columns:repeat(3,minmax(190px,1fr));gap:9px!important}.preset-team-control{display:grid;gap:5px;padding:8px;border:1px solid #174a5c;background:linear-gradient(135deg,rgba(0,234,255,.045),rgba(2,8,12,.96))}.preset-team-control label{color:#82dff2;font-size:8px;letter-spacing:1.4px}.preset-team-control select{width:100%;min-width:0;padding:8px;border:1px solid #245f72;background:#02090d;color:#e4faff;font:8px Orbitron,monospace;letter-spacing:.7px}.preset-team-control small{color:#6f909b;font-size:7px;line-height:1.45;white-space:normal}.preset-team-control.omega{border-color:#6b2a35}.preset-team-control.omega label{color:#ff7082}.preset-team-control.sigma{border-color:#613980}.preset-team-control.sigma label{color:#c58cff}@media(max-width:850px){.preset-team-controls{grid-template-columns:1fr!important}}
 .prep-badge{display:inline-block;margin-top:6px;padding:3px 6px;border:1px solid var(--gold);color:var(--gold);font-size:7px;letter-spacing:1px}.prep-elite{border-color:var(--cyan);color:var(--cyan);box-shadow:0 0 8px rgba(0,234,255,.22)}
 .fighter-search-wrap{display:grid;grid-template-columns:1fr auto;gap:8px;align-items:center;margin:0 0 10px}.fighter-search-wrap input{width:100%;padding:10px 12px;background:#02080c;border:1px solid #1a5365;color:var(--cyan);font:inherit;font-size:10px;letter-spacing:1.5px;outline:none}.fighter-search-wrap input:focus{border-color:var(--cyan);box-shadow:0 0 12px rgba(0,234,255,.16)}.fighter-search-wrap span{min-width:72px;padding:10px;background:#02080c;border:1px solid #153743;color:var(--muted);font-size:7px;letter-spacing:1px;text-align:center}
 #battleOutput{position:static;inset:auto;width:auto;max-height:none;overflow:visible;background:linear-gradient(135deg,#07161f,#02080c);box-shadow:none}
@@ -1005,11 +1006,11 @@ body{min-width:0;background:radial-gradient(circle at 50% 10%,rgba(0,234,255,.1)
   background-size:30px 30px,30px 30px,auto,auto;
   border:1px solid #174b5d;
 }
-#databasePage::before{content:"STARK INTELLIGENCE // MULTIVERSE CHARACTER RECORD NETWORK";display:block;margin:0 0 10px;color:#668b97;font-size:7px;letter-spacing:2.5px}
+#databasePage::before{content:"S.H.I.E.L.D. × A.R.G.U.S. MULTIVERSE WATCHCENTER // MOST DANGEROUS FIRST // ALPHABETICAL WITHIN EACH THREAT PROTOCOL";display:block;margin:0 0 10px;color:#8bb8c5;font-size:7px;letter-spacing:2.1px}
 #databasePage>.panel{border-color:#1c6175!important;background:rgba(2,10,15,.94)!important;box-shadow:inset 0 0 45px rgba(0,234,255,.035)!important}
 #databasePage>.panel>.heading{border-bottom:1px solid #195163;padding-bottom:12px}
 #databasePage>.panel>.heading h2{color:#dffaff;letter-spacing:3px}
-#databasePage .dbtools{display:grid;grid-template-columns:minmax(220px,1fr) 180px;gap:10px;padding:10px;background:#030b10;border:1px solid #153d4b}
+#databasePage .dbtools{display:grid;grid-template-columns:minmax(220px,1fr) 180px 230px;gap:10px;padding:10px;background:#030b10;border:1px solid #153d4b}
 #databasePage .dbtools input,#databasePage .dbtools select{border-color:#23566a;background:#02080c;color:#d7f7ff}
 #databasePage #databaseGrid{margin-top:12px}
 .profile.focus-card{min-height:255px;padding:15px 14px 34px;border:1px solid #24566a;background:linear-gradient(155deg,rgba(7,27,36,.96),rgba(1,7,11,.98) 60%)!important;clip-path:polygon(0 0,94% 0,100% 7%,100% 100%,0 100%)!important;border-radius:0!important}
@@ -1050,8 +1051,9 @@ body{min-width:0;background:radial-gradient(circle at 50% 10%,rgba(0,234,255,.1)
   .wheel-name{font-size:4px}
 }
 
-/* POWER PASSPORT DATABASE — CONCEPT A: MARVEL / CONCEPT B: DC */
+/* JOINT SHIELD CAPABILITY ARCHIVE — unified dossier system */
 #databaseGrid.profiles{grid-template-columns:repeat(4,minmax(0,1fr));gap:14px;align-items:stretch}
+.database-threat-header{grid-column:1/-1;display:grid;grid-template-columns:1fr 2fr auto;gap:14px;align-items:center;margin:12px 0 0;padding:13px 15px;border:1px solid #285666;border-left:5px solid #5d8a98;background:linear-gradient(90deg,#07141b,#02080c);color:#bdd3da;font-size:11px;letter-spacing:1px}.database-threat-header b{font-size:15px;color:#e8fbff;letter-spacing:2px}.database-threat-header span{color:#8daab3}.database-threat-header em{font-style:normal;color:#68a8ba;white-space:nowrap}.database-threat-header.threat-cosmic{border-color:#9d293a;border-left-color:#ff4055;background:linear-gradient(90deg,#25070d,#080509);box-shadow:inset 0 0 28px rgba(255,64,85,.12)}.database-threat-header.threat-cosmic b,.database-threat-header.threat-cosmic span{color:#ff7082}.database-threat-header.threat-mystic{border-left-color:#b56cff}.database-threat-header.threat-heavy{border-left-color:#ffc83d}.database-threat-header.threat-enhanced{border-left-color:#00eaff}.database-threat-header.threat-street{border-left-color:#4dff9a}
 .passport-tile{position:relative;min-height:390px;padding:14px 14px 46px;text-align:left;cursor:pointer;font:inherit;overflow:hidden;transition:transform .18s,border-color .18s;clip-path:polygon(0 0,92% 0,100% 7%,100% 100%,8% 100%,0 93%)}
 .passport-tile:hover{transform:translateY(-3px)}
 .passport-tile-a{color:#20272b;background:linear-gradient(90deg,#202932 0 7px,#e8e0cf 7px 100%);border:1px solid #877e6b}
@@ -1063,7 +1065,7 @@ body{min-width:0;background:radial-gradient(circle at 50% 10%,rgba(0,234,255,.1)
 .passport-tile h3{margin:8px 0 3px;color:inherit;font-size:17px;letter-spacing:1px}.passport-tile-identity{font-size:12px;opacity:.72;line-height:1.45}
 .passport-tile-meta{display:grid;grid-template-columns:1fr 1fr;gap:5px;margin-top:10px}.passport-tile-meta span{padding:5px;border-left:2px solid currentColor;background:rgba(0,0,0,.045);font-size:11px;line-height:1.3}
 .passport-tile-stamp{position:absolute;right:12px;bottom:52px;transform:rotate(-6deg);padding:5px 7px;border:2px double #a43b43;color:#a43b43;font-size:10px;font-weight:900;letter-spacing:.7px;opacity:.76}.passport-tile-b .passport-tile-stamp{border-color:#e05a68;color:#e05a68}
-.passport-tile-versions{position:absolute;left:14px;right:14px;bottom:12px;display:grid;grid-template-columns:1fr 1fr;gap:4px}.passport-tile-versions span{padding:7px;text-align:center;border:1px solid currentColor;font-size:10px;letter-spacing:1px}.passport-tile-versions span:first-child{color:white;background:#9c343d;border-color:#9c343d}.passport-tile-b .passport-tile-versions span:first-child{background:#187493;border-color:#187493}
+.passport-tile-versions{position:absolute;left:14px;right:14px;bottom:12px;display:grid;grid-template-columns:repeat(auto-fit,minmax(70px,1fr));gap:4px;max-height:58px;overflow:auto}.passport-tile-versions span{padding:7px;text-align:center;border:1px solid currentColor;font-size:8px;letter-spacing:.7px}.passport-tile-versions span:first-child{color:white;background:#9c343d;border-color:#9c343d}.passport-tile-b .passport-tile-versions span:first-child{background:#187493;border-color:#187493}
 .dossier-modal{width:min(1120px,97vw);max-height:96vh;padding:10px;overflow:hidden}.dossier-close{position:absolute;z-index:30;right:20px;top:18px;float:none}
 .passport-scene{height:min(860px,88vh);perspective:1600px;margin:0 auto}.passport-flipper{position:relative;width:100%;height:100%;transform-style:preserve-3d;transition:transform .62s cubic-bezier(.2,.75,.25,1)}.passport-scene.flipped .passport-flipper{transform:rotateY(180deg)}
 .passport-face{position:absolute;inset:0;padding:24px;overflow-y:auto;backface-visibility:hidden;-webkit-backface-visibility:hidden}.passport-back{transform:rotateY(180deg)}
@@ -1075,12 +1077,61 @@ body{min-width:0;background:radial-gradient(circle at 50% 10%,rgba(0,234,255,.1)
 .passport-priority-stats{display:grid;grid-template-columns:repeat(5,1fr);gap:7px;margin:17px 0}.passport-priority-stat{padding:8px;background:rgba(0,0,0,.045);font-size:11px}.passport-priority-stat>span{display:block;margin-bottom:6px;letter-spacing:.7px}.passport-priority-stat i{display:block;height:6px;background:rgba(0,0,0,.13)}.passport-b .passport-priority-stat i{background:rgba(255,255,255,.12)}.passport-priority-stat i span{display:block;height:100%;background:var(--passport-accent)}.passport-priority-stat b{display:block;margin-top:5px;text-align:right;font-size:12px}
 .passport-power-strip{display:flex;flex-wrap:wrap;gap:6px;margin:12px 0}.passport-power-strip span{padding:6px 8px;border:1px solid currentColor;font-size:11px;letter-spacing:.7px}
 .passport-stamp{position:absolute;right:42px;bottom:110px;transform:rotate(-7deg);padding:10px 14px;border:3px double var(--passport-accent);color:var(--passport-accent);font-size:16px;font-weight:900;letter-spacing:1.3px;opacity:.78}
-.passport-version-tabs{display:grid;grid-template-columns:1fr 1fr;gap:5px;margin:17px 0 8px}.passport-version-tabs button,.passport-flip-button{padding:11px;border:1px solid currentColor;background:transparent;color:inherit;font:inherit;font-size:12px;letter-spacing:1.4px}.passport-version-tabs button.active{color:white;background:var(--passport-accent);border-color:var(--passport-accent)}.passport-version-copy{min-height:55px;padding:11px;border-left:4px solid var(--passport-accent);background:rgba(0,0,0,.05);font-size:13px;line-height:1.5}.passport-flip-button{display:block;width:100%;margin-top:12px;color:white;background:#07151c;border-color:#3d7181}.passport-a .passport-flip-button{background:#202a31}
+.passport-version-tabs{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:5px;margin:17px 0 8px}.passport-version-tabs button,.passport-flip-button{padding:11px;border:1px solid currentColor;background:transparent;color:inherit;font:inherit;font-size:10px;letter-spacing:1px}.passport-version-tabs button.active{color:white;background:var(--passport-accent);border-color:var(--passport-accent)}.passport-version-copy{min-height:55px;padding:11px;border-left:4px solid var(--passport-accent);background:rgba(0,0,0,.05);font-size:13px;line-height:1.5}.passport-flip-button{display:block;width:100%;margin-top:12px;color:white;background:#07151c;border-color:#3d7181}.passport-a .passport-flip-button{background:#202a31}
 .passport-back-head{display:flex;justify-content:space-between;align-items:start;gap:20px;margin:15px 0}.passport-back-head h2{margin:0;color:inherit;font-size:31px;letter-spacing:1.8px}.passport-back-head p{margin:5px 0 0;font-size:13px;opacity:.7}.passport-back-stamp{padding:8px 11px;border:3px double var(--passport-accent);color:var(--passport-accent);font-weight:900;letter-spacing:1px;transform:rotate(-4deg)}
 .passport-dossier-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}.passport-section{padding:13px;border:1px solid color-mix(in srgb,currentColor 24%,transparent);background:rgba(0,0,0,.04)}.passport-section h3{margin:0 0 9px;padding-bottom:7px;border-bottom:1px solid color-mix(in srgb,currentColor 24%,transparent);color:var(--passport-accent);font-size:13px;letter-spacing:1.5px}.passport-section p,.passport-section li{font-size:13px;line-height:1.55;color:inherit}.passport-section ul{margin:5px 0;padding-left:19px}.passport-section-wide{grid-column:1/-1}.passport-section .full-stat-grid{grid-template-columns:repeat(3,1fr)}.passport-section .full-stat{background:rgba(0,0,0,.06);border-left-color:var(--passport-accent);font-size:10px}.passport-section .full-stat i{background:rgba(0,0,0,.13)}.passport-b .passport-section .full-stat i{background:rgba(255,255,255,.12)}.passport-section .full-stat i span{background:var(--passport-accent)}.passport-section .full-stat b{color:inherit}.passport-section .move-group b,.passport-section .ai-order b{color:var(--passport-accent)}.passport-section .move-group span,.passport-section .ai-order{color:inherit;font-size:12px}.passport-section .ai-order{background:rgba(0,0,0,.05);border-left-color:var(--passport-accent)}
 @media(max-width:1100px){#databaseGrid.profiles{grid-template-columns:repeat(3,minmax(0,1fr))}}
 @media(max-width:780px){#databaseGrid.profiles{grid-template-columns:repeat(2,minmax(0,1fr))}.passport-front-grid,.passport-dossier-grid{grid-template-columns:1fr}.passport-priority-stats{grid-template-columns:repeat(2,1fr)}.passport-section-wide{grid-column:auto}.passport-filebar{gap:20px;padding-right:100px}.passport-fields{grid-template-columns:1fr}.passport-field-wide{grid-column:auto}}
+@media(max-width:780px){.database-threat-header{grid-template-columns:1fr}.database-threat-header em{white-space:normal}}
 @media(max-width:480px){#databaseGrid.profiles{grid-template-columns:1fr}.passport-face{padding:16px}.passport-filebar{font-size:12px}.passport-main-portrait{min-height:190px}.passport-summary h2{font-size:28px}.passport-priority-stats{grid-template-columns:1fr}.passport-stamp{position:static;display:inline-block;margin:8px 0;transform:none}}
+
+/* LIVE TACTICAL MAP — RAISED BATTLEFIELD VIEW */
+.live-tactical-shell{margin:14px 0 24px;border:1px solid #16708a;background:#01070b;box-shadow:0 0 28px rgba(0,234,255,.08),inset 0 0 36px rgba(0,234,255,.025);overflow:hidden}
+.live-tactical-topbar{display:grid;grid-template-columns:minmax(190px,1fr) auto minmax(190px,1fr);align-items:center;gap:12px;padding:11px 14px;border-bottom:1px solid #174b5c;background:linear-gradient(90deg,#061822,#02090e 48%,#17080d);font-size:10px;letter-spacing:1.5px}
+.live-tactical-topbar strong{color:var(--cyan);font-size:13px}.live-tactical-topbar .live-round{text-align:center;color:var(--gold)}.live-tactical-topbar .live-structure-count{text-align:right;color:#8db4c0}
+.live-map-viewport{position:relative;height:640px;overflow:hidden;background:radial-gradient(ellipse at 50% 63%,rgba(0,191,255,.16),transparent 43%),linear-gradient(#02080d,#010407 70%);isolation:isolate}
+.live-map-viewport::before{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(rgba(0,234,255,.025) 1px,transparent 1px),linear-gradient(90deg,rgba(0,234,255,.025) 1px,transparent 1px);background-size:38px 38px;mask-image:linear-gradient(to bottom,transparent,#000 35%,#000)}
+.live-map-horizon{position:absolute;left:8%;right:8%;top:11%;height:1px;background:linear-gradient(90deg,transparent,#1e7590,transparent);box-shadow:0 0 24px #0d6079}
+.live-city-slab{position:absolute;left:9%;right:9%;top:17%;height:67%;transform:perspective(1100px) rotateX(57deg) rotateZ(-3deg);transform-origin:center 78%;transform-style:preserve-3d;border:2px solid #247e95;background:repeating-linear-gradient(0deg,transparent 0 43px,rgba(0,234,255,.12) 44px),repeating-linear-gradient(90deg,transparent 0 43px,rgba(0,234,255,.12) 44px),linear-gradient(115deg,transparent 0 42%,rgba(55,138,158,.24) 42.5% 48%,transparent 48.5%),linear-gradient(25deg,transparent 0 54%,rgba(55,138,158,.18) 54.5% 60%,transparent 60.5%),#07141a;box-shadow:0 42px 0 #02090d,0 47px 0 #135064,0 70px 80px rgba(0,0,0,.9),inset 0 0 55px rgba(0,234,255,.12);clip-path:polygon(4% 0,96% 0,100% 8%,100% 91%,95% 100%,5% 100%,0 92%,0 8%)}
+.live-city-slab::before{content:"";position:absolute;inset:4%;border:1px solid rgba(0,234,255,.22);background:radial-gradient(circle at 51% 51%,rgba(0,234,255,.35) 0 2px,transparent 3px 9%,rgba(0,234,255,.13) 9.5% 10%,transparent 10.5%);pointer-events:none}
+.live-structure{position:absolute;left:var(--x);top:var(--y);width:var(--w);height:var(--d);transform-style:preserve-3d;transform:translateZ(var(--rise));background:linear-gradient(135deg,rgba(42,121,143,.58),rgba(4,21,29,.96));border:1px solid #3da4bc;box-shadow:0 0 14px rgba(0,234,255,.13)}
+.live-structure::before{content:"";position:absolute;left:-1px;right:-1px;top:100%;height:var(--rise);transform-origin:top;transform:rotateX(-90deg);background:linear-gradient(#0c3442,#031017 72%);border:1px solid #1d6073;background-image:repeating-linear-gradient(90deg,transparent 0 12px,rgba(0,234,255,.13) 13px)}
+.live-structure::after{content:"";position:absolute;left:100%;top:-1px;width:var(--rise);height:calc(100% + 1px);transform-origin:left;transform:rotateY(90deg);background:linear-gradient(90deg,#0d3947,#020b10);border:1px solid #174b5b}
+.live-structure.damaged{border-color:#d29b35;background:linear-gradient(135deg,rgba(142,99,27,.52),rgba(24,18,9,.96))}.live-structure.critical{border-color:#ff4055;background:linear-gradient(135deg,rgba(151,34,50,.62),rgba(30,5,10,.98));animation:structureWarning .8s infinite alternate}.live-structure.collapsed{transform:translateZ(3px);background:repeating-linear-gradient(35deg,#12232a 0 5px,#3d2027 6px 10px);border-color:#ff4055;clip-path:polygon(0 34%,17% 11%,29% 47%,43% 6%,56% 56%,72% 18%,100% 42%,89% 100%,7% 87%)}.live-structure.collapsed::before,.live-structure.collapsed::after{display:none}
+@keyframes structureWarning{from{box-shadow:0 0 5px rgba(255,64,85,.3)}to{box-shadow:0 0 24px rgba(255,64,85,.85)}}
+.structure-readout{position:absolute;z-index:8;left:var(--label-x);top:var(--label-y);min-width:142px;padding:7px 8px;border-left:2px solid var(--readout-color,#2c9db8);background:rgba(1,8,12,.88);box-shadow:0 0 14px rgba(0,0,0,.7);color:#bfe8f1;font-size:9px;line-height:1.45;letter-spacing:.6px;pointer-events:none}.structure-readout b{display:block;color:#e8fbff;font-size:10px;white-space:nowrap}.structure-readout span{color:var(--readout-color,#56c4db)}.structure-readout.critical{--readout-color:#ff4055}.structure-readout.collapsed{--readout-color:#ff4055;text-decoration:line-through}
+.live-combat-lines{position:absolute;inset:0;z-index:9;width:100%;height:100%;pointer-events:none}.live-combat-lines .attack{stroke:#ffc83d;stroke-width:1.5;filter:drop-shadow(0 0 6px #ffc83d)}.live-combat-lines .attack.ranged{stroke:#00eaff;stroke-dasharray:6 3}.live-combat-lines .travel{stroke:#78939c;stroke-width:.7;stroke-dasharray:3 4}
+.live-fighter{position:absolute;z-index:12;left:var(--fighter-x);top:var(--fighter-y);width:144px;transform:translate(-50%,-50%);color:var(--fighter-color);transition:left .35s,top .35s}.live-fighter .altitude-stem{position:absolute;left:50%;top:26px;width:1px;height:var(--stem);background:linear-gradient(var(--fighter-color),transparent);box-shadow:0 0 6px var(--fighter-color);transform-origin:top}.live-fighter .altitude-stem::after{content:"";position:absolute;left:-6px;bottom:-3px;width:12px;height:5px;border:1px solid var(--fighter-color);border-radius:50%;opacity:.55}
+.fighter-hologram{position:relative;width:40px;height:46px;margin:auto;display:grid;place-items:center;border:1px solid currentColor;background:radial-gradient(circle,rgba(0,234,255,.18),rgba(1,8,12,.92) 70%);clip-path:polygon(50% 0,92% 20%,92% 78%,50% 100%,8% 78%,8% 20%);font-size:18px;text-shadow:0 0 10px currentColor;box-shadow:0 0 18px currentColor}.live-fighter.active .fighter-hologram{color:#ffd34d;transform:scale(1.13)}.live-fighter.target .fighter-hologram{animation:targetPulse .7s infinite alternate}
+.fighter-data{position:relative;margin-top:5px;padding:6px 7px;border:1px solid color-mix(in srgb,currentColor 55%,transparent);background:rgba(1,8,12,.93);color:#dffaff;text-align:center;font-size:9px;line-height:1.35}.fighter-data b{display:block;color:var(--fighter-color);font-size:11px;letter-spacing:.8px}.fighter-state{color:#8db2bd}.fighter-state.airborne{color:#71dfff}.fighter-state.rooftop{color:#ffc83d}
+.fighter-live-hp{height:5px;margin-top:5px;background:#10242c}.fighter-live-hp span{display:block;height:100%;background:var(--fighter-color);box-shadow:0 0 6px var(--fighter-color)}
+.live-command-strip{display:grid;grid-template-columns:190px minmax(0,1fr) 180px;gap:12px;align-items:stretch;border-top:1px solid #1b6075;background:#02090e}.command-actor,.command-result{padding:13px 15px;background:rgba(0,234,255,.035)}.command-actor b,.command-result b{display:block;color:var(--cyan);font-size:12px;letter-spacing:1px}.command-actor span,.command-result span{display:block;margin-top:5px;color:#82a8b4;font-size:9px;line-height:1.45}.command-action{display:grid;align-content:center;padding:12px 16px;text-align:center}.command-action strong{color:#f1fcff;font-size:14px;line-height:1.45}.command-action span{margin-top:5px;color:#8fb2bd;font-size:10px;line-height:1.45}.command-result{text-align:right}.command-result b{color:var(--red)}
+.live-playback{display:grid;grid-template-columns:auto auto 1fr auto auto;gap:7px;align-items:center;padding:9px 10px;border-top:1px solid #143b49;background:#010609}.live-playback button{padding:8px 11px;font-size:8px}.live-playback-status{text-align:center;color:#79a5b2;font-size:9px;letter-spacing:1px}
+body:has(#storyDepth option[value="liveTactical"]:checked) #battleFeed .story:empty{display:none}
+@media(max-width:900px){.live-map-viewport{height:520px}.live-command-strip{grid-template-columns:150px 1fr 145px}.structure-readout{min-width:115px;font-size:8px}.live-fighter{width:120px}.fighter-data b{font-size:9px}}
+@media(max-width:650px){.live-tactical-topbar{grid-template-columns:1fr}.live-tactical-topbar .live-round,.live-tactical-topbar .live-structure-count{text-align:left}.live-map-viewport{height:560px}.live-city-slab{left:-18%;right:-18%;top:23%}.structure-readout{display:none}.live-fighter{width:104px}.live-command-strip{grid-template-columns:1fr}.command-actor,.command-result,.command-action{text-align:left}.live-playback{grid-template-columns:1fr 1fr}.live-playback-status{grid-column:1/-1;grid-row:1}}
+.passport-version-tabs{display:grid;grid-template-columns:180px 1fr;gap:10px;align-items:center}.passport-version-tabs label{font-size:9px;letter-spacing:1.6px;color:var(--passport-accent)}.passport-version-tabs select{width:100%;padding:10px;background:#061118;color:#e6fbff;border:1px solid var(--passport-accent)}
+.live-map-viewport.map-stark-tower{background:radial-gradient(circle at 50% 62%,rgba(67,224,255,.33),transparent 21%),linear-gradient(135deg,#02080d,#092634 55%,#010509)}
+.live-map-viewport.map-gotham-rooftops{background:linear-gradient(rgba(4,7,12,.18),rgba(4,7,12,.86)),radial-gradient(circle at 78% 8%,rgba(232,239,255,.25),transparent 10%),linear-gradient(#07101d,#151721 55%,#020307)}
+.live-map-viewport.map-atlantis{background:repeating-radial-gradient(ellipse at 50% 100%,rgba(80,229,255,.09) 0 3px,transparent 4px 34px),radial-gradient(ellipse at 50% 80%,rgba(0,255,206,.32),transparent 39%),linear-gradient(#021522,#064b67 56%,#03202c)}
+.live-map-viewport.map-wakandan-vibranium-forest{background:radial-gradient(circle at 71% 48%,rgba(151,79,255,.26),transparent 18%),radial-gradient(circle at 20% 67%,rgba(48,255,123,.22),transparent 27%),repeating-linear-gradient(115deg,transparent 0 39px,rgba(28,110,55,.18) 40px 45px),linear-gradient(#04110a,#0c2e1a 56%,#020805)}
+.map-gotham-rooftops .live-city-slab{box-shadow:0 70px 85px #000}.map-atlantis .live-city-slab{filter:drop-shadow(0 0 18px rgba(33,231,255,.35))}.map-wakandan-vibranium-forest .live-city-slab{filter:drop-shadow(0 0 16px rgba(63,222,108,.28))}
+.capability-signature-shell{display:grid;grid-template-columns:minmax(320px,1.15fr) minmax(220px,.85fr);gap:16px;align-items:center}
+.capability-chart{width:100%;max-width:560px;height:auto;overflow:visible}.capability-ring,.capability-axis{fill:none;stroke:#24505d;stroke-width:1}.capability-reference{fill:rgba(255,202,69,.035);stroke:#ffca45;stroke-width:1.5;stroke-dasharray:5 4}.capability-shape{fill:color-mix(in srgb,var(--passport-accent) 19%,transparent);stroke:var(--passport-accent);stroke-width:2;filter:drop-shadow(0 0 6px color-mix(in srgb,var(--passport-accent) 55%,transparent))}.capability-point{fill:#030b10;stroke:var(--passport-accent);stroke-width:2}.capability-axis-label{fill:#dcf7ff;font-size:10px;font-weight:700;text-anchor:middle;letter-spacing:.7px}.capability-result-label{fill:#87aeba;font-size:8px;text-anchor:middle;letter-spacing:.6px}.capability-controls label{display:block;color:#75a5b3;font-size:8px;letter-spacing:1.4px;margin-bottom:6px}.capability-controls select{width:100%;background:#02090d;color:#dffaff;border:1px solid #276176;padding:10px;margin-bottom:12px}.capability-reading{display:grid;gap:6px}.capability-reading div{display:grid;grid-template-columns:1fr auto;gap:8px;border-bottom:1px solid #173a46;padding:7px 0;font-size:9px;color:#8fb4bf}.capability-reading b{color:var(--passport-accent);font-weight:700}.capability-note{margin-top:12px;border-left:2px solid #ffca45;padding:9px;color:#a6c1c8;font-size:9px;line-height:1.55}.capability-mini-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:5px}.capability-mini{padding:7px;border:1px solid #204855;background:#041119}.capability-mini b{display:block;color:var(--passport-accent);font-size:7px;letter-spacing:.7px;margin-bottom:3px}.capability-mini span{font-size:8px;color:#bad1d7}
+.front-capability{display:grid;grid-template-columns:minmax(270px,.95fr) minmax(210px,1.05fr);gap:12px;align-items:center;border-top:1px solid #204855;border-bottom:1px solid #204855;padding:8px 0}.front-capability svg{width:100%;height:auto;max-height:310px}.front-capability-copy strong{display:block;color:var(--passport-accent);font-size:10px;letter-spacing:1.4px;margin-bottom:7px}.front-capability-copy p{margin:0 0 8px;color:#b5ced5;font-size:9px;line-height:1.5}.front-capability-key{display:grid;grid-template-columns:repeat(2,1fr);gap:5px}.front-capability-key span{background:#041119;border-left:2px solid var(--passport-accent);padding:5px;color:#91b3bc;font-size:8px}.front-capability-key b{display:block;color:#dffaff;font-size:7px;margin-bottom:2px}
+.passport-tile{--tile-accent:#00eaff;color:#dcecf2;background:linear-gradient(135deg,color-mix(in srgb,var(--tile-accent) 12%,#071117),#02070a 58%);border:1px solid color-mix(in srgb,var(--tile-accent) 52%,#173844);box-shadow:inset 5px 0 0 color-mix(in srgb,var(--tile-accent) 75%,transparent),0 10px 30px rgba(0,0,0,.24)}
+.passport-tile-a{--tile-accent:#e04b58}.passport-tile-b{--tile-accent:#43bde4}.passport-tile:hover{border-color:var(--tile-accent);box-shadow:inset 5px 0 0 var(--tile-accent),0 0 24px color-mix(in srgb,var(--tile-accent) 18%,transparent)}
+.passport-tile-file{color:#effcff;border-bottom-color:color-mix(in srgb,var(--tile-accent) 60%,#244a56)}.passport-tile-agency{color:var(--tile-accent);opacity:1}.passport-tile-portrait,.passport-tile-b .passport-tile-portrait{color:var(--tile-accent);background:radial-gradient(circle,color-mix(in srgb,var(--tile-accent) 18%,transparent),transparent 66%),linear-gradient(rgba(255,255,255,.025) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.025) 1px,transparent 1px);background-size:auto,18px 18px,18px 18px;border-color:color-mix(in srgb,var(--tile-accent) 55%,#1a3c47)}
+.passport-tile-meta span{background:rgba(0,0,0,.2);border-left-color:var(--tile-accent)}.passport-tile-stamp,.passport-tile-b .passport-tile-stamp{border-color:var(--tile-accent);color:var(--tile-accent)}.passport-tile-versions span:first-child,.passport-tile-b .passport-tile-versions span:first-child{background:color-mix(in srgb,var(--tile-accent) 65%,#071117);border-color:var(--tile-accent)}
+.passport-a .passport-face,.passport-b .passport-face{color:#dcecf2;background:linear-gradient(90deg,var(--passport-accent) 0 7px,transparent 7px),repeating-linear-gradient(0deg,rgba(120,220,245,.028) 0 1px,transparent 1px 25px),linear-gradient(145deg,color-mix(in srgb,var(--passport-accent) 8%,#101e26),#071117 54%,#02070a);border:1px solid color-mix(in srgb,var(--passport-accent) 48%,#234957)}
+.passport-main-portrait,.passport-b .passport-main-portrait{color:var(--passport-accent);background:radial-gradient(circle,color-mix(in srgb,var(--passport-accent) 18%,transparent),transparent 66%),rgba(0,0,0,.18);border-color:color-mix(in srgb,var(--passport-accent) 55%,#234957)}
+.passport-field,.passport-priority-stat,.passport-version-copy,.passport-section{background:rgba(0,0,0,.19)}.passport-a .passport-flip-button,.passport-b .passport-flip-button{background:#06141b}.passport-archive-title{display:block;color:var(--passport-accent);font-size:10px;letter-spacing:2.2px;margin-bottom:5px}
+@media(max-width:760px){.capability-signature-shell{grid-template-columns:1fr}.capability-mini-grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:620px){.front-capability{grid-template-columns:1fr}}
+
+/* CONTINUOUS CINEMATIC TACTICAL PLAYBACK */
+.cinematic-tactical{margin:15px 0 24px;border:1px solid #1a7088;background:#01070b;box-shadow:0 0 35px rgba(0,234,255,.1);overflow:hidden}.cinematic-map-head{display:grid;grid-template-columns:1fr auto 1fr;gap:14px;align-items:center;padding:13px 16px;border-bottom:1px solid #194958;background:linear-gradient(90deg,#061923,#02090e 50%,#17070d)}.cinematic-map-head h2{margin:0;color:#dffaff;font-size:14px;letter-spacing:2px}.cinematic-map-head span{display:block;margin-top:4px;color:#79a4b0;font-size:9px;letter-spacing:1px}.cinematic-map-head .cinematic-live{text-align:center;color:#ff4055;font-size:10px;letter-spacing:2px}.cinematic-map-head .cinematic-clock{text-align:right;color:var(--gold);font-size:11px}.cinematic-stage{position:relative;height:720px;background:radial-gradient(ellipse at 50% 74%,rgba(0,181,227,.15),transparent 48%),linear-gradient(#02090e,#010305 73%);overflow:hidden}.cinematic-stage canvas{display:block;width:100%;height:100%}.cinematic-overlay{position:absolute;inset:0;pointer-events:none}.cinematic-fighter-card{position:absolute;width:148px;transform:translate(-50%,-100%);padding:6px 8px;border-left:3px solid var(--fighter);background:rgba(1,8,12,.91);box-shadow:0 0 13px rgba(0,0,0,.8);color:#dffaff;font-size:9px;line-height:1.35}.cinematic-fighter-card b{display:block;color:var(--fighter);font-size:11px}.cinematic-fighter-card .cinematic-state{color:#83a9b5}.cinematic-fighter-hp{height:5px;margin-top:5px;background:#10232b}.cinematic-fighter-hp span{display:block;height:100%;background:var(--fighter);box-shadow:0 0 5px var(--fighter)}.cinematic-command{display:grid;grid-template-columns:170px minmax(0,1fr) 160px;gap:10px;align-items:center;min-height:82px;padding:11px 14px;border-top:1px solid #1b5e72;border-bottom:1px solid #153b48;background:#020a0f}.cinematic-command .command-source b,.cinematic-command .command-impact b{display:block;color:var(--cyan);font-size:12px}.cinematic-command .command-source span,.cinematic-command .command-impact span{display:block;margin-top:4px;color:#83a6b1;font-size:9px}.cinematic-command .command-copy{text-align:center}.cinematic-command .command-copy strong{display:block;color:#f1fcff;font-size:14px}.cinematic-command .command-copy span{display:block;margin-top:6px;color:#8db0bb;font-size:10px}.cinematic-command .command-impact{text-align:right}.cinematic-command .command-impact b{color:var(--red)}.cinematic-controls{display:grid;grid-template-columns:auto auto minmax(120px,1fr) auto auto;gap:9px;align-items:center;padding:11px 13px;background:#010609}.cinematic-controls button{padding:9px 12px;font-size:9px}.cinematic-controls input[type="range"]{width:100%;accent-color:var(--cyan)}.cinematic-controls label{display:flex;align-items:center;gap:7px;color:#8db0ba;font-size:9px;letter-spacing:1px}.cinematic-controls select{background:#02080c;color:var(--cyan);border:1px solid #1a5365;padding:8px}.cinematic-time{min-width:90px;text-align:right;color:#dffaff;font-size:10px}.cinematic-roster{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:6px;padding:9px 12px;border-top:1px solid #153a47;background:#02090d}.cinematic-roster-unit{padding:7px 8px;border-left:2px solid var(--fighter);background:#030d12;font-size:9px}.cinematic-roster-unit b{color:var(--fighter)}.cinematic-roster-unit span{float:right;color:#a9c2c9}.cinematic-roster-unit i{display:block;height:4px;margin-top:5px;background:#10242c}.cinematic-roster-unit i span{float:none;display:block;height:100%;background:var(--fighter)}
+@media(max-width:760px){.cinematic-map-head{grid-template-columns:1fr}.cinematic-map-head .cinematic-live,.cinematic-map-head .cinematic-clock{text-align:left}.cinematic-stage{height:560px}.cinematic-command{grid-template-columns:1fr}.cinematic-command .command-copy,.cinematic-command .command-impact{text-align:left}.cinematic-controls{grid-template-columns:1fr 1fr}.cinematic-controls input[type="range"]{grid-column:1/-1}.cinematic-fighter-card{width:108px;font-size:8px}}
 
 </style>
 </head>
@@ -1251,6 +1302,7 @@ GENERATE 10
 <option value="TierDraft">TIER DRAFT</option>
 <option value="CaptainDraft">CAPTAIN DRAFT</option>
 <option value="PrepTime">PREP TIME</option>
+<option value="PresetTeams">PRESET TEAMS</option>
 
 <option value="FreeSelect">
 FULL ROSTER / FREE SELECT
@@ -1346,11 +1398,11 @@ Gotham Rooftops
 </option>
 
 <option>
-Savage Land
+Atlantis
 </option>
 
 <option>
-Cosmic Arena
+Wakandan Vibranium Forest
 </option>
 
 </select>
@@ -1380,6 +1432,8 @@ CINEMATIC
 </option>
 
 <option value="tactical">TACTICAL MAP</option>
+
+<option value="liveTactical">LIVE TACTICAL MAP</option>
 
 </select>
 
@@ -1728,7 +1782,7 @@ class="hidden">
 <div class="heading">
 
 <h2>
-POWER PASSPORT ARCHIVE
+JOINT SHIELD CAPABILITY ARCHIVE
 </h2>
 
 <span class="code">
@@ -1760,6 +1814,11 @@ MARVEL
 DC
 </option>
 
+</select>
+
+<select id="dbThreatScope" onchange="renderDatabase()">
+<option value="Standard">STANDARD-VERSION THREAT</option>
+<option value="Highest">HIGHEST KNOWN VERSION</option>
 </select>
 
 </div>
@@ -2433,6 +2492,215 @@ if(typeof CHARACTER_DATABASE!=="undefined"){
     });
 }
 
+/* =========================================================
+   INDEPENDENT VERSION DOSSIERS + SURVEILLANCE PROTOCOLS
+   Battlefield tier measures practical combat capability.
+   Surveillance protocol measures monitoring/containment risk.
+========================================================= */
+const VERSION_TIER_OVERRIDES={
+    "Ant-Man":["Enhanced","Heavy"],"Aquaman":["Heavy","Mystic"],"Atom":["Enhanced","Heavy"],
+    "Batman":["Street","Cosmic"],"Beast Boy":["Enhanced","Heavy"],"Black Canary":["Enhanced","Heavy"],
+    "Black Panther":["Enhanced","Heavy"],"Blue Beetle":["Heavy","Heavy"],"Captain America":["Enhanced","Cosmic"],
+    "Captain Marvel":["Heavy","Cosmic"],"Cheetah":["Heavy","Heavy"],"Corvus Glaive":["Heavy","Heavy"],
+    "Cyborg":["Heavy","Cosmic"],"Doctor Doom":["Mystic","Cosmic"],"Ebony Maw":["Heavy","Heavy"],
+    "Emma Frost":["Mystic","Mystic"],"Gamora":["Heavy","Heavy"],"Ghost Rider":["Mystic","Cosmic"],
+    "Gorilla Grodd":["Heavy","Heavy"],"Hulk":["Heavy","Cosmic"],"Invisible Woman":["Heavy","Heavy"],
+    "Jean Grey":["Mystic","Cosmic"],"Juggernaut":["Heavy","Cosmic"],"Lobo":["Heavy","Heavy"],
+    "Magneto":["Heavy","Heavy"],"Mera":["Heavy","Heavy"],"Mister Freeze":["Enhanced","Heavy"],
+    "Mister Sinister":["Heavy","Heavy"],"Mongul":["Heavy","Heavy"],"Parasite":["Heavy","Heavy"],
+    "Poison Ivy":["Enhanced","Mystic"],"Professor X":["Mystic","Mystic"],"Raven":["Mystic","Cosmic"],
+    "Ronan the Accuser":["Heavy","Heavy"],"Scarlet Witch":["Mystic","Cosmic"],"Starfire":["Heavy","Heavy"],
+    "Static":["Enhanced","Heavy"],"Storm":["Heavy","Heavy"],"Super-Skrull":["Heavy","Heavy"],
+    "Swamp Thing":["Mystic","Mystic"],"Vision":["Heavy","Heavy"],"Vixen":["Enhanced","Heavy"],
+    "Wolverine":["Enhanced","Heavy"],"Zatanna":["Mystic","Cosmic"]
+};
+
+const AMPED_VERSION_NAMES={
+    "Ant-Man":"GIANT-MAN / SUBATOMIC LOADOUT","Aquaman":"POSEIDON-BLESSED AQUAMAN","Atom":"WHITE-DWARF OVERCHARGE",
+    "Batman":"HELLBAT BATMAN","Black Canary":"OVERCHARGED CANARY","Black Panther":"KING OF THE DEAD",
+    "Blue Beetle":"FULL COMBAT-MODE SCARAB","Captain America":"MJOLNIR CAPTAIN AMERICA","Captain Marvel":"BINARY",
+    "Cheetah":"FULLY EMPOWERED URZKARTAGA","Cyborg":"MOTHER BOX SYNCHRONIZATION","Doctor Doom":"POWER COSMIC DOOM",
+    "Ghost Rider":"ZARATHOS UNLEASHED","Hulk":"WORLDBREAKER HULK","Jean Grey":"CONTROLLED PHOENIX HOST",
+    "Juggernaut":"FULL CYTTORAK EMPOWERMENT","Magneto":"PEAK ELECTROMAGNETIC FIELD","Poison Ivy":"AVATAR OF THE GREEN",
+    "Professor X":"CEREBRO-AMPLIFIED XAVIER","Raven":"CONTROLLED DEMONIC FORM","Scarlet Witch":"DARKHOLD CHAOS FORM",
+    "Spider-Man":"IRON SPIDER","Storm":"OMEGA STORM STATE","Swamp Thing":"FULL AVATAR OF THE GREEN",
+    "Thor":"THORFORCE KING THOR","Vision":"SOLAR OVERCHARGE","Wolverine":"ULTIMATE WOLVERINE","Zatanna":"PEAK HOMO MAGI CHANNELING",
+    "Apocalypse":"CELESTIAL-ARMOR APOCALYPSE","Iron Man":"GODKILLER ARMOR IRON MAN","Superman":"SUN-DIPPED SUPERMAN",
+    "Wonder Woman":"GODWAVE WONDER WOMAN","The Flash":"SPEED FORCE UNBOUND FLASH","Green Lantern":"ION-CHARGED GREEN LANTERN",
+    "Darkseid":"TRUE-AVATAR DARKSEID","Doomsday":"HUNTER/PREY DOOMSDAY","Supergirl":"RED LANTERN SUPERGIRL",
+    "Deadpool":"WEAPON X DEADPOOL","Venom":"KING IN BLACK VENOM","Carnage":"DARK CARNAGE","Silver Surfer":"KEEPER SURFER"
+};
+
+const VERSION_ORIGINS={
+    "Spider-Man":"Tony Stark built the Iron Spider armor for Peter Parker during the superhero registration conflict. Peter accepted it because the suit added protection, sensors, gliding and four independently controlled mechanical arms. The armor is equipment, not a biological mutation: EMP, hacking and damaged subsystems apply only to Iron Spider, while Standard Spider-Man retains his natural strength, reflexes, wall-crawling and spider-sense without those armor vulnerabilities.",
+    "Wolverine":"Ultimate Wolverine is Logan's alternate Earth-1610 incarnation, not Standard Wolverine entering an unexplained temporary rage state. This dossier treats his history, harder-edged decisions, healing, adamantium skeleton and combat habits as a separate version. His regeneration remains powerful but does not make drowning, magnetism, sensory overload or complete incapacitation irrelevant.",
+    "Hulk":"Worldbreaker Hulk is the rage level Bruce Banner reached after exile to Sakaar, the destruction of his new home and his return during World War Hulk. His stored anger and gamma output turn footsteps, impacts and thunderclaps into expanding seismic force. The simulator contains that power to the active battlefield while preserving the collateral danger, escalation and loss of precision that distinguish him from Standard Hulk.",
+    "Batman":"The Hellbat is the Justice League-built armor Batman used for missions against opponents far beyond normal human strength. Superman forged its metal, other League members charged and tempered its systems, and Bruce supplied its tactical design. It grants flight, energy projection and immense strength, but consumes Bruce's metabolism and life energy, producing a strict operating limit that Standard Batman does not have.",
+    "Apocalypse":"En Sabah Nur's power is linked to ancient Celestial technology discovered through the Celestial ship and incorporated into his armor and body over centuries. Celestial-Armor Apocalypse is the peak controlled use of that established machinery: molecular restructuring, size and density shifts, energy projection, regeneration and technopathy all intensify. He pursues the configuration to overcome coordinated mutant and superhuman resistance, but the record excludes unrestricted planetary destruction and remains vulnerable to Celestial-tech disruption, magic, power nullification and his own arrogance.",
+    "Aquaman":"Poseidon-Blessed Aquaman combines Arthur Curry's Atlantean physiology, marine telepathy and royal training with a controlled divine empowerment and Atlantean relics. The state strengthens his authority over ocean currents and sea life without making water an automatic victory. On the Atlantis map he can travel through three-dimensional currents, summon nearby marine creatures, sense movement through water and redirect pressure; those are additional actions, not a hidden stat bonus.",
+    "Swamp Thing":"Full Avatar of the Green represents Alec Holland opening his connection to the local plant network. In a living forest he can transfer awareness through roots, grow restraints and barriers, rebuild a body from nearby vegetation and deny paths through coordinated plant life. Fire, severe cold, magic, corruption of the Green and removal from usable biomass remain meaningful counters.",
+    "Groot":"This record uses Groot at mature Flora colossus mass with a dense living ecosystem available. Forest biomass gives him material for roots, shields, restraints and regeneration, while barren, frozen or burning terrain sharply reduces those options.",
+    "Cheetah":"Barbara Minerva's Standard divine curse already gives her the speed, strength, claws and magical injury needed for Heavy-tier combat. Full Urzkartaga empowerment deepens the curse and its predatory magic, but divine weapons, curse disruption and her loss of judgment remain exploitable limits."
+};
+
+function generatedVariantName(character){
+    const description=String(character.ampedDescription||"Peak controlled state").replace(/[.;].*$/s,"").replace(/\bwith\b/i,"//");
+    return `${character.name.toUpperCase()} // ${description.toUpperCase()}`;
+}
+
+function buildVersionStats(character,isAmped,tier){
+    const source=character.richData?.stats||{};
+    const result={};
+    const tierBoost={Street:3,Enhanced:6,Heavy:9,Mystic:10,Cosmic:12}[tier]||6;
+    STAT_NAMES.forEach(key=>{
+        const fallback={strength:character.strength,speed:character.speed,durability:character.durability,intelligence:character.iq,combatIQ:character.iq,melee:character.power,ranged:character.power,battlefieldControl:character.power}[key]??55;
+        const base=Number(source[key]??fallback);
+        result[key]=Math.min(100,Math.round(base+(isAmped?tierBoost:0)));
+    });
+    return result;
+}
+
+const HIGH_SURVEILLANCE_STANDARD={
+    "Batman":4,"Brainiac":5,"Darkseid":5,"Doctor Doom":5,"Kang the Conqueror":5,"Knull":5,
+    "Lex Luthor":4,"Magneto":5,"Poison Ivy":3,"Professor X":5,"Scarlet Witch":5,"Thanos":5,
+    "The Flash":5,"Trigon":5,"Ultron":5
+};
+const SURVEILLANCE_PROTOCOLS={
+    5:{id:"cosmic",label:"COSMIC PROTOCOL",warning:"HIGHEST SURVEILLANCE // PLANETARY, DIMENSIONAL, OR CIVILIZATION-LEVEL RISK"},
+    4:{id:"critical",label:"CRITICAL PROTOCOL",warning:"CONTINUOUS MONITORING // EXTREME SPECIALIZED CONTAINMENT"},
+    3:{id:"severe",label:"SEVERE PROTOCOL",warning:"PRIORITY WATCHLIST // MASS-CASUALTY OR SYSTEMIC THREAT"},
+    2:{id:"elevated",label:"ELEVATED PROTOCOL",warning:"ACTIVE TRACKING // ENHANCED RESPONSE REQUIRED"},
+    1:{id:"routine",label:"ROUTINE PROTOCOL",warning:"STANDARD FIELD SURVEILLANCE // LOCALIZED THREAT"}
+};
+const TIER_PROTOCOL_LEVEL={Street:1,Enhanced:2,Heavy:3,Mystic:4,Cosmic:5};
+
+function makeSurveillanceProtocol(character,tier,isAmped=false){
+    let level=TIER_PROTOCOL_LEVEL[tier]||2;
+    if(!isAmped&&HIGH_SURVEILLANCE_STANDARD[character.name])level=Math.max(level,HIGH_SURVEILLANCE_STANDARD[character.name]);
+    if(isAmped)level=Math.max(level,Math.min(5,(character.versions?.[0]?.surveillanceProtocol?.level||level)+1));
+    const powers=(character.richData?.powers||[]).slice(0,3);
+    const reasons=[`${tier.toUpperCase()} practical battlefield capability`,...powers.map(power=>`Monitored capability: ${power}`)];
+    if(isAmped)reasons.push(`Version escalation: ${character.ampedDescription||"enhanced operating state"}`);
+    return{level,...SURVEILLANCE_PROTOCOLS[level],reasons};
+}
+
+const VERSION_COMBAT_OVERRIDES={
+    "Spider-Man":{
+        standard:{removeWeaknessPatterns:["emp","hack"],interactions:["Electronic disruption can disable web-shooters, but cannot remove Peter's biological strength, reflexes, wall-crawling, or spider-sense."]},
+        amped:{powers:["Four independently controlled mechanical spider-arms","Armor sensors and enhanced target tracking"],equipment:["Stark-built Iron Spider armor","Integrated mechanical waldoes"],weaknesses:["A sufficiently powerful, well-delivered EMP can disrupt armor systems while leaving biological powers intact","Remote hacking requires access plus the ability to defeat Stark-specific security","Armor damage can remove sensors and mechanical limbs"],interactions:["Technopaths may analyze the suit but do not automatically control it","The suit can isolate compromised subsystems when detection occurs"]}
+    },
+    "Wolverine":{
+        standard:{fightingStyle:"Adaptive close-range hunter using tracking, stealth, disciplined weapon work, grappling, and regeneration without abandoning tactics."},
+        amped:{fightingStyle:"Relentless berserker pressure emphasizing claws, pain tolerance, regeneration, and target fixation over concealment.",combatPersonality:"Highly aggressive and increasingly difficult to redirect once berserk.",weaknesses:["Berserker escalation reduces tactical judgment, patience, stealth, and team awareness"],mechanics:["Rising damage and pain increase aggression but reduce precision and target switching"]}
+    },
+    "Batman":{
+        amped:{equipment:["Hellbat armor with flight, energy projection, enhanced strength, and adaptive combat systems"],weaknesses:["Hellbat operation drains Bruce Wayne's metabolism and cannot be sustained indefinitely","Armor loss returns him to human physical durability"],mechanics:["Bruce still uses stealth, analysis, feints, and contingencies; the armor does not replace Batman's normal tactical behavior"]}
+    },
+    "Hulk":{
+        amped:{powers:["Worldbreaker gamma output","Seismic steps and expanding destructive shockwaves"],weaknesses:["Extreme collateral danger makes protecting allies and objectives difficult","Escalating rage reduces restraint and precise environmental control"],battlefieldBehavior:"Controls open ground through shockwaves and seismic pressure, but damaged structures, civilians, and teammates sharply restrict safe attack choices."}
+    },
+    "Cheetah":{
+        standard:{fightingStyle:"High-speed divine predator using scent, ambush angles, grappling, claws, and magical injury rather than planetary-scale force."},
+        amped:{powers:["Stronger Urzkartaga empowerment","Accelerated divine healing"],weaknesses:["Curse disruption and sufficiently powerful divine or magical weapons remain effective"],mechanics:["Greater speed and recovery do not grant planetary destructive output"]}
+    },
+    "Blue Beetle":{
+        standard:{mechanics:["Jaime Reyes can restrain or redirect the scarab's lethal recommendations"]},
+        amped:{powers:["Full scarab heavy-weapon authorization","Faster adaptive countermeasure deployment"],weaknesses:["Host override remains active and Jaime may reject lethal solutions","Magic and unfamiliar mechanisms can delay scarab analysis"],interactions:["The scarab analyzes technology by mechanism; it does not automatically hack or control every armored opponent"]}
+    },
+    "Doctor Doom":{
+        amped:{mechanics:["Power Cosmic access supplements rather than replaces Doom's armor, sorcery, intellect, and tactical ego"],weaknesses:["Siphoned cosmic power is temporary and can destabilize or be reclaimed","Doom's pride can still distort otherwise superior tactical choices"]}
+    },
+    "Scarlet Witch":{
+        amped:{weaknesses:["Darkhold influence can impair judgment and emotional control","Localized reality alteration requires concentration and is not an automatic battlefield rewrite"],mechanics:["Reality-changing effects are resolved as specific spells and interactions, never as an unrestricted instant win"]}
+    }
+};
+
+function versionCombatProfile(character,description,isAmped){
+    const data=character.richData||{};
+    const profile={
+        powers:[...(data.powers||[])],equipment:[...(data.equipment||[])],moves:character.moveCategories||data.moves||{},
+        fightingStyle:data.fightingStyle||character.fightingStyle,combatPersonality:data.combatPersonality||character.personality,
+        weaknesses:[...(data.weaknessesLimitations||character.weaknesses||[])],resistances:[...(data.resistances||character.resistances||[])],
+        mechanics:[...(data.specialMechanics||character.specialMechanics||[])],interactions:[...(data.powerInteractionsCounters||character.powerInteractions||[])],
+        aiBehavior:data.aiBehavior||character.aiBehavior||{},matchupKnowledge:data.matchupKnowledge||character.matchupKnowledge||[],
+        teamBehavior:data.teamBehavior||character.teamBehavior,battlefieldBehavior:data.battlefieldBehavior||character.battlefieldBehavior,
+        versionNotes:description,isAmped,origin:VERSION_ORIGINS[character.name]||`${isAmped?"This version":"The Standard record"} is based on ${character.name}'s established comic abilities and the specific condition recorded here: ${description}. The enhanced record changes only powers, equipment and behavior supported by that condition, preserves its costs and counters, and excludes unrestricted reality-ending or automatic-win effects.`
+    };
+    const override=VERSION_COMBAT_OVERRIDES[character.name]?.[isAmped?"amped":"standard"];
+    if(override){
+        for(const key of ["powers","equipment","weaknesses","resistances","mechanics","interactions"]){if(override[key])profile[key]=[...new Set([...(profile[key]||[]),...override[key]])];}
+        for(const key of ["fightingStyle","combatPersonality","teamBehavior","battlefieldBehavior"]){if(override[key])profile[key]=override[key];}
+        if(override.removeWeaknessPatterns)profile.weaknesses=profile.weaknesses.filter(item=>!override.removeWeaknessPatterns.some(pattern=>String(item).toLowerCase().includes(pattern)));
+    }
+    if(isAmped)profile.mechanics=[...new Set([...(profile.mechanics||[]),`VERSION-SPECIFIC OPERATING RULE: ${description}`])];
+    return profile;
+}
+
+CHARACTERS.forEach(character=>{
+    const override=VERSION_TIER_OVERRIDES[character.name]||[character.tier,character.tier];
+    const standardTier=override[0],ampedTier=override[1];
+    const standard={
+        id:"standard",label:"STANDARD",displayName:character.name,battlefieldTier:standardTier,stats:buildVersionStats(character,false,standardTier),
+        description:character.standardDescription||"Mainstream comic version.",
+        combatProfile:versionCombatProfile(character,character.standardDescription,false)
+    };
+    standard.surveillanceProtocol=makeSurveillanceProtocol(character,standardTier,false);
+    character.versions=[standard];
+    const amped={
+        id:"amped-1",label:AMPED_VERSION_NAMES[character.name]||generatedVariantName(character),displayName:AMPED_VERSION_NAMES[character.name]||generatedVariantName(character),stats:buildVersionStats(character,true,ampedTier),
+        battlefieldTier:ampedTier,description:character.ampedDescription||"Controlled enhanced version.",
+        combatProfile:versionCombatProfile(character,character.ampedDescription,true)
+    };
+    amped.surveillanceProtocol=makeSurveillanceProtocol(character,ampedTier,true);
+    character.versions.push(amped);
+    character.standardTier=standardTier;
+    character.tier=standardTier;
+    character.surveillanceProtocol=standard.surveillanceProtocol;
+});
+
+function fighterVersionRecord(character,request="Standard",allowedTiers=null){
+    const allVersions=character.versions||[];
+    let candidates;
+    if(request&&request!=="Standard"&&request!=="Amped"&&request!=="Mixed")candidates=allVersions.filter(version=>version.id===request||version.label===request);
+    else if(request==="Amped")candidates=allVersions.filter(version=>version.id!=="standard");
+    else if(request==="Mixed")candidates=[...allVersions];
+    else candidates=allVersions.filter(version=>version.id==="standard");
+    if(Array.isArray(allowedTiers)&&allowedTiers.length)candidates=candidates.filter(version=>allowedTiers.includes(version.battlefieldTier));
+    if(!candidates.length)return null;
+    return request==="Mixed"?random(candidates):candidates[0];
+}
+
+function environmentAbilities(character){
+    const field=typeof qs==="function"?qs("battlefield")?.value:"";
+    const powers=[character.name,...(character.richData?.powers||[])].join(" ").toLowerCase();
+    if(field==="Atlantis"&&/(aquaman|mera|namor|atlantean|hydro|water|ocean|marine)/.test(powers))return ["Deep-Current Charge","Marine-Life Command","Pressure-Wave Control","Three-Dimensional Water Pursuit"];
+    if(field==="Wakandan Vibranium Forest"&&/(swamp thing|groot|poison ivy|plant|green|root|flora|chlorokinesis)/.test(powers))return ["Root-Network Transit","Forest Biomass Regeneration","Living Canopy Restraint","Ecosystem Barrier"];
+    if(field==="Wakandan Vibranium Forest"&&/(black panther|iron man|cyborg|ultron|technology|technopathy|armor)/.test(powers))return ["Vibranium-Signature Scan","Border-Network Interface"];
+    if(field==="Stark Tower"&&/(iron man|cyborg|ultron|vision|technology|technopathy|armor|machine)/.test(powers))return ["Tower-System Interface","Arc-Network Tactical Scan"];
+    if(field==="Gotham Rooftops"&&/(batman|nightwing|catwoman|robin|red hood|spider|grappl|flight|teleport)/.test(powers))return ["Rooftop Recovery","Ledge Grapple Counter","Vertical Ambush Route"];
+    return [];
+}
+
+function versionedCharacter(character,request=assignedVersion()){
+    const tiers=typeof selectedTiers==="function"?selectedTiers():null;
+    const record=fighterVersionRecord(character,request,tiers);
+    if(!record)return null;
+    const fieldMoves=environmentAbilities(character);
+    const controlMoves=[...(record.combatProfile.moves?.control||[]),...fieldMoves];
+    return{
+        ...character,version:record.label,versionId:record.id,tier:record.battlefieldTier,
+        battlefieldTier:record.battlefieldTier,surveillanceProtocol:record.surveillanceProtocol,
+        combatProfile:record.combatProfile,versionDescription:record.description,
+        fightingStyle:record.combatProfile.fightingStyle,personality:record.combatProfile.combatPersonality,
+        weaknesses:record.combatProfile.weaknesses,resistances:record.combatProfile.resistances,
+        specialMechanics:record.combatProfile.mechanics,powerInteractions:record.combatProfile.interactions,
+        teamBehavior:record.combatProfile.teamBehavior,battlefieldBehavior:record.combatProfile.battlefieldBehavior,
+        moves:[...new Set([...(character.moves||[]),...fieldMoves])],
+        moveCategories:{...(character.moveCategories||{}),control:controlMoves},
+        environmentAbilities:fieldMoves
+    };
+}
+
 const ICONS={
 
     web:"🕸",
@@ -2481,11 +2749,11 @@ const BATTLEFIELDS={
     "Gotham Rooftops":
     "Narrow rooftops, ledges, shadows, antennas and deep gaps between buildings shape the fight.",
 
-    "Savage Land":
-    "Dense vegetation, rock shelves, water, enormous trees and uneven ground fill the battlefield.",
+    "Atlantis":
+    "A submerged Atlantean district of royal spires, trenches, pressure gates and open currents. Aquatic fighters gain movement, sensing, marine-command and current-control actions rather than a flat stat bonus.",
 
-    "Cosmic Arena":
-    "The enormous open arena offers almost no cover, leaving speed, range and flight room to dominate."
+    "Wakandan Vibranium Forest":
+    "A living Wakandan border forest crossed by rivers, roots, defensive technology and vibranium deposits. Plant controllers gain usable biomass while technologists can detect or contest the vibranium network."
 
 };
 
@@ -2895,10 +3163,7 @@ function eligible(){
                 character.universe===
                 universe;
 
-            const tierMatch=
-                tiers.includes(
-                    character.tier
-                );
+            const tierMatch=Boolean(fighterVersionRecord(character,qs("versionMode").value,tiers));
 
             return(
                 universeMatch
@@ -3056,16 +3321,7 @@ function generateSelection(){
             0,
             10
         )
-        .map(
-            character=>({
-
-                ...character,
-
-                version:
-                assignedVersion()
-
-            })
-        );
+        .map(character=>versionedCharacter(character)).filter(Boolean);
 
     if(
         selection.length===0
@@ -3127,16 +3383,7 @@ function loadFreeSelect(){
 
     selection=
         eligible()
-        .map(
-            character=>({
-
-                ...character,
-
-                version:
-                assignedVersion()
-
-            })
-        );
+        .map(character=>versionedCharacter(character)).filter(Boolean);
 
     qs(
         "availableTitle"
@@ -4178,14 +4425,7 @@ function spinWheel(){
                 )
             ){
 
-                selection.push({
-
-                    ...fighter,
-
-                    version:
-                    assignedVersion()
-
-                });
+                const resolved=versionedCharacter(fighter);if(resolved)selection.push(resolved);
 
             }
 
@@ -4318,13 +4558,6 @@ function unitFrom(
     fighter,
     team
 ){
-
-    const amp=
-        fighter.version===
-        "Amped"
-        ?1.12
-        :1;
-
     return{
 
         ...fighter,
@@ -4350,29 +4583,19 @@ function unitFrom(
         lastAttacker:null,
 
         strength:
-        fighter.strength
-        *
-        amp,
+        fighter.strength,
 
         speed:
-        fighter.speed
-        *
-        amp,
+        fighter.speed,
 
         durability:
-        fighter.durability
-        *
-        amp,
+        fighter.durability,
 
         iq:
-        fighter.iq
-        *
-        amp,
+        fighter.iq,
 
         power:
         fighter.power
-        *
-        amp
 
     };
 
@@ -4556,7 +4779,7 @@ function combatScale(fighter){
     return rank*20+(fighter.power*.30)+(fighter.strength*.22)+(fighter.durability*.24)+(fighter.speed*.12)+(fighter.iq*.12);
 }
 
-function powerText(fighter){return [fighter.role,...(fighter.richData?.powers||[]),...(fighter.specialMechanics||[])].join(" ").toLowerCase();}
+function powerText(fighter){return [fighter.role,...(fighter.combatProfile?.powers||fighter.richData?.powers||[]),...(fighter.combatProfile?.equipment||[]),...(fighter.specialMechanics||[])].join(" ").toLowerCase();}
 
 function attackType(move){
     const text=move.toLowerCase();
@@ -5319,19 +5542,19 @@ function battlefieldLocation(){
 
     if(
         battlefield===
-        "Savage Land"
+        "Atlantis"
     ){
 
-        return"between rock shelves and heavy vegetation";
+        return"between submerged Atlantean spires, deep currents and pressure gates";
 
     }
 
     if(
         battlefield===
-        "Cosmic Arena"
+        "Wakandan Vibranium Forest"
     ){
 
-        return"across the open arena floor";
+        return"among living roots, river channels and vibranium deposits";
 
     }
 
@@ -5385,6 +5608,11 @@ function simulateBattle(){
         unit.x=unit.team===1?12:unit.team===2?88:50;
         unit.y=18+((index+1)*(64/(row.length+1)));
     }
+
+    const liveMode=qs("storyDepth").value==="liveTactical";
+    const liveStructures=liveMode?liveClone(LIVE_BATTLEFIELD_LAYOUTS[qs("battlefield").value]||LIVE_BATTLEFIELD_LAYOUTS["Abandoned City"]):[];
+    const liveStates={};
+    if(liveMode)units.forEach(unit=>liveStates[unit.name]={state:"GROUND",altitude:0,structureId:null});
 
     const tacticalSnapshot=()=>units.map(fighter=>({
         name:fighter.name,team:fighter.team,icon:fighter.icon,
@@ -5472,6 +5700,14 @@ function simulateBattle(){
                 );
 
             const tags=moveTags(move);
+            if(liveMode){
+                const state=liveStates[attacker.name];
+                if(liveCanFly(attacker.name)){
+                    const roof=liveNearestStructure(liveStructures,attacker.x,attacker.y);
+                    if(!tags.ranged&&roof&&actions.length%3===0){state.state="ROOFTOP";state.altitude=roof.height;state.structureId=roof.id;}
+                    else{state.state="AIRBORNE";state.altitude=clamp(24+(nameHash(attacker.name+round+actions.length)%63),18,92);state.structureId=null;}
+                }else{state.state="GROUND";state.altitude=0;state.structureId=null;}
+            }
             const start={x:attacker.x,y:attacker.y};
             const targetStart={x:target.x,y:target.y};
             const dx=target.x-attacker.x,dy=target.y-attacker.y;
@@ -5567,6 +5803,33 @@ function simulateBattle(){
 
             }
 
+            const structuralEvents=[];
+            if(liveMode){
+                const destructive=damage>=18||/slam|smash|blast|barrage|explosion|nova|storm|quake|groundbreaker|maximum|meteor|charge|god blast|supernova/i.test(move);
+                if(destructive){
+                    const structure=liveNearestStructure(liveStructures,targetStart.x,targetStart.y);
+                    if(structure&&Math.hypot((structure.x+structure.w/2)-targetStart.x,(structure.y+structure.d/2)-targetStart.y)<38){
+                        const before=structure.integrity;
+                        const area=/storm|nova|barrage|explosion|quake|groundbreaker|maximum|meteor|supernova/i.test(move);
+                        const structureDamage=clamp(Math.round(damage*(area?1.55:.82)),5,58);
+                        structure.integrity=clamp(structure.integrity-structureDamage,0,100);
+                        structuralEvents.push({name:structure.name,damage:before-structure.integrity,integrity:structure.integrity,collapsed:structure.integrity===0});
+                        if(structure.integrity===0){
+                            units.forEach(unit=>{
+                                const state=liveStates[unit.name];
+                                if(state?.structureId===structure.id){
+                                    const fallDamage=clamp(Math.round(structure.height*.13),4,24);
+                                    unit.hp=clamp(unit.hp-fallDamage,0,unit.maxHp);
+                                    unit.fatigue=clamp(unit.fatigue+fallDamage*.65,0,100);
+                                    state.state="GROUND";state.altitude=0;state.structureId=null;
+                                    structuralEvents.push({name:unit.name,fall:true,fallDamage,structure:structure.name});
+                                }
+                            });
+                        }
+                    }
+                }
+            }
+
             actions.push({
 
                 attacker:
@@ -5609,7 +5872,14 @@ function simulateBattle(){
                     targetStart,
                     target:{x:target.x,y:target.y},
                     snapshot:tacticalSnapshot()
-                }
+                },
+
+                liveTactical:liveMode?{
+                    battlefield:qs("battlefield").value,
+                    structures:liveClone(liveStructures),
+                    states:liveClone(liveStates),
+                    structuralEvents
+                }:null
 
             });
 
@@ -6389,6 +6659,10 @@ function startBattle(){
     const simulation=
         simulateBattle();
 
+    if(qs("storyDepth").value==="liveTactical"){
+        prepareLiveTacticalSimulation(simulation);
+    }
+
     const story=
         narrateBattle(
             simulation
@@ -6463,11 +6737,17 @@ ${
 
 `;
 
+    if(qs("storyDepth").value==="liveTactical"){
+        html+=continuousTacticalMapHTML(simulation);
+    }
+
     for(
         const round
         of
         story
     ){
+
+        if(qs("storyDepth").value==="liveTactical")continue;
 
         html+=`
 
@@ -6478,7 +6758,7 @@ ROUND ${round.round}
 </div>
 
 <div class="story">
-${round.text}
+            ${qs("storyDepth").value==="liveTactical"?"":round.text}
 </div>
 
 </div>
@@ -6499,7 +6779,8 @@ ${round.text}
     }
 
     if(
-        story.length<
+        qs("storyDepth").value!=="liveTactical"
+        &&story.length<
         simulation.rounds.length
     ){
 
@@ -6553,7 +6834,8 @@ ${simulation.winner} WINS
     ).innerHTML=
         html;
 
-    if(qs("storyDepth").value==="tactical") initializeTacticalPlayers(simulation);
+    if(qs("storyDepth").value==="tactical")initializeTacticalPlayers(simulation);
+    if(qs("storyDepth").value==="liveTactical")initializeContinuousTacticalMap(simulation);
 
     qs(
         "battleOutput"
@@ -6620,7 +6902,7 @@ function balancedAdvancedPool(candidates,count){
 function generateAdvancedPool(){
     if(!advancedPoolMode())return;
     const candidates=advancedCandidates();
-    selection=balancedAdvancedPool(candidates,advancedPoolSize).map(character=>({...character,version:assignedVersion()}));
+    selection=balancedAdvancedPool(candidates,advancedPoolSize).map(character=>versionedCharacter(character)).filter(Boolean);
     bannedFighters=[];banPhase=currentMode()==="BanDraft"&&firstPickDetermined;banIndex=0;
     qs("availableTitle").textContent=`${currentMode().replace(/([A-Z])/g," $1").trim().toUpperCase()} // ${selection.length} FIGHTERS`;
     qs("selectionStatus").textContent=selection.length?`${selection.length} GENERATED // ${advancedPoolTier.toUpperCase()} TIER FILTER`:`NO ELIGIBLE CHARACTERS FOR THESE OPTIONS`;
@@ -6672,7 +6954,7 @@ filtersChanged=function(){
 generateSelection=function(){
     if(!selectedTiers().length){qs("selectionStatus").textContent="SELECT AT LEAST ONE POWER TIER";return;}
     const count=generatedCount();
-    selection=shuffle(eligible()).slice(0,count).map(character=>({...character,version:assignedVersion()}));
+    selection=shuffle(eligible()).slice(0,count).map(character=>versionedCharacter(character)).filter(Boolean);
     if(!selection.length){qs("selectionStatus").textContent="NO ELIGIBLE CHARACTERS";return;}
     bannedFighters=[]; banPhase=currentMode()==="BanDraft"&&firstPickDetermined; banIndex=0;
     qs("availableTitle").textContent=currentMode()==="BlindDraft"?"CLASSIFIED BLIND POOL":`${selection.length} GENERATED COMBATANTS`;
@@ -6682,7 +6964,8 @@ generateSelection=function(){
 
 loadFreeSelect=function(){
     if(!selectedTiers().length){selection=[];qs("characterPool").innerHTML="";qs("selectionStatus").textContent="SELECT AT LEAST ONE POWER TIER";return;}
-    selection=eligible().map(character=>({...character,version:assignedVersion()}));
+    const drafted=new Set(Object.values(teams).flat().map(character=>character.name));
+    selection=eligible().filter(character=>!drafted.has(character.name)).sort((a,b)=>a.name.localeCompare(b.name)).map(character=>versionedCharacter(character)).filter(Boolean);
     const labels={FreeSelect:"FULL ROSTER / FREE SELECT // ALL ELIGIBLE FIGHTERS",UniverseClash:"UNIVERSE CLASH // ALPHA MARVEL • OMEGA DC",TierDraft:"TIER DRAFT // MATCHED POWER TIERS",CaptainDraft:"CAPTAIN DRAFT // CHOOSE LEADERS FIRST"};
     qs("availableTitle").textContent=labels[currentMode()]||labels.FreeSelect;
     qs("selectionStatus").textContent=`${selection.length} ELIGIBLE CHARACTERS`;
@@ -6701,7 +6984,8 @@ renderSelection=function(){
     const team=currentDraftTeam();
     const required=mode==="TierDraft"&&team?requiredTier(team):null;
     const universe=mode==="UniverseClash"&&team?universeForTeam(team):"Both";
-    const visible=selection.map((character,index)=>({character,index})).filter(({character})=>(!required||character.tier===required)&&(universe==="Both"||character.universe===universe)&&character.name.toLowerCase().includes((poolSearchQuery||"").toLowerCase()));
+    const presetAllowed=mode==="PresetTeams"&&team?new Set(presetTeamMembers(team).map(character=>character.name)):null;
+    const visible=selection.map((character,index)=>({character,index})).filter(({character})=>(!required||character.tier===required)&&(universe==="Both"||character.universe===universe)&&(!presetAllowed||presetAllowed.has(character.name))&&character.name.toLowerCase().includes((poolSearchQuery||"").toLowerCase()));
     qs("characterPool").innerHTML=visible.map(({character,index})=>{
         if(mode==="BlindDraft") return `<div class="card blind-card" onclick="draftCharacter(${index})"><div class="emblem">?</div><div class="name">CLASSIFIED FIGHTER</div><div class="meta">SELECT TO REVEAL</div><div class="badge">UNKNOWN VERSION</div></div>`;
         const captain=mode==="CaptainDraft"&&team&&!captainTeams.has(team);
@@ -6710,6 +6994,7 @@ renderSelection=function(){
     if(qs("fighterSearchCount"))qs("fighterSearchCount").textContent=`${visible.length} SHOWN`;
     if(required) qs("selectionStatus").textContent=`${teamName(team)} MUST PICK ${required.toUpperCase()} TIER`;
     if(mode==="UniverseClash"&&team) qs("selectionStatus").textContent=`${teamName(team)} DRAFTS ${universe.toUpperCase()}`;
+    if(mode==="PresetTeams"&&team)qs("selectionStatus").textContent=presetTeamChoices[team]?`${teamName(team)} // ${presetTeamChoices[team].toUpperCase()} // ${visible.length} AVAILABLE`:`CHOOSE A PRESET ORGANIZATION FOR ${teamName(team)}`;
 };
 
 function lockFirstPick(team){
@@ -6841,7 +7126,7 @@ function targetIdentity(character){return CIVILIAN_IDENTITIES[character.name]||"
 
 function passportAlias(character){return PASSPORT_ALIASES[character.name]||character.name.toUpperCase();}
 function passportFileNumber(character){return String(CHARACTERS.indexOf(character)+1).padStart(3,"0");}
-function passportFileTitle(character){return `FILE-${passportFileNumber(character)} // ${passportAlias(character)}`;}
+function passportFileTitle(character){return `JOINT SHIELD CAPABILITY ARCHIVE // FILE-${passportFileNumber(character)}`;}
 function passportAgency(character){return character.universe==="Marvel"?"S.H.I.E.L.D.":"A.R.G.U.S.";}
 function passportStyle(character){return character.universe==="Marvel"?"a":"b";}
 
@@ -6853,12 +7138,24 @@ function threatScore(character){
 
 function threatLabel(score){return score>=94?"OMEGA":score>=87?"CRITICAL":score>=78?"SEVERE":score>=66?"HIGH":"ELEVATED";}
 
+function databaseVersionRecord(character,scope=qs("dbThreatScope")?.value||"Standard"){
+    if(scope!=="Highest")return fighterVersionRecord(character,"Standard");
+    const tierOrder={Street:1,Enhanced:2,Heavy:3,Mystic:4,Cosmic:5};
+    return [...(character.versions||[])].sort((a,b)=>b.surveillanceProtocol.level-a.surveillanceProtocol.level||(tierOrder[b.battlefieldTier]||0)-(tierOrder[a.battlefieldTier]||0))[0];
+}
+
 renderDatabase=function(){
-    const search=(qs("dbSearch").value||"").toLowerCase(),universe=qs("dbUniverse").value;
-    const filtered=CHARACTERS.filter(c=>(universe==="Both"||c.universe===universe)&&(`${c.name} ${targetIdentity(c)} ${passportAlias(c)} ${c.tier} ${c.role}`).toLowerCase().includes(search));
-    qs("databaseGrid").innerHTML=filtered.map(character=>{
-        const agency=passportAgency(character),style=passportStyle(character);
-        return `<button type="button" class="passport-tile passport-tile-${style}" data-character="${encodeURIComponent(character.name)}" onclick="openCharacterDossier(decodeURIComponent(this.dataset.character))"><div class="passport-tile-file">${passportFileTitle(character)}</div><div class="passport-tile-agency">${agency} SECURE CHARACTER RECORD</div><div class="passport-tile-portrait">${ICONS[character.icon]||"◆"}</div><h3>${character.name}</h3><div class="passport-tile-identity">IDENTITY // ${targetIdentity(character)}</div><div class="passport-tile-meta"><span>${character.universe}</span><span>${character.tier}</span><span>${character.role}</span><span>PREP ${character.prepScore||"N/A"}</span></div><div class="passport-tile-stamp">${agency} VERIFIED</div><div class="passport-tile-versions"><span>STANDARD</span><span>AMPED</span></div></button>`;
+    const search=(qs("dbSearch").value||"").toLowerCase(),universe=qs("dbUniverse").value,scope=qs("dbThreatScope")?.value||"Standard";
+    const tierOrder=["Cosmic","Mystic","Heavy","Enhanced","Street"],protocolLevels=[5,4,3,2,1];
+    const records=CHARACTERS.map(character=>({character,version:databaseVersionRecord(character,scope)})).filter(({character,version})=>(universe==="Both"||character.universe===universe)&&(`${character.name} ${targetIdentity(character)} ${passportAlias(character)} ${version.label} ${version.battlefieldTier} ${version.surveillanceProtocol.label} ${character.role}`).toLowerCase().includes(search));
+    qs("databaseGrid").innerHTML=protocolLevels.map(level=>{
+        const entries=records.filter(({version})=>version.surveillanceProtocol.level===level).sort((a,b)=>tierOrder.indexOf(a.version.battlefieldTier)-tierOrder.indexOf(b.version.battlefieldTier)||a.character.name.localeCompare(b.character.name));
+        if(!entries.length)return "";
+        const protocol=SURVEILLANCE_PROTOCOLS[level],className={5:"cosmic",4:"mystic",3:"heavy",2:"enhanced",1:"street"}[level];
+        return `<div class="database-threat-header threat-${className}"><b>${protocol.label}</b><span>${protocol.warning}</span><em>${entries.length} ACTIVE DOSSIERS</em></div>`+entries.map(({character,version})=>{
+            const agency=passportAgency(character),style=passportStyle(character);
+            return `<button type="button" class="passport-tile passport-tile-${style}" data-character="${encodeURIComponent(character.name)}" data-version="${version.id}" onclick="openCharacterDossier(decodeURIComponent(this.dataset.character),this.dataset.version)"><div class="passport-tile-file">${passportFileTitle(character)}</div><div class="passport-tile-agency">${agency} // ${version.surveillanceProtocol.label}</div><div class="passport-tile-portrait">${ICONS[character.icon]||"◆"}</div><h3>${version.displayName||character.name}</h3><div class="passport-tile-identity">${version.label} // ${targetIdentity(character)}</div><div class="passport-tile-meta"><span>${character.universe}</span><span>${version.battlefieldTier} TIER</span><span>${version.surveillanceProtocol.label}</span><span>${character.role}</span></div><div class="passport-tile-stamp">${agency} VERIFIED</div><div class="passport-tile-versions">${character.versions.map(item=>`<span>${item.displayName||item.label}</span>`).join("")}</div></button>`;
+        }).join("");
     }).join("")||`<div class="status">NO TARGET FILES MATCH THE CURRENT SEARCH PARAMETERS</div>`;
 };
 
@@ -6873,8 +7170,72 @@ const DOSSIER_STATS=[
     ["ACC","accuracy"],["DEF","defense"],["EVA","evasion"],["CONTROL","battlefieldControl"],["STEALTH","stealth"],["HEAL","healing"]
 ];
 
-function dossierStatsHTML(character){
-    const rich=character.richData?.stats||{};
+const CAPABILITY_AXES=[
+    {key:"power",label:"POWER PROJECTION",short:"POWER"},
+    {key:"speed",label:"ENGAGEMENT SPEED",short:"SPEED"},
+    {key:"survival",label:"COMBAT SURVIVABILITY",short:"SURVIVAL"},
+    {key:"mastery",label:"COMBAT MASTERY",short:"MASTERY"},
+    {key:"reach",label:"BATTLEFIELD REACH",short:"REACH"},
+    {key:"control",label:"FIELD CONTROL",short:"CONTROL"},
+    {key:"tactics",label:"TACTICAL PROCESSING",short:"TACTICS"},
+    {key:"adaptation",label:"ADAPTIVE VERSATILITY",short:"ADAPTATION"}
+];
+const CAPABILITY_TIER_SCALE={Street:.34,Enhanced:.49,Heavy:.67,Mystic:.80,Cosmic:.94};
+const CAPABILITY_TIER_REFERENCES={Street:.34,Enhanced:.49,Heavy:.67,Mystic:.80,Cosmic:.94};
+let activeCapabilityReference="overall";
+
+function capabilityRawValues(character,version){
+    const s=version?.stats||character.richData?.stats||{};
+    const get=(key,fallback=55)=>Number(s[key]??fallback);
+    return{
+        power:(get("strength")*.38+get("ranged")*.34+get("melee")*.18+get("battlefieldControl")*.10)/100,
+        speed:(get("speed")*.48+get("agilityReflexes")*.30+get("evasion")*.22)/100,
+        survival:(get("durability")*.36+get("defense")*.25+get("healing")*.17+get("stamina")*.13+get("willpower")*.09)/100,
+        mastery:(get("melee")*.30+get("accuracy")*.25+get("combatIQ")*.23+get("experience")*.22)/100,
+        reach:(get("ranged")*.36+get("speed")*.25+get("agilityReflexes")*.18+get("battlefieldControl")*.13+get("stamina")*.08)/100,
+        control:(get("battlefieldControl")*.50+get("ranged")*.18+get("accuracy")*.12+get("intelligence")*.10+get("willpower")*.10)/100,
+        tactics:(get("combatIQ")*.38+get("intelligence")*.29+get("experience")*.21+get("accuracy")*.12)/100,
+        adaptation:(get("adaptability")*.40+get("combatIQ")*.20+get("willpower")*.13+get("stealth")*.11+get("healing")*.08+get("battlefieldControl")*.08)/100
+    };
+}
+function capabilityAbsoluteValues(character,version){
+    const raw=capabilityRawValues(character,version),ceiling=CAPABILITY_TIER_SCALE[version?.battlefieldTier||character.tier]||.5,out={};
+    CAPABILITY_AXES.forEach(axis=>out[axis.key]=clamp(ceiling*(.62+raw[axis.key]*.38),.12,.98));
+    return out;
+}
+function capabilityReferenceValues(reference){
+    if(reference.startsWith("tier:")){const value=CAPABILITY_TIER_REFERENCES[reference.slice(5)]||.5;return Object.fromEntries(CAPABILITY_AXES.map(axis=>[axis.key,value]));}
+    if(reference.startsWith("fighter:")){const fighter=CHARACTERS.find(item=>item.name===reference.slice(8));const version=fighter&&fighterVersionRecord(fighter,"Standard");return fighter&&version?capabilityAbsoluteValues(fighter,version):null;}
+    return null;
+}
+function capabilityPlotValues(character,version,reference){
+    const subject=capabilityAbsoluteValues(character,version),baseline=capabilityReferenceValues(reference);
+    if(!baseline)return{subject,baseline:null};
+    const compared={};CAPABILITY_AXES.forEach(axis=>compared[axis.key]=clamp(.5+(subject[axis.key]-baseline[axis.key])*.9,.12,.88));
+    return{subject:compared,baseline:Object.fromEntries(CAPABILITY_AXES.map(axis=>[axis.key,.5])),absolute:subject,reference:baseline};
+}
+function capabilityPoint(value,index,radiusBase=28,radiusRange=145){const angle=(-Math.PI/2)+(index*Math.PI*2/CAPABILITY_AXES.length),radius=radiusBase+(value*radiusRange);return`${(310+Math.cos(angle)*radius).toFixed(1)},${(270+Math.sin(angle)*radius).toFixed(1)}`;}
+function capabilityRing(value){return CAPABILITY_AXES.map((axis,index)=>capabilityPoint(value,index)).join(" ");}
+function capabilityLabelPoint(index,radius=218){const angle=(-Math.PI/2)+(index*Math.PI*2/CAPABILITY_AXES.length);return{x:310+Math.cos(angle)*radius,y:270+Math.sin(angle)*radius,anchor:Math.cos(angle)>.2?"start":Math.cos(angle)<-.2?"end":"middle"};}
+function capabilityBand(value){return value>=.88?"COSMIC-CLASS":value>=.74?"DOMINANT":value>=.58?"SUPERHUMAN":value>=.42?"SPECIALIST":value>=.27?"FIELD-LEVEL":"LIMITED";}
+function capabilityComparisonBand(subject,reference){const gap=subject-reference;return gap>.16?"MAJOR ADVANTAGE":gap>.055?"ADVANTAGE":gap<-.16?"MAJOR DISADVANTAGE":gap<-.055?"DISADVANTAGE":"CONTESTED";}
+function capabilityReferenceTitle(value){if(value==="overall")return"FULL-ROSTER FIXED SCALE";if(value.startsWith("tier:"))return`${value.slice(5).toUpperCase()} TIER BASELINE`;return`VERSUS ${value.slice(8).toUpperCase()} // STANDARD`;}
+function capabilitySignatureHTML(character,version){
+    const plotted=capabilityPlotValues(character,version,activeCapabilityReference),values=plotted.subject,reference=plotted.reference;
+    const points=CAPABILITY_AXES.map((axis,index)=>capabilityPoint(values[axis.key],index)).join(" ");
+    const referencePoints=plotted.baseline?capabilityRing(.5):"";
+    const labels=CAPABILITY_AXES.map(axis=>({axis,result:reference?capabilityComparisonBand(plotted.absolute[axis.key],reference[axis.key]):capabilityBand(values[axis.key])}));
+    const tierOptions=["Street","Enhanced","Heavy","Mystic","Cosmic"].map(tier=>`<option value="tier:${tier}" ${activeCapabilityReference===`tier:${tier}`?"selected":""}>COMPARE TO ${tier.toUpperCase()} TIER</option>`).join("");
+    const fighterOptions=CHARACTERS.filter(item=>item.name!==character.name).sort((a,b)=>a.name.localeCompare(b.name)).map(item=>`<option value="fighter:${item.name}" ${activeCapabilityReference===`fighter:${item.name}`?"selected":""}>VERSUS ${item.name.toUpperCase()} — STANDARD</option>`).join("");
+    const axisLines=CAPABILITY_AXES.map((axis,index)=>{const [x,y]=capabilityPoint(1,index).split(",");return`<line class="capability-axis" x1="310" y1="270" x2="${x}" y2="${y}"/>`}).join("");
+    const axisLabels=labels.map((item,index)=>{const p=capabilityLabelPoint(index);return`<text class="capability-axis-label" x="${p.x}" y="${p.y}" style="text-anchor:${p.anchor}">${item.axis.short}</text><text class="capability-result-label" x="${p.x}" y="${p.y+12}" style="text-anchor:${p.anchor}">${item.result}</text>`}).join("");
+    const dots=CAPABILITY_AXES.map((axis,index)=>{const [x,y]=capabilityPoint(values[axis.key],index).split(",");return`<circle class="capability-point" cx="${x}" cy="${y}" r="3"/>`}).join("");
+    return `<div class="capability-signature-shell"><div><svg class="capability-chart" viewBox="0 0 620 550" role="img" aria-label="${version.displayName||character.name} eight-axis capability signature compared with ${capabilityReferenceTitle(activeCapabilityReference)}"><polygon class="capability-ring" points="${capabilityRing(.18)}"/><polygon class="capability-ring" points="${capabilityRing(.43)}"/><polygon class="capability-ring" points="${capabilityRing(.68)}"/><polygon class="capability-ring" points="${capabilityRing(.92)}"/>${axisLines}${referencePoints?`<polygon class="capability-reference" points="${referencePoints}"/>`:""}<polygon class="capability-shape" points="${points}"/>${dots}${axisLabels}<text class="capability-result-label" x="310" y="270">8-AXIS OCTAGON</text></svg></div><div class="capability-controls"><label>COMPARISON REFERENCE</label><select onchange="setCapabilityReference(this.value)"><option value="overall" ${activeCapabilityReference==="overall"?"selected":""}>OVERALL ASSESSMENT</option>${tierOptions}<optgroup label="SPECIFIC STANDARD FIGHTER">${fighterOptions}</optgroup></select><div class="capability-reading">${labels.map(item=>`<div><span>${item.axis.label}</span><b>${item.result}</b></div>`).join("")}</div><div class="capability-note">${activeCapabilityReference==="overall"?"Fixed across the full Marvel/DC roster. The outer ring is reserved for true roster-wide extremes, so Standard Iron Man will not resemble Doomsday or another Cosmic-class threat.":`The dashed octagon is ${capabilityReferenceTitle(activeCapabilityReference)}. The solid shape shows where this version gains or loses ground across the eight universal capability fields.`}</div></div></div>`;
+}
+function setCapabilityReference(value){activeCapabilityReference=value;renderPassportDossier();}
+
+function dossierStatsHTML(character,version=null){
+    const rich=version?.stats||character.richData?.stats||{};
     const fallback={strength:character.strength,speed:character.speed,durability:character.durability,intelligence:character.iq,combatIQ:character.iq,ranged:character.power,melee:character.power,battlefieldControl:character.power};
     return DOSSIER_STATS.map(([label,key])=>{
         const value=Math.round(Number(rich[key]??fallback[key]??50));
@@ -6898,26 +7259,24 @@ function dossierAI(ai={}){
 }
 
 let activePassportCharacter=null;
-let activePassportVersion="Standard";
+let activePassportVersion="standard";
 let activePassportSide="front";
 
-function passportPriorityStatsHTML(character){
-    const rich=character.richData?.stats||{};
-    const stats=[
-        ["STRENGTH",rich.strength??character.strength],
-        ["SPEED",rich.speed??character.speed],
-        ["DURABILITY",rich.durability??character.durability],
-        ["COMBAT IQ",rich.combatIQ??character.iq],
-        ["CONTROL",rich.battlefieldControl??character.power]
-    ];
-    return stats.map(([label,value])=>`<div class="passport-priority-stat"><span>${label}</span><i><span style="width:${Math.round(value)}%"></span></i><b>${Math.round(value)}</b></div>`).join("");
+function activePassportVersionRecord(character=activePassportCharacter){
+    return fighterVersionRecord(character,activePassportVersion)||fighterVersionRecord(character,"Standard");
+}
+
+function passportPriorityStatsHTML(character,version=null){
+    const values=capabilityAbsoluteValues(character,version);
+    const points=CAPABILITY_AXES.map((axis,index)=>capabilityPoint(values[axis.key],index)).join(" ");
+    const axes=CAPABILITY_AXES.map((axis,index)=>{const [x,y]=capabilityPoint(1,index).split(",");return`<line class="capability-axis" x1="310" y1="270" x2="${x}" y2="${y}"/>`}).join("");
+    const labels=CAPABILITY_AXES.map((axis,index)=>{const p=capabilityLabelPoint(index,208);return`<text class="capability-axis-label" x="${p.x}" y="${p.y}" style="text-anchor:${p.anchor}">${axis.short}</text>`}).join("");
+    const strongest=[...CAPABILITY_AXES].sort((a,b)=>values[b.key]-values[a.key]);
+    return `<div class="front-capability"><svg class="capability-chart" viewBox="0 0 620 540" role="img" aria-label="${version?.displayName||character.name} overall eight-axis octagon"><polygon class="capability-ring" points="${capabilityRing(.18)}"/><polygon class="capability-ring" points="${capabilityRing(.43)}"/><polygon class="capability-ring" points="${capabilityRing(.68)}"/><polygon class="capability-ring" points="${capabilityRing(.92)}"/>${axes}<polygon class="capability-shape" points="${points}"/>${labels}<text class="capability-result-label" x="310" y="270">CAPABILITY OCTAGON</text></svg><div class="front-capability-copy"><strong>JOINT SHIELD CAPABILITY SIGNATURE</strong><p>Eight universal fields summarize how this version operates. The graph is dossier intelligence only; battle results still use powers, counters, behavior, equipment, environment, and matchup logic.</p><div class="front-capability-key">${strongest.map(axis=>`<span><b>${axis.short}</b>${capabilityBand(values[axis.key])}</span>`).join("")}</div></div></div>`;
 }
 
 function passportVersionDescription(character){
-    const data=character.richData||{};
-    return activePassportVersion==="Amped"
-        ?data.version?.amped||character.ampedDescription||"Controlled enhanced version without omnipotent, reality-ending, or automatic-win abilities."
-        :data.version?.standard||character.standardDescription||"Mainstream version with established equipment, training, and powers.";
+    return activePassportVersionRecord(character)?.description||"VERSION INTELLIGENCE NOT AVAILABLE";
 }
 
 function renderPassportDossier(){
@@ -6930,12 +7289,58 @@ function renderPassportDossier(){
     qs("characterDossier").innerHTML=`<div class="passport-scene passport-${style}${flipped}" style="--passport-accent:${accent}"><div class="passport-flipper"><section class="passport-face passport-front"><div class="passport-filebar"><span>${passportFileTitle(character)}</span><span class="passport-agency">${agency} ISSUE</span></div><div class="passport-front-grid"><div class="passport-main-portrait"><div>${ICONS[character.icon]||"◆"}<small>${character.name.toUpperCase()} // PORTRAIT</small></div></div><div class="passport-summary"><h2>${character.name}</h2><div class="passport-true-name">IDENTITY // ${targetIdentity(character)}</div><div class="passport-fields"><div class="passport-field"><b>UNIVERSE</b>${character.universe}</div><div class="passport-field"><b>POWER TIER</b>${character.tier}</div><div class="passport-field"><b>ROLE</b>${character.role}</div><div class="passport-field"><b>COMBAT RANGE</b>${character.range}</div><div class="passport-field passport-field-wide"><b>KNOWN AFFILIATIONS</b>${affiliations.length?affiliations.join(" // "):"NONE CONFIRMED"}</div></div></div></div><div class="passport-priority-stats">${passportPriorityStatsHTML(character)}</div><div class="passport-power-strip">${(data.powers||[]).slice(0,6).map(power=>`<span>${power}</span>`).join("")}</div><div class="passport-stamp">${agency} VERIFIED</div><div class="passport-version-tabs"><button type="button" class="${activePassportVersion==="Standard"?"active":""}" onclick="setPassportVersion('Standard')">STANDARD</button><button type="button" class="${activePassportVersion==="Amped"?"active":""}" onclick="setPassportVersion('Amped')">AMPED</button></div><div class="passport-version-copy"><b>${activePassportVersion.toUpperCase()} VERSION</b><br>${passportVersionDescription(character)}</div><button type="button" class="passport-flip-button" onclick="flipPassportCard()">FLIP TO FULL DOSSIER ↻</button></section><section class="passport-face passport-back"><div class="passport-filebar"><span>${passportFileTitle(character)}</span><span class="passport-agency">FULL DOSSIER</span></div><div class="passport-back-head"><div><h2>${character.name} // COMPLETE RECORD</h2><p>${agency} VERIFIED MULTIVERSE COMBAT INTELLIGENCE</p></div><div class="passport-back-stamp">${agency} VERIFIED</div></div><div class="passport-dossier-grid"><section class="passport-section"><h3>IDENTITY / AFFILIATIONS</h3><p><b>Identity:</b> ${targetIdentity(character)}</p><p><b>Universe:</b> ${character.universe}</p><p><b>Power tier:</b> ${character.tier}</p><p><b>Role:</b> ${character.role}</p><p><b>Affiliations:</b> ${affiliations.length?affiliations.join(", "):"None confirmed"}</p></section><section class="passport-section"><h3>VERSIONS</h3><p><b>Standard:</b> ${data.version?.standard||character.standardDescription}</p><p><b>Allowed Amped:</b> ${data.version?.amped||character.ampedDescription}</p></section><section class="passport-section passport-section-wide"><h3>COMPLETE COMBAT STAT MATRIX</h3><div class="full-stat-grid">${dossierStatsHTML(character)}</div></section><section class="passport-section"><h3>POWERS</h3>${listHTML(data.powers||[])}</section><section class="passport-section"><h3>MOVES</h3>${dossierMoveGroups(moveGroups)}</section><section class="passport-section"><h3>FIGHTING STYLE</h3><p>${dossierParagraph(data.fightingStyle||character.fightingStyle)}</p><h3>COMBAT PERSONALITY</h3><p>${dossierParagraph(data.combatPersonality||character.personality)}</p></section><section class="passport-section"><h3>WEAKNESSES / LIMITATIONS</h3>${listHTML(data.weaknessesLimitations||character.weaknesses)}<h3>RESISTANCES</h3>${listHTML(data.resistances||character.resistances)}</section><section class="passport-section"><h3>SPECIAL MECHANICS</h3>${listHTML(data.specialMechanics||character.specialMechanics)}</section><section class="passport-section"><h3>AI BEHAVIOR</h3><div class="ai-grid">${dossierAI(data.aiBehavior||character.aiBehavior)}</div></section><section class="passport-section"><h3>POWER INTERACTIONS / COUNTERS</h3>${listHTML(data.powerInteractionsCounters||character.powerInteractions)}</section><section class="passport-section"><h3>MATCHUP KNOWLEDGE</h3><p>${dossierParagraph(data.matchupKnowledge||character.matchupKnowledge)}</p></section><section class="passport-section"><h3>TEAM BEHAVIOR</h3><p>${dossierParagraph(data.teamBehavior||character.teamBehavior)}</p></section><section class="passport-section passport-section-wide"><h3>BATTLEFIELD BEHAVIOR</h3><p>${dossierParagraph(data.battlefieldBehavior||character.battlefieldBehavior)}</p></section></div><button type="button" class="passport-flip-button" onclick="flipPassportCard()">↻ FLIP TO FRONT PROFILE</button></section></div></div>`;
 }
 
-function openCharacterDossier(name){
+renderPassportDossier=function(){
+    const character=activePassportCharacter;if(!character)return;
+    const version=activePassportVersionRecord(character),profile=version.combatProfile||{},data=character.richData||{};
+    const style=passportStyle(character),agency=passportAgency(character),accent=character.universe==="Marvel"?"#a43b43":"#39add2";
+    const affiliations=[...(data.identity?.affiliations||[]),...(DOSSIER_AFFILIATION_EXTRAS[character.name]||[])].filter((value,index,array)=>array.indexOf(value)===index);
+    const flipped=activePassportSide==="back"?" flipped":"";
+    const versionTabs=`<label for="passportVersionSelect">VERSION / VARIANT</label><select id="passportVersionSelect" onchange="setPassportVersion(this.value)">${character.versions.map(item=>`<option value="${item.id}" ${item.id===version.id?"selected":""}>${item.displayName||item.label}</option>`).join("")}</select>`;
+    const versionOverview=character.versions.map(item=>`<p><b>${item.label}:</b> ${item.description}<br><small>BATTLEFIELD ${item.battlefieldTier.toUpperCase()} // ${item.surveillanceProtocol.label}</small></p>`).join("");
+    qs("characterDossier").innerHTML=`
+    <div class="passport-scene passport-${style}${flipped}" style="--passport-accent:${accent}"><div class="passport-flipper">
+      <section class="passport-face passport-front">
+        <div class="passport-filebar"><span>${passportFileTitle(character)}</span><span class="passport-agency">${agency} ISSUE</span></div>
+        <div class="passport-front-grid"><div class="passport-main-portrait"><div>${ICONS[character.icon]||"◆"}<small>${(version.displayName||character.name).toUpperCase()} // ${version.label}</small></div></div>
+          <div class="passport-summary"><h2>${version.displayName||character.name}</h2><div class="passport-true-name">BASE IDENTITY // ${character.name.toUpperCase()} // ${targetIdentity(character)}</div>
+            <div class="passport-fields"><div class="passport-field"><b>UNIVERSE</b>${character.universe}</div><div class="passport-field"><b>BATTLEFIELD TIER</b>${version.battlefieldTier}</div><div class="passport-field"><b>SURVEILLANCE</b>${version.surveillanceProtocol.label}</div><div class="passport-field"><b>ROLE</b>${character.role}</div><div class="passport-field passport-field-wide"><b>KNOWN AFFILIATIONS</b>${affiliations.length?affiliations.join(" // "):"NONE CONFIRMED"}</div></div>
+          </div></div>
+        <div class="passport-priority-stats">${passportPriorityStatsHTML(character,version)}</div>
+        <div class="passport-power-strip">${(profile.powers||[]).slice(0,6).map(power=>`<span>${power}</span>`).join("")}</div>
+        <div class="passport-stamp">${agency} // ${version.surveillanceProtocol.label}</div>
+        <div class="passport-version-tabs">${versionTabs}</div>
+        <div class="passport-version-copy"><b>${version.label} // ${version.battlefieldTier.toUpperCase()} BATTLEFIELD TIER</b><br>${version.description}<br><small>${version.surveillanceProtocol.warning}</small></div>
+        <button type="button" class="passport-flip-button" onclick="flipPassportCard()">FLIP TO FULL DOSSIER ↻</button>
+      </section>
+      <section class="passport-face passport-back">
+        <div class="passport-filebar"><span>${passportFileTitle(character)}</span><span class="passport-agency">VERSION-SPECIFIC DOSSIER</span></div>
+        <div class="passport-back-head"><div><h2>${version.displayName||character.name}</h2><p>${agency} VERIFIED // ${version.surveillanceProtocol.warning}</p></div><div class="passport-back-stamp">${agency} VERIFIED</div></div>
+        <div class="passport-dossier-grid">
+          <section class="passport-section"><h3>IDENTITY / CLASSIFICATION</h3><p><b>Identity:</b> ${targetIdentity(character)}</p><p><b>Universe:</b> ${character.universe}</p><p><b>Battlefield tier:</b> ${version.battlefieldTier}</p><p><b>Surveillance protocol:</b> ${version.surveillanceProtocol.label}</p><p><b>Role:</b> ${character.role}</p><p><b>Affiliations:</b> ${affiliations.join(", ")||"None confirmed"}</p><h3>PROTOCOL REASONS</h3>${listHTML(version.surveillanceProtocol.reasons||[])}</section>
+          <section class="passport-section"><h3>KNOWN VERSIONS</h3>${versionOverview}</section>
+          <section class="passport-section passport-section-wide"><h3>VERSION-SPECIFIC CAPABILITY SIGNATURE</h3>${capabilitySignatureHTML(character,version)}</section>
+          <section class="passport-section"><h3>EXACT POWERS / EQUIPMENT</h3>${listHTML([...(profile.powers||[]),...(profile.equipment||[])])}</section>
+          <section class="passport-section"><h3>ATTACKS / MOVEMENT / DEFENSE</h3>${dossierMoveGroups(profile.moves||{})}</section>
+          <section class="passport-section"><h3>FIGHTING STYLE</h3><p>${dossierParagraph(profile.fightingStyle)}</p><h3>COMBAT PERSONALITY</h3><p>${dossierParagraph(profile.combatPersonality)}</p></section>
+          <section class="passport-section"><h3>WEAKNESSES / LIMITATIONS</h3>${listHTML(profile.weaknesses||[])}<h3>RESISTANCES</h3>${listHTML(profile.resistances||[])}</section>
+          <section class="passport-section"><h3>SPECIAL MECHANICS</h3>${listHTML(profile.mechanics||[])}</section>
+          <section class="passport-section"><h3>AI BEHAVIOR</h3><div class="ai-grid">${dossierAI(profile.aiBehavior||character.aiBehavior||{})}</div></section>
+          <section class="passport-section"><h3>POWER INTERACTIONS / COUNTERS</h3>${listHTML(profile.interactions||[])}</section>
+          <section class="passport-section"><h3>MATCHUP KNOWLEDGE</h3><p>${dossierParagraph(profile.matchupKnowledge||character.matchupKnowledge)}</p></section>
+          <section class="passport-section passport-section-wide"><h3>VERSION ORIGIN // WHAT, WHEN, WHY & HOW</h3><p>${profile.origin}</p><h3>VERSION BEHAVIOR</h3><p>${profile.versionNotes}</p></section>
+          <section class="passport-section"><h3>TEAM BEHAVIOR</h3><p>${dossierParagraph(profile.teamBehavior)}</p></section>
+          <section class="passport-section passport-section-wide"><h3>BATTLEFIELD BEHAVIOR</h3><p>${dossierParagraph(profile.battlefieldBehavior)}</p></section>
+        </div><button type="button" class="passport-flip-button" onclick="flipPassportCard()">↻ FLIP TO FRONT PROFILE</button>
+      </section>
+    </div></div>`;
+};
+
+function openCharacterDossier(name,versionId="standard"){
     activePassportCharacter=CHARACTERS.find(character=>character.name===name);if(!activePassportCharacter)return;
-    activePassportVersion="Standard";activePassportSide="front";
+    activePassportVersion=versionId||"standard";activePassportSide="front";activeCapabilityReference="overall";
     qs("characterModal").style.display="grid";renderPassportDossier();
 }
-function setPassportVersion(version){activePassportVersion=version;renderPassportDossier();}
+function setPassportVersion(versionId){activePassportVersion=versionId;renderPassportDossier();}
 function flipPassportCard(){
     activePassportSide=activePassportSide==="front"?"back":"front";
     const scene=qs("characterDossier").querySelector(".passport-scene");
@@ -6978,7 +7383,7 @@ function renderTacticalAction(roundNumber){
     const index=clamp(tacticalFrames[roundNumber]||0,0,round.actions.length-1),event=round.actions[index];
     tacticalFrames[roundNumber]=index;
     const stage=qs(`tactical-stage-${roundNumber}`),label=qs(`tactical-label-${roundNumber}`);
-    if(stage)stage.innerHTML=tacticalFrameHTML(event,roundNumber,index);
+    if(stage)stage.innerHTML=qs("storyDepth").value==="liveTactical"?liveTacticalFrameHTML(event,roundNumber,index):tacticalFrameHTML(event,roundNumber,index);
     if(label)label.textContent=`ACTION ${index+1}/${round.actions.length} // ${event.attacker} — ${event.move} → ${event.target} // ${event.effectiveness?.label||"EFFECTIVE"} // ${Math.round(event.damage)} DAMAGE // ${event.tactical.range}`;
 }
 function stepTactical(roundNumber,direction){tacticalFrames[roundNumber]=(tacticalFrames[roundNumber]||0)+direction;renderTacticalAction(roundNumber);}
@@ -7001,7 +7406,7 @@ function setPoolMessage(title,message){
 }
 
 function versionedPool(list){
-    return list.map(character=>({...character,version:assignedVersion()}));
+    return list.map(character=>versionedCharacter(character)).filter(Boolean);
 }
 
 function baseAdvancedCandidates(ignoreUniverse=false){
@@ -7040,7 +7445,7 @@ function chooseModeFreeSelect(){
     if(!["BanDraft","CaptainDraft"].includes(mode))return;
     if(mode==="CaptainDraft"&&!captainSetupComplete)return;
     advancedPoolChoice="FreeSelect";
-    selection=versionedPool(baseAdvancedCandidates());
+    selection=versionedPool(baseAdvancedCandidates().sort((a,b)=>a.name.localeCompare(b.name)));
     bannedFighters=[];banIndex=0;banPhase=mode==="BanDraft"&&firstPickDetermined;
     setPoolMessage(mode==="BanDraft"?"BAN & DRAFT // FREE SELECT":"CAPTAIN DRAFT // FREE SELECT",mode==="BanDraft"?"FULL ELIGIBLE ROSTER // EACH TEAM BANS ONE":"CAPTAINS LOCKED // FULL ELIGIBLE ROSTER");
     renderSelection();updateDraftStatus();syncAdvancedPoolPanel();
@@ -7085,7 +7490,7 @@ selectionModeChanged=function(){
     button.textContent=modeLabel(mode);
     if(mode==="FreeSelect")loadFreeSelect();
     else if(mode==="CaptainDraft"){
-        selection=versionedPool(baseAdvancedCandidates());
+        selection=versionedPool(baseAdvancedCandidates().sort((a,b)=>a.name.localeCompare(b.name)));
         setPoolMessage("CAPTAIN DRAFT // CAPTAIN PHASE","DETERMINE FIRST PICK, THEN CHOOSE ONE CAPTAIN FOR EACH TEAM");
         renderSelection();
     }else if(advancedPoolMode(mode)){
@@ -7100,7 +7505,7 @@ filtersChanged=function(){
     else if(currentMode()==="TierDraft"&&advancedPoolChoice)chooseTierDraftPool(advancedPoolChoice);
     else if(["BanDraft","UniverseClash","CaptainDraft"].includes(currentMode())&&advancedPoolChoice){
         if(advancedPoolChoice==="FreeSelect")chooseModeFreeSelect();else chooseModePoolSize(Number(advancedPoolChoice));
-    }else if(currentMode()==="CaptainDraft"&&!captainSetupComplete){selection=versionedPool(baseAdvancedCandidates());renderSelection();}
+    }else if(currentMode()==="CaptainDraft"&&!captainSetupComplete){selection=versionedPool(baseAdvancedCandidates().sort((a,b)=>a.name.localeCompare(b.name)));renderSelection();}
     else if(selection.length)generateSelection();
     if(qs("wheelModal").style.display==="grid")renderWheelNames();
 };
@@ -7135,7 +7540,7 @@ removeCharacter=function(team,index){
     const removed=teams[team][index];if(!removed)return;
     teams[team].splice(index,1);currentDraftIndex=Math.max(0,draftOrder.indexOf(team));
     if(removed.isCaptain&&currentMode()==="CaptainDraft"){
-        captainTeams.delete(team);captainSetupComplete=false;advancedPoolChoice=null;selection=versionedPool(baseAdvancedCandidates());
+        captainTeams.delete(team);captainSetupComplete=false;advancedPoolChoice=null;selection=versionedPool(baseAdvancedCandidates().sort((a,b)=>a.name.localeCompare(b.name)));
         setPoolMessage("CAPTAIN DRAFT // CAPTAIN PHASE",`${teamName(team)} MUST CHOOSE A NEW CAPTAIN`);syncAdvancedPoolPanel();
     }else if(!selection.some(x=>x.name===removed.name))selection.push(removed);
     renderSelection();renderTeams();updateDraftStatus();
@@ -7147,6 +7552,76 @@ removeCharacter=function(team,index){
 let tierDraftChoices=new Set();
 let tierDraftPoolChoice=null;
 let poolSearchQuery="";
+
+/* Preset Teams is a manual draft filter, never an automatic team filler. */
+const PRESET_TEAM_ROSTERS={
+    "Avengers":["Ant-Man","Black Panther","Black Widow","Captain America","Captain Marvel","Falcon","Hawkeye","Hercules","Hulk","Iron Man","Scarlet Witch","She-Hulk","Spider-Man","Thor","Vision","War Machine","Wasp"],
+    "X-Men":["Archangel","Bishop","Cable","Colossus","Cyclops","Emma Frost","Gambit","Havok","Iceman","Jean Grey","Jubilee","Kitty Pryde / Shadowcat","Magik","Nightcrawler","Professor X","Psylocke","Rogue","Storm","Wolverine","X-23 / Laura Kinney"],
+    "Fantastic Four":["Human Torch","Invisible Woman","Mister Fantastic","The Thing"],
+    "Guardians of the Galaxy":["Adam Warlock","Gamora","Groot","Nova","Rocket Raccoon"],
+    "Illuminati":["Black Panther","Iron Man","Mister Fantastic","Namor","Professor X"],
+    "Annihilators":["Beta Ray Bill","Ronan the Accuser","Silver Surfer"],
+    "Sinister Six":["Doctor Octopus","Electro","Green Goblin","Kraven the Hunter","Mysterio","Rhino","Sandman","Scorpion","Shocker","Vulture"],
+    "Brotherhood of Mutants":["Juggernaut","Magneto","Mystique","Polaris","Quicksilver","Sabretooth"],
+    "X-Force":["Archangel","Cable","Deadpool","Domino","Psylocke","Wolverine","X-23 / Laura Kinney"],
+    "X-Factor":["Cyclops","Havok","Iceman","Jean Grey","Multiple Man","Polaris"],
+    "Defenders":["Daredevil","Hulk","Iron Fist","Luke Cage","Namor","Silver Surfer"],
+    "Heroes for Hire":["Black Cat","Elektra","Iron Fist","Luke Cage","Moon Knight","Punisher","Shang-Chi"],
+    "Midnight Sons":["Blade","Doctor Strange","Ghost Rider","Moon Knight","Morbius","Punisher"],
+    "Thunderbolts":["Bullseye","Crossbones","Deadpool","Elektra","Ghost Rider","Punisher","Red Hulk","Taskmaster","Winter Soldier"],
+    "Black Order":["Corvus Glaive","Ebony Maw","Thanos"],
+    "Marvel Knights":["Black Panther","Black Widow","Blade","Daredevil","Elektra","Moon Knight","Punisher","Shang-Chi"],
+    "Justice League":["Aquaman","Atom","Batman","Black Canary","Booster Gold","Captain Atom","Cyborg","Firestorm","Green Arrow","Green Lantern","Martian Manhunter","Plastic Man","Red Tornado","Shazam","Superman","The Flash","Wonder Woman","Zatanna"],
+    "Justice Society":["Atom","Black Adam","Black Canary","Doctor Fate","Green Lantern","Power Girl","Shazam"],
+    "Teen Titans":["Beast Boy","Blue Beetle","Cyborg","Nightwing","Raven","Red Hood","Starfire","Static"],
+    "Suicide Squad":["Captain Cold","Deadshot","Deathstroke","Harley Quinn","Killer Croc","King Shark","Poison Ivy"],
+    "Bat-Family":["Batgirl","Batman","Black Canary","Catwoman","Nightwing","Red Hood"],
+    "Superman Family":["Power Girl","Supergirl","Superman"],
+    "Justice League Dark":["Constantine","Etrigan","Raven","Swamp Thing","Zatanna"],
+    "Legion of Doom":["Bane","Black Adam","Brainiac","Cheetah","Gorilla Grodd","Lex Luthor","Metallo","Mirror Master","Poison Ivy","Sinestro"],
+    "The Rogues":["Captain Cold","Mirror Master","Weather Wizard"],
+    "Birds of Prey":["Batgirl","Black Canary","Harley Quinn"],
+    "Outsiders":["Batman","Black Lightning","Katana","Metamorpho","Nightwing"],
+    "Red Lantern Corps":["Atrocitus","Lobo"],
+    "Sinestro Corps":["Sinestro"],
+    "Secret Six":["Bane","Cheetah","Deadshot","Harley Quinn"],
+    "Young Justice":["Beast Boy","Blue Beetle","Nightwing","Static"]
+};
+let presetTeamChoices={alpha:"",omega:"",sigma:""};
+
+function availablePresetTeamNames(){
+    const rosterNames=new Set(CHARACTERS.map(character=>character.name));
+    return Object.keys(PRESET_TEAM_ROSTERS).filter(teamName=>PRESET_TEAM_ROSTERS[teamName].some(name=>rosterNames.has(name))).sort((a,b)=>a.localeCompare(b));
+}
+
+function draftedNameSet(){return new Set(Object.values(teams).flat().map(character=>character.name));}
+
+function presetTeamMembers(team){
+    const name=presetTeamChoices[team];
+    if(!name)return [];
+    const allowed=new Set(PRESET_TEAM_ROSTERS[name]||[]);
+    return CHARACTERS.filter(character=>allowed.has(character.name)).sort((a,b)=>a.name.localeCompare(b.name));
+}
+
+function loadPresetTeamsPool(){
+    const selectedNames=new Set(activeTeams().flatMap(team=>presetTeamMembers(team).map(character=>character.name)));
+    const drafted=draftedNameSet();
+    selection=versionedPool(CHARACTERS.filter(character=>selectedNames.has(character.name)&&!drafted.has(character.name)).sort((a,b)=>a.name.localeCompare(b.name)));
+    const configured=activeTeams().filter(team=>presetTeamChoices[team]).map(team=>`${teamName(team)}: ${presetTeamChoices[team]}`);
+    setPoolMessage("PRESET TEAMS // MANUAL MEMBER SELECTION",configured.length?`${configured.join(" // ")} // CHOOSE INDIVIDUAL MEMBERS BELOW`:"CHOOSE A CANON TEAM FOR EACH SIDE; MEMBERS WILL APPEAR WITHOUT BEING AUTO-DRAFTED");
+    renderSelection();updateDraftStatus();syncAdvancedPoolPanel();
+}
+
+function setPresetTeamChoice(team,value){
+    presetTeamChoices[team]=value;
+    loadPresetTeamsPool();
+}
+
+function presetTeamSelectHTML(team){
+    const options=availablePresetTeamNames().map(name=>`<option value="${name}"${presetTeamChoices[team]===name?" selected":""}>${name.toUpperCase()}</option>`).join("");
+    const memberCount=presetTeamMembers(team).length;
+    return `<div class="preset-team-control ${team}"><label>${teamName(team)} ORGANIZATION</label><select onchange="setPresetTeamChoice('${team}',this.value)"><option value="">CHOOSE TEAM...</option>${options}</select><small>${presetTeamChoices[team]?`${memberCount} DATABASE MEMBERS AVAILABLE // SELECT FIGHTERS MANUALLY`:`NO ORGANIZATION SELECTED`}</small></div>`;
+}
 
 function draftOrderStyle(){return qs("draftOrderMode")?.value||"Alternating";}
 
@@ -7176,7 +7651,7 @@ advanceDraft=function(){
 };
 
 advancedPoolMode=function(mode=currentMode()){
-    return ["BanDraft","UniverseClash","TierDraft","CaptainDraft","PrepTime"].includes(mode);
+    return ["BanDraft","UniverseClash","TierDraft","CaptainDraft","PrepTime","PresetTeams"].includes(mode);
 };
 
 generatedMode=function(mode=currentMode()){
@@ -7223,9 +7698,9 @@ function balancedTierSelection(candidates,count,tiers){
 function buildTierDraftPool(){
     const tiers=selectedTierDraftList();
     if(!tiers.length){selection=[];setPoolMessage("TIER DRAFT","SELECT AT LEAST ONE TIER");renderSelection();syncAdvancedPoolPanel();return;}
-    const candidates=baseAdvancedCandidates().filter(character=>tiers.includes(character.tier));
-    if(tierDraftPoolChoice==="FreeSelect")selection=versionedPool(shuffle(candidates));
-    else selection=versionedPool(balancedTierSelection(candidates,Number(tierDraftPoolChoice),tiers));
+    const candidates=versionedPool(baseAdvancedCandidates()).filter(character=>tiers.includes(character.tier));
+    if(tierDraftPoolChoice==="FreeSelect")selection=shuffle(candidates);
+    else selection=balancedTierSelection(candidates,Number(tierDraftPoolChoice),tiers);
     const distribution=tiers.length===5?"5V5 RULE: ONE FIGHTER FROM EACH TIER PER TEAM":`DRAFT ROTATES THROUGH ${tiers.join(" → ").toUpperCase()}`;
     setPoolMessage(`TIER DRAFT // ${tiers.join(" + ").toUpperCase()}`,`${tierDraftPoolChoice==="FreeSelect"?"FREE SELECT":`GENERATED ${selection.length}`} // ${distribution}`);
     renderSelection();updateDraftStatus();syncAdvancedPoolPanel();updateHUDTelemetry();
@@ -7255,13 +7730,14 @@ const modeFlowV1FreeSelect=chooseModeFreeSelect;
 chooseModeFreeSelect=function(){
     if(currentMode()!=="PrepTime"){modeFlowV1FreeSelect();return;}
     advancedPoolChoice="FreeSelect";
-    selection=versionedPool(baseAdvancedCandidates());
+    selection=versionedPool(baseAdvancedCandidates().sort((a,b)=>a.name.localeCompare(b.name)));
     setPoolMessage("PREP TIME // FREE SELECT","FULL ROSTER // PREPARATION RATINGS ACTIVE");
     renderSelection();updateDraftStatus();syncAdvancedPoolPanel();
 };
 
 modeOptionsHTML=function(){
     const mode=currentMode();
+    if(mode==="PresetTeams")return `<div class="option-group preset-team-controls">${presetTeamSelectHTML("alpha")}${presetTeamSelectHTML("omega")}${playerCount()===3?presetTeamSelectHTML("sigma"):""}</div>`;
     if(mode==="TierDraft"){
         const tiers=["Street","Enhanced","Heavy","Mystic","Cosmic"];
         return `<div class="option-group"><span class="pool-option-label">SELECT TIERS</span><button type="button" data-tier-choice="All" onclick="toggleTierDraftChoice('All')">ALL TIERS</button>${tiers.map(tier=>`<button type="button" data-tier-choice="${tier}" onclick="toggleTierDraftChoice('${tier}')">${tier.toUpperCase()}</button>`).join("")}</div><div class="option-group"><span class="pool-option-label">POOL TYPE</span>${[10,20,30].map(size=>`<button type="button" data-tier-pool="${size}" onclick="chooseTierDraftSize(${size})">GENERATE ${size}</button>`).join("")}<button type="button" data-tier-pool="FreeSelect" onclick="chooseTierDraftFreeSelect()">FREE SELECT</button></div>`;
@@ -7287,16 +7763,17 @@ syncAdvancedPoolPanel=function(){
 };
 
 selectionModeChanged=function(){
-    selection=[];bannedFighters=[];banPhase=false;banIndex=0;captainTeams=new Set();captainSetupComplete=false;advancedPoolChoice=null;tierDraftChoices=new Set();tierDraftPoolChoice=null;
-    clearTeams();firstPickDetermined=false;currentDraftIndex=0;draftOrder=activeTeams();qs("characterPool").innerHTML="";
+    selection=[];bannedFighters=[];banPhase=false;banIndex=0;captainTeams=new Set(Object.keys(teams).filter(team=>teams[team].some(character=>character.isCaptain)));captainSetupComplete=false;advancedPoolChoice=null;tierDraftChoices=new Set();tierDraftPoolChoice=null;
+    draftOrder=draftOrder.filter(team=>activeTeams().includes(team));activeTeams().forEach(team=>{if(!draftOrder.includes(team))draftOrder.push(team);});currentDraftIndex=Math.min(currentDraftIndex,Math.max(0,draftOrder.length-1));qs("characterPool").innerHTML="";
     const mode=currentMode(),button=qs("generateButton");button.style.display=["Generate10","Generate20","Generate30","BlindDraft"].includes(mode)?"block":"none";button.textContent=modeLabel(mode);
     if(mode==="FreeSelect")loadFreeSelect();
     else if(mode==="CaptainDraft"){
-        selection=versionedPool(baseAdvancedCandidates());setPoolMessage("CAPTAIN DRAFT // CAPTAIN PHASE","DETERMINE FIRST PICK, THEN CHOOSE ONE CAPTAIN FOR EACH TEAM");renderSelection();
+        selection=versionedPool(baseAdvancedCandidates().sort((a,b)=>a.name.localeCompare(b.name)));setPoolMessage("CAPTAIN DRAFT // CAPTAIN PHASE","DETERMINE FIRST PICK, THEN CHOOSE ONE CAPTAIN FOR EACH TEAM");renderSelection();
     }else if(mode==="TierDraft")setPoolMessage("TIER DRAFT","SELECT ONE OR MORE TIERS, THEN CHOOSE GENERATE 10, 20, 30, OR FREE SELECT");
     else if(mode==="UniverseClash")setPoolMessage("UNIVERSE CLASH","CHOOSE A POOL SIZE // FIRST PICK RECEIVES MARVEL, THE OTHER TEAM RECEIVES DC");
     else if(mode==="BanDraft")setPoolMessage("BAN & DRAFT","CHOOSE GENERATE 10, 20, 30, OR FREE SELECT");
     else if(mode==="PrepTime")setPoolMessage("PREP TIME","CHOOSE GENERATE 10, 20, 30, OR FREE SELECT // PREP RATINGS WILL AFFECT COMBAT");
+    else if(mode==="PresetTeams"){setPoolMessage("PRESET TEAMS // MANUAL DRAFT","CHOOSE A CANON TEAM FOR EACH SIDE, THEN PICK THE MEMBERS YOU WANT");loadPresetTeamsPool();}
     else setPoolMessage(mode.replace(/([A-Z])/g," $1").trim().toUpperCase(),`DETERMINE FIRST PICK, THEN PRESS ${modeLabel(mode)}`);
     syncAdvancedPoolPanel();renderTeams();updateDraftStatus();
 };
@@ -7307,6 +7784,7 @@ filtersChanged=function(){
         tierDraftChoices=new Set(selectedTiers());if(tierDraftPoolChoice)buildTierDraftPool();else syncAdvancedPoolPanel();return;
     }
     if(currentMode()==="PrepTime"&&advancedPoolChoice){advancedPoolChoice==="FreeSelect"?chooseModeFreeSelect():chooseModePoolSize(Number(advancedPoolChoice));return;}
+    if(currentMode()==="PresetTeams"){loadPresetTeamsPool();return;}
     modeFlowV1Filters();
 };
 
@@ -7330,18 +7808,15 @@ const standardUnitFrom=unitFrom;
 unitFrom=function(fighter,team){
     const unit=standardUnitFrom(fighter,team);unit.prepScore=fighter.prepScore||calculatePrepScore(fighter);
     if(currentMode()==="PrepTime"){
-        const prep=unit.prepScore;
-        unit.iq*=1+(prep*.0022);unit.speed*=1+(prep*.0011);unit.durability*=1+(prep*.0008);unit.power*=1+(prep*.0006);
-        unit.maxHp=100+Math.round(prep/12);unit.hp=unit.maxHp;unit.prepared=true;
+        unit.prepared=true;
+        unit.preparationIntel=unit.prepScore>=90?"extensive":unit.prepScore>=72?"strong":unit.prepScore>=52?"moderate":"limited";
     }
     return unit;
 };
 
 const standardCalculateDamage=calculateDamage;
 calculateDamage=function(attacker,target,move,reactionType){
-    let damage=standardCalculateDamage(attacker,target,move,reactionType);
-    if(currentMode()==="PrepTime")damage*=clamp(1+(((attacker.prepScore||50)-(target.prepScore||50))*.004),.72,1.34);
-    return damage;
+    return standardCalculateDamage(attacker,target,move,reactionType);
 };
 
 function initBattleHUD(){
@@ -7476,6 +7951,253 @@ const hudRenderTeams=renderTeams;
 renderTeams=function(){hudRenderTeams();updateHUDTelemetry();};
 const hudRenderSelection=renderSelection;
 renderSelection=function(){hudRenderSelection();updateHUDTelemetry();};
+
+/* =========================================================
+   LIVE TACTICAL MAP // ELEVATION + STRUCTURAL VISUALIZATION
+========================================================= */
+const LIVE_BATTLEFIELD_LAYOUTS={
+    "Abandoned City":[
+        {id:"metro",name:"METRO TOWER",x:10,y:11,w:15,d:18,height:64,integrity:100},
+        {id:"hospital",name:"ST. MARK HOSPITAL",x:31,y:8,w:19,d:15,height:42,integrity:100},
+        {id:"garage",name:"PARKING GARAGE",x:64,y:10,w:19,d:16,height:24,integrity:100},
+        {id:"apartments",name:"RIVERSIDE APARTMENTS",x:12,y:52,w:20,d:20,height:37,integrity:100},
+        {id:"office",name:"HOLLOWAY OFFICES",x:43,y:58,w:18,d:18,height:51,integrity:100},
+        {id:"station",name:"CENTRAL STATION",x:71,y:50,w:17,d:24,height:18,integrity:100}
+    ],
+    "Stark Tower":[
+        {id:"tower",name:"STARK TOWER",x:39,y:9,w:23,d:28,height:186,integrity:100},
+        {id:"annex",name:"STARK R&D ANNEX",x:10,y:16,w:21,d:18,height:48,integrity:100},
+        {id:"hangar",name:"AVENGERS HANGAR",x:69,y:18,w:20,d:17,height:32,integrity:100},
+        {id:"plaza",name:"REACTOR PLAZA",x:35,y:57,w:29,d:24,height:8,integrity:100},
+        {id:"garage",name:"ARMORED STORAGE",x:9,y:60,w:20,d:18,height:26,integrity:100},
+        {id:"transit",name:"MAGLEV TERMINAL",x:72,y:57,w:17,d:22,height:21,integrity:100}
+    ],
+    "Gotham Rooftops":[
+        {id:"wayne",name:"WAYNE FINANCIAL",x:9,y:9,w:19,d:22,height:91,integrity:100},
+        {id:"monarch",name:"MONARCH THEATER",x:35,y:11,w:23,d:17,height:31,integrity:100},
+        {id:"clock",name:"OLD CLOCKTOWER",x:69,y:8,w:16,d:20,height:74,integrity:100},
+        {id:"gcpd",name:"GCPD ANNEX",x:13,y:55,w:21,d:20,height:43,integrity:100},
+        {id:"chemical",name:"ACE CHEMICAL STORAGE",x:44,y:57,w:21,d:19,height:29,integrity:100},
+        {id:"cathedral",name:"GOTHAM CATHEDRAL",x:73,y:50,w:16,d:26,height:67,integrity:100}
+    ],
+    "Atlantis":[
+        {id:"palace",name:"ATLANTEAN ROYAL PALACE",x:9,y:10,w:22,d:22,height:72,integrity:100,terrain:"water"},
+        {id:"spire",name:"POSEIDON SPIRE",x:40,y:8,w:18,d:21,height:96,integrity:100,terrain:"water"},
+        {id:"gate",name:"PRESSURE GATE",x:70,y:13,w:19,d:20,height:38,integrity:100,terrain:"water"},
+        {id:"trench",name:"ROYAL TRENCH",x:10,y:59,w:25,d:17,height:0,integrity:100,terrain:"deep-water"},
+        {id:"reef",name:"LIVING REEF",x:43,y:58,w:20,d:20,height:24,integrity:100,terrain:"reef"},
+        {id:"arena",name:"ATLANTEAN WAR ARENA",x:73,y:54,w:17,d:24,height:31,integrity:100,terrain:"water"}
+    ],
+    "Wakandan Vibranium Forest":[
+        {id:"canopy",name:"HEART-SHAPED CANOPY",x:8,y:10,w:24,d:24,height:53,integrity:100,terrain:"forest"},
+        {id:"shield",name:"BORDER SHIELD NODE",x:39,y:8,w:20,d:18,height:27,integrity:100,terrain:"technology"},
+        {id:"ridge",name:"VIBRANIUM RIDGE",x:69,y:11,w:21,d:22,height:41,integrity:100,terrain:"vibranium"},
+        {id:"river",name:"WARRIOR FALLS RIVER",x:9,y:58,w:27,d:17,height:8,integrity:100,terrain:"water"},
+        {id:"roots",name:"ANCESTRAL ROOT NETWORK",x:42,y:56,w:22,d:23,height:18,integrity:100,terrain:"forest"},
+        {id:"outpost",name:"DORA MILAJE OUTPOST",x:73,y:55,w:17,d:21,height:32,integrity:100,terrain:"technology"}
+    ]
+};
+
+function liveClone(value){return JSON.parse(JSON.stringify(value));}
+function liveCharacter(name){return CHARACTERS.find(character=>character.name===name);}
+function liveCanFly(name){
+    const character=liveCharacter(name);if(!character)return false;
+    const profile=[character.role,character.fightingStyle,character.battlefieldBehavior,character.powers,character.standardDescription,character.ampedDescription].flat(Infinity).join(" ").toLowerCase();
+    return /flight|flying|airborne|wing flight|levitat|telekinetic flight|hammer flight|ring flight/.test(profile);
+}
+function liveNearestStructure(structures,x,y){
+    return structures.filter(item=>item.integrity>0).sort((a,b)=>Math.hypot((a.x+a.w/2)-x,(a.y+a.d/2)-y)-Math.hypot((b.x+b.w/2)-x,(b.y+b.d/2)-y))[0];
+}
+function liveScreenPoint(x,y,altitude=0){return{x:8+(x*.84),y:14+(y*.67)-(altitude*.18)};}
+
+function prepareLiveTacticalSimulation(simulation){
+    if(simulation.rounds.some(round=>round.actions.some(event=>event.liveTactical)))return;
+    const battlefield=qs("battlefield").value;
+    const structures=liveClone(LIVE_BATTLEFIELD_LAYOUTS[battlefield]||LIVE_BATTLEFIELD_LAYOUTS["Abandoned City"]);
+    const states={};
+    simulation.rounds.forEach(round=>round.actions.forEach((event,actionIndex)=>{
+        const structuralEvents=[];
+        const snapshot=event?.tactical?.snapshot||[];
+        snapshot.forEach(fighter=>{
+            const prior=states[fighter.name]||{state:"GROUND",altitude:0,structureId:null};
+            const isAttacker=fighter.name===event.attacker;
+            const isTarget=fighter.name===event.target;
+            if(liveCanFly(fighter.name)){
+                if(isAttacker){
+                    const ranged=event.tactical?.range==="RANGED";
+                    const roof=liveNearestStructure(structures,fighter.x,fighter.y);
+                    if(!ranged&&roof&&actionIndex%3===0){prior.state="ROOFTOP";prior.altitude=roof.height;prior.structureId=roof.id;}
+                    else{prior.state="AIRBORNE";prior.altitude=clamp(24+(nameHash(fighter.name+round.round+actionIndex)%63),18,92);prior.structureId=null;}
+                }else if(isTarget&&prior.state==="GROUND"&&(nameHash(fighter.name+round.round)%3!==0)){
+                    prior.state="AIRBORNE";prior.altitude=clamp(18+(nameHash(event.move+fighter.name)%44),15,62);prior.structureId=null;
+                }
+            }else{prior.state="GROUND";prior.altitude=0;prior.structureId=null;}
+            states[fighter.name]=prior;
+        });
+
+        const destructive=event.damage>=18||/slam|smash|blast|barrage|explosion|nova|storm|quake|groundbreaker|maximum|meteor|charge|god blast|supernova/i.test(event.move);
+        if(destructive){
+            const impact=event.tactical?.targetStart||event.tactical?.target||{x:50,y:50};
+            const structure=liveNearestStructure(structures,impact.x,impact.y);
+            if(structure&&Math.hypot((structure.x+structure.w/2)-impact.x,(structure.y+structure.d/2)-impact.y)<38){
+                const before=structure.integrity;
+                const area=/storm|nova|barrage|explosion|quake|groundbreaker|maximum|meteor|supernova/i.test(event.move);
+                const structureDamage=clamp(Math.round(event.damage*(area?1.55:.82)),5,58);
+                structure.integrity=clamp(structure.integrity-structureDamage,0,100);
+                structuralEvents.push({name:structure.name,damage:before-structure.integrity,integrity:structure.integrity,collapsed:structure.integrity===0});
+                if(structure.integrity===0){
+                    Object.entries(states).forEach(([name,state])=>{
+                        if(state.structureId===structure.id){state.state="GROUND";state.altitude=0;state.structureId=null;structuralEvents.push({name,fall:true,structure:structure.name});}
+                    });
+                }
+            }
+        }
+
+        event.liveTactical={battlefield,structures:liveClone(structures),states:liveClone(states),structuralEvents};
+    }));
+}
+
+function liveStructureClass(structure){
+    if(structure.integrity<=0)return "collapsed";
+    if(structure.integrity<=30)return "critical";
+    if(structure.integrity<70)return "damaged";
+    return "";
+}
+function liveStructureHTML(structure,index){
+    const state=liveStructureClass(structure);
+    const rise=clamp(Math.round(structure.height*.45),8,72);
+    return `<div class="live-structure ${state}" style="--x:${structure.x}%;--y:${structure.y}%;--w:${structure.w}%;--d:${structure.d}%;--rise:${rise}px" aria-label="${structure.name}, ${structure.height} meters, ${structure.integrity} percent integrity"></div>`;
+}
+function liveFighterHTML(fighter,event,live){
+    const colors={1:"#00eaff",2:"#ff4055",3:"#b56cff"};
+    const state=live.states[fighter.name]||{state:"GROUND",altitude:0};
+    const point=liveScreenPoint(fighter.x??50,fighter.y??50,state.altitude||0);
+    const hp=Math.max(0,Math.round(fighter.hp)),hpPercent=clamp(Math.round((fighter.hp/(fighter.maxHp||100))*100),0,100);
+    const actionState=fighter.name===event.attacker?" active":fighter.name===event.target?" target":"";
+    const stateClass=state.state.toLowerCase();
+    const location=state.state==="GROUND"?"GROUND // 0 M":state.state==="ROOFTOP"?`ROOFTOP // ${state.altitude} M`:`AIRBORNE // ${state.altitude} M`;
+    const stem=state.altitude?clamp(Math.round(state.altitude*.75),10,72):0;
+    return `<div class="live-fighter${actionState}" style="--fighter-x:${point.x}%;--fighter-y:${point.y}%;--fighter-color:${colors[fighter.team]};--stem:${stem}px"><div class="altitude-stem"></div><div class="fighter-hologram">${ICONS[fighter.icon]||"◆"}</div><div class="fighter-data"><b>${fighter.name}</b><span class="fighter-state ${stateClass}">${location}</span><div class="fighter-live-hp"><span style="width:${hpPercent}%"></span></div>${hp} HP</div></div>`;
+}
+function liveCommandContext(event,live){
+    const attackerState=live.states[event.attacker]||{state:"GROUND",altitude:0};
+    const structural=live.structuralEvents?.find(item=>!item.fall);
+    const fall=live.structuralEvents?.find(item=>item.fall);
+    const altitude=attackerState.state==="GROUND"?"GROUND 0 M":`${attackerState.state} ${attackerState.altitude} M`;
+    if(fall)return `${altitude} // ${fall.structure} COLLAPSE // ${fall.name} FALLS FOR ${fall.fallDamage} DAMAGE`;
+    if(!structural)return `${event.tactical?.range||"CLOSE"} // ${altitude} // ${event.reaction}`;
+    return `${event.tactical?.range||"CLOSE"} // ${altitude} // ${structural.name} -${structural.damage}% INTEGRITY${structural.collapsed?" // COLLAPSED":""}`;
+}
+function liveTacticalFrameHTML(event,round,actionIndex){
+    const live=event.liveTactical||{battlefield:qs("battlefield").value,structures:liveClone(LIVE_BATTLEFIELD_LAYOUTS[qs("battlefield").value]||[]),states:{},structuralEvents:[]};
+    const mapClass=`map-${live.battlefield.toLowerCase().replace(/[^a-z0-9]+/g,"-")}`;
+    const snapshot=event?.tactical?.snapshot||[];
+    const attacker=snapshot.find(item=>item.name===event.attacker),target=snapshot.find(item=>item.name===event.target);
+    const aState=live.states[event.attacker]||{altitude:0},tState=live.states[event.target]||{altitude:0};
+    const a=liveScreenPoint(event.tactical?.attacker?.x??attacker?.x??50,event.tactical?.attacker?.y??attacker?.y??50,aState.altitude||0);
+    const t=liveScreenPoint(event.tactical?.targetStart?.x??target?.x??50,event.tactical?.targetStart?.y??target?.y??50,tState.altitude||0);
+    const s=liveScreenPoint(event.tactical?.start?.x??a.x,event.tactical?.start?.y??a.y,aState.altitude||0);
+    const intact=live.structures.filter(item=>item.integrity>0).length;
+    return `<div class="live-tactical-topbar"><div><strong>GLOBAL TACTICAL MAP</strong><br>${live.battlefield.toUpperCase()}</div><div class="live-round">ROUND ${round} // ACTION ${actionIndex+1}</div><div class="live-structure-count">STRUCTURES ${intact}/${live.structures.length} // ENVIRONMENT SYSTEMS ACTIVE</div></div><div class="live-map-viewport ${mapClass}"><div class="live-map-horizon"></div><div class="live-city-slab">${live.structures.map(liveStructureHTML).join("")}</div>${live.structures.map((structure,index)=>{const state=liveStructureClass(structure),labelX=clamp(6+structure.x*.84,3,83),labelY=clamp(11+structure.y*.61-structure.height*.08,6,78);return `<div class="structure-readout ${state}" style="--label-x:${labelX}%;--label-y:${labelY}%"><b>${structure.name}</b>${structure.height} M // <span>${structure.integrity>0?structure.integrity+"% INTEGRITY":"COLLAPSED // RUBBLE"}</span></div>`;}).join("")}<svg class="live-combat-lines" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true"><line class="travel" x1="${s.x}" y1="${s.y}" x2="${a.x}" y2="${a.y}"/><line class="attack ${event.tactical?.range==='RANGED'?'ranged':''}" x1="${a.x}" y1="${a.y}" x2="${t.x}" y2="${t.y}"/></svg>${snapshot.map(fighter=>liveFighterHTML(fighter,event,live)).join("")}</div><div class="live-command-strip"><div class="command-actor"><b>${event.attacker}</b><span>TEAM ${event.attackerTeam===1?"ALPHA":event.attackerTeam===2?"OMEGA":"SIGMA"}<br>ACTIVE COMBATANT</span></div><div class="command-action"><strong>${event.attacker} uses ${event.move} against ${event.target}</strong><span>${liveCommandContext(event,live)}</span></div><div class="command-result"><b>${Math.round(event.damage)} DAMAGE</b><span>${Math.max(0,Math.round(event.targetHp))} HP REMAINING<br>${event.effectiveness?.label||"EFFECTIVE"}</span></div></div>`;
+}
+function liveTacticalRoundHTML(round){
+    if(!round||!round.actions.length)return "";
+    const event=round.actions[0];
+    return `<div class="live-tactical-shell" id="tactical-${round.round}"><div id="tactical-stage-${round.round}">${liveTacticalFrameHTML(event,round.round,0)}</div><div class="live-playback"><button onclick="stepTactical(${round.round},-1)">◀ PREVIOUS</button><button onclick="toggleTacticalPlay(${round.round})">▶ PLAY</button><div class="live-playback-status" id="tactical-label-${round.round}">ACTION 1 / ${round.actions.length} // ${event.attacker} → ${event.target}</div><button onclick="stepTactical(${round.round},1)">NEXT ▶</button><button onclick="jumpTacticalEnd(${round.round})">END ROUND</button></div></div>`;
+}
+
+/* One continuous cinematic map for the complete battle. */
+let continuousTacticalPlayer=null;
+
+function continuousTacticalMapHTML(simulation){
+    const actionCount=simulation.rounds.reduce((sum,round)=>sum+round.actions.length,0);
+    return `<section class="cinematic-tactical" id="continuousTactical"><div class="cinematic-map-head"><div><h2>LIVE TACTICAL MAP</h2><span>${qs("battlefield").value.toUpperCase()} // CONTINUOUS BATTLE PLAYBACK</span></div><div class="cinematic-live">● LIVE COMBAT RECORD</div><div class="cinematic-clock" id="cinematicClock">ROUND 1 // ACTION 1 OF ${actionCount}</div></div><div class="cinematic-stage" id="cinematicStage"><canvas id="cinematicCanvas" aria-label="Animated raised tactical battlefield"></canvas><div class="cinematic-overlay" id="cinematicOverlay"></div></div><div class="cinematic-command"><div class="command-source" id="cinematicSource"><b>STANDBY</b><span>ACQUIRING COMBAT DATA</span></div><div class="command-copy" id="cinematicCopy"><strong>Initializing tactical reconstruction</strong><span>Building elevation and structural integrity tracking online</span></div><div class="command-impact" id="cinematicImpact"><b>0 DAMAGE</b><span>PLAYBACK READY</span></div></div><div class="cinematic-controls"><button type="button" id="cinematicPlay" onclick="toggleContinuousMap()">❚❚ PAUSE</button><button type="button" onclick="resetContinuousMap()">↺ RESTART</button><input id="cinematicScrubber" type="range" min="0" max="1000" value="0" aria-label="Battle timeline" oninput="seekContinuousMap(this.value)"><label>PLAYBACK SPEED <select id="cinematicSpeed" onchange="setContinuousSpeed(this.value)"><option value="0.25">0.25×</option><option value="0.5">0.5×</option><option value="0.75">0.75×</option><option value="1" selected>1×</option><option value="1.5">1.5×</option><option value="2">2×</option><option value="3">3×</option></select></label><div class="cinematic-time" id="cinematicTime">00:00 / 00:00</div></div><div class="cinematic-roster" id="cinematicRoster"></div></section>`;
+}
+
+function cinematicProject(width,height,x,y,z=0){
+    const scaleX=Math.min(width*.0052,5.4),scaleY=Math.min(height*.00335,2.9),scaleZ=Math.min(height*.0045,3.8);
+    return{x:width*.5+(x-y)*scaleX,y:height*.12+(x+y)*scaleY-z*scaleZ};
+}
+function cinematicPolygon(ctx,points,fill,stroke){
+    ctx.beginPath();points.forEach((point,index)=>index?ctx.lineTo(point.x,point.y):ctx.moveTo(point.x,point.y));ctx.closePath();ctx.fillStyle=fill;ctx.fill();if(stroke){ctx.strokeStyle=stroke;ctx.lineWidth=1;ctx.stroke();}
+}
+function cinematicColor(hex,alpha=1){
+    const value=hex.replace("#","");const n=parseInt(value.length===3?value.split("").map(x=>x+x).join(""):value,16);
+    return `rgba(${(n>>16)&255},${(n>>8)&255},${n&255},${alpha})`;
+}
+function cinematicDrawSlab(ctx,w,h){
+    const a=cinematicProject(w,h,0,0),b=cinematicProject(w,h,100,0),c=cinematicProject(w,h,100,100),d=cinematicProject(w,h,0,100);
+    const depth=22;
+    cinematicPolygon(ctx,[d,c,{x:c.x,y:c.y+depth},{x:d.x,y:d.y+depth}],"#031018","#17647a");
+    cinematicPolygon(ctx,[b,c,{x:c.x,y:c.y+depth},{x:b.x,y:b.y+depth}],"#020b11","#12536a");
+    cinematicPolygon(ctx,[a,b,c,d],"#07171e","#2c8ba1");
+    ctx.save();ctx.strokeStyle="rgba(0,234,255,.09)";ctx.lineWidth=1;
+    for(let i=0;i<=100;i+=10){let p1=cinematicProject(w,h,i,0),p2=cinematicProject(w,h,i,100);ctx.beginPath();ctx.moveTo(p1.x,p1.y);ctx.lineTo(p2.x,p2.y);ctx.stroke();p1=cinematicProject(w,h,0,i);p2=cinematicProject(w,h,100,i);ctx.beginPath();ctx.moveTo(p1.x,p1.y);ctx.lineTo(p2.x,p2.y);ctx.stroke();}
+    ctx.strokeStyle="rgba(94,154,168,.28)";ctx.lineWidth=Math.max(5,w*.008);
+    [[0,38,100,38],[0,67,100,67],[27,0,27,100],[63,0,63,100]].forEach(([x1,y1,x2,y2])=>{const p1=cinematicProject(w,h,x1,y1,.2),p2=cinematicProject(w,h,x2,y2,.2);ctx.beginPath();ctx.moveTo(p1.x,p1.y);ctx.lineTo(p2.x,p2.y);ctx.stroke();});ctx.restore();
+}
+function cinematicDrawBuilding(ctx,w,h,building){
+    const x=building.x,y=building.y,bw=building.w,bd=building.d,z=Math.max(5,building.height*.58),integrity=building.integrity;
+    if(integrity<=0){
+        const center=cinematicProject(w,h,x+bw/2,y+bd/2,1);ctx.save();ctx.fillStyle="rgba(82,43,48,.92)";ctx.strokeStyle="rgba(255,64,85,.7)";
+        for(let i=0;i<14;i++){const angle=(nameHash(building.id+i)%628)/100,radius=6+(nameHash(i+building.name)%26);ctx.fillRect(center.x+Math.cos(angle)*radius,center.y+Math.sin(angle)*radius*.45,3+(i%5),2+(i%3));}ctx.restore();return;
+    }
+    const base=[cinematicProject(w,h,x,y,0),cinematicProject(w,h,x+bw,y,0),cinematicProject(w,h,x+bw,y+bd,0),cinematicProject(w,h,x,y+bd,0)];
+    const top=[cinematicProject(w,h,x,y,z),cinematicProject(w,h,x+bw,y,z),cinematicProject(w,h,x+bw,y+bd,z),cinematicProject(w,h,x,y+bd,z)];
+    const damage=integrity<70,critical=integrity<=30;
+    const topFill=critical?"#50202a":damage?"#514326":"#164452",sideA=critical?"#2a0b11":damage?"#292310":"#082833",sideB=critical?"#1c080d":damage?"#1b180b":"#061b24",edge=critical?"#ff4055":damage?"#ffc83d":"#36a8c0";
+    cinematicPolygon(ctx,[top[1],base[1],base[2],top[2]],sideB,edge);cinematicPolygon(ctx,[top[3],top[2],base[2],base[3]],sideA,edge);cinematicPolygon(ctx,top,topFill,edge);
+    ctx.save();ctx.fillStyle=critical?"rgba(255,64,85,.48)":"rgba(0,234,255,.28)";
+    const floors=Math.min(9,Math.max(2,Math.round(building.height/14)));
+    for(let floor=1;floor<floors;floor++){
+        const t=floor/floors;
+        const left={x:top[3].x+(base[3].x-top[3].x)*t,y:top[3].y+(base[3].y-top[3].y)*t};
+        const right={x:top[2].x+(base[2].x-top[2].x)*t,y:top[2].y+(base[2].y-top[2].y)*t};
+        for(let col=1;col<5;col++){const q=col/5;ctx.fillRect(left.x+(right.x-left.x)*q-1,left.y+(right.y-left.y)*q-1,3,2);}
+    }
+    if(damage){ctx.strokeStyle=critical?"rgba(255,64,85,.9)":"rgba(255,200,61,.7)";ctx.lineWidth=1.2;ctx.beginPath();ctx.moveTo(top[0].x+bw,top[0].y);ctx.lineTo((top[0].x+base[3].x)/2,(top[0].y+base[3].y)/2);ctx.lineTo(base[3].x-4,base[3].y-8);ctx.stroke();}
+    ctx.restore();
+}
+function cinematicInterpolateFighters(previous,current,t){
+    const oldMap=new Map((previous||current).map(item=>[item.name,item]));
+    return current.map(item=>{const old=oldMap.get(item.name)||item;return{...item,x:old.x+(item.x-old.x)*t,y:old.y+(item.y-old.y)*t,hp:old.hp+(item.hp-old.hp)*t};});
+}
+function cinematicFormatTime(ms){const sec=Math.max(0,Math.floor(ms/1000));return `${String(Math.floor(sec/60)).padStart(2,"0")}:${String(sec%60).padStart(2,"0")}`;}
+
+function initializeContinuousTacticalMap(simulation){
+    if(continuousTacticalPlayer?.raf)cancelAnimationFrame(continuousTacticalPlayer.raf);
+    const actions=[];simulation.rounds.forEach(round=>round.actions.forEach((event,index)=>actions.push({event,round:round.round,index})));
+    const canvas=qs("cinematicCanvas"),stage=qs("cinematicStage");if(!canvas||!actions.length)return;
+    const player={simulation,actions,canvas,stage,ctx:canvas.getContext("2d"),elapsed:0,lastTime:performance.now(),durationPerAction:2200,speed:1,playing:true,raf:null,width:0,height:0,dpr:1};
+    continuousTacticalPlayer=player;
+    const resize=()=>{const rect=stage.getBoundingClientRect();player.dpr=Math.min(2,window.devicePixelRatio||1);player.width=rect.width;player.height=rect.height;canvas.width=Math.round(rect.width*player.dpr);canvas.height=Math.round(rect.height*player.dpr);canvas.style.width=rect.width+"px";canvas.style.height=rect.height+"px";player.ctx.setTransform(player.dpr,0,0,player.dpr,0,0);renderContinuousTacticalMap();};
+    player.resizeObserver=new ResizeObserver(resize);player.resizeObserver.observe(stage);resize();
+    player.totalDuration=Math.max(1,actions.length*player.durationPerAction);
+    qs("cinematicTime").textContent=`00:00 / ${cinematicFormatTime(player.totalDuration)}`;
+    const tick=time=>{if(continuousTacticalPlayer!==player)return;const delta=Math.min(70,time-player.lastTime);player.lastTime=time;if(player.playing){player.elapsed=Math.min(player.totalDuration-1,player.elapsed+delta*player.speed);if(player.elapsed>=player.totalDuration-2)player.playing=false;}renderContinuousTacticalMap();player.raf=requestAnimationFrame(tick);};
+    player.raf=requestAnimationFrame(tick);
+}
+function renderContinuousTacticalMap(){
+    const player=continuousTacticalPlayer;if(!player||!player.width)return;
+    const {ctx,width:w,height:h}=player,total=player.actions.length,index=Math.min(total-1,Math.floor(player.elapsed/player.durationPerAction)),local=(player.elapsed%player.durationPerAction)/player.durationPerAction;
+    const record=player.actions[index],event=record.event,previousEvent=index?player.actions[index-1].event:null;
+    const smooth=local<.5?2*local*local:1-Math.pow(-2*local+2,2)/2;
+    const current=event.tactical.snapshot,previous=previousEvent?.tactical?.snapshot||current.map(item=>({...item,x:item.team===1?8:item.team===2?92:50}));
+    const fighters=cinematicInterpolateFighters(previous,current,smooth),live=event.liveTactical||{structures:LIVE_BATTLEFIELD_LAYOUTS[qs("battlefield").value]||[],states:{},structuralEvents:[]};
+    ctx.clearRect(0,0,w,h);const sky=ctx.createLinearGradient(0,0,0,h);sky.addColorStop(0,"#02070b");sky.addColorStop(1,"#010305");ctx.fillStyle=sky;ctx.fillRect(0,0,w,h);
+    cinematicDrawSlab(ctx,w,h);[...live.structures].sort((a,b)=>(a.x+a.y)-(b.x+b.y)).forEach(building=>cinematicDrawBuilding(ctx,w,h,building));
+    const attacker=fighters.find(item=>item.name===event.attacker),target=fighters.find(item=>item.name===event.target);
+    if(attacker&&target&&local>.55){const aState=live.states[event.attacker]||{altitude:0},tState=live.states[event.target]||{altitude:0};const a=cinematicProject(w,h,attacker.x,attacker.y,aState.altitude||0),b=cinematicProject(w,h,target.x,target.y,tState.altitude||0);ctx.save();ctx.strokeStyle=event.tactical.range==="RANGED"?"rgba(0,234,255,.9)":"rgba(255,200,61,.9)";ctx.lineWidth=2+(local-.55)*5;ctx.shadowColor=ctx.strokeStyle;ctx.shadowBlur=13;ctx.beginPath();ctx.moveTo(a.x,a.y);ctx.lineTo(b.x,b.y);ctx.stroke();ctx.restore();}
+    fighters.forEach(fighter=>{const state=live.states[fighter.name]||{state:"GROUND",altitude:0};const ground=cinematicProject(w,h,fighter.x,fighter.y,0),point=cinematicProject(w,h,fighter.x,fighter.y,state.altitude||0),color=fighter.team===1?"#00eaff":fighter.team===2?"#ff4055":"#b56cff";ctx.save();if(state.altitude){ctx.strokeStyle=cinematicColor(color,.5);ctx.setLineDash([3,4]);ctx.beginPath();ctx.moveTo(point.x,point.y);ctx.lineTo(ground.x,ground.y);ctx.stroke();ctx.setLineDash([]);}ctx.fillStyle=cinematicColor(color,.18);ctx.beginPath();ctx.arc(point.x,point.y,15,0,Math.PI*2);ctx.fill();ctx.strokeStyle=color;ctx.lineWidth=fighter.name===event.attacker?3:1.5;ctx.beginPath();ctx.arc(point.x,point.y,7,0,Math.PI*2);ctx.stroke();ctx.fillStyle=color;ctx.beginPath();ctx.arc(point.x,point.y,3,0,Math.PI*2);ctx.fill();ctx.restore();fighter._screen=point;fighter._state=state;fighter._color=color;});
+    const overlay=qs("cinematicOverlay");overlay.innerHTML=fighters.map(fighter=>{const hp=clamp(Math.round((fighter.hp/(fighter.maxHp||100))*100),0,100),state=fighter._state,top=clamp(fighter._screen.y-18,78,h-45);return `<div class="cinematic-fighter-card" style="left:${fighter._screen.x}px;top:${top}px;--fighter:${fighter._color}"><b>${fighter.name}</b><span class="cinematic-state">${state.state} // ${state.altitude||0} M</span><div class="cinematic-fighter-hp"><span style="width:${hp}%"></span></div>${Math.round(fighter.hp)} HP</div>`;}).join("");
+    const structural=live.structuralEvents?.find(item=>!item.fall),fall=live.structuralEvents?.find(item=>item.fall);qs("cinematicSource").innerHTML=`<b>${event.attacker}</b><span>TEAM ${event.attackerTeam===1?"ALPHA":event.attackerTeam===2?"OMEGA":"SIGMA"} // ${event.tactical.range}</span>`;qs("cinematicCopy").innerHTML=`<strong>${event.attacker} uses ${event.move} against ${event.target}</strong><span>${fall?`${fall.name} falls ${fall.structure} // ${fall.fallDamage} environmental damage`:structural?`${structural.name} loses ${structural.damage}% integrity${structural.collapsed?" // BUILDING COLLAPSED":""}`:event.reaction}</span>`;qs("cinematicImpact").innerHTML=`<b>${Math.round(event.damage)} DAMAGE</b><span>${Math.max(0,Math.round(event.targetHp))} HP REMAINING // ${event.effectiveness?.label||"EFFECTIVE"}</span>`;
+    qs("cinematicClock").textContent=`ROUND ${record.round} // ACTION ${index+1} OF ${total}`;qs("cinematicScrubber").value=Math.round(player.elapsed/player.totalDuration*1000);qs("cinematicTime").textContent=`${cinematicFormatTime(player.elapsed)} / ${cinematicFormatTime(player.totalDuration)}`;qs("cinematicPlay").textContent=player.playing?"❚❚ PAUSE":"▶ PLAY";
+    qs("cinematicRoster").innerHTML=fighters.map(fighter=>{const hp=clamp(Math.round(fighter.hp/(fighter.maxHp||100)*100),0,100);return `<div class="cinematic-roster-unit" style="--fighter:${fighter._color}"><b>${fighter.name}</b><span>${Math.round(fighter.hp)} HP</span><i><span style="width:${hp}%"></span></i></div>`;}).join("");
+}
+function toggleContinuousMap(){const player=continuousTacticalPlayer;if(!player)return;if(player.elapsed>=player.totalDuration-2)player.elapsed=0;player.playing=!player.playing;player.lastTime=performance.now();renderContinuousTacticalMap();}
+function resetContinuousMap(){const player=continuousTacticalPlayer;if(!player)return;player.elapsed=0;player.playing=true;player.lastTime=performance.now();renderContinuousTacticalMap();}
+function setContinuousSpeed(value){if(continuousTacticalPlayer)continuousTacticalPlayer.speed=Number(value)||1;}
+function seekContinuousMap(value){const player=continuousTacticalPlayer;if(!player)return;player.elapsed=clamp(Number(value)/1000*player.totalDuration,0,player.totalDuration-1);player.lastTime=performance.now();renderContinuousTacticalMap();}
 
 initBattleHUD();
 playerCountChanged(true);
