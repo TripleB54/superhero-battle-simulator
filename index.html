@@ -1133,6 +1133,29 @@ body:has(#storyDepth option[value="liveTactical"]:checked) #battleFeed .story:em
 .cinematic-tactical{margin:15px 0 24px;border:1px solid #1a7088;background:#01070b;box-shadow:0 0 35px rgba(0,234,255,.1);overflow:hidden}.cinematic-map-head{display:grid;grid-template-columns:1fr auto 1fr;gap:14px;align-items:center;padding:13px 16px;border-bottom:1px solid #194958;background:linear-gradient(90deg,#061923,#02090e 50%,#17070d)}.cinematic-map-head h2{margin:0;color:#dffaff;font-size:14px;letter-spacing:2px}.cinematic-map-head span{display:block;margin-top:4px;color:#79a4b0;font-size:9px;letter-spacing:1px}.cinematic-map-head .cinematic-live{text-align:center;color:#ff4055;font-size:10px;letter-spacing:2px}.cinematic-map-head .cinematic-clock{text-align:right;color:var(--gold);font-size:11px}.cinematic-stage{position:relative;height:720px;background:radial-gradient(ellipse at 50% 74%,rgba(0,181,227,.15),transparent 48%),linear-gradient(#02090e,#010305 73%);overflow:hidden}.cinematic-stage canvas{display:block;width:100%;height:100%}.cinematic-overlay{position:absolute;inset:0;pointer-events:none}.cinematic-fighter-card{position:absolute;width:148px;transform:translate(-50%,-100%);padding:6px 8px;border-left:3px solid var(--fighter);background:rgba(1,8,12,.91);box-shadow:0 0 13px rgba(0,0,0,.8);color:#dffaff;font-size:9px;line-height:1.35}.cinematic-fighter-card b{display:block;color:var(--fighter);font-size:11px}.cinematic-fighter-card .cinematic-state{color:#83a9b5}.cinematic-fighter-hp{height:5px;margin-top:5px;background:#10232b}.cinematic-fighter-hp span{display:block;height:100%;background:var(--fighter);box-shadow:0 0 5px var(--fighter)}.cinematic-command{display:grid;grid-template-columns:170px minmax(0,1fr) 160px;gap:10px;align-items:center;min-height:82px;padding:11px 14px;border-top:1px solid #1b5e72;border-bottom:1px solid #153b48;background:#020a0f}.cinematic-command .command-source b,.cinematic-command .command-impact b{display:block;color:var(--cyan);font-size:12px}.cinematic-command .command-source span,.cinematic-command .command-impact span{display:block;margin-top:4px;color:#83a6b1;font-size:9px}.cinematic-command .command-copy{text-align:center}.cinematic-command .command-copy strong{display:block;color:#f1fcff;font-size:14px}.cinematic-command .command-copy span{display:block;margin-top:6px;color:#8db0bb;font-size:10px}.cinematic-command .command-impact{text-align:right}.cinematic-command .command-impact b{color:var(--red)}.cinematic-controls{display:grid;grid-template-columns:auto auto minmax(120px,1fr) auto auto;gap:9px;align-items:center;padding:11px 13px;background:#010609}.cinematic-controls button{padding:9px 12px;font-size:9px}.cinematic-controls input[type="range"]{width:100%;accent-color:var(--cyan)}.cinematic-controls label{display:flex;align-items:center;gap:7px;color:#8db0ba;font-size:9px;letter-spacing:1px}.cinematic-controls select{background:#02080c;color:var(--cyan);border:1px solid #1a5365;padding:8px}.cinematic-time{min-width:90px;text-align:right;color:#dffaff;font-size:10px}.cinematic-roster{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:6px;padding:9px 12px;border-top:1px solid #153a47;background:#02090d}.cinematic-roster-unit{padding:7px 8px;border-left:2px solid var(--fighter);background:#030d12;font-size:9px}.cinematic-roster-unit b{color:var(--fighter)}.cinematic-roster-unit span{float:right;color:#a9c2c9}.cinematic-roster-unit i{display:block;height:4px;margin-top:5px;background:#10242c}.cinematic-roster-unit i span{float:none;display:block;height:100%;background:var(--fighter)}
 @media(max-width:760px){.cinematic-map-head{grid-template-columns:1fr}.cinematic-map-head .cinematic-live,.cinematic-map-head .cinematic-clock{text-align:left}.cinematic-stage{height:560px}.cinematic-command{grid-template-columns:1fr}.cinematic-command .command-copy,.cinematic-command .command-impact{text-align:left}.cinematic-controls{grid-template-columns:1fr 1fr}.cinematic-controls input[type="range"]{grid-column:1/-1}.cinematic-fighter-card{width:108px;font-size:8px}}
 
+/* LIVE MAP READABILITY: persistent health moves to a compact side roster;
+   the 3D field keeps only the active attacker and target labels. */
+.cinematic-battle-grid{display:grid;grid-template-columns:230px minmax(0,1fr);min-height:720px}.cinematic-battle-grid .cinematic-stage{min-width:0}.cinematic-side-roster{background:#02090d;border-right:1px solid #153a47;padding:10px;overflow:auto}.cinematic-team-group+ .cinematic-team-group{margin-top:14px}.cinematic-team-group h3{margin:0 0 7px;padding-bottom:6px;border-bottom:1px solid #153a47;color:var(--team-color);font-size:10px;letter-spacing:1.5px}.cinematic-roster-unit{margin-bottom:6px;padding:8px;border-left:2px solid var(--fighter);background:#030d12;font-size:9px}.cinematic-roster-unit.active{background:#08202a;box-shadow:inset 0 0 15px rgba(0,234,255,.08)}.cinematic-roster-unit.target{background:#1b090e}.cinematic-roster-unit.ko{opacity:.5}.cinematic-roster-unit b{display:block;color:var(--fighter);font-size:10px;white-space:normal}.cinematic-roster-unit .roster-hp{float:right;color:#d8edf2}.cinematic-roster-unit .roster-state{display:block;margin-top:3px;color:#789ca7;font-size:8px;letter-spacing:.5px}.cinematic-roster-unit i{display:block;height:5px;margin-top:6px;background:#10242c}.cinematic-roster-unit i span{display:block;height:100%;background:var(--fighter)}.cinematic-fighter-card{width:auto;min-width:92px;padding:4px 6px;transform:translate(-50%,-115%);font-size:8px}.cinematic-fighter-card b{font-size:9px;white-space:nowrap}.cinematic-final-result{position:absolute;z-index:8;left:50%;top:50%;transform:translate(-50%,-50%);min-width:min(460px,82%);padding:22px;text-align:center;border:1px solid var(--gold);background:rgba(1,8,12,.96);box-shadow:0 0 45px rgba(255,200,61,.22);color:var(--gold);font-size:20px;letter-spacing:3px}.cinematic-final-result[hidden]{display:none}.cinematic-start-error{display:grid;place-items:center;height:100%;padding:30px;color:#ff8694;text-align:center;letter-spacing:1px}
+@media(max-width:900px){.cinematic-battle-grid{grid-template-columns:190px minmax(0,1fr)}}
+@media(max-width:700px){.cinematic-battle-grid{grid-template-columns:1fr}.cinematic-side-roster{display:grid;grid-template-columns:repeat(auto-fit,minmax(145px,1fr));gap:10px;max-height:none;border-right:0;border-bottom:1px solid #153a47}.cinematic-team-group+ .cinematic-team-group{margin-top:0}.cinematic-battle-grid .cinematic-stage{height:540px;min-height:540px}}
+
+.budget-auction-open #characterPool{grid-template-columns:repeat(5,minmax(125px,1fr));gap:8px;max-height:720px;overflow:auto}
+.budget-card{min-height:128px!important;border-top:3px solid var(--tier-color)!important;cursor:pointer}
+.budget-card .budget-price{position:absolute;right:8px;top:8px;min-width:34px;padding:4px 7px;border:1px solid var(--tier-color);color:var(--tier-color);font-weight:900;text-align:center;background:#02080d}
+.budget-card .tier-row-label{color:var(--tier-color);font-size:12px;font-weight:800;letter-spacing:1px}
+.budget-card.sold{opacity:.46;cursor:not-allowed;filter:saturate(.35)}
+.budget-card.sold::before{content:attr(data-sold);position:absolute;inset:40% 4px auto;padding:7px;background:#02080de8;border:1px solid var(--tier-color);color:#fff;font-size:12px;font-weight:900;letter-spacing:1px;text-align:center;z-index:3}
+.budget-ledger{display:grid;grid-template-columns:repeat(2,minmax(170px,1fr));gap:8px;width:100%;margin-top:6px}
+.budget-team-ledger{display:flex;align-items:center;justify-content:space-between;padding:8px 12px;border:1px solid #1b6077;background:#04121a;color:#9cc4cf;font-size:14px}
+.budget-team-ledger b{font-size:19px;color:var(--green)}
+.auction-modal{position:fixed;inset:0;z-index:9999;display:none;place-items:center;padding:20px;background:rgba(0,3,7,.88);backdrop-filter:blur(7px)}
+.auction-modal.open{display:grid}
+.auction-console{width:min(620px,96vw);border:1px solid #2aa3c4;background:linear-gradient(145deg,#071923,#02080d);box-shadow:0 0 45px #00d9ff24;padding:22px;color:#d8f7ff}
+.auction-console h2{margin:0 0 5px;color:var(--cyan);font-size:24px}.auction-console .auction-meta{color:#8db9c5;font-size:14px}
+.auction-price-display{margin:18px 0;padding:18px;border:1px solid #1d596d;text-align:center;background:#02090e}.auction-price-display small{display:block;color:#7fa8b4;letter-spacing:2px}.auction-price-display strong{display:block;font-size:44px;color:var(--green)}
+.auction-actions{display:grid;grid-template-columns:1fr 1fr;gap:10px}.auction-actions button{min-height:48px;font-size:14px;font-weight:900;letter-spacing:1px}.auction-actions button:disabled{opacity:.32;cursor:not-allowed}
+.auction-rule{margin-top:14px;color:#8fb1bb;font-size:13px;line-height:1.5}
+@media(max-width:900px){.budget-auction-open #characterPool{grid-template-columns:repeat(5,minmax(115px,1fr))}.budget-ledger{grid-template-columns:1fr}.auction-actions{grid-template-columns:1fr}}
 </style>
 </head>
 
@@ -1302,6 +1325,7 @@ GENERATE 10
 <option value="TierDraft">TIER DRAFT</option>
 <option value="CaptainDraft">CAPTAIN DRAFT</option>
 <option value="PrepTime">PREP TIME</option>
+<option value="BudgetAuction">BUDGET AUCTION</option>
 <option value="PresetTeams">PRESET TEAMS</option>
 
 <option value="FreeSelect">
@@ -1366,11 +1390,11 @@ STANDARD
 </option>
 
 <option value="Amped">
-AMPED
+RANDOM VARIANT
 </option>
 
 <option value="Mixed">
-MIXED
+STANDARD + VARIANTS
 </option>
 
 </select>
@@ -1499,11 +1523,11 @@ HEAVY
 <input
 class="tierCheck"
 type="checkbox"
-value="Mystic"
+value="Apex"
 checked
 onchange="filtersChanged()">
 
-MYSTIC
+APEX
 
 </label>
 
@@ -2498,21 +2522,22 @@ if(typeof CHARACTER_DATABASE!=="undefined"){
    Surveillance protocol measures monitoring/containment risk.
 ========================================================= */
 const VERSION_TIER_OVERRIDES={
-    "Ant-Man":["Enhanced","Heavy"],"Aquaman":["Heavy","Mystic"],"Atom":["Enhanced","Heavy"],
+    "Ant-Man":["Enhanced","Heavy"],"Aquaman":["Heavy","Apex"],"Atom":["Enhanced","Heavy"],
     "Batman":["Street","Cosmic"],"Beast Boy":["Enhanced","Heavy"],"Black Canary":["Enhanced","Heavy"],
     "Black Panther":["Enhanced","Heavy"],"Blue Beetle":["Heavy","Heavy"],"Captain America":["Enhanced","Cosmic"],
-    "Captain Marvel":["Heavy","Cosmic"],"Cheetah":["Heavy","Heavy"],"Corvus Glaive":["Heavy","Heavy"],
-    "Cyborg":["Heavy","Cosmic"],"Doctor Doom":["Mystic","Cosmic"],"Ebony Maw":["Heavy","Heavy"],
-    "Emma Frost":["Mystic","Mystic"],"Gamora":["Heavy","Heavy"],"Ghost Rider":["Mystic","Cosmic"],"Iron Man":["Heavy","Cosmic"],
-    "Gorilla Grodd":["Heavy","Heavy"],"Hulk":["Heavy","Cosmic"],"Invisible Woman":["Heavy","Heavy"],
-    "Jean Grey":["Mystic","Cosmic"],"Juggernaut":["Heavy","Cosmic"],"Lobo":["Heavy","Heavy"],
-    "Magneto":["Heavy","Heavy"],"Mera":["Heavy","Heavy"],"Mister Freeze":["Enhanced","Heavy"],
-    "Mister Sinister":["Heavy","Heavy"],"Mongul":["Heavy","Heavy"],"Parasite":["Heavy","Heavy"],
-    "Poison Ivy":["Enhanced","Mystic"],"Professor X":["Mystic","Mystic"],"Raven":["Mystic","Cosmic"],
-    "Ronan the Accuser":["Heavy","Heavy"],"Scarlet Witch":["Mystic","Cosmic"],"Starfire":["Heavy","Heavy"],
-    "Static":["Enhanced","Heavy"],"Storm":["Heavy","Heavy"],"Super-Skrull":["Heavy","Heavy"],
-    "Swamp Thing":["Mystic","Mystic"],"Venom":["Heavy","Cosmic"],"Carnage":["Heavy","Cosmic"],"Vision":["Heavy","Heavy"],"Vixen":["Enhanced","Heavy"],
-    "Wolverine":["Enhanced","Heavy"],"Zatanna":["Mystic","Cosmic"]
+    "Captain Marvel":["Apex","Cosmic"],"Cheetah":["Heavy","Heavy"],"Corvus Glaive":["Heavy","Heavy"],
+    "Cyborg":["Heavy","Cosmic"],"Doctor Doom":["Apex","Cosmic"],"Ebony Maw":["Heavy","Heavy"],
+    "Emma Frost":["Heavy","Apex"],"Gamora":["Heavy","Heavy"],"Ghost Rider":["Apex","Cosmic"],"Iron Man":["Heavy","Cosmic"],
+    "Gorilla Grodd":["Heavy","Heavy"],"Invisible Woman":["Heavy","Heavy"],
+    "Jean Grey":["Apex","Cosmic"],"Juggernaut":["Apex","Cosmic"],"Lobo":["Cosmic","Cosmic"],
+    "Magneto":["Apex","Apex"],"Mera":["Heavy","Apex"],"Mister Freeze":["Enhanced","Heavy"],
+    "Mister Sinister":["Heavy","Apex"],"Mongul":["Apex","Cosmic"],"Parasite":["Heavy","Apex"],
+    "Poison Ivy":["Enhanced","Apex"],"Professor X":["Apex","Apex"],"Raven":["Apex","Cosmic"],
+    "Ronan the Accuser":["Apex","Apex"],"Scarlet Witch":["Cosmic","Cosmic"],"Starfire":["Heavy","Apex"],
+    "Static":["Enhanced","Heavy"],"Storm":["Apex","Apex"],"Super-Skrull":["Heavy","Apex"],
+    "Swamp Thing":["Apex","Apex"],"Venom":["Heavy","Cosmic"],"Carnage":["Heavy","Cosmic"],"Vision":["Cosmic","Cosmic"],"Vixen":["Enhanced","Heavy"],
+    "Wolverine":["Enhanced","Cosmic"],"Zatanna":["Apex","Cosmic"],"Constantine":["Enhanced","Apex"],
+    "Etrigan":["Heavy","Apex"],"Magik":["Heavy","Apex"],"Loki":["Apex","Cosmic"],"Valkyrie":["Heavy","Apex"],"Hulk":["Apex","Cosmic"]
 };
 
 const AMPED_VERSION_NAMES={
@@ -2531,6 +2556,582 @@ const AMPED_VERSION_NAMES={
     "Deadpool":"WEAPON X DEADPOOL","Venom":"KING IN BLACK VENOM","Carnage":"DARK CARNAGE","Silver Surfer":"KEEPER SURFER"
 };
 
+/* Approved pre-code variant matrix. Missing bands are intentionally absent:
+   they do not appear in selectors, AMP generation, or dossiers. */
+const APPROVED_VARIANT_MATRIX=
+{
+  "Spider-Man": {
+    "mid": "Iron Spider",
+    "high": "Captain Universe Spider-Man"
+  },
+  "Iron Man": {
+    "low": "Mark I Iron Man",
+    "mid": "Bleeding Edge Iron Man",
+    "high": "Iron God"
+  },
+  "Thor": {
+    "mid": "Old King Thor",
+    "high": "Rune King Thor"
+  },
+  "Hulk": {
+    "mid": "Worldbreaker Hulk",
+    "high": "Breaker of Worlds Hulk"
+  },
+  "Wolverine": {
+    "mid": "Ultimate Wolverine",
+    "high": "Phoenix Force Wolverine (Old Man Phoenix)"
+  },
+  "Captain Marvel": {
+    "mid": "Warbird (Carol Danvers)",
+    "high": "Binary"
+  },
+  "Doctor Doom": {
+    "mid": "Sorcerer Supreme Doom",
+    "high": "God Emperor Doom"
+  },
+  "Magneto": {
+    "mid": "Age of Apocalypse Magneto"
+  },
+  "Storm": {
+    "mid": "Goddess of Thunder Storm",
+    "high": "Eternal Storm"
+  },
+  "Deadpool": {
+    "mid": "Venompool"
+  },
+  "Black Panther": {
+    "mid": "King of the Dead Black Panther",
+    "high": "Infinity Gauntlet Black Panther"
+  },
+  "Captain America": {
+    "mid": "Captain Hydra (Hydra Supreme)"
+  },
+  "Scarlet Witch": {
+    "mid": "Darkhold Scarlet Witch",
+    "high": "Life Force Scarlet Witch"
+  },
+  "Vision": {
+    "mid": "Avengers A.I. Vision"
+  },
+  "Ant-Man": {
+    "mid": "Giant-Man Scott Lang"
+  },
+  "Groot": {
+    "mid": "King Groot"
+  },
+  "Gamora": {
+    "mid": "Black Vortex Gamora",
+    "high": "Requiem with the Infinity Stones"
+  },
+  "Hela": {
+    "mid": "Hela, Queen of Hel"
+  },
+  "Ghost Rider": {
+    "mid": "King of Hell Johnny Blaze"
+  },
+  "Superman": {
+    "mid": "Kingdom Come Superman",
+    "high": "Superman Prime One Million"
+  },
+  "Batman": {
+    "mid": "Hellbat Batman",
+    "high": "Final Batsuit Batman"
+  },
+  "Wonder Woman": {
+    "mid": "God Mode Wonder Woman",
+    "high": "Golden Wonder Woman"
+  },
+  "The Flash": {
+    "mid": "Negative Flash Barry Allen",
+    "high": "Black Racer Flash"
+  },
+  "Green Lantern": {
+    "mid": "Parallax Hal Jordan",
+    "high": "Spectre Hal Jordan"
+  },
+  "Aquaman": {
+    "mid": "Water Wraith Aquaman"
+  },
+  "Cyborg": {
+    "mid": "God of Technology Cyborg",
+    "high": "Cyborg One Million"
+  },
+  "Martian Manhunter": {
+    "mid": "Fernus (Burning Martian)"
+  },
+  "Shazam": {
+    "mid": "Infected Shazam",
+    "high": "God of Gods Shazam"
+  },
+  "Black Adam": {
+    "mid": "World War III Black Adam"
+  },
+  "Green Arrow": {
+    "mid": "The Dark Knight Returns Green Arrow"
+  },
+  "Deathstroke": {
+    "mid": "Ikon Suit Deathstroke",
+    "high": "Speed Force Deathstroke"
+  },
+  "Raven": {
+    "mid": "White Raven",
+    "high": "The Unkindness"
+  },
+  "Starfire": {
+    "mid": "Justice League Odyssey Starfire"
+  },
+  "Beast Boy": {
+    "high": "Garro (Beast World)"
+  },
+  "Nightwing": {
+    "mid": "Agent 37",
+    "high": "Vampire King Nightwing"
+  },
+  "Harley Quinn": {
+    "mid": "Old Lady Harley"
+  },
+  "Bane": {
+    "mid": "Venom Bane"
+  },
+  "Poison Ivy": {
+    "mid": "Queen Ivy"
+  },
+  "Mister Freeze": {
+    "mid": "One Bad Day Mister Freeze"
+  },
+  "Zatanna": {
+    "mid": "Justice League Dark Zatanna"
+  },
+  "Constantine": {
+    "mid": "New 52 Constantine"
+  },
+  "Doomsday": {
+    "mid": "Hunter/Prey Doomsday",
+    "high": "Doomsday Rex"
+  },
+  "Darkseid": {
+    "mid": "Darkseid War Darkseid",
+    "high": "Soulfire Darkseid"
+  },
+  "Lex Luthor": {
+    "mid": "Warsuit Lex Luthor",
+    "high": "Apex Lex"
+  },
+  "Black Canary": {
+    "mid": "New 52 Black Canary"
+  },
+  "Batgirl": {
+    "mid": "Oracle Barbara Gordon"
+  },
+  "Red Hood": {
+    "mid": "Outlaw Red Hood",
+    "high": "All-Blades Red Hood"
+  },
+  "Supergirl": {
+    "mid": "Red Lantern Supergirl"
+  },
+  "Power Girl": {
+    "mid": "New 52 Earth-2 Power Girl"
+  },
+  "Blue Beetle": {
+    "mid": "Reach-Controlled Blue Beetle",
+    "high": "Infiltrator Mode Blue Beetle"
+  },
+  "Static": {
+    "mid": "Future Static"
+  },
+  "Swamp Thing": {
+    "mid": "Warrior King Swamp Thing",
+    "high": "World Tree Swamp Thing"
+  },
+  "Etrigan": {
+    "mid": "Lord Etrigan"
+  },
+  "Solomon Grundy": {
+    "mid": "Earth 2 Solomon Grundy"
+  },
+  "Cheetah": {
+    "mid": "Rebirth Cheetah"
+  },
+  "Sinestro": {
+    "mid": "Yellow Lantern Sinestro",
+    "high": "Parallax Sinestro"
+  },
+  "Mera": {
+    "mid": "Red Lantern Mera"
+  },
+  "Atom": {
+    "mid": "Indigo Tribe Atom"
+  },
+  "Cyclops": {
+    "mid": "Phoenix Five Cyclops",
+    "high": "Dark Phoenix Cyclops"
+  },
+  "Jean Grey": {
+    "mid": "Phoenix Jean Grey",
+    "high": "White Phoenix of the Crown"
+  },
+  "Professor X": {
+    "mid": "House of X Professor X"
+  },
+  "Rogue": {
+    "mid": "Sunfire-Powered Rogue",
+    "high": "Wonder Man-Powered Rogue"
+  },
+  "Gambit": {
+    "mid": "Death (Horseman) Gambit",
+    "high": "New Sun Gambit"
+  },
+  "Nightcrawler": {
+    "mid": "Legion of X Nightcrawler"
+  },
+  "Colossus": {
+    "mid": "Juggernaut Colossus",
+    "high": "Phoenix Five Colossus"
+  },
+  "Iceman": {
+    "mid": "Age of Apocalypse Iceman",
+    "high": "Omega-Level Ice-Form Iceman"
+  },
+  "Kitty Pryde / Shadowcat": {
+    "mid": "Captain Kate Pryde",
+    "high": "Black Vortex Kitty Pryde"
+  },
+  "Psylocke": {
+    "mid": "Captain Britain Betsy Braddock"
+  },
+  "Emma Frost": {
+    "mid": "Diamond-Form Emma Frost",
+    "high": "Phoenix Five Emma Frost"
+  },
+  "Cable": {
+    "mid": "Messiah War Cable"
+  },
+  "Jubilee": {
+    "mid": "Vampire Jubilee"
+  },
+  "Magik": {
+    "mid": "Darkchylde",
+    "high": "Phoenix Five Magik"
+  },
+  "Archangel": {
+    "high": "Life Seed Archangel"
+  },
+  "Havok": {
+    "mid": "Mutant X Havok"
+  },
+  "Polaris": {
+    "mid": "Malice-Possessed Polaris"
+  },
+  "X-23 / Laura Kinney": {
+    "mid": "All-New Wolverine",
+    "high": "Captain Universe X-23"
+  },
+  "Mystique": {
+    "mid": "House of X Mystique"
+  },
+  "Sabretooth": {
+    "mid": "Weapon X Sabretooth"
+  },
+  "Juggernaut": {
+    "mid": "Kuurth, Breaker of Stone",
+    "high": "Trion Juggernaut"
+  },
+  "Apocalypse": {
+    "mid": "Age of Apocalypse En Sabah Nur"
+  },
+  "Mister Sinister": {
+    "high": "Enigma (Essex Dominion)"
+  },
+  "Multiple Man": {
+    "mid": "Prime Duplicate Madrox"
+  },
+  "Sunspot": {
+    "mid": "Avengers Sunspot"
+  },
+  "Doctor Octopus": {
+    "mid": "Superior Octopus",
+    "high": "Superior Spider-Man"
+  },
+  "Green Goblin": {
+    "mid": "Iron Patriot Norman Osborn",
+    "high": "Red Goblin"
+  },
+  "Electro": {
+    "mid": "Pure Energy Electro"
+  },
+  "Vulture": {
+    "mid": "Savage Six Vulture"
+  },
+  "Mysterio": {
+    "mid": "Ultimate Mysterio (Quentin Beck)"
+  },
+  "Kraven the Hunter": {
+    "mid": "Unbeatable Squirrel Girl Kraven"
+  },
+  "Scorpion": {
+    "mid": "Venom Mac Gargan"
+  },
+  "Shocker": {
+    "mid": "Ultimate Shocker"
+  },
+  "Lizard": {
+    "mid": "Shed Lizard"
+  },
+  "Chameleon": {
+    "mid": "Secret Empire Chameleon"
+  },
+  "Morbius": {
+    "mid": "Midnight Sons Morbius"
+  },
+  "Kingpin": {
+    "mid": "Mayor Wilson Fisk"
+  },
+  "Tombstone": {
+    "mid": "Ultimate Tombstone"
+  },
+  "Mister Negative": {
+    "mid": "King in Black Mister Negative"
+  },
+  "Prowler": {
+    "mid": "Hornet Hobie Brown"
+  },
+  "Miles Morales": {
+    "mid": "Absolute Carnage Miles"
+  },
+  "Black Cat": {
+    "mid": "Queenpin Black Cat",
+    "high": "Iron Cat"
+  },
+  "Carnage": {
+    "mid": "Dark Carnage",
+    "high": "Carnage Cosmic"
+  },
+  "Mister Fantastic": {
+    "mid": "Future Foundation Reed Richards",
+    "high": "Infinity Gauntlet Reed Richards"
+  },
+  "Invisible Woman": {
+    "mid": "Malice (Susan Storm)"
+  },
+  "Human Torch": {
+    "mid": "Negative Zone Human Torch"
+  },
+  "The Thing": {
+    "mid": "Angrir, Breaker of Souls"
+  },
+  "Thanos": {
+    "mid": "King Thanos",
+    "high": "Heart of the Universe Thanos"
+  },
+  "Silver Surfer": {
+    "mid": "Black Silver Surfer",
+    "high": "Keeper Silver Surfer"
+  },
+  "Loki": {
+    "mid": "Sorcerer Supreme Loki",
+    "high": "God of Stories Loki"
+  },
+  "Ultron": {
+    "mid": "Ultron Pym",
+    "high": "All-Father Ultron"
+  },
+  "Daredevil": {
+    "mid": "Shadowland Daredevil",
+    "high": "God Without Fear Daredevil"
+  },
+  "Punisher": {
+    "mid": "Franken-Castle",
+    "high": "Cosmic Ghost Rider"
+  },
+  "Blade": {
+    "mid": "Boy-Thing Blade"
+  },
+  "Hawkeye": {
+    "mid": "Goliath Clint Barton"
+  },
+  "Black Widow": {
+    "mid": "Symbiote Black Widow"
+  },
+  "Iron Fist": {
+    "mid": "Immortal Iron Fist"
+  },
+  "She-Hulk": {
+    "mid": "Winter Hulk"
+  },
+  "Moon Knight": {
+    "mid": "Mr. Knight",
+    "high": "Fist of Khonshu (Age of Khonshu)"
+  },
+  "Shang-Chi": {
+    "mid": "Master of the Ten Rings Shang-Chi"
+  },
+  "Winter Soldier": {
+    "mid": "Man on the Wall Bucky Barnes"
+  },
+  "Falcon": {
+    "mid": "Captain America Sam Wilson"
+  },
+  "War Machine": {
+    "mid": "Iron Patriot James Rhodes"
+  },
+  "Wasp": {
+    "mid": "Giant-Woman Janet van Dyne"
+  },
+  "Quicksilver": {
+    "mid": "Isotope E Quicksilver"
+  },
+  "Namor": {
+    "mid": "King in Black Namor",
+    "high": "Phoenix Five Namor"
+  },
+  "Adam Warlock": {
+    "mid": "Soul Gem Adam Warlock",
+    "high": "Infinity Entity Adam Warlock"
+  },
+  "Nova": {
+    "mid": "Nova Prime Richard Rider",
+    "high": "Worldmind Nova"
+  },
+  "Sentry": {
+    "mid": "Death Seed Sentry",
+    "high": "Merged Sentry/Void"
+  },
+  "Hercules": {
+    "mid": "Champion of Olympus Hercules",
+    "high": "Chaos War Hercules"
+  },
+  "Beta Ray Bill": {
+    "mid": "Stormbreaker Beta Ray Bill",
+    "high": "Twilight Sword Beta Ray Bill"
+  },
+  "Kang the Conqueror": {
+    "high": "Immortus"
+  },
+  "Taskmaster": {
+    "mid": "Ultimate Taskmaster",
+    "high": "Venomized Taskmaster"
+  },
+  "Red Skull": {
+    "mid": "Cosmic Cube Red Skull",
+    "high": "Red Onslaught"
+  },
+  "Abomination": {
+    "mid": "Ultimate Abomination",
+    "high": "Immortal Abomination"
+  },
+  "MODOK": {
+    "mid": "MODOK Superior"
+  },
+  "Crossbones": {
+    "mid": "Terrigen-Enhanced Crossbones"
+  },
+  "Bullseye": {
+    "mid": "Dark Hawkeye"
+  },
+  "Elektra": {
+    "mid": "Daredevil Elektra"
+  },
+  "Red Hulk": {
+    "mid": "Venom/Ghost Rider Red Hulk",
+    "high": "Power Cosmic Red Hulk"
+  },
+  "Knull": {
+    "mid": "King in Black Knull"
+  },
+  "Ronan the Accuser": {
+    "mid": "Annihilation Ronan",
+    "high": "Black Vortex Ronan"
+  },
+  "Super-Skrull": {
+    "mid": "Annihilation Super-Skrull"
+  },
+  "Booster Gold": {
+    "mid": "Blue and Gold Booster Gold",
+    "high": "Time Master Booster Gold"
+  },
+  "Plastic Man": {
+    "mid": "JLA Plastic Man"
+  },
+  "Firestorm": {
+    "mid": "Jason Rusch Firestorm",
+    "high": "Fury Firestorm"
+  },
+  "Captain Atom": {
+    "mid": "Monarch"
+  },
+  "Red Tornado": {
+    "mid": "Humanized Red Tornado",
+    "high": "Air Elemental Red Tornado"
+  },
+  "Metamorpho": {
+    "mid": "Orb of Ra Metamorpho"
+  },
+  "Mister Terrific": {
+    "mid": "Earth 2 Mister Terrific"
+  },
+  "Clayface": {
+    "mid": "Mud Pack Clayface"
+  },
+  "Ra's al Ghul": {
+    "mid": "Lazarus-Enhanced Ra’s al Ghul"
+  },
+  "Captain Cold": {
+    "mid": "New 52 Metahuman Captain Cold"
+  },
+  "Mirror Master": {
+    "mid": "New 52 Mirror Master"
+  },
+  "Weather Wizard": {
+    "mid": "New 52 Weather Wizard"
+  },
+  "Gorilla Grodd": {
+    "mid": "Speed Force Grodd",
+    "high": "Still Force Grodd"
+  },
+  "General Zod": {
+    "mid": "New Krypton General Zod",
+    "high": "Doomsday Virus Zod"
+  },
+  "Brainiac": {
+    "mid": "Brainiac 13",
+    "high": "Convergence Brainiac"
+  },
+  "Bizarro": {
+    "mid": "Red Hood's Bizarro"
+  },
+  "Metallo": {
+    "mid": "Metal-Zero Metallo"
+  },
+  "Parasite": {
+    "mid": "All-Star Superman Parasite"
+  },
+  "Mongul": {
+    "mid": "Lord of Warworld Mongul"
+  },
+  "Lobo": {
+    "mid": "The Mask/Lobo"
+  },
+  "Livewire": {
+    "mid": "New 52 Livewire"
+  },
+  "Trigon": {
+    "high": "Injustice Trigon"
+  },
+  "Atrocitus": {
+    "mid": "Red Lantern Atrocitus",
+    "high": "Butcher-Possessed Atrocitus"
+  },
+  "Larfleeze": {
+    "mid": "Agent Orange Larfleeze",
+    "high": "Ophidian-Possessed Larfleeze"
+  },
+  "Black Manta": {
+    "mid": "N.E.M.O. Black Manta"
+  }
+}
+;
+
 const VERSION_ORIGINS={
     "Spider-Man":"Tony Stark built the Iron Spider armor for Peter Parker during the superhero registration conflict. Peter accepted it because the suit added protection, sensors, gliding and four independently controlled mechanical arms. The armor is equipment, not a biological mutation: EMP, hacking and damaged subsystems apply only to Iron Spider, while Standard Spider-Man retains his natural strength, reflexes, wall-crawling and spider-sense without those armor vulnerabilities.",
     "Wolverine":"Ultimate Wolverine is Logan's alternate Earth-1610 incarnation, not Standard Wolverine entering an unexplained temporary rage state. This dossier treats his history, harder-edged decisions, healing, adamantium skeleton and combat habits as a separate version. His regeneration remains powerful but does not make drowning, magnetism, sensory overload or complete incapacitation irrelevant.",
@@ -2548,8 +3149,8 @@ const AUTHENTIC_VARIANT_NAMES={
     "Iron Man":["MARK I IRON MAN","EXTREMIS IRON MAN","GODKILLER ARMOR IRON MAN"],
     "Thor":["UNWORTHY THOR","MJOLNIR THOR","THORFORCE KING THOR"],
     "Hulk":["JOE FIXIT","GREEN SCAR HULK","WORLDBREAKER HULK"],
-    "Wolverine":["BONE-CLAW WOLVERINE","WEAPON X WOLVERINE","ULTIMATE WOLVERINE"],
-    "Captain America":["WWII CAPTAIN AMERICA","THE CAPTAIN / STEVE ROGERS","MJOLNIR CAPTAIN AMERICA"],
+    "Wolverine":["OLD MAN LOGAN","ULTIMATE WOLVERINE","OLD MAN PHOENIX"],
+    "Captain America":["NOMAD STEVE ROGERS","CAPTAIN HYDRA","MJOLNIR CAPTAIN AMERICA"],
     "Captain Marvel":["MS. MARVEL / CAROL DANVERS","CAPTAIN MARVEL / PEAK STANDARD","BINARY"],
     "Black Panther":["EARLY KING T'CHALLA","VIBRANIUM-SUIT BLACK PANTHER","KING OF THE DEAD"],
     "Doctor Doom":["ARMORED DOOM","SORCERER DOOM","POWER COSMIC DOOM"],
@@ -2575,7 +3176,43 @@ const AUTHENTIC_VARIANT_NAMES={
     "Hawkeye":["EARLY AVENGERS HAWKEYE","RONIN","MAXIMUM TRICK-ARROW HAWKEYE"]
 };
 
-const VERSION_TIER_ORDER=["Street","Enhanced","Heavy","Mystic","Cosmic"];
+/* Individually authored records take priority over procedural variant shaping.
+   These profiles prove the data model: identity, moves, mind-state, and graph
+   can all change independently between versions of the same fighter. */
+const CANON_VARIANT_PROFILES={
+    "Wolverine":{
+        standard:{stats:{strength:72,speed:64,durability:80,stamina:88,agilityReflexes:70,intelligence:65,combatIQ:86,experience:94,willpower:96,adaptability:88,melee:94,ranged:24,accuracy:79,defense:76,evasion:68,battlefieldControl:35,stealth:82,healing:93},mindState:"CALCULATING",judgment:.72,selfPreservation:.46,teamAwareness:.61},
+        "variant-low":{name:"OLD MAN LOGAN",tier:"Enhanced",stats:{strength:66,speed:56,durability:73,stamina:75,agilityReflexes:58,intelligence:67,combatIQ:88,experience:98,willpower:94,adaptability:83,melee:91,ranged:48,accuracy:78,defense:70,evasion:58,battlefieldControl:34,stealth:80,healing:65},moves:{normal:["Veteran Claw Combination","Close-Range Grapple"],signature:["Old Man Logan Tracking Ambush","Adamantium Guard Break"],movement:["Low-Profile Pursuit"],defensive:["Veteran Pain Response"],counter:["Scent-Read Counter"],control:["Terrain Funnel"],support:["Experienced Threat Warning"],finisher:["Last-Reserve Claw Rush"]},personality:"Older, guarded, highly experienced, and reluctant to lose control.",origin:"Old Man Logan is the older Logan from the alternate future commonly associated with Earth-807128. Age and accumulated damage reduce his speed and healing from their strongest portrayals, while decades of survival sharply increase experience, tracking, and threat judgment."},
+        "variant-mid":{name:"ULTIMATE WOLVERINE",tier:"Heavy",stats:{strength:76,speed:72,durability:82,stamina:88,agilityReflexes:74,intelligence:66,combatIQ:80,experience:86,willpower:88,adaptability:84,melee:93,ranged:42,accuracy:82,defense:75,evasion:70,battlefieldControl:42,stealth:85,healing:88},moves:{normal:["Adamantium Claw Combination","Regenerative Grapple"],signature:["Ultimate Wolverine Rush","Covert Hunter Strike"],movement:["Predatory Pursuit"],defensive:["Rapid Regeneration"],counter:["Close-Quarters Reversal"],control:["Cornering Assault"],support:["Mutant Tracking Callout"],finisher:["Ultimate Adamantium Barrage"]},personality:"Hard-edged, secretive, aggressive, and willing to take risks that the mainstream Logan may reject.",origin:"Ultimate Wolverine is the Earth-1610 incarnation of Logan. His history, allegiances, decisions, healing, and combat habits form a separate record rather than a temporary mood applied to Standard Wolverine."},
+        "variant-high":{name:"PHOENIX FORCE WOLVERINE (OLD MAN PHOENIX)",tier:"Cosmic",stats:{strength:95,speed:84,durability:98,stamina:98,agilityReflexes:82,intelligence:76,combatIQ:86,experience:100,willpower:95,adaptability:90,melee:96,ranged:82,accuracy:67,defense:94,evasion:76,battlefieldControl:88,stealth:18,healing:100},moves:{normal:["Phoenix-Charged Claw Arc","Cosmic Flame Burst"],signature:["Old Man Phoenix Firestorm","Phoenix-Force Adamantium Strike"],movement:["Phoenix Starflight"],defensive:["Phoenix Reconstitution"],counter:["Cosmic Flame Purge"],control:["Telekinetic Pressure Field"],support:["Phoenix Renewal Field"],finisher:["Phoenix Judgment Wave"]},personality:"Ancient and forceful, combining Logan's experience with enormous Phoenix power; his precision, restraint, and ranged accuracy do not automatically equal a dedicated cosmic marksman or tactician.",origin:"Phoenix Force Wolverine, often called Old Man Phoenix, is a future Logan who became a Phoenix host. Cosmic flame, flight, telekinesis, energy projection, and Phoenix restoration replace the grounded limitations and tactics of Old Man Logan and Ultimate Wolverine, but the host still favors direct pursuit and close-range pressure."}
+    },
+    "Iron Man":{
+        standard:{stats:{strength:78,speed:84,durability:82,stamina:76,agilityReflexes:79,intelligence:100,combatIQ:92,experience:88,willpower:89,adaptability:96,melee:70,ranged:94,accuracy:97,defense:88,evasion:80,battlefieldControl:86,stealth:62,healing:14},mindState:"ANALYTICAL",judgment:.90,selfPreservation:.70,teamAwareness:.78},
+        "variant-low":{name:"MARK I IRON MAN",tier:"Enhanced",stats:{strength:62,speed:38,durability:70,stamina:48,agilityReflexes:35,intelligence:96,combatIQ:77,experience:50,willpower:86,adaptability:76,melee:58,ranged:63,accuracy:65,defense:65,evasion:34,battlefieldControl:42,stealth:16,healing:12},moves:{normal:["Mark I Armored Strike","Chest Repulsor Burst"],signature:["Flamethrower Sweep","Compressed-Air Charge"],movement:["Short-Burst Rocket Escape"],defensive:["Iron Plating Brace"],counter:["Magnetic Field Disruption"],control:["Smoke-Screen Advance"],support:["Field Engineering Patch"],finisher:["Mark I Power Discharge"]},personality:"Inventive under pressure but constrained by primitive systems, limited mobility, and a short operating window.",origin:"Tony Stark built the Mark I from scavenged industrial material while imprisoned, using it as an escape machine rather than a finished superhero platform. Its heavy plating, crude weapons, and short rocket burst can break a guarded position, but the armor lacks the sustained flight, precision targeting, remote systems, and adaptive defenses of his later suits."},
+        "variant-mid":{name:"BLEEDING EDGE IRON MAN",tier:"Apex",stats:{strength:87,speed:91,durability:88,stamina:86,agilityReflexes:89,intelligence:99,combatIQ:94,experience:91,willpower:91,adaptability:98,melee:84,ranged:96,accuracy:98,defense:93,evasion:91,battlefieldControl:92,stealth:82,healing:46},moves:{normal:["Nanotech Repulsor Array","Morphing Armor Strike"],signature:["Bleeding Edge Weapon Morph","Omnidirectional Repulsor Burst"],movement:["Hypersonic Nanotech Flight"],defensive:["Instant Nanite Shield"],counter:["Adaptive Countermeasure Suite"],control:["Remote Nanite Restraint"],support:["Distributed Sensor Link"],finisher:["Bleeding Edge Full-System Barrage"]},personality:"Highly analytical and confident, continuously redesigning weapons and defenses during the engagement.",origin:"Bleeding Edge is Tony Stark's nanotechnology armor stored within and deployed through his body during the Heroic Age. He designed it so weapons, sensors, propulsion, and shielding could form on demand instead of being limited to fixed suit hardware. The simulator therefore gives it rapid reconfiguration and distributed sensing, while preserving energy load, electronic warfare, and concentration as contests rather than automatic failures."},
+        "variant-high":{name:"GODKILLER ARMOR IRON MAN",tier:"Cosmic",stats:{strength:99,speed:94,durability:99,stamina:91,agilityReflexes:84,intelligence:99,combatIQ:94,experience:92,willpower:96,adaptability:95,melee:96,ranged:100,accuracy:96,defense:99,evasion:84,battlefieldControl:98,stealth:18,healing:30},moves:{normal:["Godkiller Armored Strike","Celestial-Scale Energy Beam"],signature:["Godkiller Weapons Array","Celestial Armor Overdrive"],movement:["Interplanetary Thruster Burst"],defensive:["Godkiller Barrier Matrix"],counter:["Cosmic-Energy Countermeasure"],control:["Gravitic Suppression Field"],support:["Orbital Threat Coordination"],finisher:["Godkiller Maximum Discharge"]},personality:"Strategic and intensely focused, but the enormous armor turns subtle infiltration into large-scale threat management.",origin:"The Godkiller is a Celestial-scale armor system connected to ancient cosmic conflict. This dossier uses Tony operating a controlled Godkiller-class platform: the machine supplies scale, armor, propulsion, and cosmic weapon output, while Tony supplies targeting and tactical control. Its size and energy demand make stealth and fine urban maneuvering worse even as its power and protection become cosmic-class."}
+    },
+    "Hulk":{
+        standard:{stats:{strength:97,speed:67,durability:98,stamina:100,agilityReflexes:55,intelligence:55,combatIQ:74,experience:82,willpower:98,adaptability:89,melee:97,ranged:42,accuracy:58,defense:86,evasion:38,battlefieldControl:82,stealth:8,healing:98},mindState:"ESCALATING",judgment:.56,selfPreservation:.35,teamAwareness:.52},
+        "variant-low":{name:"JOE FIXIT",tier:"Heavy",stats:{strength:82,speed:51,durability:87,stamina:86,agilityReflexes:48,intelligence:76,combatIQ:76,experience:78,willpower:85,adaptability:76,melee:86,ranged:38,accuracy:63,defense:78,evasion:42,battlefieldControl:62,stealth:38,healing:84},moves:{normal:["Fixit Body Blow","Casino-Floor Throw"],signature:["Grey Hulk Feint","Enforcer Combination"],movement:["Low Rooftop Leap"],defensive:["Grey Gamma Brace"],counter:["Dirty-Fighting Counter"],control:["Intimidating Advance"],support:["Streetwise Warning"],finisher:["Joe Fixit Knockdown"]},origin:"Joe Fixit is the intelligent grey Hulk identity who worked as a Las Vegas enforcer. He is less overwhelmingly strong than the green Hulk at his highest anger levels, but is more verbally calculating, deceptive, and willing to use improvised objects and underhanded tactics."},
+        "variant-mid":{name:"GREEN SCAR HULK",tier:"Apex",stats:{strength:96,speed:72,durability:97,stamina:98,agilityReflexes:65,intelligence:70,combatIQ:90,experience:91,willpower:97,adaptability:91,melee:97,ranged:58,accuracy:84,defense:91,evasion:60,battlefieldControl:91,stealth:24,healing:96},moves:{normal:["Warbound Sword Strike","Arena Grapple"],signature:["Green Scar Shield Break","Sakaaran War Charge"],movement:["Gladiator Leap"],defensive:["Warbound Guard"],counter:["Arena Reversal"],control:["Tectonic Footfall"],support:["Warbound Rally"],finisher:["Green Scar Siege Breaker"]},origin:"Green Scar is the battle-trained Hulk forged on Sakaar, where he survived the arena, learned weapons and formation fighting, and became a ruler. This version combines tremendous gamma power with practiced battlefield leadership and gladiatorial tactics rather than treating him as a mindless rage increase."},
+        "variant-high":{name:"WORLDBREAKER HULK",tier:"Cosmic",stats:{strength:100,speed:78,durability:100,stamina:100,agilityReflexes:62,intelligence:42,combatIQ:58,experience:88,willpower:100,adaptability:94,melee:100,ranged:70,accuracy:62,defense:96,evasion:46,battlefieldControl:100,stealth:5,healing:100},moves:{normal:["Worldbreaker Strike","Gamma Shockwave"],signature:["Worldbreaker Thunderclap","Seismic Gamma Surge"],movement:["Cataclysmic Leap"],defensive:["Worldbreaker Endurance"],counter:["Escalating Gamma Reversal"],control:["Seismic Denial Zone"],support:["Uncontrolled Gamma Pressure"],finisher:["Worldbreaker Groundwave"]},origin:"Worldbreaker Hulk is the extreme rage and gamma state reached after Sakaar's destruction and Hulk's return during World War Hulk. His movement and impacts release expanding seismic force. That output greatly increases collateral pressure but lowers precision, judgment, retreat logic, and team coordination.",mindState:"BERSERKER",judgment:.28,selfPreservation:.12,teamAwareness:.24}
+    },
+    "Hawkeye":{
+        standard:{stats:{strength:38,speed:48,durability:38,stamina:69,agilityReflexes:65,intelligence:76,combatIQ:91,experience:90,willpower:87,adaptability:87,melee:72,ranged:96,accuracy:100,defense:57,evasion:62,battlefieldControl:74,stealth:78,healing:8},mindState:"TACTICAL",judgment:.91,selfPreservation:.78,teamAwareness:.88},
+        "variant-low":{stats:{strength:34,speed:45,durability:35,stamina:62,agilityReflexes:61,intelligence:72,combatIQ:78,experience:61,willpower:78,adaptability:72,melee:68,ranged:88,accuracy:94,defense:50,evasion:56,battlefieldControl:63,stealth:66,healing:10},moves:{normal:["Early Avengers Arrow","Bow-Staff Strike"],signature:["Rope Arrow Snare","Explosive Arrow"],movement:["Cable Arrow Traverse"],defensive:["Buckler Arrow Deflection"],counter:["Predictive Snap Shot"],control:["Smoke Arrow Screen"],support:["Line-of-Sight Callout"],finisher:["Early Trick-Arrow Sequence"]}},
+        "variant-mid":{stats:{strength:42,speed:52,durability:42,stamina:72,agilityReflexes:68,intelligence:78,combatIQ:88,experience:88,willpower:87,adaptability:83,melee:86,ranged:79,accuracy:91,defense:69,evasion:65,battlefieldControl:58,stealth:84,healing:10},moves:{normal:["Ronin Sword Combination","Silent Takedown"],signature:["Ronin Ambush","Dual-Blade Reversal"],movement:["Shadow Grapple Traverse"],defensive:["Ronin Parry"],counter:["Close-Quarters Read"],control:["Silent Chokepoint Hold"],support:["Covert Flank Signal"],finisher:["Ronin Blade Sequence"]}},
+        "variant-high":{stats:{strength:46,speed:55,durability:45,stamina:75,agilityReflexes:70,intelligence:82,combatIQ:94,experience:94,willpower:90,adaptability:91,melee:78,ranged:98,accuracy:100,defense:67,evasion:68,battlefieldControl:87,stealth:76,healing:10},moves:{normal:["Maximum-Range Precision Arrow","Rapid Multi-Arrow"],signature:["Pym-Particle Arrow","EMP Trick Arrow"],movement:["Sky-Cycle Reposition"],defensive:["Interception Arrow"],counter:["Countermeasure Arrow Selection"],control:["Foam-and-Net Arrow Lock"],support:["Tactical Target Painting"],finisher:["Maximum Trick-Arrow Cascade"]}}
+    },
+    "Quicksilver":{
+        standard:{mindState:"ARROGANT",judgment:.62,selfPreservation:.48,teamAwareness:.54},
+        "variant-low":{mindState:"ARROGANT",judgment:.54,selfPreservation:.42,teamAwareness:.45},
+        "variant-mid":{mindState:"ARROGANT",judgment:.60,selfPreservation:.44,teamAwareness:.50},
+        "variant-high":{mindState:"OVERCONFIDENT",judgment:.52,selfPreservation:.35,teamAwareness:.46}
+    }
+};
+
+const VERSION_TIER_ORDER=["Street","Enhanced","Heavy","Apex","Cosmic"];
 function tierStep(tier,steps){return VERSION_TIER_ORDER[Math.max(0,Math.min(VERSION_TIER_ORDER.length-1,VERSION_TIER_ORDER.indexOf(tier)+steps))]||tier;}
 function variantArchetype(character){
     const text=[character.role,...(character.richData?.powers||[]),...(character.richData?.equipment||[])].join(" ").toLowerCase();
@@ -2587,9 +3224,8 @@ function variantArchetype(character){
     return["RESTRAINED POWER STATE","PEAK STANDARD STATE"];
 }
 function variantNames(character){
-    if(AUTHENTIC_VARIANT_NAMES[character.name])return AUTHENTIC_VARIANT_NAMES[character.name];
-    const archetype=variantArchetype(character);
-    return[`${character.name.toUpperCase()} // ${archetype[0]}`,`${character.name.toUpperCase()} // ${archetype[1]}`,AMPED_VERSION_NAMES[character.name]||generatedVariantName(character)];
+    const approved=APPROVED_VARIANT_MATRIX[character.name]||{};
+    return[approved.low||"",approved.mid||"",approved.high||""];
 }
 
 function generatedVariantName(character){
@@ -2597,15 +3233,47 @@ function generatedVariantName(character){
     return description.includes(character.name.toUpperCase())?description:`${character.name.toUpperCase()} // ${description}`;
 }
 
-function buildVersionStats(character,stage,tier){
+function normalizedVersionName(value){return String(value||"").toLowerCase().replace(/[^a-z0-9]+/g,"");}
+function authoredVersionMatches(authoredName,displayName){
+    if(!authoredName)return false;
+    const a=normalizedVersionName(authoredName),b=normalizedVersionName(displayName);
+    return a===b||a.includes(b)||b.includes(a);
+}
+function variantStatAdjustments(displayName){
+    const text=String(displayName||"").toLowerCase(),shift={};
+    const add=(keys,value)=>keys.forEach(key=>shift[key]=(shift[key]||0)+value);
+    if(/mark i/.test(text)){add(["strength","durability"],4);add(["speed","agilityReflexes","evasion"],-16);add(["ranged","accuracy","battlefieldControl"],-10);}
+    if(/bleeding edge|iron spider|infiltrator mode|brainiac 13|metal-zero/.test(text)){add(["speed","agilityReflexes","accuracy","defense","adaptability"],8);add(["intelligence","combatIQ","battlefieldControl"],6);}
+    if(/phoenix|binary|captain universe|iron god|god emperor|heart of the universe|eternal storm|convergence brainiac|soulfire|infinity|spectre|parallax|monarch|enigma/.test(text)){add(["strength","durability","stamina","ranged","battlefieldControl","healing"],10);add(["speed","defense"],6);add(["stealth"],-8);}
+    if(/worldbreaker|breaker of worlds|kuurth|trion|angrir|dark carnage|red goblin|doomsday/.test(text)){add(["strength","durability","stamina","melee","battlefieldControl","healing"],12);add(["accuracy","evasion","stealth","combatIQ"],-10);}
+    if(/speed force|negative flash|black racer|still force/.test(text)){add(["speed","agilityReflexes","evasion","accuracy"],14);add(["strength"],-4);}
+    if(/sorcerer supreme|darkhold|god of stories|white raven|unkindness|fist of khonshu|life force|darkchylde/.test(text)){add(["intelligence","combatIQ","ranged","battlefieldControl","willpower"],9);add(["strength"],-3);}
+    if(/ronin|agent 37|queenpin|shadowland|captain hydra|nomad/.test(text)){add(["combatIQ","stealth","adaptability","melee","evasion"],7);add(["ranged"],-3);}
+    if(/red lantern|vampire|malice|hydra|red son|iron patriot/.test(text)){add(["strength","melee","willpower"],6);add(["judgment","accuracy","teamAwareness"],-5);}
+    if(/giant-man|goliath|world tree|queen ivy|mud pack/.test(text)){add(["strength","durability","battlefieldControl"],8);add(["evasion","stealth"],-7);}
+    return shift;
+}
+
+function buildVersionStats(character,stage,tier,versionId="standard",displayName=""){
     const source=character.richData?.stats||{};
     const result={};
-    const tierBoost={Street:3,Enhanced:6,Heavy:9,Mystic:10,Cosmic:12}[tier]||6;
-    const stageShift={standard:0,low:-12,mid:5,high:tierBoost}[stage]??0;
+    const tierBoost={Street:2,Enhanced:4,Heavy:7,Apex:10,Mystic:10,Cosmic:13}[tier]||5;
+    const shifts={
+        standard:{},
+        low:{strength:-9,speed:-7,durability:-7,stamina:-6,agilityReflexes:-5,intelligence:0,combatIQ:-8,experience:-12,willpower:-3,adaptability:-7,melee:-7,ranged:-9,accuracy:-8,defense:-7,evasion:-5,battlefieldControl:-12,stealth:3,healing:-7},
+        mid:{strength:3,speed:3,durability:3,stamina:5,agilityReflexes:4,intelligence:2,combatIQ:7,experience:8,willpower:4,adaptability:6,melee:6,ranged:5,accuracy:7,defense:5,evasion:4,battlefieldControl:7,stealth:2,healing:3},
+        high:{strength:tierBoost,speed:Math.round(tierBoost*.65),durability:tierBoost,stamina:tierBoost,agilityReflexes:Math.round(tierBoost*.45),intelligence:1,combatIQ:2,experience:3,willpower:Math.round(tierBoost*.55),adaptability:Math.round(tierBoost*.7),melee:tierBoost,ranged:tierBoost,accuracy:Math.round(tierBoost*.45),defense:tierBoost,evasion:Math.round(tierBoost*.35),battlefieldControl:tierBoost+2,stealth:-3,healing:tierBoost}
+    };
+    const authoredRecord=CANON_VARIANT_PROFILES[character.name]?.[versionId];
+    const specific=versionId==="standard"?authoredRecord?.stats:(authoredVersionMatches(authoredRecord?.name,displayName)?authoredRecord?.stats:null);
+    const thematic=variantStatAdjustments(displayName);
+    const berserker=/worldbreaker|berserk|zarathos|dark carnage/i.test(displayName);
     STAT_NAMES.forEach(key=>{
         const fallback={strength:character.strength,speed:character.speed,durability:character.durability,intelligence:character.iq,combatIQ:character.iq,melee:character.power,ranged:character.power,battlefieldControl:character.power}[key]??55;
         const base=Number(source[key]??fallback);
-        result[key]=Math.max(1,Math.min(100,Math.round(base+stageShift)));
+        let value=specific?.[key]??(base+(shifts[stage]?.[key]||0)+(thematic[key]||0));
+        if(berserker&&!["strength","durability","stamina","melee","healing","willpower","battlefieldControl"].includes(key))value+=({intelligence:-18,combatIQ:-22,accuracy:-14,stealth:-18,adaptability:-5,evasion:-5}[key]||0);
+        result[key]=Math.max(1,Math.min(100,Math.round(value)));
     });
     return result;
 }
@@ -2622,7 +3290,7 @@ const SURVEILLANCE_PROTOCOLS={
     2:{id:"elevated",label:"ELEVATED PROTOCOL",warning:"ACTIVE TRACKING // ENHANCED RESPONSE REQUIRED"},
     1:{id:"routine",label:"ROUTINE PROTOCOL",warning:"STANDARD FIELD SURVEILLANCE // LOCALIZED THREAT"}
 };
-const TIER_PROTOCOL_LEVEL={Street:1,Enhanced:2,Heavy:3,Mystic:4,Cosmic:5};
+const TIER_PROTOCOL_LEVEL={Street:1,Enhanced:2,Heavy:3,Apex:4,Cosmic:5};
 
 function makeSurveillanceProtocol(character,tier,versionKind="standard",versionDescription=""){
     const isVariant=versionKind!=="standard";
@@ -2666,7 +3334,128 @@ const VERSION_COMBAT_OVERRIDES={
     }
 };
 
-function versionCombatProfile(character,description,variantKind="standard"){
+function stableVariantNumber(text){
+    let value=0;
+    for(const character of String(text||""))value=(value*31+character.charCodeAt(0))>>>0;
+    return value;
+}
+
+function variantThemeRecord(character,displayName){
+    const name=String(displayName||character.name),text=`${name} ${(character.richData?.powers||[]).join(" ")} ${(character.richData?.equipment||[]).join(" ")}`.toLowerCase();
+    const presets=[
+        [/mark i/,{id:"prototype",domain:"TECHNOLOGICAL",range:"mid",categories:["defensive","normal","movement"],avoid:["finisher"],risk:.34,retreat:52,backup:.82,assist:.72,discipline:.82,
+            powers:["Primitive powered armor strength","Short-duration propulsion"],equipment:["Industrial iron plating","Crude flamethrower and magnetic systems"],
+            moves:["Armored Advance","Flamethrower Sweep","Magnetic Disruption","Short-Burst Rocket Escape","Iron Plating Brace","Emergency Power Discharge"],
+            style:"resource-conscious armored advance built around cover, short firing lanes, and a planned exit",personality:"inventive under pressure, cautious with limited power, and aware that the armor cannot sustain a modern aerial exchange",weakness:"Limited power, crude targeting, slow turning, and short flight prevent prolonged pursuit."}],
+        [/bleeding edge|extremis|iron spider|brainiac 13|infiltrator mode|metal-zero|future foundation/,{id:"adaptive-tech",domain:"TECHNOLOGICAL",range:"long",categories:["counter","control","ranged","defensive"],avoid:["normal"],risk:.58,retreat:31,backup:.62,assist:.78,discipline:.92,
+            powers:["Adaptive systems and live threat analysis","Rapid weapon and defense reconfiguration"],equipment:["Version-specific integrated technology","Distributed sensors and countermeasure suite"],
+            moves:["Adaptive Weapon Morph","Omnidirectional Sensor Lock","Remote Restraint Field","Instant Defense Reconfiguration","High-Speed Vector Change","Full-System Precision Barrage"],
+            style:"adaptive multi-range combat that tests a defense, changes configuration, and attacks the newly exposed lane",personality:"analytical and inventive, preferring measured adaptation over repeating an ineffective attack",weakness:"System load, hostile code, and electronic disruption only matter when the opponent can overcome this version's actual security and resistance."}],
+        [/phoenix/,{id:"phoenix",domain:"COSMIC / PSIONIC",range:"mid",categories:["control","signature","movement","support"],avoid:["stealth"],risk:.70,retreat:18,backup:.38,assist:.70,discipline:.66,
+            powers:["Phoenix cosmic flame","Telekinetic and restorative force"],equipment:["Phoenix host connection"],
+            moves:["Phoenix-Charged Close Strike","Cosmic Flame Wave","Telekinetic Pressure Field","Phoenix Starflight","Phoenix Reconstitution","Host-and-Force Convergence"],
+            style:"mobile cosmic pressure that mixes familiar close-range instincts with flame, telekinesis, and aerial control",personality:"forceful and experienced but burdened by vast power; confidence rises faster than fine restraint",weakness:"Host emotion, concentration, and the stability of the Phoenix bond affect control even when raw power remains immense."}],
+        [/parallax|ophidian|white lantern|red lantern|yellow lantern|indigo|star sapphire|power ring/,{id:"lantern",domain:"COSMIC / EMOTIONAL SPECTRUM",range:"long",categories:["control","ranged","defensive","support"],avoid:["normal"],risk:.60,retreat:29,backup:.56,assist:.75,discipline:.78,
+            powers:["Emotional-spectrum energy projection","Construct creation and force-field control"],equipment:["Version-specific power ring or spectrum bond"],
+            moves:["Spectrum Construct Volley","Layered Force Barrier","Binding Construct Array","Aerial Vector Feint","Spectrum Counter-Field","Emotional-Spectrum Maximum"],
+            style:"three-dimensional construct combat using distance, layered defense, restraints, and changing attack geometry",personality:"will-driven and imaginative; the exact emotional source changes aggression, restraint, and willingness to coordinate",weakness:"Ring charge, focus, emotional stability, and the specific spectrum bond limit reliable output."}],
+        [/speed force|negative flash|black racer|still force|blue lantern flash/,{id:"speed-force",domain:"COSMIC / KINETIC",range:"close",categories:["movement","counter","control","signature"],avoid:["defensive"],risk:.72,retreat:24,backup:.42,assist:.68,discipline:.70,
+            powers:["Extreme speed-state access","Accelerated perception and kinetic manipulation"],equipment:["Version-specific speed-force connection"],
+            moves:["Accelerated Perception Read","Phased Vector Pass","Momentum Redirection","Rapid Civilian Extraction","Speed-State Counter","Maximum Velocity Circuit"],
+            style:"constant repositioning that builds openings through perception, momentum, phasing, and attacks from changing angles",personality:"decisive and impatient; superior perception can produce either exceptional rescues or dangerous overconfidence",weakness:"Disrupted concentration, unfamiliar time effects, and overcommitting to a predicted route can break the speed advantage."}],
+        [/symbiote|carnage|venom|red goblin|king in black|dark carnage/,{id:"symbiote",domain:"BIOLOGICAL / HYBRID",range:"close",categories:["normal","control","movement","counter"],avoid:["support"],risk:.78,retreat:20,backup:.35,assist:.42,discipline:.48,
+            powers:["Symbiote body shaping","Organic tendrils, adhesion, and accelerated recovery"],equipment:["Version-specific symbiote bond"],
+            moves:["Tendril Angle Attack","Organic Restraint Net","Wall-Line Pursuit","Shape-Shifted Guard","Predatory Counter","Symbiote Overrun"],
+            style:"unpredictable close-to-mid pressure using tendrils, altered reach, surface movement, and rapid recovery",personality:"predatory and emotionally intensified; the host and symbiote can cooperate brilliantly or amplify fixation",weakness:"The exact symbiote's sonic, heat, psychic, and bond-stability limits are tested by sufficient output rather than treated as automatic shutdowns."}],
+        [/sorcerer|darkhold|god of stories|white raven|unkindness|darkchylde|fist of khonshu|life force|ravenous|soulfire|hellbat|king of hell|queen of hel|zarathos|spectre/,{id:"mystic",domain:"MYSTIC / HYBRID",range:"long",categories:["control","counter","defensive","signature"],avoid:["normal"],risk:.56,retreat:30,backup:.62,assist:.74,discipline:.84,
+            powers:["Version-specific mystical channeling","Protective, binding, and counter-spell capability"],equipment:["Mystic focus or source named by this version"],
+            moves:["Layered Ward","Mystic Binding Circle","Dimensional Reposition","Counter-Enchantment","Source-Linked Projection","Maximum Channeling Invocation"],
+            style:"layered spell combat that protects concentration, identifies the opponent's mechanism, then selects a binding or countermeasure",personality:"deliberate and source-aware, balancing large mystical options against concentration, corruption, or duration costs",weakness:"Concentration, source access, ritual conditions, and hostile magic can interrupt specific effects; mystical power is not an automatic answer to every ability."}],
+        [/worldbreaker|breaker of worlds|kuurth|angrir|trion|war hulk|four horsemen|apocalypse/,{id:"escalating-power",domain:"BIOLOGICAL / COSMIC",range:"close",categories:["normal","signature","control","finisher"],avoid:["stealth","support"],risk:.90,retreat:8,backup:.18,assist:.25,discipline:.30,
+            powers:["Escalating physical output","Large-area pressure generated by movement and impact"],equipment:["Version-specific transformation or empowerment"],
+            moves:["Relentless Power Advance","Seismic Pressure Wave","Guard-Breaking Combination","Terrain Denial Impact","Escalation Counter","Maximum Transformation Surge"],
+            style:"direct siege pressure that narrows escape routes and grows more dangerous as resistance continues",personality:"intensely confrontational and difficult to redirect; threat judgment and teamwork fall as escalation rises",weakness:"Low precision, collateral constraints, emotional fixation, and poor disengagement create tactical openings despite extreme power."}],
+        [/captain hydra|red son|flashpoint|earth one|ultimate |age of apocalypse|house of m|noir|2099|kingpin|queenpin|agent 37|ronin|nomad|shadowland|assassin|warrior madness/,{id:"alternate-tactician",domain:"HYBRID",range:"mid",categories:["counter","movement","control","signature"],avoid:["finisher"],risk:.62,retreat:35,backup:.66,assist:.64,discipline:.86,
+            powers:["Alternate-history application of core abilities","Version-specific training and operational doctrine"],equipment:["Period- and identity-specific field equipment"],
+            moves:["Alternate-Doctrine Feint","Prepared Chokepoint","Counter-Route Ambush","Mobile Guard Transition","Target Isolation Maneuver","Mission-Ending Combination"],
+            style:"mission-focused combat shaped by this identity's different history, training, loyalties, and equipment",personality:"decisive and strategically distinct from the Standard record; alliances and priorities follow this version's history",weakness:"The variant's specialized doctrine can become predictable when an opponent identifies its mission priorities and equipment limits."}],
+        [/giant-man|goliath|colossus|destroyer|cyborg superman|bizarro|doomsday|immortal hulk|weapon h/,{id:"powerhouse",domain:"BIOLOGICAL / TECHNOLOGICAL",range:"close",categories:["normal","control","defensive","signature"],avoid:["stealth"],risk:.76,retreat:18,backup:.30,assist:.46,discipline:.55,
+            powers:["High-end strength and durability","Version-specific size, armor, or transformation advantage"],equipment:["Transformation-linked combat systems"],
+            moves:["Heavy Guard Break","Area-Denial Advance","Defensive Brace","Intercepting Charge","Terrain-Control Throw","Maximum Power Combination"],
+            style:"close-range power fighting that controls space with reach, durability, and intercepting pressure",personality:"confident in direct exchanges, more willing to absorb risk, and less interested in concealment",weakness:"Limited subtlety and turning speed make positioning, redirection, containment, and objective pressure more useful than a direct contest."}],
+        [/world tree|queen ivy|the green|parliament|swamp|groot|plant|gaea/,{id:"nature",domain:"ELEMENTAL / BIOLOGICAL",range:"long",categories:["control","support","defensive","ranged"],avoid:["normal"],risk:.48,retreat:34,backup:.70,assist:.88,discipline:.82,
+            powers:["Large-scale plant and ecosystem control","Regeneration through available biomass"],equipment:["Connection to the version's living network"],
+            moves:["Root-Network Restraint","Living Barrier Growth","Canopy Reposition","Biomass Recovery","Environmental Countergrowth","Ecosystem Convergence"],
+            style:"territory control that grows cover, blocks routes, protects allies, and attacks through the surrounding ecosystem",personality:"patient and protective of the environment; becomes more forceful when allies or living systems are threatened",weakness:"Separation from usable biomass, hostile environments, and sufficiently powerful heat or corruption reduce available options according to actual scale."}],
+        [/binary|captain universe|iron god|god emperor|heart of the universe|infinity|cosmic|eternal storm|convergence|herald|celestial|godkiller|king thor|rune king|darkseid/,{id:"cosmic",domain:"COSMIC",range:"long",categories:["ranged","control","defensive","signature"],avoid:["stealth"],risk:.64,retreat:16,backup:.32,assist:.62,discipline:.74,
+            powers:["Cosmic-scale energy and force projection","Version-specific matter, space, or field control"],equipment:["Cosmic source or artifact identified by this version"],
+            moves:["Cosmic Energy Projection","Gravitic Control Field","Interplanetary Reposition","Layered Cosmic Barrier","Energy-System Counter","Source-Specific Maximum"],
+            style:"large-scale ranged control that separates threats, protects key space, and escalates only when lesser output fails",personality:"operates with widened battlefield awareness and confidence, while retaining the original character's motives and blind spots",weakness:"Source duration, concentration, artifacts, host compatibility, and version-specific opposing forces prevent cosmic status from becoming an automatic win."}],
+        [/omega|ice body|human torch|nova|storm|lightning|electro|livewire|fire|frost|hydro|water|atlant|mera|aquaman/,{id:"elemental",domain:"ELEMENTAL",range:"long",categories:["control","ranged","movement","defensive"],avoid:["normal"],risk:.55,retreat:30,backup:.58,assist:.76,discipline:.79,
+            powers:["Version-specific elemental generation and control","Environmental conversion and area denial"],equipment:["Elemental focus or transformed body"],
+            moves:["Elemental Pressure Beam","Environmental Conversion","Elemental Movement Route","Reactive Elemental Guard","Opposing-Force Contest","Maximum Domain Release"],
+            style:"range and territory control using environmental supply, directional pressure, and defensive conversion",personality:"environment-aware and methodical, seeking favorable terrain before committing maximum output",weakness:"Opposing elements only counter this version when their output, control, duration, and delivery can overcome its demonstrated scale."}],
+        [/professor x|telepath|psychic|psionic|emma frost|cassandra nova|onslaught|martian/,{id:"psionic",domain:"PSIONIC",range:"long",categories:["control","counter","support","defensive"],avoid:["normal"],risk:.40,retreat:38,backup:.75,assist:.90,discipline:.90,
+            powers:["Psionic perception and communication","Mental restraint, projection, and defense"],equipment:["Version-specific psychic focus"],
+            moves:["Psionic Threat Read","Mental Restraint Field","Telepathic Team Link","Psychic Counter-Screen","Astral Reposition","Focused Psionic Breakthrough"],
+            style:"information-first combat using awareness, communication, restraint, and carefully targeted psychic pressure",personality:"observant and deliberate, prioritizing control and team coordination over unnecessary direct exchanges",weakness:"Mental defenses, nonstandard minds, divided concentration, distance, and psychic feedback limit specific techniques."}]
+    ];
+    const found=presets.find(([pattern])=>pattern.test(text));
+    if(found)return found[1];
+    const ranged=/beam|energy|magic|tele|arrow|gun|optic|lightning|fire|ice/.test(text);
+    const agile=/speed|agile|martial|assassin|spider|acrobat|stealth/.test(text);
+    const known=Object.values(character.moveCategories||character.richData?.moves||{}).flat().filter(Boolean);
+    const pick=index=>known[index%Math.max(1,known.length)]||`${character.name} Core Technique`;
+    return{id:"core-variant",domain:"HYBRID",range:ranged?"long":agile?"mid":"close",categories:ranged?["ranged","control","counter"]:agile?["movement","counter","signature"]:["normal","defensive","signature"],avoid:ranged?["normal"]:["ranged"],risk:agile?.58:.66,retreat:ranged?34:26,backup:.58,assist:.64,discipline:.72,
+        powers:[`The abilities specifically established for ${name}`,"A distinct application of the Standard power set"],equipment:[`Equipment and source conditions specific to ${name}`],
+        moves:[`${pick(0)} Opening`,`${pick(1)} Focused Application`,`${pick(4)} Reposition`,`${pick(5)} Guard`,`${pick(6)} Counter`,`${pick(7)} Maximum`],
+        style:`a distinct ${ranged?"range-control":agile?"mobile counter-fighting":"close-pressure"} plan built around the powers and limitations of ${name}`,
+        personality:"retains the character's recognizable motives while following the experience, loyalties, and confidence of this exact version",weakness:`This record only receives abilities demonstrated by ${name}; Standard equipment, later upgrades, and unrelated temporary powers are not silently added.`};
+}
+
+function buildVariantCombatPackage(character,displayName,variantKind,baseProfile){
+    const theme=variantThemeRecord(character,displayName),seed=stableVariantNumber(`${character.name}|${displayName}`);
+    const posture=["patient","assertive","reactive","probing"][seed%4];
+    const variation=((seed%11)-5)/100;
+    const baseMoves=Object.values(baseProfile.moves||{}).flat().filter(Boolean);
+    const technique=(index)=>`${displayName}: ${theme.moves[index]}`;
+    const moves={
+        normal:[baseMoves[seed%Math.max(1,baseMoves.length)]||`${character.name} Core Technique`,technique(0)],
+        signature:[technique(1)],movement:[technique(2)],defensive:[technique(3)],counter:[technique(4)],
+        control:[technique(theme.categories.includes("control")?1:4)],support:[technique(theme.categories.includes("support")?2:3)],finisher:[technique(5)]
+    };
+    const tunedRisk=Math.max(.12,Math.min(.96,theme.risk+variation));
+    const tunedDiscipline=Math.max(.18,Math.min(.97,theme.discipline-variation*.55));
+    const tunedAssist=Math.max(.12,Math.min(.96,theme.assist+(((seed>>3)%7)-3)/100));
+    const behavior={preferredRange:theme.range,preferredCategories:[...theme.categories],avoidCategories:[...theme.avoid],riskTolerance:tunedRisk,retreatThreshold:Math.max(6,Math.min(58,theme.retreat+((seed>>5)%7)-3)),backupBias:Math.max(.1,Math.min(.95,theme.backup-variation)),assistBias:tunedAssist,discipline:tunedDiscipline,
+        mindState:tunedRisk>=.86?"BERSERKER":tunedRisk>=.73?"AGGRESSIVE":tunedDiscipline>=.84?"ANALYTICAL":"CALCULATING",
+        judgment:Math.max(.18,Math.min(.96,tunedDiscipline-(tunedRisk-.5)*.35)),selfPreservation:Math.max(.08,Math.min(.92,1-tunedRisk*.72)),teamAwareness:tunedAssist};
+    const description=String(baseProfile.versionNotes||character.standardDescription||"");
+    return{
+        powers:[...new Set([...(baseProfile.powers||[]),...theme.powers.map(item=>`${displayName}: ${item}`)])],
+        equipment:[...new Set([...(baseProfile.equipment||[]),...theme.equipment])],moves,
+        fightingStyle:`${displayName} uses ${theme.style}. The opening posture is ${posture}; ineffective techniques are deprioritized instead of repeated.`,
+        combatPersonality:`${theme.personality} In simulation, this version has its own risk tolerance, retreat point, backup preference, and assistance priority rather than inheriting Standard behavior.`,
+        weaknesses:[...new Set([...(baseProfile.weaknesses||[]),theme.weakness])],
+        mechanics:[...new Set([...(baseProfile.mechanics||[]),`${displayName} loads a separate move library and decision profile; no other version's exclusive abilities are available.`])],
+        interactions:[...new Set([...(baseProfile.interactions||[]),`Counters are resolved by capability, output, delivery, resistance, and opportunity. Merely sharing a counter type does not guarantee success against ${displayName}.`])],
+        aiBehavior:{
+            longRange:theme.range==="long"?`Maintains distance and prioritizes ${theme.categories.join(", ")}.`:`Closes through cover or movement instead of trading inefficient ranged attacks.`,
+            closeRange:theme.range==="close"?`Presses the version's close-range advantage with ${posture} timing.`:`Creates space with control, defense, or movement before resuming the preferred plan.`,
+            injured:`Reassesses at the ${theme.retreat}% condition threshold; may disengage or request backup according to this version's confidence.`,
+            outnumbered:`Uses area control, movement, or target isolation before committing to a direct exchange.`,
+            strongerOpponent:`Tests whether an actual counter and credible delivery path exist; otherwise repositions, supports a stronger ally, or calls for backup.`,
+            team:`Assistance priority is ${theme.assist>=.8?"high":theme.assist>=.6?"moderate":"limited"}; it does not automatically abandon its own assignment whenever an ally is pressured.`
+        },
+        teamBehavior:`Uses ${theme.range}-range positioning with ${Math.round(theme.assist*100)}-level team awareness. Backup calls and ally assistance depend on this version's discipline, confidence, and current matchup.`,
+        battlefieldBehavior:`Prioritizes ${theme.categories.join(", ")} actions and avoids ${theme.avoid.join(", ")||"no specific category"} when credible alternatives exist. Terrain changes available routes and power supply without applying a flat statistic bonus.`,
+        variantBehavior:behavior,powerDomain:theme.domain,variantThemeId:theme.id,
+        origin:`${displayName} is stored as an independent ${character.name} dossier, not as a generic output slider. The archive treats the identity, equipment, transformation, timeline, or outside source named in the title as the reason this version exists. Its battlefield record adds ${theme.powers.join(" and ").toLowerCase()}, changes the combat plan to ${theme.style}, and preserves source-specific limits. ${description}`,
+        versionNotes:`Selected version: ${displayName}. Exclusive moves, behavior, strengths, equipment, and limitations are loaded for this record.`
+    };
+}
+
+function versionCombatProfile(character,description,variantKind="standard",displayName=character.name){
     const isAmped=variantKind==="high";
     const data=character.richData||{};
     const plain=value=>Array.isArray(value)?value.join(" "):(value||"");
@@ -2685,7 +3474,7 @@ function versionCombatProfile(character,description,variantKind="standard"){
         for(const key of ["fightingStyle","combatPersonality","teamBehavior","battlefieldBehavior"]){if(override[key])profile[key]=override[key];}
         if(override.removeWeaknessPatterns)profile.weaknesses=profile.weaknesses.filter(item=>!override.removeWeaknessPatterns.some(pattern=>String(item).toLowerCase().includes(pattern)));
     }
-    if(variantKind==="low"){
+    if(false&&variantKind==="low"){
         profile.powers=profile.powers.slice(0,Math.max(2,Math.ceil(profile.powers.length*.6)));
         profile.equipment=profile.equipment.slice(0,Math.max(1,Math.ceil(profile.equipment.length*.5)));
         profile.moves=Object.fromEntries(Object.entries(profile.moves||{}).map(([group,moves])=>[group,(Array.isArray(moves)?moves:[moves]).slice(0,1)]));
@@ -2698,7 +3487,7 @@ function versionCombatProfile(character,description,variantKind="standard"){
         profile.battlefieldBehavior=`${plain(profile.battlefieldBehavior)} Prefers cover, shorter engagements, and terrain that reduces the cost of the restricted toolkit.`;
         profile.origin=`This lower-tier archive state uses an early-career, restricted-loadout, depowered, or deliberately restrained portrayal supported by ${character.name}'s established history. The source capability is ${character.standardDescription}. Later mastery, outside artifacts, peak reserves, and maximum-output techniques are intentionally unavailable, creating a genuinely different battlefield version without inventing new powers.`;
         profile.versionNotes=`${character.name} fights more cautiously, relies on core techniques, and cannot solve problems with later upgrades or peak output. ${description}`;
-    }else if(variantKind==="mid"){
+    }else if(false&&variantKind==="mid"){
         profile.mechanics=[...new Set([...(profile.mechanics||[]),"MID-TIER AUTHENTICITY RULE: mature standard mastery and full normal equipment, without temporary cosmic or reality-scale amplification"])];
         profile.fightingStyle=`Veteran peak-standard execution of ${plain(profile.fightingStyle)} Full normal combinations and practiced counters are available.`;
         profile.combatPersonality=`Experienced, controlled form of ${plain(profile.combatPersonality)} This version balances aggression with resource management.`;
@@ -2707,7 +3496,7 @@ function versionCombatProfile(character,description,variantKind="standard"){
         profile.battlefieldBehavior=`${plain(profile.battlefieldBehavior)} Uses the full normal toolkit to control routes, objectives, and matchup distance.`;
         profile.origin=`This middle archive state represents ${character.name} at experienced peak-standard operation: ${character.standardDescription}. It uses the fighter's complete normal power set, practiced techniques, and established equipment, but excludes temporary outside power sources and the separate highest-form record.`;
         profile.versionNotes=`${character.name} uses the full standard toolkit with veteran timing, broader combinations, and stronger resource management while remaining below the highest temporary transformation. ${description}`;
-    }else if(isAmped){
+    }else if(false&&isAmped){
         profile.powers=[...new Set([...(profile.powers||[]),`Highest-version power expression: ${description}`])];
         profile.mechanics=[...new Set([...(profile.mechanics||[]),`HIGHEST-VARIANT OPERATING RULE: ${description}`])];
         profile.fightingStyle=`Highest-form expression of ${plain(profile.fightingStyle)} Power, equipment, and signature abilities are applied at the specific amplified level recorded here.`;
@@ -2716,33 +3505,43 @@ function versionCombatProfile(character,description,variantKind="standard"){
         profile.teamBehavior=`${plain(profile.teamBehavior)} Takes the formation's highest-threat assignment and uses the amplified state to create openings rather than treating it as an automatic victory.`;
         profile.battlefieldBehavior=`${plain(profile.battlefieldBehavior)} Expands control to the maximum authentic scale permitted by this version while preserving collateral, stamina, concentration, and equipment limits.`;
     }
+    if(variantKind!=="standard")Object.assign(profile,buildVariantCombatPackage(character,displayName,variantKind,profile));
     return profile;
 }
 
 CHARACTERS.forEach(character=>{
     const configured=VERSION_TIER_OVERRIDES[character.name];
     const standardTier=configured?.[0]||character.tier;
-    const lowTier=standardTier==="Cosmic"?"Heavy":tierStep(standardTier,-1);
-    const midTier=standardTier==="Cosmic"?"Mystic":standardTier==="Street"?"Enhanced":standardTier;
-    const highestTier=configured?.[1]||tierStep(standardTier,1);
+    const lowTier="Enhanced";
+    const midTier=standardTier==="Apex"||standardTier==="Cosmic"?"Apex":"Heavy";
+    const highestTier="Cosmic";
     const names=variantNames(character);
-    const lowDescription=`${names[0]} limits ${character.name} to established core abilities, reduced reserves, and period-appropriate or restricted equipment. ${character.standardDescription}`;
-    const midDescription=`${names[1]} uses ${character.name}'s mature peak-standard control, full normal technique library, and regular equipment without the highest temporary amplification. ${character.standardDescription}`;
-    const highDescription=character.ampedDescription||"Controlled highest established version with its original limits and counters preserved.";
     const standard={
-        id:"standard",label:"STANDARD",displayName:character.name,battlefieldTier:standardTier,stats:buildVersionStats(character,"standard",standardTier),
+        id:"standard",label:"STANDARD DOSSIER",displayName:character.name,battlefieldTier:standardTier,stats:buildVersionStats(character,"standard",standardTier,"standard",character.name),
         description:character.standardDescription||"Mainstream comic version.",
-        combatProfile:versionCombatProfile(character,character.standardDescription,"standard")
+        combatProfile:versionCombatProfile(character,character.standardDescription,"standard",character.name)
     };
+    const authoredStandard=CANON_VARIANT_PROFILES[character.name]?.standard;
+    if(authoredStandard){standard.mindState=authoredStandard.mindState;standard.judgment=authoredStandard.judgment;standard.selfPreservation=authoredStandard.selfPreservation;standard.teamAwareness=authoredStandard.teamAwareness;}
     standard.surveillanceProtocol=makeSurveillanceProtocol(character,standardTier,"standard",standard.description);
     character.versions=[standard];
     const variantSpecs=[
-        {id:"variant-low",label:"VARIANT I // LOWER",displayName:names[0],battlefieldTier:lowTier,description:lowDescription,kind:"low"},
-        {id:"variant-mid",label:"VARIANT II // MIDDLE",displayName:names[1],battlefieldTier:midTier,description:midDescription,kind:"mid"},
-        {id:"variant-high",label:"VARIANT III // HIGHEST",displayName:names[2],battlefieldTier:highestTier,description:highDescription,kind:"high"}
-    ];
+        names[0]?{id:"variant-low",displayName:names[0],battlefieldTier:lowTier,kind:"low"}:null,
+        names[1]?{id:"variant-mid",displayName:names[1],battlefieldTier:midTier,kind:"mid"}:null,
+        names[2]?{id:"variant-high",displayName:names[2],battlefieldTier:highestTier,kind:"high"}:null
+    ].filter(Boolean);
     variantSpecs.forEach(spec=>{
-        const record={...spec,stats:buildVersionStats(character,spec.kind,spec.battlefieldTier),combatProfile:versionCombatProfile(character,spec.description,spec.kind)};
+        const candidate=CANON_VARIANT_PROFILES[character.name]?.[spec.id];
+        const authored=authoredVersionMatches(candidate?.name,spec.displayName)?candidate:null;
+        if(authored?.tier)spec.battlefieldTier=authored.tier;
+        spec.description=authored?.origin||`${spec.displayName} is a separate established ${character.name} record with version-specific abilities, equipment, history, and behavior.`;
+        const combatProfile=versionCombatProfile(character,spec.description,spec.kind,spec.displayName);
+        if(authored?.moves)combatProfile.moves=authored.moves;
+        if(authored?.personality)combatProfile.combatPersonality=authored.personality;
+        if(authored?.origin)combatProfile.origin=authored.origin;
+        const behavior=combatProfile.variantBehavior||{};
+        const record={...spec,label:spec.displayName,description:combatProfile.origin,stats:buildVersionStats(character,spec.kind,spec.battlefieldTier,spec.id,spec.displayName),combatProfile,
+            mindState:authored?.mindState||behavior.mindState,judgment:authored?.judgment??behavior.judgment,selfPreservation:authored?.selfPreservation??behavior.selfPreservation,teamAwareness:authored?.teamAwareness??behavior.teamAwareness};
         record.surveillanceProtocol=makeSurveillanceProtocol(character,spec.battlefieldTier,spec.kind,spec.description);
         character.versions.push(record);
     });
@@ -2780,16 +3579,22 @@ function versionedCharacter(character,request=assignedVersion()){
     if(!record)return null;
     const fieldMoves=environmentAbilities(character);
     const controlMoves=[...(record.combatProfile.moves?.control||[]),...fieldMoves];
+    const versionMoves=Object.values(record.combatProfile.moves||{}).flat().filter(Boolean);
+    const s=record.stats||{};
     return{
-        ...character,version:record.label,versionId:record.id,tier:record.battlefieldTier,
+        ...character,version:record.displayName||record.label,versionClass:record.label,versionId:record.id,tier:record.battlefieldTier,
         battlefieldTier:record.battlefieldTier,surveillanceProtocol:record.surveillanceProtocol,
-        combatProfile:record.combatProfile,versionDescription:record.description,
+        combatProfile:record.combatProfile,versionDescription:record.description,stats:s,
+        strength:s.strength??character.strength,speed:s.speed??character.speed,durability:s.durability??character.durability,
+        iq:s.combatIQ??s.intelligence??character.iq,power:Math.round(((s.ranged??character.power)+(s.melee??character.power)+(s.battlefieldControl??character.power))/3),
+        mindState:record.mindState||"CALCULATING",judgment:record.judgment,selfPreservation:record.selfPreservation,teamAwareness:record.teamAwareness,
         fightingStyle:record.combatProfile.fightingStyle,personality:record.combatProfile.combatPersonality,
         weaknesses:record.combatProfile.weaknesses,resistances:record.combatProfile.resistances,
         specialMechanics:record.combatProfile.mechanics,powerInteractions:record.combatProfile.interactions,
         teamBehavior:record.combatProfile.teamBehavior,battlefieldBehavior:record.combatProfile.battlefieldBehavior,
-        moves:[...new Set([...(character.moves||[]),...fieldMoves])],
-        moveCategories:{...(character.moveCategories||{}),control:controlMoves},
+        variantBehavior:record.combatProfile.variantBehavior||{},powerDomain:record.combatProfile.powerDomain||"HYBRID",
+        moves:[...new Set([...versionMoves,...fieldMoves])],
+        moveCategories:{...(record.combatProfile.moves||{}),control:controlMoves},
         environmentAbilities:fieldMoves
     };
 }
@@ -3228,6 +4033,16 @@ function usedNames(){
         )
     );
 
+}
+
+function uniqueBaseCharacters(list){
+    const seen=new Set();
+    return list.filter(character=>{
+        const baseName=character.name;
+        if(seen.has(baseName))return false;
+        seen.add(baseName);
+        return true;
+    });
 }
 
 /* =========================================================
@@ -4675,6 +5490,24 @@ function unitFrom(
 
         lastAttacker:null,
 
+        tacticalSetup:{},
+
+        tacticalElevation:0,
+
+        mindState:fighter.mindState||"CALCULATING",
+
+        judgment:fighter.judgment??(/tactical|strateg|analytical|leader|patient/i.test(`${fighter.role} ${fighter.personality}`)?0.85:0.68),
+
+        selfPreservation:fighter.selfPreservation??(/reckless|relentless|arrogant|aggressive/i.test(fighter.personality||"")?0.42:0.70),
+
+        teamAwareness:fighter.teamAwareness??(/protective|leader|support|compassionate/i.test(`${fighter.role} ${fighter.personality}`)?0.86:0.62),
+
+        combatIntent:"ASSESSING",
+
+        needsSupport:false,
+
+        requestedBackupFrom:null,
+
         strength:
         fighter.strength,
 
@@ -4865,11 +5698,12 @@ function threat(
 
 }
 
-const TIER_RANK={Street:1,Enhanced:2,Heavy:3,Mystic:4,Cosmic:5};
+const TIER_RANK={Street:1,Enhanced:2,Heavy:3,Apex:4,Cosmic:5};
 
 function combatScale(fighter){
     const rank=TIER_RANK[fighter.tier]||2;
-    return rank*20+(fighter.power*.30)+(fighter.strength*.22)+(fighter.durability*.24)+(fighter.speed*.12)+(fighter.iq*.12);
+    const capability=battleCapabilities(fighter);
+    return rank*20+(capability.power*30)+(capability.survival*24)+(capability.speed*12)+(capability.tactics*12);
 }
 
 function powerText(fighter){return [fighter.role,...(fighter.combatProfile?.powers||fighter.richData?.powers||[]),...(fighter.combatProfile?.equipment||[]),...(fighter.specialMechanics||[])].join(" ").toLowerCase();}
@@ -4898,19 +5732,132 @@ function attackEffectiveness(attacker,target,move){
     const weaknessMatch=(type==="magic"&&/magic|mystic|sorcer/.test(weak))||(type==="emp"&&/emp|technology|suit/.test(weak))||(type==="electric"&&/electric|lightning/.test(weak))||(type==="sonic"&&/sonic|sound/.test(weak))||(type==="heat"&&/heat|fire/.test(weak))||(type==="cold"&&/cold|ice/.test(weak));
     if(weaknessMatch){modifier*=1.35;reason="Weakness exploited";}
     if((type==="physical"&&/physical force|blunt force|bullets/.test(resist))||(type==="piercing"&&/cutting|bullets|ordinary weapons|physical force/.test(resist))||(type==="energy"&&/energy/.test(resist))||(type==="electric"&&/electric|lightning/.test(resist))||(type==="heat"&&/heat|fire/.test(resist))||(type==="cold"&&/cold/.test(resist))){modifier*=.24;reason="Strong resistance";}
-    const rankGap=tRank-aRank,output=Math.max(attacker.power,attacker.strength+(type==="physical"?5:0)),durabilityGap=target.durability-output;
-    if(!weaknessMatch&&rankGap>=3){modifier=0;reason="Attack lacks the required power";}
-    else if(!weaknessMatch&&rankGap===2){modifier*=.035;reason="Vast power gap";}
-    else if(!weaknessMatch&&rankGap===1&&durabilityGap>12){modifier*=.22;reason="Durability advantage";}
-    if(!weaknessMatch&&durabilityGap>25)modifier*=.05;
-    else if(!weaknessMatch&&durabilityGap>15)modifier*=.22;
+    const attackCapability=battleCapabilities(attacker),defenseCapability=battleCapabilities(target);
+    const rankGap=tRank-aRank,output=attackCapability.power*100+(type==="physical"?3:0),durabilityGap=(defenseCapability.survival*100)-output;
+    /* A tier gap creates a tactical problem, not automatic immunity. */
+    if(!weaknessMatch&&rankGap>=3){
+        modifier*=durabilityGap>10?.06:.18;
+        reason=durabilityGap>10?"No demonstrated output capable of breaching this defense":"Extreme power gap; a created opening is required";
+    }
+    else if(!weaknessMatch&&rankGap===2){
+        modifier*=durabilityGap>10?.12:.36;
+        reason=durabilityGap>10?"The attack lacks a credible breach mechanism":"Major power gap; positioning matters";
+    }
+    else if(!weaknessMatch&&rankGap===1&&durabilityGap>12){modifier*=.62;reason="Durability advantage";}
+    if(!weaknessMatch&&durabilityGap>25)modifier*=.42;
+    else if(!weaknessMatch&&durabilityGap>15)modifier*=.68;
     if(target.name==="Doomsday"){
         const count=target.adaptations?.[type]||0;
         modifier*=Math.max(.08,1-(count*.24));
         if(count>1)reason=`Doomsday is adapting to ${type} attacks`;
     }
-    const label=modifier===0?"NO EFFECT":modifier<.08?"NEGLIGIBLE":modifier<.35?"MINOR":modifier>1.15?"WEAKNESS EXPLOIT":"EFFECTIVE";
+    const label=modifier===0?"NO EFFECT":modifier<.07?"NEGLIGIBLE":modifier<.35?"MINOR":modifier>1.15?"WEAKNESS EXPLOIT":"EFFECTIVE";
     return{modifier,label,reason,type};
+}
+
+function tacticalOpportunity(attacker,target,units,tags,effectiveness){
+    const allies=livingTeam(units,attacker.team).filter(ally=>ally!==attacker&&ally.hp>0);
+    const focusedAllies=allies.filter(ally=>ally.focusTarget===target.name).length;
+    const setup=attacker.tacticalSetup?.[target.name]||0;
+    const distracted=Boolean(target.lastAttacker&&target.lastAttacker!==attacker.name);
+    const roleText=`${attacker.role||""} ${attacker.personality||""}`.toLowerCase();
+    const distance=(Number.isFinite(attacker.x)&&Number.isFinite(target.x))?Math.hypot(target.x-attacker.x,target.y-attacker.y):25;
+    const rankGap=(TIER_RANK[target.tier]||2)-(TIER_RANK[attacker.tier]||2);
+    const specialist=/tactician|ranged|marksman|assassin|infiltrator|hunter|soldier|strateg/.test(roleText);
+    let score=1+(setup*.18)+(focusedAllies*.16)+(distracted?.14:0)+(target.fatigue*.003);
+    if(tags.ranged&&distance>=18)score+=.12;
+    if(tags.control)score+=.11;
+    if(specialist&&(tags.ranged||tags.control||tags.defense))score+=.16;
+    if(attacker.tacticalElevation>0&&tags.ranged)score+=.13;
+    if(effectiveness.reason==="Weakness exploited")score+=.22;
+    if(rankGap>=2&&setup===0&&focusedAllies===0&&!distracted)score-=.18;
+    score=clamp(score,.72,1.82);
+
+    let approach="DIRECT PRESSURE";
+    if(attacker.tacticalElevation>0&&tags.ranged)approach="ELEVATED FIRING ANGLE";
+    else if(focusedAllies>=2)approach="COORDINATED FOCUS";
+    else if(distracted&&specialist)approach="FLANKING ROUTE";
+    else if(setup>=2||tags.control)approach="CONTROLLED OPENING";
+    else if(tags.ranged&&rankGap>=2)approach="STAND-OFF POSITION";
+    return{score,approach,setup,focusedAllies,distracted,rankGap,specialist};
+}
+
+function currentMindState(fighter){
+    if(fighter.mindState==="BERSERKER"||(fighter.name==="Wolverine"&&fighter.rage>=22))return"BERSERKER";
+    if(fighter.mindState==="OVERCONFIDENT"||/reckless|arrogant|overconfident|showy/i.test(fighter.personality||""))return"OVERCONFIDENT";
+    return fighter.mindState||"CALCULATING";
+}
+
+function assistanceWillingness(helper,ally,enemy){
+    const awareness=helper.teamAwareness??.6;
+    const behavior=helper.variantBehavior||{};
+    const roleText=`${helper.role||""} ${helper.personality||""}`.toLowerCase();
+    let score=awareness+(helper.iq/300);
+    score+=((behavior.assistBias??.6)-.6)*.85;
+    if(/leader|support|protective|compassionate|tactical/.test(roleText))score+=.22;
+    if(helper.focusTarget===enemy.name)score+=.12;
+    if((TIER_RANK[enemy.tier]||2)-(TIER_RANK[helper.tier]||2)>=2)score-=.2;
+    if(helper.hp<32)score-=.25;
+    if(currentMindState(helper)==="OVERCONFIDENT")score-=.08;
+    return clamp(score,.08,.95);
+}
+
+function combatJudgment(attacker,target,units){
+    const behavior=attacker.variantBehavior||{};
+    const allies=livingTeam(units,attacker.team).filter(ally=>ally!==attacker);
+    const rankGap=(TIER_RANK[target.tier]||2)-(TIER_RANK[attacker.tier]||2);
+    const scaleGap=combatScale(target)-combatScale(attacker);
+    const severeOvermatch=rankGap>=2||scaleGap>=34;
+    const mind=currentMindState(attacker);
+    const capable=allies.filter(ally=>combatScale(ally)>=combatScale(target)-18).sort((a,b)=>combatScale(b)-combatScale(a))[0]||null;
+    attacker.requestedBackupFrom=null;
+    attacker.needsSupport=false;
+
+    const retreatThreshold=behavior.retreatThreshold??28;
+    if(attacker.hp<=retreatThreshold&&mind!=="BERSERKER"){
+        if(capable&&Math.random()<Math.min(.96,(attacker.judgment??.68)+(behavior.backupBias??.5)*.22)){
+            attacker.combatIntent=`REQUESTING ${capable.name.toUpperCase()}`;
+            attacker.requestedBackupFrom=capable.name;
+            attacker.needsSupport=true;
+            return{intent:attacker.combatIntent,reason:`${attacker.version||attacker.name} reached its version-specific withdrawal point and requested a better-positioned ally`,severeOvermatch,requested:capable.name,mind};
+        }
+        attacker.combatIntent="DISENGAGING";
+        attacker.needsSupport=true;
+        return{intent:attacker.combatIntent,reason:`${attacker.version||attacker.name} reached its version-specific withdrawal point`,severeOvermatch,requested:null,mind};
+    }
+
+    if(severeOvermatch){
+        if(mind==="BERSERKER"){
+            attacker.combatIntent="OVEREXTENDING // BERSERKER";
+            attacker.needsSupport=true;
+            return{intent:attacker.combatIntent,reason:"Threat recognition suppressed by berserker fixation",severeOvermatch,requested:null,mind};
+        }
+        if((mind==="OVERCONFIDENT"||mind==="AGGRESSIVE")&&Math.random()<(behavior.riskTolerance??(1-(attacker.judgment??.6)))){
+            attacker.combatIntent="CHALLENGING OVERMATCH";
+            attacker.needsSupport=true;
+            return{intent:attacker.combatIntent,reason:"Arrogance overrides accurate threat assessment",severeOvermatch,requested:null,mind};
+        }
+        if(capable&&Math.random()<Math.min(.97,(attacker.judgment??.68)+(behavior.backupBias??.5)*.18)){
+            attacker.combatIntent=`REQUESTING ${capable.name.toUpperCase()}`;
+            attacker.requestedBackupFrom=capable.name;
+            attacker.needsSupport=true;
+            return{intent:attacker.combatIntent,reason:"Severe mismatch identified; withdrawing while requesting a capable responder",severeOvermatch,requested:capable.name,mind};
+        }
+        attacker.combatIntent="DISENGAGING";
+        attacker.needsSupport=true;
+        return{intent:attacker.combatIntent,reason:"No credible direct exchange available",severeOvermatch,requested:null,mind};
+    }
+
+    const endangered=allies.filter(ally=>ally.needsSupport&&ally.lastAttacker).sort((a,b)=>a.hp-b.hp)[0];
+    if(endangered){
+        const enemy=units.find(unit=>unit.name===endangered.lastAttacker&&unit.hp>0);
+        if(enemy&&Math.random()<assistanceWillingness(attacker,endangered,enemy)){
+            attacker.combatIntent=`ASSISTING ${endangered.name.toUpperCase()}`;
+            return{intent:attacker.combatIntent,reason:`Independently identifies ${endangered.name} as exposed or out of control`,severeOvermatch:false,requested:endangered.name,mind};
+        }
+    }
+    attacker.combatIntent="ENGAGING";
+    return{intent:attacker.combatIntent,reason:"Matchup remains within a credible engagement range",severeOvermatch:false,requested:null,mind};
 }
 
 /* =========================================================
@@ -4953,6 +5900,7 @@ function chooseTarget(
         const rankGap=(TIER_RANK[enemy.tier]||2)-(TIER_RANK[attacker.tier]||2);
         const distance=(Number.isFinite(attacker.x)&&Number.isFinite(enemy.x))?Math.hypot(enemy.x-attacker.x,enemy.y-attacker.y):30;
         const supporting=allies.some(ally=>ally.focusTarget===enemy.name&&combatScale(ally)>=combatScale(enemy)-12);
+        const endangeredAlly=allies.find(ally=>ally.needsSupport&&ally.lastAttacker===enemy.name);
 
         /* Prefer the closest credible matchup. A weaker fighter challenges
            a major threat mainly when helping an ally who can affect it. */
@@ -4960,6 +5908,7 @@ function chooseTarget(
         if(rankGap>=2)score-=34;
         if(rankGap<=-2)score-=12;
         if(supporting){score+=30;if(rankGap>=2)score+=22;}
+        if(endangeredAlly)score+=42*assistanceWillingness(attacker,endangeredAlly,enemy);
 
         if(
             enemy.hp<35
@@ -5120,9 +6069,24 @@ function chooseMove(
            health state, and team situation now affect move selection. */
         const category=Object.entries(attacker.moveCategories||{})
             .find(([,moves])=>Array.isArray(moves)&&moves.includes(move))?.[0]||"normal";
+        const variantBehavior=attacker.variantBehavior||{};
         const roleText=(attacker.role||"").toLowerCase();
         const personalityText=(attacker.personality||"").toLowerCase();
         const effectiveness=attackEffectiveness(attacker,target,move);
+        const rankGap=(TIER_RANK[target.tier]||2)-(TIER_RANK[attacker.tier]||2);
+        const distance=(Number.isFinite(attacker.x)&&Number.isFinite(target.x))?Math.hypot(target.x-attacker.x,target.y-attacker.y):24;
+
+        if((variantBehavior.preferredCategories||[]).includes(category))score+=12;
+        if((variantBehavior.avoidCategories||[]).includes(category))score-=15;
+        if(variantBehavior.preferredRange==="long"){
+            if(tags.ranged||category==="control")score+=distance>=18?12:7;
+            if(!tags.ranged&&category==="normal")score-=distance>=18?9:4;
+        }else if(variantBehavior.preferredRange==="close"){
+            if(!tags.ranged&&["normal","signature","counter"].includes(category))score+=distance<=22?12:5;
+            if(tags.ranged)score-=4;
+        }else if(variantBehavior.preferredRange==="mid"&&(tags.control||category==="movement"||category==="counter"))score+=9;
+        if((variantBehavior.riskTolerance??.55)>.75&&(category==="signature"||category==="finisher"))score+=7;
+        if((variantBehavior.discipline??.65)>.82&&(category==="counter"||category==="defensive"||category==="control"))score+=7;
 
         if(effectiveness.modifier===0) score-=120;
         else if(effectiveness.modifier<.08) score-=45;
@@ -5140,6 +6104,27 @@ function chooseMove(
         if(/aggressive|relentless|ruthless|fierce/.test(personalityText)&&(tags.area||tags.finisher)) score+=5;
         if(/tactical|calculating|patient|analytical|creative/.test(personalityText)&&(tags.control||tags.defense)) score+=6;
         if(/protective|compassionate|leader/.test(personalityText)&&allies.some(ally=>ally.hp<40)&&tags.defense) score+=8;
+
+        /* Underdogs seek a lane, setup, or restraint instead of charging directly. */
+        if(rankGap>=2){
+            if((tags.ranged||tags.control||tags.defense)&&/ranged|marksman|assassin|infiltrator|tactician|soldier|strateg/.test(roleText+" "+personalityText))score+=18;
+            if(tags.ranged)score+=8;
+            if(tags.control)score+=7;
+            if(!tags.ranged&&!tags.control&&!tags.defense)score-=12;
+        }
+
+        if(attacker.name==="Punisher"&&rankGap>=2){
+            if(tags.ranged)score+=22;
+            if(tags.control||tags.defense)score+=12;
+            if(!tags.ranged&&!tags.control&&!tags.defense)score-=20;
+        }
+
+        if(/DISENGAGING|REQUESTING/.test(attacker.combatIntent||"")){
+            if(tags.ranged||tags.defense||tags.control)score+=20;
+            if(!tags.ranged&&!tags.defense&&!tags.control)score-=24;
+        }
+
+        if(/OVEREXTENDING|CHALLENGING/.test(attacker.combatIntent||"")&&!tags.defense)score+=10;
 
         if(
             tags.ranged
@@ -5332,77 +6317,34 @@ function chooseMove(
 
 function reaction(
     attacker,
-    target
+    target,
+    tactical,
+    effectiveness
 ){
 
-    const roll=
-        Math.random()*100;
+    const defensiveMoves=target.moves.join(" ").toLowerCase();
+    const opening=(tactical?.score||1)-1;
+    const setup=tactical?.setup||0;
+    const teamPressure=tactical?.focusedAllies||0;
+    const distraction=tactical?.distracted?10:0;
+    const attackCapability=battleCapabilities(attacker),defenseCapability=battleCapabilities(target);
+    const attackRead=(attackCapability.accuracy*42)+(attackCapability.speed*17)+(attackCapability.tactics*18)+(attackCapability.control*8)+(opening*32)+(setup*4)+(teamPressure*4)+distraction+(Math.random()*10);
+    let defenseRead=(defenseCapability.mobility*45)+(defenseCapability.speed*23)+(defenseCapability.tactics*10)-(target.fatigue*.14)+(Math.random()*10);
+    if(target.guardReady)defenseRead+=15;
 
-    const evasion=
-        target.speed*.45
-        +
-        target.iq*.15
-        -
-        attacker.speed*.25;
-
-    if(
-        target.name===
-        "Vision"
-        &&
-        roll<25
-    ){
-
-        return"phase";
-
+    /* Speedsters remain extremely difficult to tag until the attacker earns an
+       opening through setup, distraction, control, or coordinated pressure. */
+    if(target.name==="The Flash"){
+        defenseRead+=(tactical?.distracted||setup>=2||teamPressure>=2)?5:24;
     }
 
-    const defensiveMoves=
-        target.moves
-        .join(" ")
-        .toLowerCase();
-
-    if(
-        /shield|guard|bracelet|barrier|deflect/.test(
-            defensiveMoves
-        )
-        &&
-        roll<25
-    ){
-
-        return"block";
-
-    }
-
-    if(
-        roll<
-        12+
-        evasion*.10
-    ){
-
-        return"counter";
-
-    }
-
-    if(
-        roll<
-        25+
-        evasion*.18
-    ){
-
-        return"dodge";
-
-    }
-
-    if(
-        roll<
-        40+
-        evasion*.15
-    ){
-
-        return"partial";
-
-    }
-
+    const margin=attackRead-defenseRead;
+    if(target.name==="Vision"&&setup<2&&margin<-2)return"phase";
+    if(margin<-12)return"counter";
+    if(margin<5)return target.speed>(attacker.stats?.accuracy??attacker.iq)?"dodge":"miss";
+    if(margin<15)return"glancing-dodge";
+    if(/shield|guard|bracelet|barrier|deflect/.test(defensiveMoves)&&margin<22)return"block";
+    if(margin<28||effectiveness?.modifier<.15)return"partial";
     return"hit";
 
 }
@@ -5509,7 +6451,8 @@ function calculateDamage(
     attacker,
     target,
     move,
-    reactionType
+    reactionType,
+    tactical
 ){
 
     const tags=
@@ -5521,16 +6464,8 @@ function calculateDamage(
 
     if(effectiveness.modifier===0)return 0;
 
-    let damage=
-        8
-        +
-        attacker.power*.08
-        +
-        attacker.strength*.05
-        -
-        target.durability*.05
-        +
-        Math.random()*8;
+    const attackCapability=battleCapabilities(attacker),defenseCapability=battleCapabilities(target);
+    let damage=6+(attackCapability.power*18)+(attackCapability.accuracy*2)-(defenseCapability.survival*10)+(Math.random()*6);
 
     if(
         tags.finisher
@@ -5557,17 +6492,11 @@ function calculateDamage(
 
     damage*=effectiveness.modifier;
 
-    if(
-        reactionType===
-        "dodge"
-        ||
-        reactionType===
-        "phase"
-    ){
+    damage*=tactical?.score||1;
 
-        damage*=.10;
+    if(["dodge","phase","miss","counter"].includes(reactionType))return 0;
 
-    }
+    if(reactionType==="glancing-dodge")damage*=.28;
 
     if(
         reactionType===
@@ -5587,13 +6516,15 @@ function calculateDamage(
 
     }
 
-    if(
-        reactionType===
-        "counter"
-    ){
+    /* A successfully engineered opening always has some battlefield value.
+       This is earned by context, not granted as a flat hit percentage. */
+    if((reactionType==="hit"||reactionType==="partial")&&(tactical?.score||0)>=1.2&&effectiveness.modifier>=.15){
+        const openingFloor=2+(tactical.focusedAllies*.9)+(tactical.setup*.55)+(effectiveness.reason==="Weakness exploited"?2:0);
+        damage=Math.max(damage,openingFloor*(reactionType==="partial"?.72:1));
+    }
 
-        damage*=.25;
-
+    if(target.name==="The Flash"&&(reactionType==="hit"||reactionType==="partial")&&(tactical?.score||0)>=1.28){
+        damage=Math.max(damage,reactionType==="partial"?3:5);
     }
 
     return clamp(
@@ -5659,6 +6590,60 @@ function battlefieldLocation(){
    SIMULATE BATTLE
 ========================================================= */
 
+function battleCapabilities(fighter){
+    const version={stats:fighter.stats||{},battlefieldTier:fighter.tier,combatProfile:fighter.combatProfile};
+    return capabilityRawValues(fighter,version);
+}
+
+function initiativeDelay(fighter,actionType="attack"){
+    const c=battleCapabilities(fighter),discipline=fighter.variantBehavior?.discipline??.65;
+    let delay=104-(c.speed*40)-(c.mobility*18)-(c.tactics*10)+(fighter.fatigue*.18)+(Math.random()*18);
+    if(actionType==="combo")delay+=14;
+    if(actionType==="counter")delay-=13;
+    if(actionType==="reposition"||actionType==="retreat")delay-=5;
+    delay-=discipline*5;
+    return clamp(delay,24,118);
+}
+
+function dynamicActionOrder(units,round){
+    const living=allLiving(units);
+    living.forEach(fighter=>{
+        if(!Number.isFinite(fighter.nextActionAt))fighter.nextActionAt=initiativeDelay(fighter)+Math.random()*28;
+    });
+    const scheduled=[],count=clamp(Math.ceil(living.length*1.45),3,16);
+    for(let index=0;index<count;index++){
+        const available=living.filter(fighter=>fighter.hp>0).sort((a,b)=>a.nextActionAt-b.nextActionAt||b.speed-a.speed);
+        const fighter=available[0];if(!fighter)break;
+        scheduled.push(fighter);
+        fighter.nextActionAt+=initiativeDelay(fighter);
+    }
+    return scheduled;
+}
+
+function chooseBattleAction(attacker,target,decision,units,round,actionIndex){
+    const behavior=attacker.variantBehavior||{},cap=battleCapabilities(attacker);
+    const distance=Math.hypot(target.x-attacker.x,target.y-attacker.y);
+    const preferred=behavior.preferredRange||String(attacker.range||"Hybrid").toLowerCase();
+    const rankGap=(TIER_RANK[target.tier]||2)-(TIER_RANK[attacker.tier]||2);
+    const setup=attacker.tacticalSetup[target.name]||0;
+    if(/DISENGAGING/.test(decision.intent)){
+        attacker.withdrawalCount=(attacker.withdrawalCount||0)+1;
+        if(attacker.withdrawalCount<=2)return{type:"retreat",label:"Tactical Withdrawal",reason:decision.reason};
+    }else attacker.withdrawalCount=0;
+    if(/REQUESTING/.test(decision.intent)){
+        attacker.backupCallCount=(attacker.backupCallCount||0)+1;
+        if(attacker.backupCallCount<=1)return{type:"backup",label:`Backup Call: ${attacker.requestedBackupFrom||"Team"}`,reason:decision.reason};
+    }else attacker.backupCallCount=0;
+    if(/ASSISTING/.test(decision.intent))return{type:"assist",label:decision.intent.replace("ASSISTING","Covering"),reason:decision.reason};
+    if(preferred==="close"&&distance>30)return{type:"advance",label:"Close-Range Approach",reason:"The preferred attack cannot be delivered from the current distance"};
+    if(preferred==="long"&&distance<16)return{type:"reposition",label:"Stand-Off Reposition",reason:"The fighter creates room for the version's ranged toolkit"};
+    if(rankGap>=1&&setup<2&&(cap.tactics>.62||cap.control>.65))return{type:"setup",label:"Matchup Setup",reason:"A direct attack lacks a reliable opening against the current defense"};
+    if(attacker.hp<(behavior.retreatThreshold??28)+17&&cap.survival<.72)return{type:"guard",label:"Defensive Reset",reason:"Pressure and accumulated fatigue make another immediate attack inefficient"};
+    const cadence=(round+actionIndex+nameHash(attacker.name+target.name))%7;
+    if(cadence===0&&cap.tactics>.72)return{type:"reposition",label:"Angle Change",reason:"The fighter abandons the obvious line before committing"};
+    return{type:"attack",label:"",reason:""};
+}
+
 function simulateBattle(){
 
     const units=[
@@ -5709,7 +6694,8 @@ function simulateBattle(){
 
     const tacticalSnapshot=()=>units.map(fighter=>({
         name:fighter.name,team:fighter.team,icon:fighter.icon,
-        hp:fighter.hp,maxHp:fighter.maxHp,x:fighter.x,y:fighter.y
+        hp:fighter.hp,maxHp:fighter.maxHp,x:fighter.x,y:fighter.y,
+        intent:fighter.combatIntent,mindState:currentMindState(fighter),requestedBackupFrom:fighter.requestedBackupFrom
     }));
 
     const context=
@@ -5731,12 +6717,7 @@ function simulateBattle(){
 
         const actions=[];
 
-        const fighters=
-            shuffle(
-                allLiving(
-                    units
-                )
-            );
+        const fighters=dynamicActionOrder(units,round);
 
         for(
             const attacker
@@ -5775,6 +6756,43 @@ function simulateBattle(){
 
             attacker.focusTarget=target.name;
 
+            const decision=combatJudgment(attacker,target,units);
+
+            const actionChoice=chooseBattleAction(attacker,target,decision,units,round,actions.length);
+            if(actionChoice.type!=="attack"){
+                const start={x:attacker.x,y:attacker.y},targetStart={x:target.x,y:target.y};
+                const dx=target.x-attacker.x,dy=target.y-attacker.y,distance=Math.max(1,Math.hypot(dx,dy));
+                if(actionChoice.type==="advance"){
+                    const travel=Math.min(Math.max(0,distance-7),8+attacker.speed*.12);
+                    attacker.x=clamp(attacker.x+(dx/distance)*travel,5,95);attacker.y=clamp(attacker.y+(dy/distance)*travel,8,92);
+                }else if(actionChoice.type==="retreat"||actionChoice.type==="backup"){
+                    const travel=9+attacker.speed*.10;
+                    attacker.x=clamp(attacker.x-(dx/distance)*travel,5,95);attacker.y=clamp(attacker.y-(dy/distance)*travel,8,92);
+                }else if(actionChoice.type==="reposition"){
+                    const side=nameHash(attacker.name+target.name+round+actions.length)%2?1:-1,travel=7+attacker.speed*.06;
+                    attacker.x=clamp(attacker.x-(dy/distance)*travel*side,5,95);attacker.y=clamp(attacker.y+(dx/distance)*travel*side,8,92);
+                    if((attacker.variantBehavior?.preferredRange||"")==="long"&&distance<20){attacker.x=clamp(attacker.x-(dx/distance)*5,5,95);attacker.y=clamp(attacker.y-(dy/distance)*5,8,92);}
+                }else if(actionChoice.type==="setup"){
+                    attacker.tacticalSetup[target.name]=clamp((attacker.tacticalSetup[target.name]||0)+1,0,4);
+                    attacker.tacticalElevation=clamp(attacker.tacticalElevation+1,0,3);
+                }else if(actionChoice.type==="guard"){
+                    attacker.guardReady=true;
+                }else if(actionChoice.type==="assist"){
+                    const ally=units.find(unit=>unit.team===attacker.team&&unit.name===decision.requested);
+                    if(ally){ally.needsSupport=false;ally.tacticalSetup[target.name]=clamp((ally.tacticalSetup[target.name]||0)+1,0,4);}
+                }
+                if(liveMode){
+                    const state=liveStates[attacker.name];
+                    if(state){state.state=actionChoice.type==="advance"?"CLOSING":actionChoice.type==="retreat"?"WITHDRAWING":actionChoice.type==="guard"?"GUARDING":actionChoice.type==="setup"?"SETTING UP":"REPOSITIONING";}
+                }
+                attacker.fatigue=clamp(attacker.fatigue+1,0,100);
+                actions.push({attacker:attacker.name,attackerTeam:attacker.team,target:target.name,targetTeam:target.team,move:actionChoice.label,reaction:actionChoice.type,damage:0,
+                    actionType:actionChoice.type,effectiveness:{modifier:0,label:"TACTICAL ACTION",reason:actionChoice.reason},tacticalPlan:{score:1,approach:actionChoice.type.toUpperCase(),setup:attacker.tacticalSetup[target.name]||0,focusedAllies:0,distracted:false},combatDecision:decision,targetHp:target.hp,attackerHp:attacker.hp,location:battlefieldLocation(),elimination:false,
+                    tactical:{range:"MOVEMENT",start,attacker:{x:attacker.x,y:attacker.y},targetStart,target:{x:target.x,y:target.y},snapshot:tacticalSnapshot()},
+                    liveTactical:liveMode?{battlefield:qs("battlefield").value,structures:liveClone(liveStructures),states:liveClone(liveStates),structuralEvents:[]}:null});
+                continue;
+            }
+
             const move=
                 chooseMove(
                     attacker,
@@ -5786,13 +6804,29 @@ function simulateBattle(){
 
             const effect=attackEffectiveness(attacker,target,move);
 
+            const tags=moveTags(move);
+            const rankGap=(TIER_RANK[target.tier]||2)-(TIER_RANK[attacker.tier]||2);
+            const tacticalRole=/ranged|marksman|assassin|infiltrator|tactician|soldier|strateg/.test(`${attacker.role||""} ${attacker.personality||""}`.toLowerCase());
+            if(rankGap>=1&&(tags.ranged||tags.control||tags.defense||tacticalRole)){
+                attacker.tacticalSetup[target.name]=clamp((attacker.tacticalSetup[target.name]||0)+1,0,4);
+            }else{
+                attacker.tacticalSetup[target.name]=Math.max(0,(attacker.tacticalSetup[target.name]||0)-1);
+            }
+            attacker.tacticalElevation=(tags.ranged&&tacticalRole&&rankGap>=1)?clamp(attacker.tacticalElevation+1,0,3):Math.max(0,attacker.tacticalElevation-1);
+            const tacticalPlan=tacticalOpportunity(attacker,target,units,tags,effect);
+            if(effect.modifier>0&&effect.label==="NEGLIGIBLE"&&tacticalPlan.score>=1.2){
+                effect.label="TACTICAL OPENING";
+                effect.reason=`${tacticalPlan.approach.toLowerCase()} bypasses part of the raw power gap`;
+            }
+
             const react=
                 reaction(
                     attacker,
-                    target
+                    target,
+                    tacticalPlan,
+                    effect
                 );
-
-            const tags=moveTags(move);
+            if(target.guardReady)target.guardReady=false;
             if(liveMode){
                 const state=liveStates[attacker.name];
                 if(liveCanFly(attacker.name)){
@@ -5811,14 +6845,43 @@ function simulateBattle(){
                 attacker.x=clamp(attacker.x+(dx/distance)*travel,5,95);
                 attacker.y=clamp(attacker.y+(dy/distance)*travel,8,92);
             }
+            if(/DISENGAGING|REQUESTING/.test(decision.intent)){
+                const retreat=8+(attacker.speed*.08);
+                attacker.x=clamp(attacker.x-(dx/distance)*retreat,5,95);
+                attacker.y=clamp(attacker.y-(dy/distance)*retreat,8,92);
+            }
+            if(/FLANKING|ELEVATED|STAND-OFF/.test(tacticalPlan.approach)){
+                const side=nameHash(attacker.name+target.name+round)%2?1:-1;
+                const lateral=5+(attacker.iq*.035);
+                attacker.x=clamp(attacker.x-(dy/distance)*lateral*side,5,95);
+                attacker.y=clamp(attacker.y+(dx/distance)*lateral*side,8,92);
+            }
 
-            const damage=
+            let damage=
                 calculateDamage(
                     attacker,
                     target,
                     move,
-                    react
+                    react,
+                    tacticalPlan
                 );
+
+            let comboHits=1;
+            const comboMoves=[move];
+            if(damage>0&&(react==="hit"||react==="partial")){
+                const attackCaps=battleCapabilities(attacker),defenseCaps=battleCapabilities(target);
+                const meleeSkill=(attacker.stats?.melee??attacker.power)/100,targetDefense=(target.stats?.defense??target.durability)/100;
+                const comboEdge=(attackCaps.accuracy*.30+attackCaps.speed*.23+attackCaps.tactics*.15+meleeSkill*.10+Math.min(4,tacticalPlan.setup||0)*.025)
+                    -(defenseCaps.mobility*.31+defenseCaps.tactics*.16+defenseCaps.survival*.11+targetDefense*.08+attacker.fatigue*.002)+(Math.random()*.20-.10);
+                comboHits=comboEdge>.25?3:comboEdge>.13?2:1;
+                if(react==="partial")comboHits=Math.min(comboHits,2);
+                if(comboHits>1){
+                    const followUps=attacker.moves.filter(candidate=>candidate!==move&&!attacker.recentMoves.includes(candidate)&&!moveTags(candidate).defense);
+                    for(let hit=1;hit<comboHits;hit++)comboMoves.push(followUps[(hit-1)%Math.max(1,followUps.length)]||move);
+                    damage=clamp(damage*(1+(comboHits-1)*.34),0,44);
+                }
+            }
+            if(react==="counter"&&Number.isFinite(target.nextActionAt))target.nextActionAt=Math.max(0,target.nextActionAt-22);
 
             target.hp=
                 clamp(
@@ -5844,6 +6907,11 @@ function simulateBattle(){
             target.lastAttacker=
                 attacker.name;
 
+            if(target.name==="Wolverine"&&damage>0){
+                target.rage=clamp(target.rage+damage*.9,0,100);
+                if(target.rage>=22){target.mindState="BERSERKER";target.judgment=Math.min(target.judgment,.3);target.teamAwareness=Math.min(target.teamAwareness,.25);}
+            }
+
             target.fatigue=
                 clamp(
                     target.fatigue
@@ -5855,7 +6923,7 @@ function simulateBattle(){
 
             attacker.fatigue=
                 clamp(
-                    attacker.fatigue+2,
+                    attacker.fatigue+1+comboHits,
                     0,
                     100
                 );
@@ -5939,12 +7007,20 @@ function simulateBattle(){
 
                 move,
 
+                comboHits,
+
+                comboMoves,
+
                 reaction:
                 react,
 
                 damage,
 
                 effectiveness:effect,
+
+                tacticalPlan,
+
+                combatDecision:decision,
 
                 targetHp:
                 target.hp,
@@ -6269,16 +7345,44 @@ function describeMove(
     const move=
         event.move;
 
+    if(event.actionType&&event.actionType!=="attack"){
+        const descriptions={
+            advance:`${attacker} spends the action closing the distance on ${target}, using movement and cover to reach a useful attack lane.`,
+            reposition:`${attacker} changes angle instead of attacking, forcing ${target} to track a new line across the battlefield.`,
+            retreat:`${attacker} recognizes the unfavorable exchange and withdraws toward safer space rather than giving ${target} another direct opening.`,
+            backup:`${attacker} disengages while calling a better-positioned teammate toward the matchup.`,
+            setup:`${attacker} studies ${target}'s defense and prepares the next approach instead of wasting an attack without a credible opening.`,
+            guard:`${attacker} gives up immediate offense to reset their stance and prepare a stronger defense.`,
+            assist:`${attacker} shifts away from a personal attack to cover an exposed teammate and improve the team's positioning.`
+        };
+        return descriptions[event.actionType]||`${attacker} changes position without committing to an attack.`;
+    }
+
+    if((event.comboHits||1)>1){
+        return`${attacker} keeps the opening after ${event.comboMoves[0]} and links ${event.comboMoves.slice(1).join(" into ")} before ${target} can fully reset.`;
+    }
+
     const tags=
         moveTags(
             move
         );
 
+    const plan=event.tacticalPlan?.approach||"DIRECT PRESSURE";
+    const setupLead={
+        "ELEVATED FIRING ANGLE":`${attacker} gains elevation and a clear firing lane before committing. `,
+        "COORDINATED FOCUS":`${attacker} attacks as allied pressure pulls ${target}'s attention elsewhere. `,
+        "FLANKING ROUTE":`${attacker} circles outside ${target}'s main line of attention and attacks from the flank. `,
+        "CONTROLLED OPENING":`${attacker} builds the exchange around a controlled opening instead of contesting raw power. `,
+        "STAND-OFF POSITION":`${attacker} refuses a direct contest and maintains a stand-off position. `,
+        "DIRECT PRESSURE":""
+    }[plan]||"";
+    const decisionLead=event.combatDecision&&event.combatDecision.intent!=="ENGAGING"?`${attacker} registers ${event.combatDecision.intent.toLowerCase()}: ${event.combatDecision.reason.toLowerCase()}. `:"";
+
     if(
         tags.ranged
     ){
 
-        return`${attacker} sends ${move} across the gap, forcing ${target} to react before the attack reaches full force.`;
+        return`${decisionLead}${setupLead}${attacker} sends ${move} across the gap, forcing ${target} to react before the attack reaches full force.`;
 
     }
 
@@ -6286,7 +7390,7 @@ function describeMove(
         tags.control
     ){
 
-        return`${attacker} uses ${move} to take away space around ${target}, turning positioning into part of the attack.`;
+        return`${decisionLead}${setupLead}${attacker} uses ${move} to take away space around ${target}, turning positioning into part of the attack.`;
 
     }
 
@@ -6294,7 +7398,7 @@ function describeMove(
         tags.area
     ){
 
-        return`${attacker} unleashes ${move} across the surrounding area, carrying the attack through the terrain instead of concentrating everything on one point.`;
+        return`${decisionLead}${setupLead}${attacker} unleashes ${move} across the surrounding area, carrying the attack through the terrain instead of concentrating everything on one point.`;
 
     }
 
@@ -6302,11 +7406,11 @@ function describeMove(
         tags.defense
     ){
 
-        return`${attacker} uses ${move} to alter the angle of the exchange and avoid remaining directly in front of ${target}.`;
+        return`${decisionLead}${setupLead}${attacker} uses ${move} to alter the angle of the exchange and avoid remaining directly in front of ${target}.`;
 
     }
 
-    return`${attacker} closes the distance with ${move}, driving the exchange across the ground between them.`;
+    return`${decisionLead}${setupLead}${attacker} closes the distance with ${move}, driving the exchange across the ground between them.`;
 
 }
 
@@ -6321,6 +7425,8 @@ function describeReaction(
     const target=
         event.target;
 
+    if(event.actionType&&event.actionType!=="attack")return event.effectiveness?.reason||"The battlefield position changes without a direct hit.";
+
     const state=
         condition(
             event.targetHp
@@ -6331,7 +7437,7 @@ function describeReaction(
     }
 
     if(event.effectiveness?.label==="NEGLIGIBLE"){
-        return`${target} absorbs the attempt with no meaningful loss of fighting capability; the power gap is immediately apparent.`;
+        return`${target}'s defenses contain most of the attempt; the opening was not developed enough to create a meaningful result.`;
     }
 
     if(
@@ -6341,6 +7447,14 @@ function describeReaction(
 
         return`${target} slips clear at the last possible moment, leaving the attack cutting through the space just behind them.`;
 
+    }
+
+    if(event.reaction==="miss"){
+        return`${event.attacker} commits to the wrong line and ${event.move} misses ${target} completely.`;
+    }
+
+    if(event.reaction==="glancing-dodge"){
+        return`${target} moves off the center line before ${event.move} lands, avoiding most of the attack but still taking a glancing impact.`;
     }
 
     if(
@@ -6749,6 +7863,9 @@ function startBattle(){
 
     }
 
+    const livePlayback=qs("storyDepth").value==="liveTactical";
+    if(livePlayback)teardownContinuousTacticalMap();
+
     const simulation=
         simulateBattle();
 
@@ -6914,7 +8031,7 @@ The remaining exchanges bring the battle to its conclusion.
 
     }
 
-    html+=`
+    if(!livePlayback)html+=`
 
 <div class="winner">
 ${simulation.winner} WINS
@@ -6928,7 +8045,7 @@ ${simulation.winner} WINS
         html;
 
     if(qs("storyDepth").value==="tactical")initializeTacticalPlayers(simulation);
-    if(qs("storyDepth").value==="liveTactical")initializeContinuousTacticalMap(simulation);
+    if(livePlayback)scheduleContinuousTacticalMap(simulation);
 
     qs(
         "battleOutput"
@@ -6995,7 +8112,7 @@ function balancedAdvancedPool(candidates,count){
 function generateAdvancedPool(){
     if(!advancedPoolMode())return;
     const candidates=advancedCandidates();
-    selection=balancedAdvancedPool(candidates,advancedPoolSize).map(character=>versionedCharacter(character)).filter(Boolean);
+    selection=uniqueBaseCharacters(balancedAdvancedPool(candidates,advancedPoolSize)).map(character=>versionedCharacter(character)).filter(Boolean);
     bannedFighters=[];banPhase=currentMode()==="BanDraft"&&firstPickDetermined;banIndex=0;
     qs("availableTitle").textContent=`${currentMode().replace(/([A-Z])/g," $1").trim().toUpperCase()} // ${selection.length} FIGHTERS`;
     qs("selectionStatus").textContent=selection.length?`${selection.length} GENERATED // ${advancedPoolTier.toUpperCase()} TIER FILTER`:`NO ELIGIBLE CHARACTERS FOR THESE OPTIONS`;
@@ -7047,7 +8164,7 @@ filtersChanged=function(){
 generateSelection=function(){
     if(!selectedTiers().length){qs("selectionStatus").textContent="SELECT AT LEAST ONE POWER TIER";return;}
     const count=generatedCount();
-    selection=shuffle(eligible()).slice(0,count).map(character=>versionedCharacter(character)).filter(Boolean);
+    selection=uniqueBaseCharacters(shuffle(eligible())).slice(0,count).map(character=>versionedCharacter(character)).filter(Boolean);
     if(!selection.length){qs("selectionStatus").textContent="NO ELIGIBLE CHARACTERS";return;}
     bannedFighters=[]; banPhase=currentMode()==="BanDraft"&&firstPickDetermined; banIndex=0;
     qs("availableTitle").textContent=currentMode()==="BlindDraft"?"CLASSIFIED BLIND POOL":`${selection.length} GENERATED COMBATANTS`;
@@ -7058,7 +8175,7 @@ generateSelection=function(){
 loadFreeSelect=function(){
     if(!selectedTiers().length){selection=[];qs("characterPool").innerHTML="";qs("selectionStatus").textContent="SELECT AT LEAST ONE POWER TIER";return;}
     const drafted=new Set(Object.values(teams).flat().map(character=>character.name));
-    selection=eligible().filter(character=>!drafted.has(character.name)).sort((a,b)=>a.name.localeCompare(b.name)).map(character=>versionedCharacter(character)).filter(Boolean);
+    selection=uniqueBaseCharacters(eligible()).filter(character=>!drafted.has(character.name)).sort((a,b)=>a.name.localeCompare(b.name)).map(character=>versionedCharacter(character)).filter(Boolean);
     const labels={FreeSelect:"FULL ROSTER / FREE SELECT // ALL ELIGIBLE FIGHTERS",UniverseClash:"UNIVERSE CLASH // ALPHA MARVEL • OMEGA DC",TierDraft:"TIER DRAFT // MATCHED POWER TIERS",CaptainDraft:"CAPTAIN DRAFT // CHOOSE LEADERS FIRST"};
     qs("availableTitle").textContent=labels[currentMode()]||labels.FreeSelect;
     qs("selectionStatus").textContent=`${selection.length} ELIGIBLE CHARACTERS`;
@@ -7233,13 +8350,13 @@ function threatLabel(score){return score>=94?"OMEGA":score>=87?"CRITICAL":score>
 
 function databaseVersionRecord(character,scope=qs("dbThreatScope")?.value||"Standard"){
     if(scope!=="Highest")return fighterVersionRecord(character,"Standard");
-    const tierOrder={Street:1,Enhanced:2,Heavy:3,Mystic:4,Cosmic:5};
+    const tierOrder={Street:1,Enhanced:2,Heavy:3,Apex:4,Cosmic:5};
     return [...(character.versions||[])].sort((a,b)=>b.surveillanceProtocol.level-a.surveillanceProtocol.level||(tierOrder[b.battlefieldTier]||0)-(tierOrder[a.battlefieldTier]||0))[0];
 }
 
 renderDatabase=function(){
     const search=(qs("dbSearch").value||"").toLowerCase(),universe=qs("dbUniverse").value,scope=qs("dbThreatScope")?.value||"Standard";
-    const tierOrder=["Cosmic","Mystic","Heavy","Enhanced","Street"],protocolLevels=[5,4,3,2,1];
+    const tierOrder=["Cosmic","Apex","Heavy","Enhanced","Street"],protocolLevels=[5,4,3,2,1];
     const records=CHARACTERS.map(character=>({character,version:databaseVersionRecord(character,scope)})).filter(({character,version})=>{
         const versionSearch=(character.versions||[]).map(item=>`${item.label} ${item.displayName} ${item.battlefieldTier} ${item.surveillanceProtocol.label} ${item.description}`).join(" ");
         return (universe==="Both"||character.universe===universe)&&(`${character.name} ${targetIdentity(character)} ${passportAlias(character)} ${character.role} ${versionSearch}`).toLowerCase().includes(search);
@@ -7267,36 +8384,54 @@ const DOSSIER_STATS=[
 ];
 
 const CAPABILITY_AXES=[
-    {key:"power",label:"POWER PROJECTION",short:"POWER"},
-    {key:"speed",label:"ENGAGEMENT SPEED",short:"SPEED"},
+    {key:"power",label:"POWER OUTPUT",short:"POWER"},
+    {key:"speed",label:"COMBAT SPEED",short:"SPEED"},
     {key:"survival",label:"COMBAT SURVIVABILITY",short:"SURVIVAL"},
-    {key:"mastery",label:"COMBAT MASTERY",short:"MASTERY"},
-    {key:"reach",label:"BATTLEFIELD REACH",short:"REACH"},
-    {key:"control",label:"FIELD CONTROL",short:"CONTROL"},
-    {key:"tactics",label:"TACTICAL PROCESSING",short:"TACTICS"},
-    {key:"adaptation",label:"ADAPTIVE VERSATILITY",short:"ADAPTATION"}
+    {key:"accuracy",label:"ACCURACY / PRECISION",short:"ACCURACY"},
+    {key:"mobility",label:"TACTICAL MOBILITY",short:"MOBILITY"},
+    {key:"range",label:"EFFECTIVE RANGE",short:"RANGE"},
+    {key:"control",label:"BATTLEFIELD CONTROL",short:"CONTROL"},
+    {key:"tactics",label:"TACTICAL INTELLIGENCE",short:"TACTICS"}
 ];
-const CAPABILITY_TIER_SCALE={Street:.34,Enhanced:.49,Heavy:.67,Mystic:.80,Cosmic:.94};
-const CAPABILITY_TIER_REFERENCES={Street:.34,Enhanced:.49,Heavy:.67,Mystic:.80,Cosmic:.94};
+const CAPABILITY_TIER_REFERENCES={Street:.27,Enhanced:.42,Heavy:.58,Apex:.75,Mystic:.75,Cosmic:.91};
 let activeCapabilityReference="overall";
 
 function capabilityRawValues(character,version){
     const s=version?.stats||character.richData?.stats||{};
     const get=(key,fallback=55)=>Number(s[key]??fallback);
-    return{
-        power:(get("strength")*.38+get("ranged")*.34+get("melee")*.18+get("battlefieldControl")*.10)/100,
-        speed:(get("speed")*.48+get("agilityReflexes")*.30+get("evasion")*.22)/100,
-        survival:(get("durability")*.36+get("defense")*.25+get("healing")*.17+get("stamina")*.13+get("willpower")*.09)/100,
-        mastery:(get("melee")*.30+get("accuracy")*.25+get("combatIQ")*.23+get("experience")*.22)/100,
-        reach:(get("ranged")*.36+get("speed")*.25+get("agilityReflexes")*.18+get("battlefieldControl")*.13+get("stamina")*.08)/100,
-        control:(get("battlefieldControl")*.50+get("ranged")*.18+get("accuracy")*.12+get("intelligence")*.10+get("willpower")*.10)/100,
-        tactics:(get("combatIQ")*.38+get("intelligence")*.29+get("experience")*.21+get("accuracy")*.12)/100,
-        adaptation:(get("adaptability")*.40+get("combatIQ")*.20+get("willpower")*.13+get("stealth")*.11+get("healing")*.08+get("battlefieldControl")*.08)/100
+    const tier=version?.battlefieldTier||character.battlefieldTier||character.tier;
+    const tierScale={Street:.18,Enhanced:.34,Heavy:.54,Apex:.74,Mystic:.74,Cosmic:.91}[tier]||.45;
+    const values={
+        power:tierScale*.60+(get("strength")/100)*.22+(get("melee")/100)*.10+(get("battlefieldControl")/100)*.08,
+        speed:(get("speed")*.66+get("agilityReflexes")*.24+get("evasion")*.10)/100,
+        survival:tierScale*.34+(get("durability")*.30+get("defense")*.16+get("healing")*.10+get("stamina")*.10)/100,
+        accuracy:(get("accuracy")*.70+get("combatIQ")*.14+get("experience")*.10+get("ranged")*.06)/100,
+        mobility:(get("speed")*.45+get("agilityReflexes")*.34+get("evasion")*.16+get("stamina")*.05)/100,
+        range:(get("ranged")*.74+get("accuracy")*.16+get("battlefieldControl")*.10)/100,
+        control:(get("battlefieldControl")*.58+get("adaptability")*.15+get("intelligence")*.10+get("willpower")*.10+get("ranged")*.07)/100,
+        tactics:(get("combatIQ")*.46+get("intelligence")*.24+get("experience")*.20+get("adaptability")*.10)/100
     };
+    const role=String(character.role||"").toLowerCase(),shift=(keys,amount)=>keys.forEach(key=>values[key]+=amount);
+    if(/ranged|marksman/.test(role)){shift(["accuracy","range"],.10);shift(["power","survival","mobility"],-.06);}
+    if(/leader|tactician/.test(role)){shift(["tactics","control"],.08);shift(["speed"],-.04);}
+    if(/powerhouse|brawler|tank/.test(role)){shift(["power","survival"],.09);shift(["accuracy","mobility","range"],-.07);}
+    if(/agile|assassin|infiltrator|skirmisher/.test(role)){shift(["speed","mobility","accuracy"],.08);shift(["power","survival"],-.06);}
+    if(/controller|support|mystic/.test(role)){shift(["control","range","tactics"],.08);shift(["power","speed"],-.05);}
+    if(/speedster/.test(role)){shift(["speed","mobility"],.16);shift(["survival","control"],-.06);}
+    const variantTheme=version?.combatProfile?.variantThemeId||character.combatProfile?.variantThemeId||"";
+    if(variantTheme==="powerhouse"||variantTheme==="escalating-power"){shift(["power","survival"],.13);shift(["accuracy","range","mobility","tactics"],-.10);}
+    if(variantTheme==="adaptive-tech")shift(["accuracy","control","tactics","mobility"],.09);
+    if(variantTheme==="speed-force"){shift(["speed","mobility"],.15);shift(["survival"],-.07);}
+    if(variantTheme==="mystic"||variantTheme==="psionic"){shift(["control","range","tactics"],.11);shift(["power","survival"],-.05);}
+    if(variantTheme==="phoenix"||variantTheme==="cosmic"){shift(["power","survival","range","control"],.09);}
+    Object.keys(values).forEach(key=>values[key]=clamp(values[key],.04,.98));
+    return values;
 }
 function capabilityAbsoluteValues(character,version){
-    const raw=capabilityRawValues(character,version),ceiling=CAPABILITY_TIER_SCALE[version?.battlefieldTier||character.tier]||.5,out={};
-    CAPABILITY_AXES.forEach(axis=>out[axis.key]=clamp(ceiling*(.62+raw[axis.key]*.38),.12,.98));
+    const raw=capabilityRawValues(character,version),out={};
+    /* Independent fixed scales with added contrast: a high tier raises raw
+       output and survivability, not every skill on the dossier. */
+    CAPABILITY_AXES.forEach(axis=>out[axis.key]=clamp(Math.pow(raw[axis.key],1.22),.04,.98));
     return out;
 }
 function capabilityReferenceValues(reference){
@@ -7307,10 +8442,9 @@ function capabilityReferenceValues(reference){
 function capabilityPlotValues(character,version,reference){
     const subject=capabilityAbsoluteValues(character,version),baseline=capabilityReferenceValues(reference);
     if(!baseline)return{subject,baseline:null};
-    const compared={};CAPABILITY_AXES.forEach(axis=>compared[axis.key]=clamp(.5+(subject[axis.key]-baseline[axis.key])*.9,.12,.88));
-    return{subject:compared,baseline:Object.fromEntries(CAPABILITY_AXES.map(axis=>[axis.key,.5])),absolute:subject,reference:baseline};
+    return{subject,baseline,absolute:subject,reference:baseline};
 }
-function capabilityPoint(value,index,radiusBase=28,radiusRange=145){const angle=(-Math.PI/2)+(index*Math.PI*2/CAPABILITY_AXES.length),radius=radiusBase+(value*radiusRange);return`${(310+Math.cos(angle)*radius).toFixed(1)},${(270+Math.sin(angle)*radius).toFixed(1)}`;}
+function capabilityPoint(value,index,radiusBase=8,radiusRange=176){const angle=(-Math.PI/2)+(index*Math.PI*2/CAPABILITY_AXES.length),radius=radiusBase+(value*radiusRange);return`${(310+Math.cos(angle)*radius).toFixed(1)},${(270+Math.sin(angle)*radius).toFixed(1)}`;}
 function capabilityRing(value){return CAPABILITY_AXES.map((axis,index)=>capabilityPoint(value,index)).join(" ");}
 function capabilityLabelPoint(index,radius=218){const angle=(-Math.PI/2)+(index*Math.PI*2/CAPABILITY_AXES.length);return{x:310+Math.cos(angle)*radius,y:270+Math.sin(angle)*radius,anchor:Math.cos(angle)>.2?"start":Math.cos(angle)<-.2?"end":"middle"};}
 function capabilityBand(value){return value>=.88?"COSMIC-CLASS":value>=.74?"DOMINANT":value>=.58?"SUPERHUMAN":value>=.42?"SPECIALIST":value>=.27?"FIELD-LEVEL":"LIMITED";}
@@ -7319,9 +8453,9 @@ function capabilityReferenceTitle(value){if(value==="overall")return"FULL-ROSTER
 function capabilitySignatureHTML(character,version){
     const plotted=capabilityPlotValues(character,version,activeCapabilityReference),values=plotted.subject,reference=plotted.reference;
     const points=CAPABILITY_AXES.map((axis,index)=>capabilityPoint(values[axis.key],index)).join(" ");
-    const referencePoints=plotted.baseline?capabilityRing(.5):"";
+    const referencePoints=plotted.baseline?CAPABILITY_AXES.map((axis,index)=>capabilityPoint(plotted.baseline[axis.key],index)).join(" "):"";
     const labels=CAPABILITY_AXES.map(axis=>({axis,result:reference?capabilityComparisonBand(plotted.absolute[axis.key],reference[axis.key]):capabilityBand(values[axis.key])}));
-    const tierOptions=["Street","Enhanced","Heavy","Mystic","Cosmic"].map(tier=>`<option value="tier:${tier}" ${activeCapabilityReference===`tier:${tier}`?"selected":""}>COMPARE TO ${tier.toUpperCase()} TIER</option>`).join("");
+    const tierOptions=["Street","Enhanced","Heavy","Apex","Cosmic"].map(tier=>`<option value="tier:${tier}" ${activeCapabilityReference===`tier:${tier}`?"selected":""}>COMPARE TO ${tier.toUpperCase()} TIER</option>`).join("");
     const fighterOptions=CHARACTERS.filter(item=>item.name!==character.name).sort((a,b)=>a.name.localeCompare(b.name)).map(item=>`<option value="fighter:${item.name}" ${activeCapabilityReference===`fighter:${item.name}`?"selected":""}>VERSUS ${item.name.toUpperCase()} — STANDARD</option>`).join("");
     const axisLines=CAPABILITY_AXES.map((axis,index)=>{const [x,y]=capabilityPoint(1,index).split(",");return`<line class="capability-axis" x1="310" y1="270" x2="${x}" y2="${y}"/>`}).join("");
     const axisLabels=labels.map((item,index)=>{const p=capabilityLabelPoint(index);return`<text class="capability-axis-label" x="${p.x}" y="${p.y}" style="text-anchor:${p.anchor}">${item.axis.short}</text><text class="capability-result-label" x="${p.x}" y="${p.y+12}" style="text-anchor:${p.anchor}">${item.result}</text>`}).join("");
@@ -7393,6 +8527,8 @@ renderPassportDossier=function(){
     const flipped=activePassportSide==="back"?" flipped":"";
     const versionTabs=`<label for="passportVersionSelect">VERSION / VARIANT</label><select id="passportVersionSelect" onchange="setPassportVersion(this.value)">${character.versions.map(item=>`<option value="${item.id}" ${item.id===version.id?"selected":""}>${item.displayName||item.label}</option>`).join("")}</select>`;
     const versionOverview=character.versions.map(item=>`<p><b>${item.displayName||item.label}</b><br>${item.description}<br><small>${item.label} // BATTLEFIELD ${item.battlefieldTier.toUpperCase()} // ${item.surveillanceProtocol.label}</small></p>`).join("");
+    const directive=profile.variantBehavior||{};
+    const directiveLevel=value=>value>=.8?"HIGH":value>=.58?"MODERATE":"LOW";
     qs("characterDossier").innerHTML=`
     <div class="passport-scene passport-${style}${flipped}" style="--passport-accent:${accent}"><div class="passport-flipper">
       <section class="passport-face passport-front">
@@ -7412,12 +8548,13 @@ renderPassportDossier=function(){
         <div class="passport-filebar"><span>${passportFileTitle(character)}</span><span class="passport-agency">VERSION-SPECIFIC DOSSIER</span></div>
         <div class="passport-back-head"><div><h2>${version.displayName||character.name}</h2><p>${agency} VERIFIED // ${version.surveillanceProtocol.warning}</p></div><div class="passport-back-stamp">${agency} VERIFIED</div></div>
         <div class="passport-dossier-grid">
-          <section class="passport-section"><h3>IDENTITY / CLASSIFICATION</h3><p><b>Identity:</b> ${targetIdentity(character)}</p><p><b>Universe:</b> ${character.universe}</p><p><b>Battlefield tier:</b> ${version.battlefieldTier}</p><p><b>Surveillance protocol:</b> ${version.surveillanceProtocol.label}</p><p><b>Role:</b> ${character.role}</p><p><b>Affiliations:</b> ${affiliations.join(", ")||"None confirmed"}</p><h3>PROTOCOL REASONS</h3>${listHTML(version.surveillanceProtocol.reasons||[])}</section>
+          <section class="passport-section"><h3>IDENTITY / CLASSIFICATION</h3><p><b>Identity:</b> ${targetIdentity(character)}</p><p><b>Universe:</b> ${character.universe}</p><p><b>Battlefield tier:</b> ${version.battlefieldTier}</p><p><b>Power domain:</b> ${profile.powerDomain||"HYBRID"}</p><p><b>Surveillance protocol:</b> ${version.surveillanceProtocol.label}</p><p><b>Role:</b> ${character.role}</p><p><b>Affiliations:</b> ${affiliations.join(", ")||"None confirmed"}</p><h3>PROTOCOL REASONS</h3>${listHTML(version.surveillanceProtocol.reasons||[])}</section>
           <section class="passport-section"><h3>KNOWN VERSIONS</h3>${versionOverview}</section>
           <section class="passport-section passport-section-wide"><h3>VERSION-SPECIFIC CAPABILITY SIGNATURE</h3>${capabilitySignatureHTML(character,version)}</section>
           <section class="passport-section"><h3>EXACT POWERS / EQUIPMENT</h3>${listHTML([...(profile.powers||[]),...(profile.equipment||[])])}</section>
           <section class="passport-section"><h3>ATTACKS / MOVEMENT / DEFENSE</h3>${dossierMoveGroups(profile.moves||{})}</section>
           <section class="passport-section"><h3>FIGHTING STYLE</h3><p>${dossierParagraph(profile.fightingStyle)}</p><h3>COMBAT PERSONALITY</h3><p>${dossierParagraph(profile.combatPersonality)}</p></section>
+          <section class="passport-section"><h3>VARIANT COMBAT DIRECTIVE</h3><p><b>Preferred range:</b> ${(directive.preferredRange||character.range||"adaptive").toUpperCase()}</p><p><b>Priority actions:</b> ${(directive.preferredCategories||Object.keys(profile.moves||{}).slice(0,3)).join(" // ").toUpperCase()}</p><p><b>Risk tolerance:</b> ${directiveLevel(directive.riskTolerance??.55)}</p><p><b>Discipline:</b> ${directiveLevel(directive.discipline??.65)}</p><p><b>Ally response:</b> ${directiveLevel(directive.assistBias??.6)}</p><p><b>Withdrawal logic:</b> ${directive.retreatThreshold?"VERSION-SPECIFIC":"STANDARD JUDGMENT"}</p></section>
           <section class="passport-section"><h3>WEAKNESSES / LIMITATIONS</h3>${listHTML(profile.weaknesses||[])}<h3>RESISTANCES</h3>${listHTML(profile.resistances||[])}</section>
           <section class="passport-section"><h3>SPECIAL MECHANICS</h3>${listHTML(profile.mechanics||[])}</section>
           <section class="passport-section"><h3>AI BEHAVIOR</h3><div class="ai-grid">${dossierAI(profile.aiBehavior||character.aiBehavior||{})}</div></section>
@@ -7459,14 +8596,21 @@ function tacticalFrameHTML(event,round,actionIndex){
         return `<div class="map-unit${state}" style="left:${x}%;top:${y}%;--unit-color:${colors[fighter.team]}"><div class="map-dot">${ICONS[fighter.icon]||"◆"}</div><div class="map-name">${fighter.name}</div><div class="map-hp"><span style="width:${hpPercent}%"></span></div><div class="map-hp-label">${hp} HP</div></div>`;
     }).join("");
     const t=event?.tactical;
-    const lines=t?`<svg viewBox="0 0 100 100" preserveAspectRatio="none"><line class="move-line" x1="${t.start.x}" y1="${t.start.y}" x2="${t.attacker.x}" y2="${t.attacker.y}"/><line class="attack-line ${t.range==='RANGED'?'ranged':''}" x1="${t.attacker.x}" y1="${t.attacker.y}" x2="${t.targetStart.x}" y2="${t.targetStart.y}"/></svg>`:"";
+    const attackLine=t&&!event.actionType?`<line class="attack-line ${t.range==='RANGED'?'ranged':''}" x1="${t.attacker.x}" y1="${t.attacker.y}" x2="${t.targetStart.x}" y2="${t.targetStart.y}"/>`:"";
+    const lines=t?`<svg viewBox="0 0 100 100" preserveAspectRatio="none"><line class="move-line" x1="${t.start.x}" y1="${t.start.y}" x2="${t.attacker.x}" y2="${t.attacker.y}"/>${attackLine}</svg>`:"";
     return `<div class="tactical-map" aria-label="Round ${round}, action ${actionIndex+1}"><div class="terrain cover-a">COVER</div><div class="terrain cover-b">COVER</div><div class="terrain center-zone">CONTESTED ZONE</div>${lines}${positions}</div>`;
+}
+
+function tacticalActionLabel(event,index,total){
+    if(event.actionType)return `ACTION ${index+1}/${total} // ${event.attacker} — ${event.move} // TACTICAL ACTION // ${String(event.actionType).toUpperCase()}`;
+    const combo=event.comboHits>1?` // ${event.comboHits}-MOVE COMBO`:"";
+    return `ACTION ${index+1}/${total} // ${event.attacker} — ${event.move}${combo} → ${event.target} // ${String(event.reaction||event.effectiveness?.label||"HIT").toUpperCase()} // ${Math.round(event.damage)} DAMAGE`;
 }
 
 function tacticalRoundHTML(round){
     if(!round||!round.actions.length)return "";
     const event=round.actions[0];
-    return `<div class="tactical-shell" id="tactical-${round.round}"><div class="tactical-toolbar"><button onclick="stepTactical(${round.round},-1)">◀ PREVIOUS</button><button onclick="toggleTacticalPlay(${round.round})">▶ PLAY</button><div class="tactical-action" id="tactical-label-${round.round}">ACTION 1/${round.actions.length} // ${event.attacker} — ${event.move} → ${event.target} // ${event.effectiveness?.label||"EFFECTIVE"} // ${Math.round(event.damage)} DAMAGE</div><button onclick="stepTactical(${round.round},1)">NEXT ▶</button><button onclick="jumpTacticalEnd(${round.round})">END ROUND</button></div><div id="tactical-stage-${round.round}">${tacticalFrameHTML(event,round.round,0)}</div></div>`;
+    return `<div class="tactical-shell" id="tactical-${round.round}"><div class="tactical-toolbar"><button onclick="stepTactical(${round.round},-1)">◀ PREVIOUS</button><button onclick="toggleTacticalPlay(${round.round})">▶ PLAY</button><div class="tactical-action" id="tactical-label-${round.round}">${tacticalActionLabel(event,0,round.actions.length)}</div><button onclick="stepTactical(${round.round},1)">NEXT ▶</button><button onclick="jumpTacticalEnd(${round.round})">END ROUND</button></div><div id="tactical-stage-${round.round}">${tacticalFrameHTML(event,round.round,0)}</div></div>`;
 }
 
 function initializeTacticalPlayers(simulation){
@@ -7480,7 +8624,7 @@ function renderTacticalAction(roundNumber){
     tacticalFrames[roundNumber]=index;
     const stage=qs(`tactical-stage-${roundNumber}`),label=qs(`tactical-label-${roundNumber}`);
     if(stage)stage.innerHTML=qs("storyDepth").value==="liveTactical"?liveTacticalFrameHTML(event,roundNumber,index):tacticalFrameHTML(event,roundNumber,index);
-    if(label)label.textContent=`ACTION ${index+1}/${round.actions.length} // ${event.attacker} — ${event.move} → ${event.target} // ${event.effectiveness?.label||"EFFECTIVE"} // ${Math.round(event.damage)} DAMAGE // ${event.tactical.range}`;
+    if(label)label.textContent=tacticalActionLabel(event,index,round.actions.length);
 }
 function stepTactical(roundNumber,direction){tacticalFrames[roundNumber]=(tacticalFrames[roundNumber]||0)+direction;renderTacticalAction(roundNumber);}
 function jumpTacticalEnd(roundNumber){const round=tacticalSimulation?.rounds.find(item=>item.round===roundNumber);if(round){tacticalFrames[roundNumber]=round.actions.length-1;renderTacticalAction(roundNumber);}}
@@ -7551,7 +8695,7 @@ function chooseTierDraftPool(tier){
     if(currentMode()!=="TierDraft")return;
     advancedPoolChoice=tier;
     document.querySelectorAll(".tierCheck").forEach(box=>box.checked=tier==="All"||box.value===tier);
-    const allowed=tier==="All"?["Street","Enhanced","Heavy","Mystic","Cosmic"]:[tier];
+    const allowed=tier==="All"?["Street","Enhanced","Heavy","Apex","Cosmic"]:[tier];
     selection=versionedPool(shuffle(baseAdvancedCandidates()).filter(character=>allowed.includes(character.tier)));
     setPoolMessage(tier==="All"?"TIER DRAFT // ALL FIVE TIERS":`TIER DRAFT // ${tier.toUpperCase()}`,tier==="All"?"5V5 RULE: EACH TEAM DRAFTS EXACTLY ONE STREET, ENHANCED, HEAVY, MYSTIC, AND COSMIC FIGHTER":`ONLY ${tier.toUpperCase()} FIGHTERS ARE AVAILABLE`);
     renderSelection();updateDraftStatus();syncAdvancedPoolPanel();updateHUDTelemetry();
@@ -7559,7 +8703,7 @@ function chooseTierDraftPool(tier){
 
 function modeOptionsHTML(){
     const mode=currentMode();
-    if(mode==="TierDraft")return `<span class="pool-option-label">TIER DRAFT POOL</span>${["All","Street","Enhanced","Heavy","Mystic","Cosmic"].map(tier=>`<button type="button" data-mode-choice="${tier}" onclick="chooseTierDraftPool('${tier}')">${tier==="All"?"ALL TIERS":tier.toUpperCase()}</button>`).join("")}`;
+    if(mode==="TierDraft")return `<span class="pool-option-label">TIER DRAFT POOL</span>${["All","Street","Enhanced","Heavy","Apex","Cosmic"].map(tier=>`<button type="button" data-mode-choice="${tier}" onclick="chooseTierDraftPool('${tier}')">${tier==="All"?"ALL TIERS":tier.toUpperCase()}</button>`).join("")}`;
     if(mode==="UniverseClash")return `<span class="pool-option-label">FIGHTERS PER UNIVERSE</span>${[10,20,30].map(size=>`<button type="button" data-mode-choice="${size}" onclick="chooseModePoolSize(${size})">${size} MARVEL + ${size} DC</button>`).join("")}`;
     if(mode==="BanDraft")return `<span class="pool-option-label">BAN & DRAFT POOL</span>${[10,20,30].map(size=>`<button type="button" data-mode-choice="${size}" onclick="chooseModePoolSize(${size})">GENERATE ${size}</button>`).join("")}<button type="button" data-mode-choice="FreeSelect" onclick="chooseModeFreeSelect()">FREE SELECT</button>`;
     if(mode==="CaptainDraft"){
@@ -7777,7 +8921,7 @@ function calculatePrepScore(character){
 CHARACTERS.forEach(character=>character.prepScore=calculatePrepScore(character));
 
 function selectedTierDraftList(){
-    return ["Street","Enhanced","Heavy","Mystic","Cosmic"].filter(tier=>tierDraftChoices.has(tier));
+    return ["Street","Enhanced","Heavy","Apex","Cosmic"].filter(tier=>tierDraftChoices.has(tier));
 }
 
 function syncTierCheckboxes(){
@@ -7803,7 +8947,7 @@ function buildTierDraftPool(){
 }
 
 function toggleTierDraftChoice(tier){
-    if(tier==="All")tierDraftChoices=new Set(["Street","Enhanced","Heavy","Mystic","Cosmic"]);
+    if(tier==="All")tierDraftChoices=new Set(["Street","Enhanced","Heavy","Apex","Cosmic"]);
     else if(tierDraftChoices.has(tier))tierDraftChoices.delete(tier);else tierDraftChoices.add(tier);
     syncTierCheckboxes();
     if(tierDraftPoolChoice)buildTierDraftPool();
@@ -7835,7 +8979,7 @@ modeOptionsHTML=function(){
     const mode=currentMode();
     if(mode==="PresetTeams")return `<div class="option-group preset-team-controls">${presetTeamSelectHTML("alpha")}${presetTeamSelectHTML("omega")}${playerCount()===3?presetTeamSelectHTML("sigma"):""}</div>`;
     if(mode==="TierDraft"){
-        const tiers=["Street","Enhanced","Heavy","Mystic","Cosmic"];
+        const tiers=["Street","Enhanced","Heavy","Apex","Cosmic"];
         return `<div class="option-group"><span class="pool-option-label">SELECT TIERS</span><button type="button" data-tier-choice="All" onclick="toggleTierDraftChoice('All')">ALL TIERS</button>${tiers.map(tier=>`<button type="button" data-tier-choice="${tier}" onclick="toggleTierDraftChoice('${tier}')">${tier.toUpperCase()}</button>`).join("")}</div><div class="option-group"><span class="pool-option-label">POOL TYPE</span>${[10,20,30].map(size=>`<button type="button" data-tier-pool="${size}" onclick="chooseTierDraftSize(${size})">GENERATE ${size}</button>`).join("")}<button type="button" data-tier-pool="FreeSelect" onclick="chooseTierDraftFreeSelect()">FREE SELECT</button></div>`;
     }
     if(mode==="UniverseClash")return `<span class="pool-option-label">FIGHTERS PER UNIVERSE</span>${[10,20,30].map(size=>`<button type="button" data-mode-choice="${size}" onclick="chooseModePoolSize(${size})">${size} MARVEL + ${size} DC</button>`).join("")}`;
@@ -7911,8 +9055,8 @@ unitFrom=function(fighter,team){
 };
 
 const standardCalculateDamage=calculateDamage;
-calculateDamage=function(attacker,target,move,reactionType){
-    return standardCalculateDamage(attacker,target,move,reactionType);
+calculateDamage=function(attacker,target,move,reactionType,tactical){
+    return standardCalculateDamage(attacker,target,move,reactionType,tactical);
 };
 
 function initBattleHUD(){
@@ -7982,7 +9126,7 @@ function initBattleHUD(){
     const advancedPanel=document.createElement("div");
     advancedPanel.id="advancedPoolPanel";
     advancedPanel.className="advanced-pool-panel";
-    advancedPanel.innerHTML=`<span class="pool-option-label">POOL SIZE</span>${[10,20,30].map(size=>`<button type="button" data-pool-size="${size}" onclick="chooseAdvancedPoolSize(${size})">GENERATE ${size}</button>`).join("")}<span class="pool-divider"></span><span class="pool-option-label">POWER TIER</span>${["All","Street","Enhanced","Heavy","Mystic","Cosmic"].map(tier=>`<button type="button" data-pool-tier="${tier}" onclick="chooseAdvancedPoolTier('${tier}')">${tier.toUpperCase()}</button>`).join("")}<button type="button" class="regenerate-pool" onclick="generateAdvancedPool()">↻ REGENERATE</button>`;
+    advancedPanel.innerHTML=`<span class="pool-option-label">POOL SIZE</span>${[10,20,30].map(size=>`<button type="button" data-pool-size="${size}" onclick="chooseAdvancedPoolSize(${size})">GENERATE ${size}</button>`).join("")}<span class="pool-divider"></span><span class="pool-option-label">POWER TIER</span>${["All","Street","Enhanced","Heavy","Apex","Cosmic"].map(tier=>`<button type="button" data-pool-tier="${tier}" onclick="chooseAdvancedPoolTier('${tier}')">${tier.toUpperCase()}</button>`).join("")}<button type="button" class="regenerate-pool" onclick="generateAdvancedPool()">↻ REGENERATE</button>`;
     poolPanel.insertBefore(advancedPanel,qs("characterPool"));
     launchPanel.style.display="none";
     bottomPanel.style.display="none";
@@ -8180,9 +9324,12 @@ function liveCommandContext(event,live){
     const structural=live.structuralEvents?.find(item=>!item.fall);
     const fall=live.structuralEvents?.find(item=>item.fall);
     const altitude=attackerState.state==="GROUND"?"GROUND 0 M":`${attackerState.state} ${attackerState.altitude} M`;
-    if(fall)return `${altitude} // ${fall.structure} COLLAPSE // ${fall.name} FALLS FOR ${fall.fallDamage} DAMAGE`;
-    if(!structural)return `${event.tactical?.range||"CLOSE"} // ${altitude} // ${event.reaction}`;
-    return `${event.tactical?.range||"CLOSE"} // ${altitude} // ${structural.name} -${structural.damage}% INTEGRITY${structural.collapsed?" // COLLAPSED":""}`;
+    const approach=event.tacticalPlan?.approach||"DIRECT PRESSURE";
+    const intent=event.combatDecision?.intent||"ENGAGING";
+    if(event.actionType)return `${intent} // ${approach} // ${altitude} // ${String(event.actionType).toUpperCase()} // NO DIRECT ATTACK`;
+    if(fall)return `${intent} // ${approach} // ${altitude} // ${fall.structure} COLLAPSE // ${fall.name} TAKES ${fall.fallDamage} ENVIRONMENTAL DAMAGE`;
+    if(!structural)return `${intent} // ${approach} // ${event.tactical?.range||"CLOSE"} // ${altitude} // ${event.reaction}`;
+    return `${intent} // ${approach} // ${event.tactical?.range||"CLOSE"} // ${altitude} // ${structural.name} -${structural.damage}% INTEGRITY${structural.collapsed?" // COLLAPSED":""}`;
 }
 function liveTacticalFrameHTML(event,round,actionIndex){
     const live=event.liveTactical||{battlefield:qs("battlefield").value,structures:liveClone(LIVE_BATTLEFIELD_LAYOUTS[qs("battlefield").value]||[]),states:{},structuralEvents:[]};
@@ -8194,20 +9341,24 @@ function liveTacticalFrameHTML(event,round,actionIndex){
     const t=liveScreenPoint(event.tactical?.targetStart?.x??target?.x??50,event.tactical?.targetStart?.y??target?.y??50,tState.altitude||0);
     const s=liveScreenPoint(event.tactical?.start?.x??a.x,event.tactical?.start?.y??a.y,aState.altitude||0);
     const intact=live.structures.filter(item=>item.integrity>0).length;
-    return `<div class="live-tactical-topbar"><div><strong>GLOBAL TACTICAL MAP</strong><br>${live.battlefield.toUpperCase()}</div><div class="live-round">ROUND ${round} // ACTION ${actionIndex+1}</div><div class="live-structure-count">STRUCTURES ${intact}/${live.structures.length} // ENVIRONMENT SYSTEMS ACTIVE</div></div><div class="live-map-viewport ${mapClass}"><div class="live-map-horizon"></div><div class="live-city-slab">${live.structures.map(liveStructureHTML).join("")}</div>${live.structures.map((structure,index)=>{const state=liveStructureClass(structure),labelX=clamp(6+structure.x*.84,3,83),labelY=clamp(11+structure.y*.61-structure.height*.08,6,78);return `<div class="structure-readout ${state}" style="--label-x:${labelX}%;--label-y:${labelY}%"><b>${structure.name}</b>${structure.height} M // <span>${structure.integrity>0?structure.integrity+"% INTEGRITY":"COLLAPSED // RUBBLE"}</span></div>`;}).join("")}<svg class="live-combat-lines" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true"><line class="travel" x1="${s.x}" y1="${s.y}" x2="${a.x}" y2="${a.y}"/><line class="attack ${event.tactical?.range==='RANGED'?'ranged':''}" x1="${a.x}" y1="${a.y}" x2="${t.x}" y2="${t.y}"/></svg>${snapshot.map(fighter=>liveFighterHTML(fighter,event,live)).join("")}</div><div class="live-command-strip"><div class="command-actor"><b>${event.attacker}</b><span>TEAM ${event.attackerTeam===1?"ALPHA":event.attackerTeam===2?"OMEGA":"SIGMA"}<br>ACTIVE COMBATANT</span></div><div class="command-action"><strong>${event.attacker} uses ${event.move} against ${event.target}</strong><span>${liveCommandContext(event,live)}</span></div><div class="command-result"><b>${Math.round(event.damage)} DAMAGE</b><span>${Math.max(0,Math.round(event.targetHp))} HP REMAINING<br>${event.effectiveness?.label||"EFFECTIVE"}</span></div></div>`;
+    const attackLine=event.actionType?"":`<line class="attack ${event.tactical?.range==='RANGED'?'ranged':''}" x1="${a.x}" y1="${a.y}" x2="${t.x}" y2="${t.y}"/>`;
+    const actionCopy=event.actionType?`${event.attacker} executes ${event.move}`:`${event.attacker} uses ${event.move}${event.comboHits>1?` (${event.comboHits}-move combo)`:""} against ${event.target}`;
+    const resultCopy=event.actionType?`<b>TACTICAL ACTION</b><span>NO DIRECT DAMAGE<br>${String(event.actionType).toUpperCase()}</span>`:`<b>${Math.round(event.damage)} DAMAGE</b><span>${Math.max(0,Math.round(event.targetHp))} HP REMAINING<br>${String(event.reaction||event.effectiveness?.label||"HIT").toUpperCase()}</span>`;
+    return `<div class="live-tactical-topbar"><div><strong>GLOBAL TACTICAL MAP</strong><br>${live.battlefield.toUpperCase()}</div><div class="live-round">ROUND ${round} // ACTION ${actionIndex+1}</div><div class="live-structure-count">STRUCTURES ${intact}/${live.structures.length} // ENVIRONMENT SYSTEMS ACTIVE</div></div><div class="live-map-viewport ${mapClass}"><div class="live-map-horizon"></div><div class="live-city-slab">${live.structures.map(liveStructureHTML).join("")}</div>${live.structures.map((structure,index)=>{const state=liveStructureClass(structure),labelX=clamp(6+structure.x*.84,3,83),labelY=clamp(11+structure.y*.61-structure.height*.08,6,78);return `<div class="structure-readout ${state}" style="--label-x:${labelX}%;--label-y:${labelY}%"><b>${structure.name}</b>${structure.height} M // <span>${structure.integrity>0?structure.integrity+"% INTEGRITY":"COLLAPSED // RUBBLE"}</span></div>`;}).join("")}<svg class="live-combat-lines" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true"><line class="travel" x1="${s.x}" y1="${s.y}" x2="${a.x}" y2="${a.y}"/>${attackLine}</svg>${snapshot.map(fighter=>liveFighterHTML(fighter,event,live)).join("")}</div><div class="live-command-strip"><div class="command-actor"><b>${event.attacker}</b><span>TEAM ${event.attackerTeam===1?"ALPHA":event.attackerTeam===2?"OMEGA":"SIGMA"}<br>ACTIVE COMBATANT</span></div><div class="command-action"><strong>${actionCopy}</strong><span>${liveCommandContext(event,live)}</span></div><div class="command-result">${resultCopy}</div></div>`;
 }
 function liveTacticalRoundHTML(round){
     if(!round||!round.actions.length)return "";
     const event=round.actions[0];
-    return `<div class="live-tactical-shell" id="tactical-${round.round}"><div id="tactical-stage-${round.round}">${liveTacticalFrameHTML(event,round.round,0)}</div><div class="live-playback"><button onclick="stepTactical(${round.round},-1)">◀ PREVIOUS</button><button onclick="toggleTacticalPlay(${round.round})">▶ PLAY</button><div class="live-playback-status" id="tactical-label-${round.round}">ACTION 1 / ${round.actions.length} // ${event.attacker} → ${event.target}</div><button onclick="stepTactical(${round.round},1)">NEXT ▶</button><button onclick="jumpTacticalEnd(${round.round})">END ROUND</button></div></div>`;
+    return `<div class="live-tactical-shell" id="tactical-${round.round}"><div id="tactical-stage-${round.round}">${liveTacticalFrameHTML(event,round.round,0)}</div><div class="live-playback"><button onclick="stepTactical(${round.round},-1)">◀ PREVIOUS</button><button onclick="toggleTacticalPlay(${round.round})">▶ PLAY</button><div class="live-playback-status" id="tactical-label-${round.round}">${tacticalActionLabel(event,0,round.actions.length)}</div><button onclick="stepTactical(${round.round},1)">NEXT ▶</button><button onclick="jumpTacticalEnd(${round.round})">END ROUND</button></div></div>`;
 }
 
 /* One continuous cinematic map for the complete battle. */
 let continuousTacticalPlayer=null;
+let continuousTacticalLaunch=0;
 
 function continuousTacticalMapHTML(simulation){
     const actionCount=simulation.rounds.reduce((sum,round)=>sum+round.actions.length,0);
-    return `<section class="cinematic-tactical" id="continuousTactical"><div class="cinematic-map-head"><div><h2>LIVE TACTICAL MAP</h2><span>${qs("battlefield").value.toUpperCase()} // CONTINUOUS BATTLE PLAYBACK</span></div><div class="cinematic-live">● LIVE COMBAT RECORD</div><div class="cinematic-clock" id="cinematicClock">ROUND 1 // ACTION 1 OF ${actionCount}</div></div><div class="cinematic-stage" id="cinematicStage"><canvas id="cinematicCanvas" aria-label="Animated raised tactical battlefield"></canvas><div class="cinematic-overlay" id="cinematicOverlay"></div></div><div class="cinematic-command"><div class="command-source" id="cinematicSource"><b>STANDBY</b><span>ACQUIRING COMBAT DATA</span></div><div class="command-copy" id="cinematicCopy"><strong>Initializing tactical reconstruction</strong><span>Building elevation and structural integrity tracking online</span></div><div class="command-impact" id="cinematicImpact"><b>0 DAMAGE</b><span>PLAYBACK READY</span></div></div><div class="cinematic-controls"><button type="button" id="cinematicPlay" onclick="toggleContinuousMap()">❚❚ PAUSE</button><button type="button" onclick="resetContinuousMap()">↺ RESTART</button><input id="cinematicScrubber" type="range" min="0" max="1000" value="0" aria-label="Battle timeline" oninput="seekContinuousMap(this.value)"><label>PLAYBACK SPEED <select id="cinematicSpeed" onchange="setContinuousSpeed(this.value)"><option value="0.25">0.25×</option><option value="0.5">0.5×</option><option value="0.75">0.75×</option><option value="1" selected>1×</option><option value="1.5">1.5×</option><option value="2">2×</option><option value="3">3×</option></select></label><div class="cinematic-time" id="cinematicTime">00:00 / 00:00</div></div><div class="cinematic-roster" id="cinematicRoster"></div></section>`;
+    return `<section class="cinematic-tactical" id="continuousTactical"><div class="cinematic-map-head"><div><h2>LIVE TACTICAL MAP</h2><span>${qs("battlefield").value.toUpperCase()} // CONTINUOUS BATTLE PLAYBACK</span></div><div class="cinematic-live">● LIVE COMBAT RECORD</div><div class="cinematic-clock" id="cinematicClock">ROUND 1 // ACTION 1 OF ${actionCount}</div></div><div class="cinematic-battle-grid"><aside class="cinematic-side-roster" id="cinematicRoster" aria-label="Live team health"></aside><div class="cinematic-stage" id="cinematicStage"><canvas id="cinematicCanvas" aria-label="Animated raised tactical battlefield"></canvas><div class="cinematic-overlay" id="cinematicOverlay"></div><div class="cinematic-final-result" id="cinematicFinalResult" hidden>${simulation.winner} WINS</div></div></div><div class="cinematic-command"><div class="command-source" id="cinematicSource"><b>STANDBY</b><span>ACQUIRING COMBAT DATA</span></div><div class="command-copy" id="cinematicCopy"><strong>Initializing tactical reconstruction</strong><span>Building elevation and structural integrity tracking online</span></div><div class="command-impact" id="cinematicImpact"><b>0 DAMAGE</b><span>PLAYBACK READY</span></div></div><div class="cinematic-controls"><button type="button" id="cinematicPlay" onclick="toggleContinuousMap()">❚❚ PAUSE</button><button type="button" onclick="resetContinuousMap()">↺ RESTART</button><input id="cinematicScrubber" type="range" min="0" max="1000" value="0" aria-label="Battle timeline" oninput="seekContinuousMap(this.value)"><label>PLAYBACK SPEED <select id="cinematicSpeed" onchange="setContinuousSpeed(this.value)"><option value="0.25">0.25×</option><option value="0.5">0.5×</option><option value="0.75">0.75×</option><option value="1" selected>1×</option><option value="1.5">1.5×</option><option value="2">2×</option><option value="3">3×</option></select></label><div class="cinematic-time" id="cinematicTime">00:00 / 00:00</div></div></section>`;
 }
 
 function cinematicProject(width,height,x,y,z=0){
@@ -8260,15 +9411,40 @@ function cinematicInterpolateFighters(previous,current,t){
 }
 function cinematicFormatTime(ms){const sec=Math.max(0,Math.floor(ms/1000));return `${String(Math.floor(sec/60)).padStart(2,"0")}:${String(sec%60).padStart(2,"0")}`;}
 
-function initializeContinuousTacticalMap(simulation){
+function teardownContinuousTacticalMap(){
+    continuousTacticalLaunch++;
     if(continuousTacticalPlayer?.raf)cancelAnimationFrame(continuousTacticalPlayer.raf);
+    continuousTacticalPlayer?.resizeObserver?.disconnect?.();
+    continuousTacticalPlayer=null;
+}
+function scheduleContinuousTacticalMap(simulation){
+    teardownContinuousTacticalMap();
+    const launch=continuousTacticalLaunch;
+    requestAnimationFrame(()=>requestAnimationFrame(()=>{
+        if(launch!==continuousTacticalLaunch)return;
+        initializeContinuousTacticalMap(simulation);
+    }));
+}
+function initializeContinuousTacticalMap(simulation){
     const actions=[];simulation.rounds.forEach(round=>round.actions.forEach((event,index)=>actions.push({event,round:round.round,index})));
-    const canvas=qs("cinematicCanvas"),stage=qs("cinematicStage");if(!canvas||!actions.length)return;
-    const player={simulation,actions,canvas,stage,ctx:canvas.getContext("2d"),elapsed:0,lastTime:performance.now(),durationPerAction:2200,speed:1,playing:true,raf:null,width:0,height:0,dpr:1};
+    const canvas=qs("cinematicCanvas"),stage=qs("cinematicStage");
+    if(!canvas||!stage||!actions.length)return;
+    const ctx=canvas.getContext("2d");
+    if(!ctx){stage.innerHTML='<div class="cinematic-start-error">TACTICAL DISPLAY COULD NOT INITIALIZE // PRESS START BATTLE TO RETRY</div>';return;}
+    const player={simulation,actions,canvas,stage,ctx,elapsed:0,lastTime:performance.now(),durationPerAction:2200,speed:1,playing:true,raf:null,width:0,height:0,dpr:1,totalDuration:Math.max(1,actions.length*2200)};
     continuousTacticalPlayer=player;
-    const resize=()=>{const rect=stage.getBoundingClientRect();player.dpr=Math.min(2,window.devicePixelRatio||1);player.width=rect.width;player.height=rect.height;canvas.width=Math.round(rect.width*player.dpr);canvas.height=Math.round(rect.height*player.dpr);canvas.style.width=rect.width+"px";canvas.style.height=rect.height+"px";player.ctx.setTransform(player.dpr,0,0,player.dpr,0,0);renderContinuousTacticalMap();};
-    player.resizeObserver=new ResizeObserver(resize);player.resizeObserver.observe(stage);resize();
-    player.totalDuration=Math.max(1,actions.length*player.durationPerAction);
+    const resize=()=>{
+        if(continuousTacticalPlayer!==player)return;
+        const rect=stage.getBoundingClientRect();
+        player.dpr=Math.min(2,window.devicePixelRatio||1);
+        player.width=Math.max(320,Math.round(rect.width||stage.clientWidth||960));
+        player.height=Math.max(420,Math.round(rect.height||stage.clientHeight||720));
+        canvas.width=Math.round(player.width*player.dpr);canvas.height=Math.round(player.height*player.dpr);
+        canvas.style.width=player.width+"px";canvas.style.height=player.height+"px";
+        player.ctx.setTransform(player.dpr,0,0,player.dpr,0,0);renderContinuousTacticalMap();
+    };
+    if(typeof ResizeObserver!=="undefined"){player.resizeObserver=new ResizeObserver(resize);player.resizeObserver.observe(stage);}
+    resize();
     qs("cinematicTime").textContent=`00:00 / ${cinematicFormatTime(player.totalDuration)}`;
     const tick=time=>{if(continuousTacticalPlayer!==player)return;const delta=Math.min(70,time-player.lastTime);player.lastTime=time;if(player.playing){player.elapsed=Math.min(player.totalDuration-1,player.elapsed+delta*player.speed);if(player.elapsed>=player.totalDuration-2)player.playing=false;}renderContinuousTacticalMap();player.raf=requestAnimationFrame(tick);};
     player.raf=requestAnimationFrame(tick);
@@ -8283,17 +9459,208 @@ function renderContinuousTacticalMap(){
     ctx.clearRect(0,0,w,h);const sky=ctx.createLinearGradient(0,0,0,h);sky.addColorStop(0,"#02070b");sky.addColorStop(1,"#010305");ctx.fillStyle=sky;ctx.fillRect(0,0,w,h);
     cinematicDrawSlab(ctx,w,h);[...live.structures].sort((a,b)=>(a.x+a.y)-(b.x+b.y)).forEach(building=>cinematicDrawBuilding(ctx,w,h,building));
     const attacker=fighters.find(item=>item.name===event.attacker),target=fighters.find(item=>item.name===event.target);
-    if(attacker&&target&&local>.55){const aState=live.states[event.attacker]||{altitude:0},tState=live.states[event.target]||{altitude:0};const a=cinematicProject(w,h,attacker.x,attacker.y,aState.altitude||0),b=cinematicProject(w,h,target.x,target.y,tState.altitude||0);ctx.save();ctx.strokeStyle=event.tactical.range==="RANGED"?"rgba(0,234,255,.9)":"rgba(255,200,61,.9)";ctx.lineWidth=2+(local-.55)*5;ctx.shadowColor=ctx.strokeStyle;ctx.shadowBlur=13;ctx.beginPath();ctx.moveTo(a.x,a.y);ctx.lineTo(b.x,b.y);ctx.stroke();ctx.restore();}
+    if(attacker&&target&&!event.actionType&&local>.55){const aState=live.states[event.attacker]||{altitude:0},tState=live.states[event.target]||{altitude:0};const a=cinematicProject(w,h,attacker.x,attacker.y,aState.altitude||0),b=cinematicProject(w,h,target.x,target.y,tState.altitude||0);ctx.save();ctx.strokeStyle=event.tactical.range==="RANGED"?"rgba(0,234,255,.9)":"rgba(255,200,61,.9)";ctx.lineWidth=2+(local-.55)*5;ctx.shadowColor=ctx.strokeStyle;ctx.shadowBlur=13;ctx.beginPath();ctx.moveTo(a.x,a.y);ctx.lineTo(b.x,b.y);ctx.stroke();ctx.restore();}
+    if(attacker&&event.combatDecision?.requested){const helper=fighters.find(item=>item.name===event.combatDecision.requested);if(helper){const a=cinematicProject(w,h,attacker.x,attacker.y,(live.states[event.attacker]||{}).altitude||0),b=cinematicProject(w,h,helper.x,helper.y,(live.states[helper.name]||{}).altitude||0);ctx.save();ctx.strokeStyle="rgba(104,255,178,.9)";ctx.lineWidth=2;ctx.setLineDash([7,5]);ctx.beginPath();ctx.moveTo(a.x,a.y);ctx.lineTo(b.x,b.y);ctx.stroke();ctx.restore();}}
     fighters.forEach(fighter=>{const state=live.states[fighter.name]||{state:"GROUND",altitude:0};const ground=cinematicProject(w,h,fighter.x,fighter.y,0),point=cinematicProject(w,h,fighter.x,fighter.y,state.altitude||0),color=fighter.team===1?"#00eaff":fighter.team===2?"#ff4055":"#b56cff";ctx.save();if(state.altitude){ctx.strokeStyle=cinematicColor(color,.5);ctx.setLineDash([3,4]);ctx.beginPath();ctx.moveTo(point.x,point.y);ctx.lineTo(ground.x,ground.y);ctx.stroke();ctx.setLineDash([]);}ctx.fillStyle=cinematicColor(color,.18);ctx.beginPath();ctx.arc(point.x,point.y,15,0,Math.PI*2);ctx.fill();ctx.strokeStyle=color;ctx.lineWidth=fighter.name===event.attacker?3:1.5;ctx.beginPath();ctx.arc(point.x,point.y,7,0,Math.PI*2);ctx.stroke();ctx.fillStyle=color;ctx.beginPath();ctx.arc(point.x,point.y,3,0,Math.PI*2);ctx.fill();ctx.restore();fighter._screen=point;fighter._state=state;fighter._color=color;});
-    const overlay=qs("cinematicOverlay");overlay.innerHTML=fighters.map(fighter=>{const hp=clamp(Math.round((fighter.hp/(fighter.maxHp||100))*100),0,100),state=fighter._state,top=clamp(fighter._screen.y-18,78,h-45);return `<div class="cinematic-fighter-card" style="left:${fighter._screen.x}px;top:${top}px;--fighter:${fighter._color}"><b>${fighter.name}</b><span class="cinematic-state">${state.state} // ${state.altitude||0} M</span><div class="cinematic-fighter-hp"><span style="width:${hp}%"></span></div>${Math.round(fighter.hp)} HP</div>`;}).join("");
-    const structural=live.structuralEvents?.find(item=>!item.fall),fall=live.structuralEvents?.find(item=>item.fall);qs("cinematicSource").innerHTML=`<b>${event.attacker}</b><span>TEAM ${event.attackerTeam===1?"ALPHA":event.attackerTeam===2?"OMEGA":"SIGMA"} // ${event.tactical.range}</span>`;qs("cinematicCopy").innerHTML=`<strong>${event.attacker} uses ${event.move} against ${event.target}</strong><span>${fall?`${fall.name} falls ${fall.structure} // ${fall.fallDamage} environmental damage`:structural?`${structural.name} loses ${structural.damage}% integrity${structural.collapsed?" // BUILDING COLLAPSED":""}`:event.reaction}</span>`;qs("cinematicImpact").innerHTML=`<b>${Math.round(event.damage)} DAMAGE</b><span>${Math.max(0,Math.round(event.targetHp))} HP REMAINING // ${event.effectiveness?.label||"EFFECTIVE"}</span>`;
+    const overlay=qs("cinematicOverlay");overlay.innerHTML=fighters.filter(fighter=>fighter.name===event.attacker||fighter.name===event.target).map(fighter=>{const state=fighter._state,top=clamp(fighter._screen.y-18,78,h-45);return `<div class="cinematic-fighter-card" style="left:${fighter._screen.x}px;top:${top}px;--fighter:${fighter._color}"><b>${fighter.name}</b><span class="cinematic-state">${fighter.name===event.attacker?"ACTIVE":"TARGET"} // ${state.state} ${state.altitude||0} M</span></div>`;}).join("");
+    const structural=live.structuralEvents?.find(item=>!item.fall),fall=live.structuralEvents?.find(item=>item.fall),decision=event.combatDecision||{intent:"ENGAGING",reason:"Threat remains within a credible engagement range"};qs("cinematicSource").innerHTML=`<b>${event.attacker}</b><span>${decision.intent} // TEAM ${event.attackerTeam===1?"ALPHA":event.attackerTeam===2?"OMEGA":"SIGMA"}</span>`;qs("cinematicCopy").innerHTML=event.actionType?`<strong>${event.attacker} // ${event.move}</strong><span>${event.effectiveness?.reason||decision.reason}</span>`:`<strong>${event.attacker} uses ${event.move}${event.comboHits>1?` // ${event.comboHits}-MOVE COMBO`:""} against ${event.target}</strong><span>${decision.reason} // ${fall?`${fall.name} takes ${fall.fallDamage} environmental damage after ${fall.structure} collapses`:structural?`${structural.name} loses ${structural.damage}% integrity${structural.collapsed?" // BUILDING COLLAPSED":""}`:`${event.tacticalPlan?.approach||"DIRECT PRESSURE"} // ${event.reaction}`}</span>`;qs("cinematicImpact").innerHTML=event.actionType?`<b>TACTICAL ACTION</b><span>${event.actionType.toUpperCase()} // NO DIRECT DAMAGE</span>`:`<b>${Math.round(event.damage)} DAMAGE</b><span>${Math.max(0,Math.round(event.targetHp))} HP REMAINING // ${event.reaction.toUpperCase()}</span>`;
     qs("cinematicClock").textContent=`ROUND ${record.round} // ACTION ${index+1} OF ${total}`;qs("cinematicScrubber").value=Math.round(player.elapsed/player.totalDuration*1000);qs("cinematicTime").textContent=`${cinematicFormatTime(player.elapsed)} / ${cinematicFormatTime(player.totalDuration)}`;qs("cinematicPlay").textContent=player.playing?"❚❚ PAUSE":"▶ PLAY";
-    qs("cinematicRoster").innerHTML=fighters.map(fighter=>{const hp=clamp(Math.round(fighter.hp/(fighter.maxHp||100)*100),0,100);return `<div class="cinematic-roster-unit" style="--fighter:${fighter._color}"><b>${fighter.name}</b><span>${Math.round(fighter.hp)} HP</span><i><span style="width:${hp}%"></span></i></div>`;}).join("");
+    const teamLabels={1:"TEAM ALPHA",2:"TEAM OMEGA",3:"TEAM SIGMA"};
+    qs("cinematicRoster").innerHTML=[1,2,3].map(team=>{const members=fighters.filter(fighter=>fighter.team===team);if(!members.length)return"";const teamColor=team===1?"#00eaff":team===2?"#ff4055":"#b56cff";return `<section class="cinematic-team-group" style="--team-color:${teamColor}"><h3>${teamLabels[team]}</h3>${members.map(fighter=>{const hp=clamp(Math.round(fighter.hp/(fighter.maxHp||100)*100),0,100),intent=fighter.intent&&fighter.intent!=="ASSESSING"?fighter.intent:null,status=fighter.hp<=0?"OUT":fighter.name===event.attacker?(event.combatDecision?.intent||"ACTIVE"):intent||(fighter.name===event.target?"UNDER PRESSURE":`${fighter._state.state} // ${fighter._state.altitude||0} M`),rowState=fighter.hp<=0?"ko":fighter.name===event.attacker?"active":fighter.name===event.target?"target":"";return `<div class="cinematic-roster-unit ${rowState}" style="--fighter:${fighter._color}"><span class="roster-hp">${Math.round(fighter.hp)} HP</span><b>${fighter.name}</b><span class="roster-state">${status}</span><i><span style="width:${hp}%"></span></i></div>`;}).join("")}</section>`;}).join("");
+    const finalResult=qs("cinematicFinalResult");if(finalResult)finalResult.hidden=player.elapsed<player.totalDuration-2;
 }
 function toggleContinuousMap(){const player=continuousTacticalPlayer;if(!player)return;if(player.elapsed>=player.totalDuration-2)player.elapsed=0;player.playing=!player.playing;player.lastTime=performance.now();renderContinuousTacticalMap();}
 function resetContinuousMap(){const player=continuousTacticalPlayer;if(!player)return;player.elapsed=0;player.playing=true;player.lastTime=performance.now();renderContinuousTacticalMap();}
 function setContinuousSpeed(value){if(continuousTacticalPlayer)continuousTacticalPlayer.speed=Number(value)||1;}
 function seekContinuousMap(value){const player=continuousTacticalPlayer;if(!player)return;player.elapsed=clamp(Number(value)/1000*player.totalDuration,0,player.totalDuration-1);player.lastTime=performance.now();renderContinuousTacticalMap();}
+
+/* =========================================================
+   STANDARD-ONLY BUDGET AUCTION
+   Dollar marks represent fictional match-building credits.
+========================================================= */
+const BUDGET_TIER_COST={Street:1,Enhanced:2,Heavy:3,Apex:4,Cosmic:5};
+const BUDGET_TIER_COLOR={Street:"#85a5af",Enhanced:"#55e0ff",Heavy:"#ffc83d",Apex:"#ff7a45",Cosmic:"#c875ff"};
+let budgetAuctionBudget=20;
+let budgetBalances={alpha:20,omega:20};
+let budgetAuction=null;
+let budgetAuctionCompleted=false;
+
+function budgetMode(){return currentMode()==="BudgetAuction";}
+function opposingBudgetTeam(team){return team==="alpha"?"omega":"alpha";}
+function remainingBudget(team){return budgetBalances[team]??0;}
+function affordableBudgetFighters(team){return selection.filter(fighter=>!fighter.budgetSold&&(BUDGET_TIER_COST[fighter.tier]||99)<=remainingBudget(team));}
+
+function budgetLedgerHTML(){
+    return `<div class="budget-ledger"><div class="budget-team-ledger"><span>TEAM ALPHA BUDGET</span><b>$${remainingBudget("alpha")}</b></div><div class="budget-team-ledger"><span>TEAM OMEGA BUDGET</span><b>$${remainingBudget("omega")}</b></div></div>`;
+}
+
+function budgetModeOptionsHTML(){
+    return `<span class="pool-option-label">FICTIONAL TEAM BUDGET</span>${[10,20,30].map(amount=>`<button type="button" data-budget="${amount}" class="${budgetAuctionBudget===amount?"active":""}" onclick="chooseBudgetAuction(${amount})">$${amount}</button>`).join("")}<button type="button" onclick="generateBudgetBoard()">↻ NEW 5 × 5 BOARD</button><button type="button" onclick="passBudgetNomination()">PASS NOMINATION</button><button type="button" onclick="finishBudgetAuction()">LOCK AUCTION TEAMS</button><span class="pool-divider"></span><span class="pool-option-label">STANDARD PRICES</span><span>STREET $1 • ENHANCED $2 • HEAVY $3 • APEX $4 • COSMIC $5</span>${budgetLedgerHTML()}`;
+}
+
+const preBudgetAdvancedPoolMode=advancedPoolMode;
+advancedPoolMode=function(mode=currentMode()){return mode==="BudgetAuction"||preBudgetAdvancedPoolMode(mode);};
+const preBudgetModeOptionsHTML=modeOptionsHTML;
+modeOptionsHTML=function(){return budgetMode()?budgetModeOptionsHTML():preBudgetModeOptionsHTML();};
+
+function setBudgetStandardOnly(){
+    qs("versionMode").value="Standard";
+    qs("versionMode").disabled=true;
+    qs("universe").value="Both";
+    qs("universe").disabled=true;
+    document.querySelectorAll(".tierCheck").forEach(box=>box.checked=true);
+}
+
+function chooseBudgetAuction(amount){
+    if(teams.alpha.length||teams.omega.length){qs("selectionStatus").textContent="REMOVE CURRENT AUCTION PICKS BEFORE CHANGING THE TEAM BUDGET";return;}
+    budgetAuctionBudget=Number(amount);budgetBalances={alpha:budgetAuctionBudget,omega:budgetAuctionBudget};budgetAuctionCompleted=false;
+    generateBudgetBoard();
+}
+
+function generateBudgetBoard(){
+    if(!budgetMode())return;
+    if(teams.alpha.length||teams.omega.length){qs("selectionStatus").textContent="THE BOARD CANNOT BE REGENERATED AFTER A FIGHTER HAS BEEN WON";return;}
+    setBudgetStandardOnly();budgetAuction=null;budgetAuctionCompleted=false;budgetBalances={alpha:budgetAuctionBudget,omega:budgetAuctionBudget};
+    const universe=qs("universe").value;
+    selection=[];
+    ["Cosmic","Apex","Heavy","Enhanced","Street"].forEach(tier=>{
+        const candidates=CHARACTERS.filter(character=>{
+            const standard=fighterVersionRecord(character,"Standard");
+            return standard?.battlefieldTier===tier&&(universe==="Both"||character.universe===universe);
+        });
+        shuffle(candidates).slice(0,5).forEach(character=>{
+            const fighter=versionedCharacter(character,"Standard");
+            if(fighter)selection.push({...fighter,budgetCost:BUDGET_TIER_COST[tier],budgetSold:false,budgetSoldTo:null});
+        });
+    });
+    syncAdvancedPoolPanel();renderSelection();renderTeams();
+    const exact=selection.length===25;
+    setPoolMessage("BUDGET AUCTION // STANDARD FIGHTERS",exact?"25 FIGHTERS LOADED // FIVE RANDOM FIGHTERS FROM EACH TIER // DETERMINE FIRST NOMINATION":"THIS UNIVERSE FILTER DOES NOT CONTAIN FIVE STANDARD FIGHTERS IN EVERY TIER");
+}
+
+function renderBudgetBoard(){
+    const node=qs("characterPool");
+    node.parentElement.classList.add("budget-auction-open");
+    node.innerHTML=selection.map((fighter,index)=>{
+        const color=BUDGET_TIER_COLOR[fighter.tier]||"#8aa",sold=fighter.budgetSold;
+        return `<div class="card budget-card ${sold?"sold":""}" data-sold="${sold?`WON BY ${teamName(fighter.budgetSoldTo)}`:""}" style="--accent:${color};--tier-color:${color}" onclick="openBudgetAuction(${index})"><div class="budget-price">$${fighter.budgetCost}</div><div class="emblem">${ICONS[fighter.icon]||"◆"}</div><div class="name">${fighter.name}</div><div class="tier-row-label">${fighter.tier.toUpperCase()}</div><div class="meta">${fighter.universe} // STANDARD</div></div>`;
+    }).join("");
+}
+
+const preBudgetRenderSelection=renderSelection;
+renderSelection=function(){
+    if(budgetMode()){renderBudgetBoard();updateHUDTelemetry();return;}
+    qs("characterPool")?.parentElement?.classList.remove("budget-auction-open");preBudgetRenderSelection();
+};
+
+function openBudgetAuction(index){
+    if(!budgetMode()||budgetAuctionCompleted)return;
+    if(!firstPickDetermined){qs("selectionStatus").textContent="DETERMINE FIRST NOMINATION BEFORE OPENING AN AUCTION";return;}
+    const fighter=selection[index];if(!fighter||fighter.budgetSold)return;
+    const nominator=currentDraftTeam();if(!nominator||teamFull(nominator)){qs("selectionStatus").textContent="THE CURRENT TEAM HAS NO OPEN ROSTER SLOT";return;}
+    const opening=fighter.budgetCost;
+    if(remainingBudget(nominator)<opening){qs("selectionStatus").textContent=`${teamName(nominator)} CANNOT AFFORD THE $${opening} OPENING PRICE`;return;}
+    budgetAuction={index,fighter,nominator,leader:nominator,nextBidder:opposingBudgetTeam(nominator),amount:opening};renderBudgetAuctionModal();
+}
+
+function renderBudgetAuctionModal(){
+    const modal=qs("budgetAuctionModal"),auction=budgetAuction;if(!modal||!auction)return;
+    const challenger=auction.nextBidder,nextAmount=auction.amount+1,canRaise=!teamFull(challenger)&&remainingBudget(challenger)>=nextAmount;
+    modal.classList.add("open");modal.setAttribute("aria-hidden","false");
+    qs("budgetAuctionBody").innerHTML=`<h2>${auction.fighter.name}</h2><div class="auction-meta">${auction.fighter.universe} // STANDARD // ${auction.fighter.tier.toUpperCase()} // BASE PRICE $${auction.fighter.budgetCost}</div><div class="auction-price-display"><small>CURRENT OFFER // ${teamName(auction.leader)}</small><strong>$${auction.amount}</strong></div><div class="auction-actions"><button type="button" onclick="raiseBudgetBid()" ${canRaise?"":"disabled"}>${teamName(challenger)} RAISE TO $${nextAmount}</button><button type="button" onclick="passBudgetBid()">${teamName(challenger)} PASS</button></div><div class="auction-rule">ALPHA HAS $${remainingBudget("alpha")} // OMEGA HAS $${remainingBudget("omega")}<br>Teams alternate $1 raises. Passing awards the fighter to the current leading team.</div>`;
+}
+
+function raiseBudgetBid(){
+    if(!budgetAuction)return;const bidder=budgetAuction.nextBidder,next=budgetAuction.amount+1;
+    if(teamFull(bidder)||remainingBudget(bidder)<next)return;
+    budgetAuction.amount=next;budgetAuction.leader=bidder;budgetAuction.nextBidder=opposingBudgetTeam(bidder);renderBudgetAuctionModal();
+}
+
+function passBudgetBid(){
+    if(!budgetAuction)return;
+    const {index,fighter,nominator,leader,amount}=budgetAuction;
+    budgetBalances[leader]-=amount;
+    teams[leader].push({...fighter,budgetPurchasePrice:amount,budgetBoardIndex:index});
+    selection[index].budgetSold=true;selection[index].budgetSoldTo=leader;
+    budgetAuction=null;closeBudgetAuctionModal();
+    const nominationIndex=draftOrder.indexOf(nominator);currentDraftIndex=nominationIndex<0?0:(nominationIndex+1)%draftOrder.length;
+    let attempts=0;while(attempts<draftOrder.length&&teamFull(draftOrder[currentDraftIndex])){currentDraftIndex=(currentDraftIndex+1)%draftOrder.length;attempts++;}
+    syncAdvancedPoolPanel();renderSelection();renderTeams();updateDraftStatus();
+    const nextTeam=currentDraftTeam();
+    qs("selectionStatus").textContent=`${teamName(leader)} WINS ${fighter.name.toUpperCase()} FOR $${amount} // ${nextTeam?`${teamName(nextTeam)} NOMINATES NEXT`:"ROSTERS FILLED // LOCK AUCTION TEAMS"}`;
+}
+
+function closeBudgetAuctionModal(){const modal=qs("budgetAuctionModal");if(modal){modal.classList.remove("open");modal.setAttribute("aria-hidden","true");}}
+
+function passBudgetNomination(){
+    if(!budgetMode()||budgetAuction||!firstPickDetermined||budgetAuctionCompleted)return;
+    const team=currentDraftTeam();if(!team)return;
+    const index=draftOrder.indexOf(team);currentDraftIndex=index<0?0:(index+1)%draftOrder.length;
+    const nextTeam=currentDraftTeam();updateDraftStatus();qs("selectionStatus").textContent=`${teamName(team)} PASSED // ${nextTeam?`${teamName(nextTeam)} NOMINATES NEXT`:"LOCK AUCTION TEAMS"}`;
+}
+
+function finishBudgetAuction(){
+    if(!budgetMode())return;
+    if(budgetAuction){qs("selectionStatus").textContent="FINISH THE CURRENT CHARACTER AUCTION FIRST";return;}
+    if(!teams.alpha.length||!teams.omega.length){qs("selectionStatus").textContent="EACH TEAM NEEDS AT LEAST ONE FIGHTER";return;}
+    qs("alphaTeamSize").value=String(teams.alpha.length);qs("omegaTeamSize").value=String(teams.omega.length);budgetAuctionCompleted=true;
+    renderTeams();updateDraftStatus();qs("selectionStatus").textContent=`AUCTION LOCKED // ALPHA $${remainingBudget("alpha")} REMAINING // OMEGA $${remainingBudget("omega")} REMAINING // READY TO START`;
+}
+
+const preBudgetSelectionModeChanged=selectionModeChanged;
+selectionModeChanged=function(){
+    qs("versionMode").disabled=false;qs("universe").disabled=false;closeBudgetAuctionModal();budgetAuction=null;budgetAuctionCompleted=false;
+    if(qs("selectionMode").value==="BudgetAuction"&&qs("playerCount").value!=="2"){qs("playerCount").value="2";playerCountChanged(true);}
+    preBudgetSelectionModeChanged();
+    if(budgetMode()){
+        clearTeams();draftOrder=["alpha","omega"];currentDraftIndex=0;firstPickDetermined=false;setBudgetStandardOnly();budgetBalances={alpha:budgetAuctionBudget,omega:budgetAuctionBudget};
+        generateBudgetBoard();syncAdvancedPoolPanel();renderTeams();updateDraftStatus();
+    }
+};
+
+const preBudgetPlayerCountChanged=playerCountChanged;
+playerCountChanged=function(initializing=false){
+    if(budgetMode()&&qs("playerCount").value!=="2")qs("playerCount").value="2";
+    preBudgetPlayerCountChanged(initializing);
+    if(budgetMode())qs("selectionStatus").textContent="BUDGET AUCTION USES TEAM ALPHA AND TEAM OMEGA";
+};
+
+const preBudgetFiltersChanged=filtersChanged;
+filtersChanged=function(){
+    if(budgetMode()){setBudgetStandardOnly();if(!teams.alpha.length&&!teams.omega.length)generateBudgetBoard();return;}
+    qs("versionMode").disabled=false;qs("universe").disabled=false;preBudgetFiltersChanged();
+};
+
+const preBudgetDraftCharacter=draftCharacter;
+draftCharacter=function(index){if(budgetMode()){openBudgetAuction(index);return;}preBudgetDraftCharacter(index);};
+
+const preBudgetRemoveCharacter=removeCharacter;
+removeCharacter=function(team,index){
+    if(!budgetMode()){preBudgetRemoveCharacter(team,index);return;}
+    const removed=teams[team][index];if(!removed)return;
+    teams[team].splice(index,1);budgetBalances[team]+=removed.budgetPurchasePrice||0;budgetAuctionCompleted=false;
+    const board=selection[removed.budgetBoardIndex];if(board){board.budgetSold=false;board.budgetSoldTo=null;}
+    currentDraftIndex=Math.max(0,draftOrder.indexOf(team));syncAdvancedPoolPanel();renderSelection();renderTeams();updateDraftStatus();
+    qs("selectionStatus").textContent=`${removed.name.toUpperCase()} RETURNED TO THE BOARD // $${removed.budgetPurchasePrice||0} REFUNDED TO ${teamName(team)}`;
+};
+
+const preBudgetUpdateDraftStatus=updateDraftStatus;
+updateDraftStatus=function(){
+    preBudgetUpdateDraftStatus();
+    if(!budgetMode())return;
+    const team=currentDraftTeam();
+    qs("draftStatus").textContent=budgetAuctionCompleted?"AUCTION COMPLETE":!firstPickDetermined?"DETERMINE FIRST NOMINATION":team?`${teamName(team)} NOMINATES`:"LOCK AUCTION TEAMS";
+    qs("startBattleButton").disabled=!budgetAuctionCompleted;
+};
+
+const preBudgetStartBattle=startBattle;
+startBattle=function(){if(budgetMode()&&!budgetAuctionCompleted){qs("selectionStatus").textContent="LOCK THE AUCTION TEAMS BEFORE STARTING THE BATTLE";return;}preBudgetStartBattle();};
+
+const preBudgetInitBattleHUD=initBattleHUD;
+initBattleHUD=function(){
+    preBudgetInitBattleHUD();
+    const modal=document.createElement("div");modal.id="budgetAuctionModal";modal.className="auction-modal";modal.setAttribute("aria-hidden","true");modal.innerHTML='<div class="auction-console" role="dialog" aria-modal="true" aria-label="Character auction"><div id="budgetAuctionBody"></div></div>';document.body.append(modal);
+};
 
 initBattleHUD();
 playerCountChanged(true);
