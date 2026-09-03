@@ -1054,7 +1054,7 @@ body{min-width:0;background:radial-gradient(circle at 50% 10%,rgba(0,234,255,.1)
 /* JOINT SHIELD CAPABILITY ARCHIVE — unified dossier system */
 #databaseGrid.profiles{grid-template-columns:repeat(4,minmax(0,1fr));gap:14px;align-items:stretch}
 .database-threat-header{grid-column:1/-1;display:grid;grid-template-columns:1fr 2fr auto;gap:14px;align-items:center;margin:12px 0 0;padding:13px 15px;border:1px solid #285666;border-left:5px solid #5d8a98;background:linear-gradient(90deg,#07141b,#02080c);color:#bdd3da;font-size:11px;letter-spacing:1px}.database-threat-header b{font-size:15px;color:#e8fbff;letter-spacing:2px}.database-threat-header span{color:#8daab3}.database-threat-header em{font-style:normal;color:#68a8ba;white-space:nowrap}.database-threat-header.threat-cosmic{border-color:#9d293a;border-left-color:#ff4055;background:linear-gradient(90deg,#25070d,#080509);box-shadow:inset 0 0 28px rgba(255,64,85,.12)}.database-threat-header.threat-cosmic b,.database-threat-header.threat-cosmic span{color:#ff7082}.database-threat-header.threat-mystic{border-left-color:#b56cff}.database-threat-header.threat-heavy{border-left-color:#ffc83d}.database-threat-header.threat-enhanced{border-left-color:#00eaff}.database-threat-header.threat-street{border-left-color:#4dff9a}
-.passport-tile{position:relative;min-height:390px;padding:14px 14px 46px;text-align:left;cursor:pointer;font:inherit;overflow:hidden;transition:transform .18s,border-color .18s;clip-path:polygon(0 0,92% 0,100% 7%,100% 100%,8% 100%,0 93%)}
+.passport-tile{position:relative;min-height:455px;padding:14px 14px 112px;text-align:left;cursor:pointer;font:inherit;overflow:hidden;transition:transform .18s,border-color .18s;clip-path:polygon(0 0,92% 0,100% 7%,100% 100%,8% 100%,0 93%)}
 .passport-tile:hover{transform:translateY(-3px)}
 .passport-tile-a{color:#20272b;background:linear-gradient(90deg,#202932 0 7px,#e8e0cf 7px 100%);border:1px solid #877e6b}
 .passport-tile-b{color:#dcecf2;background:linear-gradient(90deg,#4ab7dc 0 5px,#16232d 5px 100%);border:1px solid #2d718b}
@@ -1064,8 +1064,8 @@ body{min-width:0;background:radial-gradient(circle at 50% 10%,rgba(0,234,255,.1)
 .passport-tile-b .passport-tile-portrait{background:rgba(0,0,0,.18);color:#72d8f2}
 .passport-tile h3{margin:8px 0 3px;color:inherit;font-size:17px;letter-spacing:1px}.passport-tile-identity{font-size:12px;opacity:.72;line-height:1.45}
 .passport-tile-meta{display:grid;grid-template-columns:1fr 1fr;gap:5px;margin-top:10px}.passport-tile-meta span{padding:5px;border-left:2px solid currentColor;background:rgba(0,0,0,.045);font-size:11px;line-height:1.3}
-.passport-tile-stamp{position:absolute;right:12px;bottom:52px;transform:rotate(-6deg);padding:5px 7px;border:2px double #a43b43;color:#a43b43;font-size:10px;font-weight:900;letter-spacing:.7px;opacity:.76}.passport-tile-b .passport-tile-stamp{border-color:#e05a68;color:#e05a68}
-.passport-tile-versions{position:absolute;left:14px;right:14px;bottom:12px;display:grid;grid-template-columns:repeat(auto-fit,minmax(70px,1fr));gap:4px;max-height:58px;overflow:auto}.passport-tile-versions span{padding:7px;text-align:center;border:1px solid currentColor;font-size:8px;letter-spacing:.7px}.passport-tile-versions span:first-child{color:white;background:#9c343d;border-color:#9c343d}.passport-tile-b .passport-tile-versions span:first-child{background:#187493;border-color:#187493}
+.passport-tile-stamp{position:absolute;right:12px;bottom:116px;transform:rotate(-6deg);padding:5px 7px;border:2px double #a43b43;color:#a43b43;font-size:10px;font-weight:900;letter-spacing:.7px;opacity:.76}.passport-tile-b .passport-tile-stamp{border-color:#e05a68;color:#e05a68}
+.passport-tile-versions{position:absolute;left:14px;right:14px;bottom:12px;display:grid;grid-template-columns:1fr 1fr;gap:4px;max-height:94px;overflow:auto}.passport-tile-versions span{padding:7px;text-align:center;border:1px solid currentColor;font-size:8px;letter-spacing:.7px;line-height:1.25}.passport-tile-versions span:first-child{color:white;background:#9c343d;border-color:#9c343d}.passport-tile-b .passport-tile-versions span:first-child{background:#187493;border-color:#187493}
 .dossier-modal{width:min(1120px,97vw);max-height:96vh;padding:10px;overflow:hidden}.dossier-close{position:absolute;z-index:30;right:20px;top:18px;float:none}
 .passport-scene{height:min(860px,88vh);perspective:1600px;margin:0 auto}.passport-flipper{position:relative;width:100%;height:100%;transform-style:preserve-3d;transition:transform .62s cubic-bezier(.2,.75,.25,1)}.passport-scene.flipped .passport-flipper{transform:rotateY(180deg)}
 .passport-face{position:absolute;inset:0;padding:24px;overflow-y:auto;backface-visibility:hidden;-webkit-backface-visibility:hidden}.passport-back{transform:rotateY(180deg)}
@@ -1786,7 +1786,7 @@ JOINT SHIELD CAPABILITY ARCHIVE
 </h2>
 
 <span class="code">
-175 SECURE CHARACTER FILES
+175 FIGHTERS // 700 VERSION RECORDS
 </span>
 
 </div>
@@ -2503,7 +2503,7 @@ const VERSION_TIER_OVERRIDES={
     "Black Panther":["Enhanced","Heavy"],"Blue Beetle":["Heavy","Heavy"],"Captain America":["Enhanced","Cosmic"],
     "Captain Marvel":["Heavy","Cosmic"],"Cheetah":["Heavy","Heavy"],"Corvus Glaive":["Heavy","Heavy"],
     "Cyborg":["Heavy","Cosmic"],"Doctor Doom":["Mystic","Cosmic"],"Ebony Maw":["Heavy","Heavy"],
-    "Emma Frost":["Mystic","Mystic"],"Gamora":["Heavy","Heavy"],"Ghost Rider":["Mystic","Cosmic"],
+    "Emma Frost":["Mystic","Mystic"],"Gamora":["Heavy","Heavy"],"Ghost Rider":["Mystic","Cosmic"],"Iron Man":["Heavy","Cosmic"],
     "Gorilla Grodd":["Heavy","Heavy"],"Hulk":["Heavy","Cosmic"],"Invisible Woman":["Heavy","Heavy"],
     "Jean Grey":["Mystic","Cosmic"],"Juggernaut":["Heavy","Cosmic"],"Lobo":["Heavy","Heavy"],
     "Magneto":["Heavy","Heavy"],"Mera":["Heavy","Heavy"],"Mister Freeze":["Enhanced","Heavy"],
@@ -2511,7 +2511,7 @@ const VERSION_TIER_OVERRIDES={
     "Poison Ivy":["Enhanced","Mystic"],"Professor X":["Mystic","Mystic"],"Raven":["Mystic","Cosmic"],
     "Ronan the Accuser":["Heavy","Heavy"],"Scarlet Witch":["Mystic","Cosmic"],"Starfire":["Heavy","Heavy"],
     "Static":["Enhanced","Heavy"],"Storm":["Heavy","Heavy"],"Super-Skrull":["Heavy","Heavy"],
-    "Swamp Thing":["Mystic","Mystic"],"Vision":["Heavy","Heavy"],"Vixen":["Enhanced","Heavy"],
+    "Swamp Thing":["Mystic","Mystic"],"Venom":["Heavy","Cosmic"],"Carnage":["Heavy","Cosmic"],"Vision":["Heavy","Heavy"],"Vixen":["Enhanced","Heavy"],
     "Wolverine":["Enhanced","Heavy"],"Zatanna":["Mystic","Cosmic"]
 };
 
@@ -2543,19 +2543,69 @@ const VERSION_ORIGINS={
     "Cheetah":"Barbara Minerva's Standard divine curse already gives her the speed, strength, claws and magical injury needed for Heavy-tier combat. Full Urzkartaga empowerment deepens the curse and its predatory magic, but divine weapons, curse disruption and her loss of judgment remain exploitable limits."
 };
 
-function generatedVariantName(character){
-    const description=String(character.ampedDescription||"Peak controlled state").replace(/[.;].*$/s,"").replace(/\bwith\b/i,"//");
-    return `${character.name.toUpperCase()} // ${description.toUpperCase()}`;
+const AUTHENTIC_VARIANT_NAMES={
+    "Spider-Man":["HOMEMADE-SUIT SPIDER-MAN","BLACK-SUIT SPIDER-MAN","IRON SPIDER"],
+    "Iron Man":["MARK I IRON MAN","EXTREMIS IRON MAN","GODKILLER ARMOR IRON MAN"],
+    "Thor":["UNWORTHY THOR","MJOLNIR THOR","THORFORCE KING THOR"],
+    "Hulk":["JOE FIXIT","GREEN SCAR HULK","WORLDBREAKER HULK"],
+    "Wolverine":["BONE-CLAW WOLVERINE","WEAPON X WOLVERINE","ULTIMATE WOLVERINE"],
+    "Captain America":["WWII CAPTAIN AMERICA","THE CAPTAIN / STEVE ROGERS","MJOLNIR CAPTAIN AMERICA"],
+    "Captain Marvel":["MS. MARVEL / CAROL DANVERS","CAPTAIN MARVEL / PEAK STANDARD","BINARY"],
+    "Black Panther":["EARLY KING T'CHALLA","VIBRANIUM-SUIT BLACK PANTHER","KING OF THE DEAD"],
+    "Doctor Doom":["ARMORED DOOM","SORCERER DOOM","POWER COSMIC DOOM"],
+    "Magneto":["EARLY BROTHERHOOD MAGNETO","ASTEROID M MAGNETO","PEAK ELECTROMAGNETIC MAGNETO"],
+    "Storm":["EARLY X-MEN STORM","GODDESS OF THUNDER STORM","OMEGA STORM STATE"],
+    "Jean Grey":["MARVEL GIRL","OMEGA TELEKINETIC JEAN GREY","CONTROLLED PHOENIX HOST"],
+    "Scarlet Witch":["EARLY HEX-CASTER SCARLET WITCH","AVENGERS SCARLET WITCH","DARKHOLD CHAOS FORM"],
+    "Deadpool":["EARLY WEAPON X DEADPOOL","STANDARD MERCENARY DEADPOOL","WEAPON X DEADPOOL"],
+    "Venom":["EARLY LETHAL PROTECTOR VENOM","ANTI-VENOM","KING IN BLACK VENOM"],
+    "Carnage":["EARLY CARNAGE","ENHANCED SYMBIOTE CARNAGE","DARK CARNAGE"],
+    "Silver Surfer":["DEPOWERED NORRIN RADD","STANDARD SILVER SURFER","KEEPER SURFER"],
+    "Ghost Rider":["JOHNNY BLAZE GHOST RIDER","KING OF HELL GHOST RIDER","ZARATHOS UNLEASHED"],
+    "Apocalypse":["ANCIENT EGYPT APOCALYPSE","MODERN CELESTIAL-TECH APOCALYPSE","CELESTIAL-ARMOR APOCALYPSE"],
+    "Batman":["YEAR ONE BATMAN","JUSTICE BUSTER BATMAN","HELLBAT BATMAN"],
+    "Superman":["GOLDEN AGE SUPERMAN","POST-CRISIS SUPERMAN","SUN-DIPPED SUPERMAN"],
+    "Wonder Woman":["EARLY THEMYSCIRAN WONDER WOMAN","GOD-MODE WONDER WOMAN","GODWAVE WONDER WOMAN"],
+    "The Flash":["EARLY-CAREER FLASH","VETERAN SPEED FORCE FLASH","SPEED FORCE UNBOUND FLASH"],
+    "Green Lantern":["ROOKIE GREEN LANTERN","VETERAN GREEN LANTERN","ION-CHARGED GREEN LANTERN"],
+    "Aquaman":["EARLY AQUAMAN","KING OF ATLANTIS AQUAMAN","POSEIDON-BLESSED AQUAMAN"],
+    "Doomsday":["CONTAINED DOOMSDAY","EVOLVED DOOMSDAY","HUNTER/PREY DOOMSDAY"],
+    "Darkseid":["INTERDIMENSIONAL PROJECTION DARKSEID","AVATAR DARKSEID","TRUE-AVATAR DARKSEID"],
+    "Supergirl":["EARLY-EARTH SUPERGIRL","PEAK SOLAR SUPERGIRL","RED LANTERN SUPERGIRL"],
+    "Hawkeye":["EARLY AVENGERS HAWKEYE","RONIN","MAXIMUM TRICK-ARROW HAWKEYE"]
+};
+
+const VERSION_TIER_ORDER=["Street","Enhanced","Heavy","Mystic","Cosmic"];
+function tierStep(tier,steps){return VERSION_TIER_ORDER[Math.max(0,Math.min(VERSION_TIER_ORDER.length-1,VERSION_TIER_ORDER.indexOf(tier)+steps))]||tier;}
+function variantArchetype(character){
+    const text=[character.role,...(character.richData?.powers||[]),...(character.richData?.equipment||[])].join(" ").toLowerCase();
+    if(/armor|technology|cyber|robot|weapon|gun|arrow|scarab|machine/.test(text))return["PROTOTYPE LOADOUT","VETERAN LOADOUT"];
+    if(/magic|mystic|spell|sorcer|demon|divine|hell|soul/.test(text))return["RESTRICTED CHANNELING","MASTERED CHANNELING"];
+    if(/speedster|speed force|super speed/.test(text))return["CONTROLLED VELOCITY","MAXIMUM SAFE VELOCITY"];
+    if(/telepath|telekin|psychic|mutant|energy|cosmic/.test(text))return["CONTROLLED OUTPUT","PEAK STANDARD OUTPUT"];
+    if(/martial|assassin|brawler|agile|infiltrator/.test(text))return["EARLY-CAREER FORM","VETERAN COMBAT FORM"];
+    return["RESTRAINED POWER STATE","PEAK STANDARD STATE"];
+}
+function variantNames(character){
+    if(AUTHENTIC_VARIANT_NAMES[character.name])return AUTHENTIC_VARIANT_NAMES[character.name];
+    const archetype=variantArchetype(character);
+    return[`${character.name.toUpperCase()} // ${archetype[0]}`,`${character.name.toUpperCase()} // ${archetype[1]}`,AMPED_VERSION_NAMES[character.name]||generatedVariantName(character)];
 }
 
-function buildVersionStats(character,isAmped,tier){
+function generatedVariantName(character){
+    const description=String(character.ampedDescription||"Peak controlled state").replace(/[.;].*$/s,"").split(/\b(?:with|without|while|but|kept|short of|restricted to)\b/i)[0].trim().split(/\s+/).slice(0,6).join(" ").toUpperCase();
+    return description.includes(character.name.toUpperCase())?description:`${character.name.toUpperCase()} // ${description}`;
+}
+
+function buildVersionStats(character,stage,tier){
     const source=character.richData?.stats||{};
     const result={};
     const tierBoost={Street:3,Enhanced:6,Heavy:9,Mystic:10,Cosmic:12}[tier]||6;
+    const stageShift={standard:0,low:-12,mid:5,high:tierBoost}[stage]??0;
     STAT_NAMES.forEach(key=>{
         const fallback={strength:character.strength,speed:character.speed,durability:character.durability,intelligence:character.iq,combatIQ:character.iq,melee:character.power,ranged:character.power,battlefieldControl:character.power}[key]??55;
         const base=Number(source[key]??fallback);
-        result[key]=Math.min(100,Math.round(base+(isAmped?tierBoost:0)));
+        result[key]=Math.max(1,Math.min(100,Math.round(base+stageShift)));
     });
     return result;
 }
@@ -2574,13 +2624,14 @@ const SURVEILLANCE_PROTOCOLS={
 };
 const TIER_PROTOCOL_LEVEL={Street:1,Enhanced:2,Heavy:3,Mystic:4,Cosmic:5};
 
-function makeSurveillanceProtocol(character,tier,isAmped=false){
+function makeSurveillanceProtocol(character,tier,versionKind="standard",versionDescription=""){
+    const isVariant=versionKind!=="standard";
     let level=TIER_PROTOCOL_LEVEL[tier]||2;
-    if(!isAmped&&HIGH_SURVEILLANCE_STANDARD[character.name])level=Math.max(level,HIGH_SURVEILLANCE_STANDARD[character.name]);
-    if(isAmped)level=Math.max(level,Math.min(5,(character.versions?.[0]?.surveillanceProtocol?.level||level)+1));
+    if(!isVariant&&HIGH_SURVEILLANCE_STANDARD[character.name])level=Math.max(level,HIGH_SURVEILLANCE_STANDARD[character.name]);
+    if(versionKind==="high")level=Math.max(level,Math.min(5,(character.versions?.[0]?.surveillanceProtocol?.level||level)+1));
     const powers=(character.richData?.powers||[]).slice(0,3);
     const reasons=[`${tier.toUpperCase()} practical battlefield capability`,...powers.map(power=>`Monitored capability: ${power}`)];
-    if(isAmped)reasons.push(`Version escalation: ${character.ampedDescription||"enhanced operating state"}`);
+    if(isVariant)reasons.push(`Version condition: ${versionDescription||character.ampedDescription||"alternate operating state"}`);
     return{level,...SURVEILLANCE_PROTOCOLS[level],reasons};
 }
 
@@ -2615,8 +2666,10 @@ const VERSION_COMBAT_OVERRIDES={
     }
 };
 
-function versionCombatProfile(character,description,isAmped){
+function versionCombatProfile(character,description,variantKind="standard"){
+    const isAmped=variantKind==="high";
     const data=character.richData||{};
+    const plain=value=>Array.isArray(value)?value.join(" "):(value||"");
     const profile={
         powers:[...(data.powers||[])],equipment:[...(data.equipment||[])],moves:character.moveCategories||data.moves||{},
         fightingStyle:data.fightingStyle||character.fightingStyle,combatPersonality:data.combatPersonality||character.personality,
@@ -2624,7 +2677,7 @@ function versionCombatProfile(character,description,isAmped){
         mechanics:[...(data.specialMechanics||character.specialMechanics||[])],interactions:[...(data.powerInteractionsCounters||character.powerInteractions||[])],
         aiBehavior:data.aiBehavior||character.aiBehavior||{},matchupKnowledge:data.matchupKnowledge||character.matchupKnowledge||[],
         teamBehavior:data.teamBehavior||character.teamBehavior,battlefieldBehavior:data.battlefieldBehavior||character.battlefieldBehavior,
-        versionNotes:description,isAmped,origin:VERSION_ORIGINS[character.name]||`${isAmped?"This version":"The Standard record"} is based on ${character.name}'s established comic abilities and the specific condition recorded here: ${description}. The enhanced record changes only powers, equipment and behavior supported by that condition, preserves its costs and counters, and excludes unrestricted reality-ending or automatic-win effects.`
+        versionNotes:description,isAmped,variantKind,origin:VERSION_ORIGINS[character.name]||`${variantKind==="standard"?"The Standard record":"This alternate record"} is based on ${character.name}'s established comic abilities and the specific condition recorded here: ${description}. It changes only powers, equipment and behavior supported by that condition, preserves its costs and counters, and excludes unrestricted reality-ending or automatic-win effects.`
     };
     const override=VERSION_COMBAT_OVERRIDES[character.name]?.[isAmped?"amped":"standard"];
     if(override){
@@ -2632,27 +2685,67 @@ function versionCombatProfile(character,description,isAmped){
         for(const key of ["fightingStyle","combatPersonality","teamBehavior","battlefieldBehavior"]){if(override[key])profile[key]=override[key];}
         if(override.removeWeaknessPatterns)profile.weaknesses=profile.weaknesses.filter(item=>!override.removeWeaknessPatterns.some(pattern=>String(item).toLowerCase().includes(pattern)));
     }
-    if(isAmped)profile.mechanics=[...new Set([...(profile.mechanics||[]),`VERSION-SPECIFIC OPERATING RULE: ${description}`])];
+    if(variantKind==="low"){
+        profile.powers=profile.powers.slice(0,Math.max(2,Math.ceil(profile.powers.length*.6)));
+        profile.equipment=profile.equipment.slice(0,Math.max(1,Math.ceil(profile.equipment.length*.5)));
+        profile.moves=Object.fromEntries(Object.entries(profile.moves||{}).map(([group,moves])=>[group,(Array.isArray(moves)?moves:[moves]).slice(0,1)]));
+        profile.weaknesses=[...new Set([...(profile.weaknesses||[]),"Early-career control, reduced reserves, or restricted equipment narrows available responses","Maximum-output techniques and later upgrades are unavailable in this record"])];
+        profile.mechanics=[...new Set([...(profile.mechanics||[]),"LOWER-TIER AUTHENTICITY RULE: only established core abilities and period-appropriate equipment are available"])];
+        profile.fightingStyle=`Restricted and resource-conscious form of ${plain(profile.fightingStyle)} The fighter favors reliable core techniques over advanced combinations.`;
+        profile.combatPersonality=`Less experienced or deliberately restrained version of ${plain(profile.combatPersonality)} Riskier maximum-output decisions are unavailable.`;
+        profile.aiBehavior=Object.fromEntries(Object.entries(profile.aiBehavior||{}).map(([key,value])=>[key,`${value} Uses only core abilities and avoids high-cost techniques.`]));
+        profile.teamBehavior=`${plain(profile.teamBehavior)} Operates as the lower-output member of the formation and depends more heavily on positioning and allied support.`;
+        profile.battlefieldBehavior=`${plain(profile.battlefieldBehavior)} Prefers cover, shorter engagements, and terrain that reduces the cost of the restricted toolkit.`;
+        profile.origin=`This lower-tier archive state uses an early-career, restricted-loadout, depowered, or deliberately restrained portrayal supported by ${character.name}'s established history. The source capability is ${character.standardDescription}. Later mastery, outside artifacts, peak reserves, and maximum-output techniques are intentionally unavailable, creating a genuinely different battlefield version without inventing new powers.`;
+        profile.versionNotes=`${character.name} fights more cautiously, relies on core techniques, and cannot solve problems with later upgrades or peak output. ${description}`;
+    }else if(variantKind==="mid"){
+        profile.mechanics=[...new Set([...(profile.mechanics||[]),"MID-TIER AUTHENTICITY RULE: mature standard mastery and full normal equipment, without temporary cosmic or reality-scale amplification"])];
+        profile.fightingStyle=`Veteran peak-standard execution of ${plain(profile.fightingStyle)} Full normal combinations and practiced counters are available.`;
+        profile.combatPersonality=`Experienced, controlled form of ${plain(profile.combatPersonality)} This version balances aggression with resource management.`;
+        profile.aiBehavior=Object.fromEntries(Object.entries(profile.aiBehavior||{}).map(([key,value])=>[key,`${value} Uses the complete normal toolkit and veteran sequencing.`]));
+        profile.teamBehavior=`${plain(profile.teamBehavior)} Coordinates at peak-standard efficiency without relying on a temporary outside power source.`;
+        profile.battlefieldBehavior=`${plain(profile.battlefieldBehavior)} Uses the full normal toolkit to control routes, objectives, and matchup distance.`;
+        profile.origin=`This middle archive state represents ${character.name} at experienced peak-standard operation: ${character.standardDescription}. It uses the fighter's complete normal power set, practiced techniques, and established equipment, but excludes temporary outside power sources and the separate highest-form record.`;
+        profile.versionNotes=`${character.name} uses the full standard toolkit with veteran timing, broader combinations, and stronger resource management while remaining below the highest temporary transformation. ${description}`;
+    }else if(isAmped){
+        profile.powers=[...new Set([...(profile.powers||[]),`Highest-version power expression: ${description}`])];
+        profile.mechanics=[...new Set([...(profile.mechanics||[]),`HIGHEST-VARIANT OPERATING RULE: ${description}`])];
+        profile.fightingStyle=`Highest-form expression of ${plain(profile.fightingStyle)} Power, equipment, and signature abilities are applied at the specific amplified level recorded here.`;
+        profile.combatPersonality=`Amplified version of ${plain(profile.combatPersonality)} Greater capability changes target priority and acceptable battlefield risk, while established character motives remain intact.`;
+        profile.aiBehavior=Object.fromEntries(Object.entries(profile.aiBehavior||{}).map(([key,value])=>[key,`${value} Integrates the highest-form abilities while respecting their stated costs and counters.`]));
+        profile.teamBehavior=`${plain(profile.teamBehavior)} Takes the formation's highest-threat assignment and uses the amplified state to create openings rather than treating it as an automatic victory.`;
+        profile.battlefieldBehavior=`${plain(profile.battlefieldBehavior)} Expands control to the maximum authentic scale permitted by this version while preserving collateral, stamina, concentration, and equipment limits.`;
+    }
     return profile;
 }
 
 CHARACTERS.forEach(character=>{
-    const override=VERSION_TIER_OVERRIDES[character.name]||[character.tier,character.tier];
-    const standardTier=override[0],ampedTier=override[1];
+    const configured=VERSION_TIER_OVERRIDES[character.name];
+    const standardTier=configured?.[0]||character.tier;
+    const lowTier=standardTier==="Cosmic"?"Heavy":tierStep(standardTier,-1);
+    const midTier=standardTier==="Cosmic"?"Mystic":standardTier==="Street"?"Enhanced":standardTier;
+    const highestTier=configured?.[1]||tierStep(standardTier,1);
+    const names=variantNames(character);
+    const lowDescription=`${names[0]} limits ${character.name} to established core abilities, reduced reserves, and period-appropriate or restricted equipment. ${character.standardDescription}`;
+    const midDescription=`${names[1]} uses ${character.name}'s mature peak-standard control, full normal technique library, and regular equipment without the highest temporary amplification. ${character.standardDescription}`;
+    const highDescription=character.ampedDescription||"Controlled highest established version with its original limits and counters preserved.";
     const standard={
-        id:"standard",label:"STANDARD",displayName:character.name,battlefieldTier:standardTier,stats:buildVersionStats(character,false,standardTier),
+        id:"standard",label:"STANDARD",displayName:character.name,battlefieldTier:standardTier,stats:buildVersionStats(character,"standard",standardTier),
         description:character.standardDescription||"Mainstream comic version.",
-        combatProfile:versionCombatProfile(character,character.standardDescription,false)
+        combatProfile:versionCombatProfile(character,character.standardDescription,"standard")
     };
-    standard.surveillanceProtocol=makeSurveillanceProtocol(character,standardTier,false);
+    standard.surveillanceProtocol=makeSurveillanceProtocol(character,standardTier,"standard",standard.description);
     character.versions=[standard];
-    const amped={
-        id:"amped-1",label:AMPED_VERSION_NAMES[character.name]||generatedVariantName(character),displayName:AMPED_VERSION_NAMES[character.name]||generatedVariantName(character),stats:buildVersionStats(character,true,ampedTier),
-        battlefieldTier:ampedTier,description:character.ampedDescription||"Controlled enhanced version.",
-        combatProfile:versionCombatProfile(character,character.ampedDescription,true)
-    };
-    amped.surveillanceProtocol=makeSurveillanceProtocol(character,ampedTier,true);
-    character.versions.push(amped);
+    const variantSpecs=[
+        {id:"variant-low",label:"VARIANT I // LOWER",displayName:names[0],battlefieldTier:lowTier,description:lowDescription,kind:"low"},
+        {id:"variant-mid",label:"VARIANT II // MIDDLE",displayName:names[1],battlefieldTier:midTier,description:midDescription,kind:"mid"},
+        {id:"variant-high",label:"VARIANT III // HIGHEST",displayName:names[2],battlefieldTier:highestTier,description:highDescription,kind:"high"}
+    ];
+    variantSpecs.forEach(spec=>{
+        const record={...spec,stats:buildVersionStats(character,spec.kind,spec.battlefieldTier),combatProfile:versionCombatProfile(character,spec.description,spec.kind)};
+        record.surveillanceProtocol=makeSurveillanceProtocol(character,spec.battlefieldTier,spec.kind,spec.description);
+        character.versions.push(record);
+    });
     character.standardTier=standardTier;
     character.tier=standardTier;
     character.surveillanceProtocol=standard.surveillanceProtocol;
@@ -2667,7 +2760,7 @@ function fighterVersionRecord(character,request="Standard",allowedTiers=null){
     else candidates=allVersions.filter(version=>version.id==="standard");
     if(Array.isArray(allowedTiers)&&allowedTiers.length)candidates=candidates.filter(version=>allowedTiers.includes(version.battlefieldTier));
     if(!candidates.length)return null;
-    return request==="Mixed"?random(candidates):candidates[0];
+    return request==="Mixed"||request==="Amped"?random(candidates):candidates[0];
 }
 
 function environmentAbilities(character){
@@ -4539,7 +4632,7 @@ ${character.richData ? `
 <p><strong>RESISTANCES</strong><br>${character.resistances.join(", ")}</p>
 <p><strong>SPECIAL MECHANICS</strong><br>${character.specialMechanics.join(", ")}</p>
 <p><strong>STANDARD</strong><br>${character.standardDescription}</p>
-<p><strong>AMPED</strong><br>${character.ampedDescription}</p>
+<p><strong>HIGHEST VARIANT</strong><br>${character.ampedDescription}</p>
 ` : ""}
 
 </div>
@@ -7147,7 +7240,10 @@ function databaseVersionRecord(character,scope=qs("dbThreatScope")?.value||"Stan
 renderDatabase=function(){
     const search=(qs("dbSearch").value||"").toLowerCase(),universe=qs("dbUniverse").value,scope=qs("dbThreatScope")?.value||"Standard";
     const tierOrder=["Cosmic","Mystic","Heavy","Enhanced","Street"],protocolLevels=[5,4,3,2,1];
-    const records=CHARACTERS.map(character=>({character,version:databaseVersionRecord(character,scope)})).filter(({character,version})=>(universe==="Both"||character.universe===universe)&&(`${character.name} ${targetIdentity(character)} ${passportAlias(character)} ${version.label} ${version.battlefieldTier} ${version.surveillanceProtocol.label} ${character.role}`).toLowerCase().includes(search));
+    const records=CHARACTERS.map(character=>({character,version:databaseVersionRecord(character,scope)})).filter(({character,version})=>{
+        const versionSearch=(character.versions||[]).map(item=>`${item.label} ${item.displayName} ${item.battlefieldTier} ${item.surveillanceProtocol.label} ${item.description}`).join(" ");
+        return (universe==="Both"||character.universe===universe)&&(`${character.name} ${targetIdentity(character)} ${passportAlias(character)} ${character.role} ${versionSearch}`).toLowerCase().includes(search);
+    });
     qs("databaseGrid").innerHTML=protocolLevels.map(level=>{
         const entries=records.filter(({version})=>version.surveillanceProtocol.level===level).sort((a,b)=>tierOrder.indexOf(a.version.battlefieldTier)-tierOrder.indexOf(b.version.battlefieldTier)||a.character.name.localeCompare(b.character.name));
         if(!entries.length)return "";
@@ -7296,7 +7392,7 @@ renderPassportDossier=function(){
     const affiliations=[...(data.identity?.affiliations||[]),...(DOSSIER_AFFILIATION_EXTRAS[character.name]||[])].filter((value,index,array)=>array.indexOf(value)===index);
     const flipped=activePassportSide==="back"?" flipped":"";
     const versionTabs=`<label for="passportVersionSelect">VERSION / VARIANT</label><select id="passportVersionSelect" onchange="setPassportVersion(this.value)">${character.versions.map(item=>`<option value="${item.id}" ${item.id===version.id?"selected":""}>${item.displayName||item.label}</option>`).join("")}</select>`;
-    const versionOverview=character.versions.map(item=>`<p><b>${item.label}:</b> ${item.description}<br><small>BATTLEFIELD ${item.battlefieldTier.toUpperCase()} // ${item.surveillanceProtocol.label}</small></p>`).join("");
+    const versionOverview=character.versions.map(item=>`<p><b>${item.displayName||item.label}</b><br>${item.description}<br><small>${item.label} // BATTLEFIELD ${item.battlefieldTier.toUpperCase()} // ${item.surveillanceProtocol.label}</small></p>`).join("");
     qs("characterDossier").innerHTML=`
     <div class="passport-scene passport-${style}${flipped}" style="--passport-accent:${accent}"><div class="passport-flipper">
       <section class="passport-face passport-front">
